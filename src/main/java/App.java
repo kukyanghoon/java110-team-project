@@ -6,8 +6,10 @@ public class App {
         int b =888;
         int c =10;
         String abc = "충돌안남";
+        String eee = "eee";
         String abcd = "충돌남";
         return abc;
+        
         //머지툴테스트
         //?
         //?  zzzzzzzzzzzzzzzz
