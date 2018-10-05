@@ -6,6 +6,7 @@ public class App {
         int b =888;
         int c =10;
         String abc = "충돌안남";
+        String abcd = "충돌남";
         return abc;
         //?  zzzzzzzzzzzzzzzz
 
