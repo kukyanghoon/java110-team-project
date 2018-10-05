@@ -9,7 +9,7 @@ public class App {
         String eee = "eee";
         String abcd = "충돌남";
         String d = "d";
-
+        int d = 22;
         return abc;
         //
         //머지툴테스트
