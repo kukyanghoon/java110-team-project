@@ -15,5 +15,6 @@ public class App {
         System.out.println("안진호추가함!!!");
         int a;
         System.out.println(2_342_1234);
+        System.out.println("김종규 잘생겼다");
     }
 }
