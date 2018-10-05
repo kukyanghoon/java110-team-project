@@ -14,7 +14,7 @@ public class App {
         String abcd1 = "충돌남";
         String abcddd1 = "dddd";
         String d = "d";
-        int f = 22;
+        int f = 2222222;
         return abcddd;
         
         
