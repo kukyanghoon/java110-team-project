@@ -3,8 +3,8 @@
  */
 public class App {
     public String getGreeting() {
-        String msg = "갓종규";
-        return msg;
+        String masg = "김종규";
+        return masg;
     }
 
     public static void main(String[] args) {
