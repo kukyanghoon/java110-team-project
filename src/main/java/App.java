@@ -8,5 +8,9 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+        System.out.println("훌랄라 훌랄라 호!");
+        System.out.println("아 세이 권");
+        System.out.println("유 세이 형은");
+        
     }
 }
