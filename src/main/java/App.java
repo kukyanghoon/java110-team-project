@@ -3,8 +3,8 @@
  */
 public class App {
     public String getGreeting() {
-        String msg = "충돌안남";
-        return msg;
+        String mtsg = "1111222";
+        return mtsg;
     }
 
     public static void main(String[] args) {
