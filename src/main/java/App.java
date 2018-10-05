@@ -7,6 +7,7 @@ public class App {
         int c =10;
         String abc = "충돌안남";
         return abc;
+        //머지툴테스트
         //?
 
     }
