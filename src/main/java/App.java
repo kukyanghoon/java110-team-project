@@ -3,11 +3,11 @@
  */
 public class App {
     public String getGreeting() {
-        
         int b =888;
         int c =10;
         String abc = "충돌안남";
         return abc;
+
     }
 
     public static void main(String[] args) {
@@ -18,6 +18,6 @@ public class App {
         System.out.println("안진호추가함!!!");
         int a;
         System.out.println(2_342_1234);
+        System.out.println("김종규 잘생겼다");
     }
 }
-
