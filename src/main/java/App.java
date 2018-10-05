@@ -7,7 +7,8 @@ public class App {
         int c =10;
         String abc = "충돌안남";
         String abcd = "충돌남";
-        return abc;
+        String abcde = "merge tool";
+        return abccde;
         //?  zzzzzzzzzzzzzzzz
 
     }
