@@ -31,6 +31,18 @@ public class App {
         System.out.println(2_342_1234);
         String ban;
         System.out.println("김종규 잘생겼다");
+        
+        
+        System.out.println("                    프로젝트 계획                         ");
+        System.out.println("         ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
+        System.out.println("SQL      |_____________________________|");
+        System.out.println("DAO      |_____________________________|");
+        System.out.println("DATABASE |_____________________________|");
+        System.out.println("HTTP     |_____________________________|");
+        System.out.println("CSS      |_____________________________|");
+        System.out.println("JS       |_____________________________|");
+        System.out.println("                      김종규                                ");
+        
     }
 }
 
