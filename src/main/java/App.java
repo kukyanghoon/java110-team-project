@@ -6,9 +6,11 @@ public class App {
         int b =888;
         int c =10;
         String abc = "충돌안남";
+        String abcd = "충돌남";
         return abc;
         //머지툴테스트
         //?
+        //?  zzzzzzzzzzzzzzzz
 
     }
 
@@ -20,6 +22,7 @@ public class App {
         System.out.println("안진호추가함!!!");
         int a;
         System.out.println(2_342_1234);
+        String ban;
         System.out.println("김종규 잘생겼다");
     }
 }
