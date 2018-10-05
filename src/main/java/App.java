@@ -8,14 +8,9 @@ public class App {
         String abc = "fucking merge tool";
         String eee = "eee";
         String abcd = "충돌남";
-        String abcddd = "dddd";
-        String abc1 = "충돌안남";
-        String eee1 = "eee";
-        String abcd1 = "충돌남";
-        String abcddd1 = "dddd";
         String d = "d";
         int f = 22;
-        return abcddd;
+        return abc;
         
         
         //
