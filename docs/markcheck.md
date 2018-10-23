@@ -788,5 +788,6 @@
 
 - [위로](#)
 
-![사진1](./img/MaMa_번역.PNG)
+![mama](https://user-images.githubusercontent.com/42057139/47357575-0646a680-d702-11e8-8c00-b23349f86812.PNG)
+
 
