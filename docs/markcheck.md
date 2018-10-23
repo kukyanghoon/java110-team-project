@@ -789,4 +789,4 @@
 - [위로](#)
 
 ![사진1](./img/MaMa_번역.PNG)
-![mama_](https://user-images.githubusercontent.com/42057139/47357475-bf58b100-d701-11e8-8bfd-8acb0412ca57.PNG)
+
