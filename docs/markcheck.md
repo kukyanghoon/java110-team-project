@@ -805,6 +805,14 @@
 
 - [위로](#)
 
-![mama](https://user-images.githubusercontent.com/42057139/47357575-0646a680-d702-11e8-8c00-b23349f86812.PNG)
+
+![mama_](https://user-images.githubusercontent.com/42057139/47418372-f20fb180-d7b4-11e8-8584-de3527ed9277.PNG)
+![mama_](https://user-images.githubusercontent.com/42057139/47418494-2d11e500-d7b5-11e8-83bf-d724b7a6d1ec.PNG)
+![mama_ _ _ _](https://user-images.githubusercontent.com/42057139/47418512-356a2000-d7b5-11e8-9708-d5e45b183a81.PNG)
+![mama_ _](https://user-images.githubusercontent.com/42057139/47418454-18355180-d7b5-11e8-972f-a0f06420e03e.PNG)
+![mama](https://user-images.githubusercontent.com/42057139/47418442-110e4380-d7b5-11e8-8a82-fc9945fdf47e.PNG)
+![mama](https://user-images.githubusercontent.com/42057139/47418530-3d29c480-d7b5-11e8-8612-9ff72d52c8a1.PNG)
+
+
 
 
