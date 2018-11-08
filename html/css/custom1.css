@@ -1,0 +1,95 @@
+.lnb-container{
+	top: -50px;
+}
+.lnb-menu .lnb-menu__item{
+	padding: 0 41.5px;
+}
+.lnb-container.transparent{
+	border-top: 1px solid #e9ecef;
+}
+.lnb-menu .lnb-menu__item .lnb-menu__item--link{
+	font-weight: 900;
+}
+.mrt-container2{
+	height: 100%;
+	position: relative;
+	margin: 0 auto;
+	width: 1060px;
+}
+.sub-menu{
+	height: inherit;
+	width: auto;
+	z-index: inherit;
+}
+
+.sub-menu__item-contain:first-of-type{
+	padding-left: 0;
+}
+.sub-menu__item-contain:last-of-type{
+	padding-right: 0;
+}
+
+.sub-menu__item-contain{
+	border: 1px solid #75787b;
+	visibility: hidden;
+	position: relative;
+	background: #fff;
+	width: 80px;
+	height: auto;
+	z-index: 1000;
+}
+.on{
+	visibility: visible;
+}
+
+
+.lnb-menu li:hover ul{
+	visibility: visible;
+}
+
+.sub-menu__item-contain a{
+	padding-left: 7px;
+	color: #75787b;
+	font-size: 12px;
+	font-weight: 900;
+	line-height: 25px;
+	z-index: 1000;
+}
+
+.sub-menu__item-contain li {
+	padding: 10px;
+}
+
+.lnb-menu ul li:hover a{
+	/*
+background: rgb(71,71,71);
+color:#FFFFFF;
+text-decoration:none;
+*/
+color: #2b96ed;
+}
+
+.area-best-view{
+	height: 700px;
+}
+.map-wrap{
+	width: 40%;
+	float: left;
+}
+.OfferList__Items__Body {
+	float: right;
+}
+.OfferListCard{
+	width: 500px;
+	margin-top: 40px;
+}
+.OfferListCard__Content{
+	width: 285px;
+}
+
+.experience__summary{
+	margin-top: 50px;
+}
+.main-common__row {
+	margin-top: 100px;
+}
