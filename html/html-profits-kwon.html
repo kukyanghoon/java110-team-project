@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="/css/master_desktop.css" rel="stylesheet">
+    <link href="/css/font.css" rel="stylesheet">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.min.js"></script> 
+</head>
+<body>
+    <div class="col-xs-9">
+                
+                <div class="row">
+                    <div class="col-xs-8 margin-top-5">
+                        <div class="inline-block"><h3 class="header-margin-none NGB">수익관리</h3></div>
+
+                                            </div>
+                    
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="panel panel-default border-none margin-top-15">
+                            <div class="panel-body bg-color-white border-radius-0 box-shadow-default-light-gray" style="padding: 8px;">
+                                <div class="row">
+                                    <div class="col-xs-6 margin-top-10 margin-bottom-10 border-right padding-left-40">
+                                        <div class="row">
+                                            <div class="col-xs-3 padding-right-0">
+                                                <img class="width-80" src="/html/img/profits.png"/>
+                                            </div>
+                                            <div class="col-xs-9 padding-left-0">
+                                                <h5 class="font-color-light margin-top-5">출금가능 수익금</h5>
+
+
+                                                <div class="row">
+                                                    <div class="col-xs-7">
+                                                        <h2 class="NGB margin-top-0">200,000원</h2>
+                                                    </div>
+                                                    <div class="col-xs-5 padding-left-0">
+                                                                                                            </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3 margin-top-10 margin-bottom-10 border-right text-center ">
+                                        <h6 class="brand-black">예상 수익금</h6>
+                                        <h5 class="brand-black">1,200,000 원</h5>
+                                    </div>
+                                    <div class="col-xs-3 margin-top-10 margin-bottom-10 text-center">
+                                        <h6 class="brand-black">출금 완료 수익금</h6>
+                                        <h5 class="brand-black">1,000,000 원</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            
+                            <div class="col-xs-12">
+                               <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script> 
+                                <script> 
+                                var barChartData = {        
+                                        labels: ["18-01", "18-02", "18-03", "18-04", "18-05", "18-06", "18-07", "18-08", "18-09", "18-10", "18-11", "18-12"],
+                                        datasets: [{
+                                            label: '월별 수익금',
+                                            backgroundColor: "#1E90FF",
+                                            data: [
+                                                Math.random()*5000000,
+                                                Math.random()*5000000,
+                                                Math.random()*5000000,
+                                                Math.random()*5000000,
+                                                Math.random()*5000000,
+                                                Math.random()*5000000,
+												Math.random()*5000000,
+												Math.random()*5000000,
+												Math.random()*5000000,
+												Math.random()*5000000,
+												Math.random()*5000000,
+                                                Math.random()*5000000,
+                                           ]
+                                        } ]
+                                    };
+                                 window.onload = function() {
+                                    var ctx = $('#chart').get(0).getContext("2d"); 
+                                    window.theChart = new Chart(ctx, {
+                                         type: 'bar',
+                                         data: barChartData,
+                                         options: {
+
+                                         }
+                                    });
+                                 }
+                                </script>
+                                <canvas id="chart"></canvas> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="row margin-top-40">
+                    <div class="col-xs-12">
+                        <ul class="list-inline tab-menu-underline margin-bottom-0" role="tablist">
+
+                            <li role="presentation"
+                                class="margin-right-25 position-relative  active ">
+                                <a class="plain font-color-lighter" href="#">수익금
+                                    내역</a>
+                            </li>
+
+                            <li role="presentation"
+                                class="margin-right-25 position-relative ">
+                                <a class="plain font-color-lighter"
+                                   href="#">출금내역</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+
+                
+                
+
+                <div class="row margin-top-10">
+                    <div id="taxInvoiceList" class="col-xs-12">
+                                            </div>
+                </div>
+
+                
+                                    <div class="row margin-top-10">
+                        <div id="expectedProfitOrderList" class="col-xs-12">
+
+                                <form method="GET" action="#" accept-charset="UTF-8">
+                                <input type="hidden" name="target" value="expected_profits">
+                                <div class="row margin-bottom-15">
+                                    <div class="col-xs-2">
+                                        <div class="form-group">
+                                            <div class="border-solid">
+                                                <select name="expected_profits_type" class="form-control input-xs border-none"
+                                                        onchange="this.form.submit()">
+                                                    <option value="latest"
+                                                             selected >최신순
+                                                    </option>
+                                                    <option value="journey"
+                                                            >
+                                                        여행순
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-xs-10">
+                                        <div class="row">
+                                               
+                                         
+
+                                            <div class="col-xs-6 pull-right">
+                                                <div class="row">
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                </form>
+                                                            
+                                <div class="margin-top-10 panel bg-color-transparent border-solid padding-top-70 padding-bottom-70 margin-top-0 border-radius-0">
+                                    <div class="panel-body">
+                                        <div class="margin-top-30 margin-bottom-30 text-center">
+                                            <img class="width-50px" src="/html/img/nothing.png"/>
+                                            <h5 class="NGR font-color-lighter">내역이 없습니다.</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                                    </div>
+                    </div>
+
+                                                    <div class="row">
+                    <div class="col-xs-12">
+                        <div class="panel bg-color-kmong-main profits-panel-border border-radius-0 border-solid">
+                            <div class="panel-body">
+                                <h6 class="NGB margin-all-0 padding-bottom-5">
+                                    <i class="fa fa-exclamation-circle padding-right-5" aria-hidden="true"></i>
+                                    꼭 확인해주세요!
+                                </h6>
+                                <div class="font-color-light margin-top-5 margin-top-5 margin-bottom-0 font-size-h6">
+                                    - 할인 쿠폰을 적용해서 구매한 의뢰인에게는 쿠폰 금액 제외한 금액으로 세금계산서를 발행해야 합니다.<br>
+                                    - 리드미가 가이드에게 할인된 쿠폰 금액에 대해 보전하여 수익금으로 정산하기 때문에 매출 신고 시에는 전체 판매 금액으로 신고해야 합니다.<br>
+                                    (적립캐시 사용은 할인쿠폰 적용과 무관하니 일반 거래건과 동일하게 진행해주시길 바랍니다.)
+                                </div>
+                                <h6 class="NGB margin-bottom-0 margin-top-20 padding-bottom-5">
+                                    <i class="fa fa-exclamation-circle padding-right-5" aria-hidden="true"></i>
+                                    매출신고 방법 안내
+                                </h6>
+                                <div class="font-color-light margin-top-5 margin-top-5 margin-bottom-0 font-size-h6">
+                                    리드미는 가이드의 매출 신고방법을 따로 안내해 드리지 않으며 매출 신고와 관련된 문의사항은 국세청이나 세무사무실에 문의바랍니다.<br>
+                                    월별 출금내역은 세무 신고 시의 참고이며 반드시 귀사의 회계자료와 비교 후 처리하시기 바랍니다.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</body>
+</html>
