@@ -1,79 +1,69 @@
-<!doctype html>
-<html lang="ko">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>CSS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Document</title>
     <style>
-        #jb-container {
-            width: 940px;
-            margin: 10px auto;
-            padding: 20px;
+        #wrap{
+            width: 220px;
+            height: 432px;
+            border: 1px solid silver;
         }
-
-        
-
-        #jb-content {
-            width: 580px;
-            padding: 20px;
-            margin-bottom: 20px;
-            float: right;
-            border: 1px solid #bcbcbc;
+        .c_item{
+            text-align : center;
+            
         }
-
-        #jb-sidebar {
-            width: 260px;
-            padding: 20px;
-            margin-bottom: 20px;
-            float: left;
-            border: 1px solid #bcbcbc;
-        }
-
-        #jb-footer {
+        .list{
+            list-style: none;
+            float:left;
             clear: both;
-            padding: 20px;
-            border: 1px solid #bcbcbc;
+            
         }
-
-        @media ( max-width: 480px) {
-            #jb-container {
-                width: auto;
-            }
-            #jb-content {
-                float: none;
-                width: auto;
-            }
-            #jb-sidebar {
-                float: none;
-                width: auto;
-            }
+        .cta{
+            clear: both;
         }
-
+        
+        li:hover{
+            color:aqua;
+            list-style: none;
+        }
     </style>
 </head>
 
 <body>
-    <div id="jb-container">
-        <div id="jb-header">
-            <h1>Responsive Layout</h1>
-        </div>
-        <div id="jb-content">
-            <h2>Content</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec mollis nulla. Phasellus lacinia tempus mauris eu laoreet. Proin gravida velit dictum dui consequat malesuada. Aenean et nibh eu purus scelerisque aliquet nec non justo. Aliquam vitae aliquet ipsum. Etiam condimentum varius purus ut ultricies. Mauris id odio pretium, sollicitudin sapien eget, adipiscing risus.</p>
-        </div>
-        <div id="jb-sidebar">
-            <h2>Sidebar</h2>
+    <div id="wrap">
+        <div class="c_item" role="button" tabindex="-1">
+            <span class="item"><h2>역사/문화</h2></span>
             <ul>
-                <li>Lorem</li>
-                <li>Ipsum</li>
-                <li>Dolor</li>
+                <li class="list">
+                    <a href="#"><h3>고궁</h3></a>
+                </li>
+                <li class="list">
+                    <a href="#"><h3>역사관/박물관</h3></a>
+                </li>
+                <li class="list">
+                    <a href="#"><h3>유적지</h3></a>
+                </li>
+                <li class="list">
+                    <a href="#"><h3>민속마을</h3></a>
+                </li>
             </ul>
         </div>
-        <div id="jb-footer">
-            <p>Copyright</p>
+        <div>
+        <ul class="cta">
+            <input type="checkbox"><span>경기도</span>
+            <input type="checkbox" checked><span>서울</span><br>
+            <input type="checkbox"><span>충청도</span>
+            <input type="checkbox"><span>부산</span><br>
+            <input type="checkbox"><span>강원도</span>
+            <input type="checkbox"><span>경상도</span><br>
+            <input type="checkbox"><span>전라도</span>
+            <input type="checkbox"><span>제주</span><br>
+        </ul>
         </div>
     </div>
+
 </body>
 
 </html>
