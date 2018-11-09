@@ -1,466 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/partner/application_template_1-2ece18b6c26275ab3bce2543416a6d5ce8ab1fb02e628874719778440a82ecb2.css" />
-<link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/partner/application_template_2-a79762e95ce2ee3797f3c699b7bae7897749e06c8ca7717bf815c52af7e70d4e.css" />
-<link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/partner/application-b2b3ec7a443b9e7a9b7ec7bafcb9479a5433b522844cc66fbb0b5014f2c1fc03.css" />
+   <head>
+      <title>Bootstrap Example</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/partner/application_template_1-2ece18b6c26275ab3bce2543416a6d5ce8ab1fb02e628874719778440a82ecb2.css" />
+      <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/partner/application_template_2-a79762e95ce2ee3797f3c699b7bae7897749e06c8ca7717bf815c52af7e70d4e.css" />
+      <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/partner/application-b2b3ec7a443b9e7a9b7ec7bafcb9479a5433b522844cc66fbb0b5014f2c1fc03.css" />
+      <script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/ko-9d53604fb5c8a610df23b77f7135903c1affe982fa1d15f3354fdc521e10862a.js"></script>
+      <script src="https://d2yoing0loi5gh.cloudfront.net/assets/partner/application-0a1f0d84b41d048d5930089311ad8e11e301bd606ee17fa9b2c5b3d74f7bec4a.js"></script>
+      <script src='//maps.googleapis.com/maps/api/js?key=AIzaSyC84fbqS1JuAJ9t24SLY2LEWf2Ud8W8F1E&amp;libraries=places' type='text/javascript'></script>
+      <script src='//cdn.ravenjs.com/3.24.2/raven.min.js'></script>
+      
+      
+      
+   </head>
+   <body>
+      <div class='page-content container-fluid'>
+         <div class='row'>
+            <div class='col-md-9'>
+               <div class='widget'>
+                  <div class='widget-header padding-20 clearfix'>
+                     <a class='avatar avatar-100 bg-white margin-right-20 img-bordered pull-left col-sm-3 col-xs-6' href='javascript:void(0)'>
+                     <img src='https://d2ur7st6jjikze.cloudfront.net/profile_images/865217/865217_medium_1522557755.png?1522557755'>
+                     </a>
+                     <div class='vertical-align height-100 col-sm-9 col-xs-6'>
+                        <div class='vertical-align-middle'>국양훈님,<br/>마이리얼트립의 가이드 인터뷰를 위해서는 국양훈님이 구상하고 계시는 여행 상품 등록이 필요합니다.<br/></div>
+                     </div>
+                  </div>
+               </div>
+               <form data-validation="false" data-istour="true" data-isticket="false" data-ishotdeal="false" data-islodging="false" data-offer-status="temp" id="offerForm" class="panel panel-bordered" action="/partner/offers/46144" accept-charset="UTF-8" method="post">
+                  <input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="TAOvsxei/QDfF2iPbMHKFWm80rDcUunLcWf5pIaZx4lWiGVtmMpj3QXh9epGIGv5W7EVs/7tNchiK34t8kFV1A==" />
+                  <div class='panel-heading'>
+                     <div class='panel-title'>
+                        상품 등록
+                     </div>
+                  </div>
+                  <div class='panel-body'>
+                     <div class='pearls row' data-by-row='true' data-plugin='matchHeight' role='tablist'>
+                        <div class='col-xs-4 current pearl' data-target='#step1' role='tab'>
+                           <a class="pearl-number" href="/partner/offers/46144/edit?step=1">1</a>
+                           <span class='pearl-title'>
+                           <a href="/partner/offers/46144/edit?step=1">기본정보</a>
+                           </span>
+                        </div>
+                        <div class='col-xs-4 pearl' data-target='#step2' role='tab'>
+                           <a class="pearl-number" href="/partner/offers/46144/edit?step=2">2</a>
+                           <span class='pearl-title'>
+                           <a href="/partner/offers/46144/edit?step=2">코스정보</a>
+                           </span>
+                        </div>
+                        <div class='col-xs-4 pearl' data-target='#step3' role='tab'>
+                           <a class="pearl-number" href="/partner/offers/46144/edit?step=3">3</a>
+                           <span class='pearl-title'>
+                           <a href="/partner/offers/46144/edit?step=3">가격정보</a>
+                           </span>
+                        </div>
+                     </div>
+                     <div class='wizard-content'>
+                        <input name='step' type='hidden' value='1'>
+                        <div class='form-group clearfix default-message'>
+                           <div class='title'>
+                              특별한 여행을 만들어 보세요.
+                           </div>
+                           <div class='guide-box'>
+                              <p class='help-block'>• 안내에 따라 여행 내용을 정확하게 설명하여 주세요.<br/>• 상품 등록이 완료되면, 승인을 위한 심사가 진행됩니다.<br/></p>
+                              <p class='help-block'>* 필수항목</p>
+                           </div>
+                        </div>
+                        <hr class='divider'>
+                        <div class='form-group clearfix' data-desc='* 카테고리 예시<br/>레스토랑: 식사 이용권 상품<br/>액티비티: 스포츠, 수상레저 상품<br/>여행편의: 통역, 픽업/샌딩, 유심/와이파이, 짐 보관 서비스 등<br/>즐길거리: 나머지 카테고리에 포함되지 않은 상품으로 요트, 크루즈, 그림그리기, 기모노체험 등<br/>' data-name='offer[category]'>
+                           <label class='control-label col-xs-12' for='category'>
+                           카테고리
+                           <span>*</span>
+                           </label>
+                           <div class='col-xs-12'>
+                              <div class='testimonial testimonial-top margin-bottom-10'>
+                                 <div class='testimonial-content margin-top-10'>
+                                    <p>• 아래의 카테고리 중 1개만 선택이 가능합니다.<br/>• 상품을 가장 잘 표현하는 카테고리를 선택해주세요.<br/></p>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class='col-xs-12'>
+                             <script>
+        
+                                  $(document).ready(function(){
 
-<script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/ko-9d53604fb5c8a610df23b77f7135903c1affe982fa1d15f3354fdc521e10862a.js"></script>
-<script src="https://d2yoing0loi5gh.cloudfront.net/assets/partner/application-0a1f0d84b41d048d5930089311ad8e11e301bd606ee17fa9b2c5b3d74f7bec4a.js"></script>
+                                      $("#first_category").on('click',function(){
+                                          if($(this).is(':checked')){
+                                              $('#division').css('display','block');
+                                              $('#first_division').css('display','block');
+                                              $('#second_division').css('display','none');
+                                              $('#third_division').css('display','none');
+                                              $('#fourth_division').css('display','none');
+                                             }
 
+                                      });
 
-<script src='//maps.googleapis.com/maps/api/js?key=AIzaSyC84fbqS1JuAJ9t24SLY2LEWf2Ud8W8F1E&amp;libraries=places' type='text/javascript'></script>
-<script src='//cdn.ravenjs.com/3.24.2/raven.min.js'></script>
+                                      $("#second_category").on('click',function(){
+                                          if($(this).is(':checked')){
+                                              $('#division').css('display','block');
+                                              $('#first_division').css('display','none');
+                                              $('#second_division').css('display','block');
+                                              $('#third_division').css('display','none');
+                                              $('#fourth_division').css('display','none');
+                                             }
 
+                                      });
+                                      $("#third_category").on('click',function(){
+                                          if($(this).is(':checked')){
+                                              $('#division').css('display','block');
+                                              $('#first_division').css('display','none');
+                                              $('#second_division').css('display','none');
+                                              $('#third_division').css('display','block');
+                                              $('#fourth_division').css('display','none');
+                                             }
 
-</head>
-<body>
+                                      });
+                                      $("#fourth_category").on('click',function(){
+                                          if($(this).is(':checked')){
+                                              $('#division').css('display','block');
+                                              $('#first_division').css('display','none');
+                                              $('#second_division').css('display','none');
+                                              $('#third_division').css('display','none');
+                                              $('#fourth_division').css('display','block');
+                                             }
 
-<div class='page-content container-fluid'>
-<div class='row'>
-<div class='col-md-9'>
-<div class='widget'>
-<div class='widget-header padding-20 clearfix'>
-<a class='avatar avatar-100 bg-white margin-right-20 img-bordered pull-left col-sm-3 col-xs-6' href='javascript:void(0)'>
-<img src='https://d2ur7st6jjikze.cloudfront.net/profile_images/865217/865217_medium_1522557755.png?1522557755'>
-</a>
-<div class='vertical-align height-100 col-sm-9 col-xs-6'>
-<div class='vertical-align-middle'>국양훈님,<br/>마이리얼트립의 가이드 인터뷰를 위해서는 국양훈님이 구상하고 계시는 여행 상품 등록이 필요합니다.<br/></div>
-</div>
-</div>
-</div>
-<form data-validation="false" data-istour="true" data-isticket="false" data-ishotdeal="false" data-islodging="false" data-offer-status="temp" id="offerForm" class="panel panel-bordered" action="/partner/offers/46144" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="TAOvsxei/QDfF2iPbMHKFWm80rDcUunLcWf5pIaZx4lWiGVtmMpj3QXh9epGIGv5W7EVs/7tNchiK34t8kFV1A==" />
-<div class='panel-heading'>
-<div class='panel-title'>
-상품 등록
-</div>
-</div>
-<div class='panel-body'>
-<div class='pearls row' data-by-row='true' data-plugin='matchHeight' role='tablist'>
-<div class='col-xs-4 current pearl' data-target='#step1' role='tab'>
-<a class="pearl-number" href="/partner/offers/46144/edit?step=1">1</a>
-<span class='pearl-title'>
-<a href="/partner/offers/46144/edit?step=1">기본정보</a>
-</span>
-</div>
-<div class='col-xs-4 pearl' data-target='#step2' role='tab'>
-<a class="pearl-number" href="/partner/offers/46144/edit?step=2">2</a>
-<span class='pearl-title'>
-<a href="/partner/offers/46144/edit?step=2">코스정보</a>
-</span>
-</div>
-<div class='col-xs-4 pearl' data-target='#step3' role='tab'>
-<a class="pearl-number" href="/partner/offers/46144/edit?step=3">3</a>
-<span class='pearl-title'>
-<a href="/partner/offers/46144/edit?step=3">가격정보</a>
-</span>
-</div>
-</div>
+                                      });
+                                      $("#fifth_category").on('click',function(){
+                                          if($(this).is(':checked')){
+                                              $('#division').css('display','none');
+                                             }
 
-<div class='wizard-content'>
-<input name='step' type='hidden' value='1'>
-<div class='form-group clearfix default-message'>
-<div class='title'>
-특별한 여행을 만들어 보세요.
-</div>
-<div class='guide-box'>
-<p class='help-block'>• 안내에 따라 여행 내용을 정확하게 설명하여 주세요.<br/>• 상품 등록이 완료되면, 승인을 위한 심사가 진행됩니다.<br/></p>
-<p class='help-block'>* 필수항목
-</p>
-</div>
-</div>
-<hr class='divider'>
+                                      });
 
-<hr class='divider'>
-<div class='form-group clearfix' data-desc='* 카테고리 예시<br/>레스토랑: 식사 이용권 상품<br/>액티비티: 스포츠, 수상레저 상품<br/>여행편의: 통역, 픽업/샌딩, 유심/와이파이, 짐 보관 서비스 등<br/>즐길거리: 나머지 카테고리에 포함되지 않은 상품으로 요트, 크루즈, 그림그리기, 기모노체험 등<br/>' data-name='offer[category]'>
-<label class='control-label col-xs-12' for='category'>
-카테고리
-<span>*</span>
-<span class='badge badge-round badge-danger margin-left-5'>New</span>
-</label>
-<div class='col-xs-12'>
-<div class='testimonial testimonial-top margin-bottom-10'>
-<div class='testimonial-content margin-top-10'>
-<p>• 아래의 카테고리 중 1개만 선택이 가능합니다.<br/>• 상품을 가장 잘 표현하는 카테고리를 선택해주세요.<br/>• 상품의 성격과 맞지 않는 카테고리는 수정될 수 있습니다.<br/></p>
-</div>
-</div>
-</div>
-<div class='col-xs-12'>
-<div class='check-item-container'>
-<div class='radio-custom radio-primary'>
-<input id='guide_tour' name='offer[category]' type='radio' value='guide_tour'>
-<label for='guide_tour'>식도락</label>
-</div>
-<div class='radio-custom radio-primary'>
-<input id='activity' name='offer[category]' type='radio' value='activity'>
-<label for='activity'>역사/문화</label>
-</div>
-<div class='radio-custom radio-primary'>
-<input id='snap' name='offer[category]' type='radio' value='snap'>
-<label for='snap'>명소</label>
-</div>
-<div class='radio-custom radio-primary'>
-<input id='restaurant' name='offer[category]' type='radio' value='restaurant'>
-<label for='restaurant'>액티비티</label>
-</div>
-<div class='radio-custom radio-primary'>
-<input id='entertainment' name='offer[category]' type='radio' value='entertainment'>
-<label for='entertainment'>쇼핑</label>
-</div>
+                                  });
 
-</div>
-</div>
-<div class='form-group clearfix'>
-<div class='col-xs-12 guide-box'>
-<p class='help-block'>• 가이드가 동행하며 현지 안내를 하는 비중이 높을 경우 가이드 투어를 선택해주세요.<br/></p>
-</div>
-</div>
-</div>
-<hr class='divider'>
-<div class='form-group clearfix' data-desc='• 투어 중 잠시 사용되는 언어일 경우 선택하지 않으셔도 됩니다.<br/>• 통역 서비스일 경우에는 여행자에게는 한국어를 사용하시기 때문에 [한국어]를 선택해주세요.<br/>• 해당 투어의 진행 언어를 여러가지 선택할 수 있을 경우 복수 선택해주세요.<br/>'>
-<label class='control-label col-xs-12' for='language_list'>
-중분류 카테고리
-<span>*</span>
-</label>
-<div class='col-xs-12'>
-<div class='check-item-container language-list'>
-<div class='item-group'>
-<input id='ko' name='offer[language_list][]' type='checkbox' value='ko'>
-<label for='ko'>한국어</label>
-</div>
-<div class='item-group'>
-<input id='en' name='offer[language_list][]' type='checkbox' value='en'>
-<label for='en'>영어</label>
-</div>
-<div class='item-group'>
-<input id='es' name='offer[language_list][]' type='checkbox' value='es'>
-<label for='es'>스페인어</label>
-</div>
-<div class='item-group'>
-<input id='de' name='offer[language_list][]' type='checkbox' value='de'>
-<label for='de'>독일어</label>
-</div>
-<div class='item-group'>
-<input id='fr' name='offer[language_list][]' type='checkbox' value='fr'>
-<label for='fr'>프랑스어</label>
-</div>
-<div class='item-group'>
-<input id='zh' name='offer[language_list][]' type='checkbox' value='zh'>
-<label for='zh'>중국어</label>
-</div>
-<div class='item-group'>
-<input id='ja' name='offer[language_list][]' type='checkbox' value='ja'>
-<label for='ja'>일본어</label>
-</div>
-<div class='item-group'>
-<input id='etc' name='offer[language_list][]' type='checkbox' value='etc'>
-<label for='etc'>그 외</label>
-</div>
-</div>
-</div>
-<div class='form-group clearfix'>
-<div class='col-xs-12 guide-box'>
-<p class='help-block'>• 투어 진행 시 주로 사용되는 언어를 선택해주세요.<br/></p>
-</div>
-</div>
-</div>
-<hr class='divider'>
-<div class='form-group clearfix' data-max-select='2' data-name='offer[tag_list][]'>
-<label class='control-label col-xs-12' for='tag_list'>
-상품 태그
-<span>*</span>
-<span class='badge badge-round badge-danger margin-left-5'>New</span>
-</label>
-<div class='col-xs-12'>
-<div class='testimonial testimonial-top margin-bottom-10'>
-<div class='testimonial-content margin-top-10'>
-<p>• 상품에 가장 잘 어울리는 특별한 태그를 선택해주세요. 최대 2개까지 선택이 가능합니다.<br/>• 단, 상품의 성격과 맞지 않는 태그는 수정될 수 있습니다.<br/></p>
-</div>
-</div>
-</div>
-<div class='col-xs-12'>
-<div class='check-item-container tags-list'>
-<div class='item-group'>
-<input id='박물관/미술관' name='offer[tag_list][]' type='checkbox' value='박물관/미술관'>
-<label for='박물관/미술관'>박물관/미술관</label>
-</div>
-<div class='item-group'>
-<input id='국립공원' name='offer[tag_list][]' type='checkbox' value='국립공원'>
-<label for='국립공원'>국립공원</label>
-</div>
-<div class='item-group'>
-<input id='쇼핑' name='offer[tag_list][]' type='checkbox' value='쇼핑'>
-<label for='쇼핑'>쇼핑</label>
-</div>
-<div class='item-group'>
-<input id='캠퍼스/오피스' name='offer[tag_list][]' type='checkbox' value='캠퍼스/오피스'>
-<label for='캠퍼스/오피스'>캠퍼스/오피스</label>
-</div>
-<div class='item-group'>
-<input id='테마파크' name='offer[tag_list][]' type='checkbox' value='테마파크'>
-<label for='테마파크'>테마파크</label>
-</div>
-<div class='item-group'>
-<input id='시티투어' name='offer[tag_list][]' type='checkbox' value='시티투어'>
-<label for='시티투어'>시티투어</label>
-</div>
-<div class='item-group'>
-<input id='픽업/샌딩' name='offer[tag_list][]' type='checkbox' value='픽업/샌딩'>
-<label for='픽업/샌딩'>픽업/샌딩</label>
-</div>
-<div class='item-group'>
-<input id='캠핑' name='offer[tag_list][]' type='checkbox' value='캠핑'>
-<label for='캠핑'>캠핑</label>
-</div>
-<div class='item-group'>
-<input id='스파/마사지' name='offer[tag_list][]' type='checkbox' value='스파/마사지'>
-<label for='스파/마사지'>스파/마사지</label>
-</div>
-<div class='item-group'>
-<input id='근교' name='offer[tag_list][]' type='checkbox' value='근교'>
-<label for='근교'>근교</label>
-</div>
-<div class='item-group'>
-<input id='와이너리' name='offer[tag_list][]' type='checkbox' value='와이너리'>
-<label for='와이너리'>와이너리</label>
-</div>
-<div class='item-group'>
-<input id='이색 체험' name='offer[tag_list][]' type='checkbox' value='이색 체험'>
-<label for='이색 체험'>이색 체험</label>
-</div>
-<div class='item-group'>
-<input id='맛집/카페' name='offer[tag_list][]' type='checkbox' value='맛집/카페'>
-<label for='맛집/카페'>맛집/카페</label>
-</div>
-<div class='item-group'>
-<input id='크루즈/요트' name='offer[tag_list][]' type='checkbox' value='크루즈/요트'>
-<label for='크루즈/요트'>크루즈/요트</label>
-</div>
-<div class='item-group'>
-<input id='클래스' name='offer[tag_list][]' type='checkbox' value='클래스'>
-<label for='클래스'>클래스</label>
-</div>
-<div class='item-group'>
-<input id='통역/비즈니스' name='offer[tag_list][]' type='checkbox' value='통역/비즈니스'>
-<label for='통역/비즈니스'>통역/비즈니스</label>
-</div>
-<div class='item-group'>
-<input id='스포츠' name='offer[tag_list][]' type='checkbox' value='스포츠'>
-<label for='스포츠'>스포츠</label>
-</div>
-<div class='item-group'>
-<input id='야경' name='offer[tag_list][]' type='checkbox' value='야경'>
-<label for='야경'>야경</label>
-</div>
-<div class='item-group'>
-<input id='헬기/경비행기' name='offer[tag_list][]' type='checkbox' value='헬기/경비행기'>
-<label for='헬기/경비행기'>헬기/경비행기</label>
-</div>
-<div class='item-group'>
-<input id='로컬투어' name='offer[tag_list][]' type='checkbox' value='로컬투어'>
-<label for='로컬투어'>로컬투어</label>
-</div>
-<div class='item-group'>
-<input id='쇼/뮤지컬' name='offer[tag_list][]' type='checkbox' value='쇼/뮤지컬'>
-<label for='쇼/뮤지컬'>쇼/뮤지컬</label>
-</div>
-<div class='item-group'>
-<input id='자전거' name='offer[tag_list][]' type='checkbox' value='자전거'>
-<label for='자전거'>자전거</label>
-</div>
-</div>
-</div>
-</div>
-
-<hr class='divider'>
-<div class='form-group clearfix' data-desc='&lt;span class=&quot;font-weight-600&quot;&gt;제목 예시&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;&quot;가우디 필수코스! 바르셀로나 반나절 코스&quot;&lt;br/&gt;&quot;영화 미드나잇인파리 명소 따라 파리 곳곳 다녀보기&quot;&lt;br/&gt;&lt;br/&gt;주의: 맞춤법에 맞게 작성하여주세요. 특수문자를 사용하지 마세요.&lt;br/&gt;'>
-<label class='control-label col-xs-12' for='offerTitle'>
-여행 제목
-<span>*</span>
-</label>
-<div class='col-xs-12'>
-<input class='form-control required' id='offerTitle_title' name='offer[title]' type='text'>
-</div>
-<div class='form-group clearfix'>
-<div class='col-xs-12 guide-box'>
-<p class='help-block'>• 여행 주제를 정확하고 간결하게 표현해주세요.<br/>• 맞춤법이 맞지 않거나 이모티콘 혹은 특수문자를 사용하실 경우 상품 검수 절차로 인해 판매가 늦어질 수 있습니다.<br/>• 지역명이 포함된 제목은 상품 노출에 더 효과적입니다. (도쿄, 산책하는 여행 / 샌프란시스코! 요세미티 당일치기 등)<br/></p>
-</div>
-</div>
-</div>
-<div class='form-group clearfix' data-desc='&lt;span class=&quot;font-weight-600&quot;&gt;한 줄 요약 예시&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;&quot;반나절 만에 천재 가우디 건축물을 효율적으로 돌아보세요!&quot;&lt;br/&gt;&quot;낭만적인 영화 속 길을 걸어보며 로맨틱한 추억을 남겨보세요.&quot;&lt;br/&gt;'>
-<label class='control-label col-xs-12' for='offerSubtitle'>
-한 줄 요약
-<span>*</span>
-</label>
-<div class='col-xs-12'>
-<input class='form-control required' id='offerSubtitle_subtitle' name='offer[subtitle]' type='text'>
-</div>
-<div class='form-group clearfix'>
-<div class='col-xs-12 guide-box'>
-<p class='help-block'>• 제목과 연결되는 매력 포인트를 작성해 주세요.<br/>• 페이지에서 강조되어 나타납니다.<br/></p>
-</div>
-</div>
-</div>
-<div class='form-group clearfix' data-desc='• 본인의 경험과 관심사를 바탕으로 여행을 기획해 보세요.&lt;br/&gt;• 해당 내용은 진행될 여행의 내용과 정확하게 일치해야 합니다.&lt;br/&gt;• 같은 도시에서 판매되는 다른 상품도 참고해보세요.&lt;br/&gt;'>
-<label class='control-label col-xs-12' for='offerIntroduction'>
-여행 소개
-<span>*</span>
-<a class='btn btn-info pull-right' href='http://speller.cs.pusan.ac.kr/PnuSpellerISAPI_201602/' target='_blank'>[맞춤법 검사기]로 맞춤법 확인하기</a>
-</label>
-<div class='col-xs-12'>
-<textarea class='form-control' id='offerIntroduction' name='offer[introduction]' placeholder='• 상품 작성 예시
-[매력 포인트 - 투어의 매력 포인트에 관해 간단히 소개해주세요]
-ex) 서울을 소개합니다. 서울은 대한민국의 수도이며 경제적 문화적 중심지이기도 합니다. 서울에서 여러분께 저만이 알고 있는 특별한 여행지들을 소개할게요
-
-[투어 코스 - 구체적인 코스와 각각의 소요 시간에 관해 간단히 설명해주세요]
-ex)
-1. 서촌 골목을 소개합니다. (2시간)
-2. 서촌 맛집 여행을 함께 해요 (1시간)
-3. 경복궁을 마지막으로 둘러봅니다. (2시간)
-' rows='10' type='text'></textarea>
-</div>
-<div class='form-group clearfix'>
-<div class='col-xs-12 guide-box'>
-<p class='help-block'>• 맞춤법이 맞지 않거나 특수문자를 사용할 경우 수정될 수 있으며, 상품 검수 절차로 인해 상품 판매가 늦어질 수 있습니다.<br/></p>
-</div>
-</div>
-</div>
-
-<hr class='divider'>
-<div class='row'>
-<div class='col-lg-6'>
-<div class='form-group clearfix' data-desc='• 프라이빗 투어 : 한 번에 한 팀만 진행<br/>• 단체 투어 : 여러 그룹을 모객해서 진행<br/>'>
-<label class='control-label col-xs-12'>
-여행 규모
-<span>*</span>
-</label>
-<div class='col-xs-12'>
-<select class='form-control' id='offerPrivateTour' name='offer[private_tour]'>
-<option disabled selected>선택</option>
-<option selected value='true'>단독 프라이빗 투어</option>
-<option value='false'>그룹 투어</option>
-</select>
-</div>
-</div>
-</div>
-<div class='col-lg-6'>
-<div class='form-group clearfix' data-desc='• 투어를 진행할 때 가장 많은 시간동안 사용하는 이동수단을 선택해주세요.<br/>• 워킹 : 도보 및 대중교통 (지하철, 트램, 버스 등)<br/>• 차량 : 가이드의 전용 차량<br/>• 자전거 : 자전거<br/>• 세그웨이 : 세그웨이<br/>• 버스투어 : 대중교통이 아닌 전용버스<br/>• 그 외 : 위의 투어 이동수단이 아닌 모든 경우<br/>'>
-<label class='control-label col-xs-12'>
-이동 수단
-<span>*</span>
-</label>
-<div class='col-xs-12'>
-<select class='form-control' id='offerTransport' name='offer[transport]'>
-<option disabled selected>선택</option>
-<option value='car'>차량 이동</option>
-<option value='walk'>도보 이동</option>
-<option value='etc'>그 외</option>
-</select>
-</div>
-</div>
-</div>
-</div>
-
-<hr class='divider'>
-<div class='form-group clearfix' data-desc='• 여행자가 만날 여행지의 사진을 올려주세요.<br/>• 이미지 사이즈 규격 : 980*735 (상품상세 페이지에 보이는 칸의 크기에 따라 조금씩 잘릴 수 있습니다)<br/>• 4장 이상 등록 필수<br/>• 규격을 벗어난 사진은 자동으로 크롭되어 나타납니다.<br/>• 상업적 용도로 사용 가능한 사진만 업로드 가능합니다.<br/>• 최대 20장까지 사진 등록 가능합니다.<br/>• 참고) gif 이미지는 등록이 불가능합니다.<br/>'>
-<label class='control-label col-lg-12' for='offerPhotos'>
-여행 사진
-<span>*</span>
-</label>
-<div class='col-xs-12'>
-<div class='clearfix margin-bottom-10'>
-<input data-type='tour' id='offer_photo_size' name='offer_photo_size' type='hidden' value='0'>
-<div class='file-upload-btn'>
-<input id='offerPhotoFileBtn' multiple name='file' type='file'>
-<div class='btn btn-default btn-picture-add btn-picture-add-top btn-block ladda-button' data-spinner-color='DarkGrey' data-style='zoom-out' for='offerPhotoFileBtn' id='btnOfferPhotoTop'>
-<span class='ladda-label'>
-<i class='icon fa-camera'></i>
-사진등록
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class='form-group clearfix'>
-<div class='col-lg-12'>
-<p class='help-block'>
-• 첫 사진이 대표사진으로 자동 지정됩니다.<br/>• 첫 사진에 텍스트 및 로고가 있을 경우 마이리얼트립 검수팀에서 사진을 수정 혹은 삭제 할 수 있습니다.<br/>• 사진을 드래그 하여 순서를 바꿀수 있습니다.<br/>• 최대 20장까지 사진 등록 가능합니다.<br/>• 배경이 흰색인 이미지는 지양해주세요. 상품 페이지가 흰색이기 때문에 사진이 잘린 것처럼 보일 수 있습니다.<br/>
-</p>
-</div>
-<div class='col-xs-12'>
-<ul class='image-list row clearfix' id='sortableOfferPhoto'>
-</ul>
-<div class='row'>
-<div class='col-sm-6 col-xs-12'>
-<div class='hidden margin-5 photo-add-container widget widget-border-dashed'>
-<div class='widget-body text-center bg-blue-grey-100 blue-grey-700'>
-<div class='file-upload-btn'>
-<input id='offerPhotoFileBtnBottom' multiple name='file' type='file'>
-<div class='btn btn-default btn-picture-add btn-picture-add-bottom btn-block ladda-button' data-spinner-color='DarkGrey' data-style='zoom-out' for='offerPhotoFileBtnBottom' id='btnOfferPhotoBottom'>
-<span class='ladda-label'>
-<i class='fa fa-plus padding-right-5'></i>
-사진등록
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<hr class='divider'>
-<div class='form-group clearfix'>
-<label class='control-label col-xs-4'>
-예약 가능 시간 설정
-<span>*</span>
-</label>
-<div class='col-xs-8'>
-<div class='row'>
-<div class='col-xs-12'>
-<select class='form-control' name='offer[reservation_limit_offset]'>
-<option disabled>시간 설정</option>
-<option value='12'>12</option>
-<option value='18'>18</option>
-<option value='24'>24</option>
-<option value='30'>30</option>
-<option selected value='36'>36</option>
-<option value='48'>48</option>
-<option value='60'>60</option>
-<option value='72'>72</option>
-</select>
-</div>
-</div>
-</div>
-</div>
-<div class='form-group clearfix'>
-<div class='col-xs-12'>
-<p class='help-block'>• 최소 몇 시간 전까지 예약을 받길 원하시나요?<br/>• 가장 기본적인 시간은 36시간 입니다.<br/></p>
-</div>
-</div>
-
-<hr class='divider'>
-
-</div>
-<div class='wizard-buttons'>
-<a class='btn btn-default btn-outline' href='/partner/offers' role='button'>취소하기</a>
-<input class='btn btn-primary btn-outline pull-right' formnovalidate='0' name='save' role='button' type='submit' value='저장후 다음으로'>
-</div>
-</div>
-
-</form>
-
-</div>
-</div>
-</div>
-
-</body>
+                              </script>
+                              <div class='check-item-container'>
+                                 <div class='radio-custom radio-primary'>
+                                    <input id='first_category' name='offer[category]' type='radio' value='guide_tour'>
+                                    <label for='guide_tour'>식도락</label>
+                                 </div>
+                                 <div class='radio-custom radio-primary'>
+                                    <input id='second_category' name='offer[category]' type='radio' value='activity'>
+                                    <label for='activity'>역사/문화</label>
+                                 </div>
+                                 <div class='radio-custom radio-primary'>
+                                    <input id='third_category' name='offer[category]' type='radio' value='snap'>
+                                    <label for='snap'>명소</label>
+                                 </div>
+                                 <div class='radio-custom radio-primary'>
+                                    <input id='fourth_category' name='offer[category]' type='radio' value='restaurant'>
+                                    <label for='restaurant'>액티비티</label>
+                                 </div>
+                                 <div class='radio-custom radio-primary'>
+                                    <input id='fifth_category' name='offer[category]' type='radio' value='entertainment'>
+                                    <label for='entertainment'>쇼핑</label>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class='form-group clearfix'>
+                              <div class='col-xs-12 guide-box'>
+                                 <p class='help-block'>• 가이드가 동행하며 현지 안내를 하는 비중이 높을 경우 가이드 투어를 선택해주세요.<br/></p>
+                              </div>
+                           </div>
+                        </div>
+                        <hr class='divider'>
+                        <div class='form-group clearfix' data-desc='• 투어 중 잠시 사용되는 언어일 경우 선택하지 않으셔도 됩니다.<br/>• 통역 서비스일 경우에는 여행자에게는 한국어를 사용하시기 때문에 [한국어]를 선택해주세요.<br/>• 해당 투어의 진행 언어를 여러가지 선택할 수 있을 경우 복수 선택해주세요.<br/>' id="division">
+                           <label class='control-label col-xs-12' for='language_list'>
+                           중분류 카테고리
+                           <span>*</span>
+                           </label>
+                           <div class='col-xs-12'>
+                              <div class='check-item-container language-list' id="first_division" style="display: none">
+                                 <div class='item-group radio-custom radio-primary'>
+                                    <input id='ko' name='offer[language_list][]' type='radio' value='ko'>
+                                    <label for='ko'>정통</label>
+                                 </div>
+                                 <div class='item-group radio-custom radio-primary'>
+                                    <input id='en' name='offer[language_list][]' type='radio' value='en'>
+                                    <label for='en'>고급</label>
+                                 </div>
+                                 <div class='item-group radio-custom radio-primary'>
+                                    <input id='es' name='offer[language_list][]' type='radio' value='es'>
+                                    <label for='es'>일반</label>
+                                 </div>
+                                 <div class='item-group radio-custom radio-primary'>
+                                    <input id='de' name='offer[language_list][]' type='radio' value='de'>
+                                    <label for='de'>채식</label>
+                                 </div>
+                              </div>
+                              <div class='check-item-container language-list' id="second_division" style="display: none">
+                                 <div class='item-group radio-custom radio-primary'>
+                                    <input id='ko' name='offer[language_list][]' type='radio' value='ko'>
+                                    <label for='ko'>박물관</label>
+                                 </div>
+                                 <div class='item-group radio-custom radio-primary'>
+                                    <input id='en' name='offer[language_list][]' type='radio' value='en'>
+                                    <label for='en'>고궁</label>
+                                 </div>
+                                 <div class='item-group radio-custom radio-primary'>
+                                    <input id='es' name='offer[language_list][]' type='radio' value='es'>
+                                    <label for='es'>유적지</label>
+                                 </div>
+                                 <div class='item-group radio-custom radio-primary'>
+                                    <input id='de' name='offer[language_list][]' type='radio' value='de'>
+                                    <label for='de'>민속마을</label>
+                                 </div>
+                              </div>
+                              <div class='check-item-container language-list' id="third_division" style="display: none">
+                                 <div class='item-group radio-custom radio-primary'>
+                                    <input id='ko' name='offer[language_list][]' type='radio' value='ko'>
+                                    <label for='ko'>랜드마크</label>
+                                 </div>
+                                 <div class='item-group radio-custom radio-primary'>
+                                    <input id='en' name='offer[language_list][]' type='radio' value='en'>
+                                    <label for='en'>자연</label>
+                                 </div>
+                                 <div class='item-group radio-custom radio-primary'>
+                                    <input id='es' name='offer[language_list][]' type='radio' value='es'>
+                                    <label for='es'>테마거리</label>
+                                 </div>
+                                 
+                              </div>
+                              <div class='check-item-container language-list' id="fourth_division" style="display: none">
+                                 <div class='item-group radio-custom radio-primary'>
+                                    <input id='ko' name='offer[language_list][]' type='radio' value='ko'>
+                                    <label for='ko'>문화체험</label>
+                                 </div>
+                                 <div class='item-group radio-custom radio-primary'>
+                                    <input id='en' name='offer[language_list][]' type='radio' value='en'>
+                                    <label for='en'>스포츠</label>
+                                 </div>
+                                 <div class='item-group radio-custom radio-primary'>
+                                    <input id='es' name='offer[language_list][]' type='radio' value='es'>
+                                    <label for='es'>트래픽/하이킹</label>
+                                 </div>
+                                 <div class='item-group radio-custom radio-primary'>
+                                    <input id='de' name='offer[language_list][]' type='radio' value='de'>
+                                    <label for='de'>채식</label>
+                                 </div>
+                              </div>
+                              
+                              
+                           </div>
+                           
+                        </div>
+                        <hr class='divider'>
+                        <div class='form-group clearfix' data-desc='&lt;span class=&quot;font-weight-600&quot;&gt;제목 예시&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;&quot;가우디 필수코스! 바르셀로나 반나절 코스&quot;&lt;br/&gt;&quot;영화 미드나잇인파리 명소 따라 파리 곳곳 다녀보기&quot;&lt;br/&gt;&lt;br/&gt;주의: 맞춤법에 맞게 작성하여주세요. 특수문자를 사용하지 마세요.&lt;br/&gt;'>
+                           <label class='control-label col-xs-12' for='offerTitle'>
+                           여행 제목
+                           <span>*</span>
+                           </label>
+                           <div class='col-xs-12'>
+                              <input class='form-control required' id='offerTitle_title' name='offer[title]' type='text'>
+                           </div>
+                           <div class='form-group clearfix'>
+                              <div class='col-xs-12 guide-box'>
+                                 <p class='help-block'>• 여행 주제를 정확하고 간결하게 표현해주세요.<br/>• 맞춤법이 맞지 않거나 이모티콘 혹은 특수문자를 사용하실 경우 상품 검수 절차로 인해 판매가 늦어질 수 있습니다.<br/>• 지역명이 포함된 제목은 상품 노출에 더 효과적입니다. (도쿄, 산책하는 여행 / 샌프란시스코! 요세미티 당일치기 등)<br/></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class='form-group clearfix' data-desc='&lt;span class=&quot;font-weight-600&quot;&gt;한 줄 요약 예시&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;&quot;반나절 만에 천재 가우디 건축물을 효율적으로 돌아보세요!&quot;&lt;br/&gt;&quot;낭만적인 영화 속 길을 걸어보며 로맨틱한 추억을 남겨보세요.&quot;&lt;br/&gt;'>
+                           <label class='control-label col-xs-12' for='offerSubtitle'>
+                           한 줄 요약
+                           <span>*</span>
+                           </label>
+                           <div class='col-xs-12'>
+                              <input class='form-control required' id='offerSubtitle_subtitle' name='offer[subtitle]' type='text'>
+                           </div>
+                           <div class='form-group clearfix'>
+                              <div class='col-xs-12 guide-box'>
+                                 <p class='help-block'>• 제목과 연결되는 매력 포인트를 작성해 주세요.<br/>• 페이지에서 강조되어 나타납니다.<br/></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class='form-group clearfix' data-desc='• 본인의 경험과 관심사를 바탕으로 여행을 기획해 보세요.&lt;br/&gt;• 해당 내용은 진행될 여행의 내용과 정확하게 일치해야 합니다.&lt;br/&gt;• 같은 도시에서 판매되는 다른 상품도 참고해보세요.&lt;br/&gt;'>
+                           <label class='control-label col-xs-12' for='offerIntroduction'>
+                           여행 소개
+                           <span>*</span>
+                           
+                           </label>
+                           <div class='col-xs-12'>
+                              <textarea class='form-control' id='offerIntroduction' name='offer[introduction]' placeholder='• 상품 작성 예시
+                                 [매력 포인트 - 투어의 매력 포인트에 관해 간단히 소개해주세요]
+                                 ex) 서울을 소개합니다. 서울은 대한민국의 수도이며 경제적 문화적 중심지이기도 합니다. 서울에서 여러분께 저만이 알고 있는 특별한 여행지들을 소개할게요
+                                 [투어 코스 - 구체적인 코스와 각각의 소요 시간에 관해 간단히 설명해주세요]
+                                 ex)
+                                 1. 서촌 골목을 소개합니다. (2시간)
+                                 2. 서촌 맛집 여행을 함께 해요 (1시간)
+                                 3. 경복궁을 마지막으로 둘러봅니다. (2시간)
+                                 ' rows='10' type='text'></textarea>
+                           </div>
+                           <div class='form-group clearfix'>
+                              <div class='col-xs-12 guide-box'>
+                                 <p class='help-block'>• 맞춤법이 맞지 않거나 특수문자를 사용할 경우 수정될 수 있으며, 상품 검수 절차로 인해 상품 판매가 늦어질 수 있습니다.<br/></p>
+                              </div>
+                           </div>
+                        </div>
+                        <hr class='divider'>
+                        
+                        <div class='form-group clearfix' data-desc='• 여행자가 만날 여행지의 사진을 올려주세요.<br/>• 이미지 사이즈 규격 : 980*735 (상품상세 페이지에 보이는 칸의 크기에 따라 조금씩 잘릴 수 있습니다)<br/>• 4장 이상 등록 필수<br/>• 규격을 벗어난 사진은 자동으로 크롭되어 나타납니다.<br/>• 상업적 용도로 사용 가능한 사진만 업로드 가능합니다.<br/>• 최대 20장까지 사진 등록 가능합니다.<br/>• 참고) gif 이미지는 등록이 불가능합니다.<br/>'>
+                           <label class='control-label col-lg-12' for='offerPhotos'>
+                           여행 사진
+                           <span>*</span>
+                           </label>
+                           <div class='col-xs-12'>
+                              <div class='clearfix margin-bottom-10'>
+                                 <input data-type='tour' id='offer_photo_size' name='offer_photo_size' type='hidden' value='0'>
+                                 <div class='file-upload-btn'>
+                                    <input id='offerPhotoFileBtn' multiple name='file' type='file'>
+                                    <div class='btn btn-default btn-picture-add btn-picture-add-top btn-block ladda-button' data-spinner-color='DarkGrey' data-style='zoom-out' for='offerPhotoFileBtn' id='btnOfferPhotoTop'>
+                                       <span class='ladda-label'>
+                                       <i class='icon fa-camera'></i>
+                                       사진등록
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class='form-group clearfix'>
+                           <div class='col-lg-12'>
+                              <p class='help-block'>
+                                 • 첫 사진이 대표사진으로 자동 지정됩니다.<br/>• 첫 사진에 텍스트 및 로고가 있을 경우 마이리얼트립 검수팀에서 사진을 수정 혹은 삭제 할 수 있습니다.<br/>• 사진을 드래그 하여 순서를 바꿀수 있습니다.<br/>• 최대 20장까지 사진 등록 가능합니다.<br/>• 배경이 흰색인 이미지는 지양해주세요. 상품 페이지가 흰색이기 때문에 사진이 잘린 것처럼 보일 수 있습니다.<br/>
+                              </p>
+                           </div>
+                           <div class='col-xs-12'>
+                              <ul class='image-list row clearfix' id='sortableOfferPhoto'></ul>
+                              <div class='row'>
+                                 <div class='col-sm-6 col-xs-12'>
+                                    <div class='hidden margin-5 photo-add-container widget widget-border-dashed'>
+                                       <div class='widget-body text-center bg-blue-grey-100 blue-grey-700'>
+                                          <div class='file-upload-btn'>
+                                             <input id='offerPhotoFileBtnBottom' multiple name='file' type='file'>
+                                             <div class='btn btn-default btn-picture-add btn-picture-add-bottom btn-block ladda-button' data-spinner-color='DarkGrey' data-style='zoom-out' for='offerPhotoFileBtnBottom' id='btnOfferPhotoBottom'>
+                                                <span class='ladda-label'>
+                                                <i class='fa fa-plus padding-right-5'></i>
+                                                사진등록
+                                                </span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <hr class='divider'>
+                        
+                     </div>
+                     <div class='wizard-buttons'>
+                        <a class='btn btn-default btn-outline' href='/partner/offers' role='button'>취소하기</a>
+                        <input class='btn btn-primary btn-outline pull-right' formnovalidate='0' name='save' role='button' type='submit' value='저장후 다음으로'>
+                     </div>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </body>
 </html>
