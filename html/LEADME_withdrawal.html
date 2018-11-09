@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+  <style>
+      .form-group{
+          padding: 30px;
+      }      
+  </style>
+</head>
+<body>
+
+<div class="container">
+  
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">회원 탈퇴</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"> 계정 탈퇴 </h4>
+        </div>
+        <div class="modal-body center-block" style="width: 70%">
+          <p style="font-style: italic; text-indent: -2em">
+              주의!!<br/>
+          </p>
+          <p>
+              LEADME 계정을 삭제하시면 프로필 및 소중한 한국 여행의 기록들이 모두 사라지게 됩니다.<br/>
+              판매자의 경우, 정산이 완료되기 전에 탈퇴를 하시면 금전상의 불이익이
+              발생할 수 있습니다.<br/>
+          </p>
+          
+          <div class="form-group">
+            <label class="control-label col-sm-5" for="email" style="padding-top: 8px;">비밀번호 확인:</label>
+            <div class="col-sm-6">
+              <input type="email" class="form-control" id="email" placeholder="귤이귤이">
+            </div>
+          </div> 
+   
+        <div class="form-group">
+
+            <div class="g-recaptcha" data-sitekey="6LdhbXkUAAAAADWF5ykxTLHiI9cnlazMp0ZD3ACv"></div>
+
+          </div> 
+           
+           
+            
+        </div>
+        <div class="modal-footer">
+         <button type="button" class="btn btn-default" data-dismiss="modal" style="width: 47%; float: left;">다시 생각해 볼께요!</button>
+          <button type="button" class="btn btn-default" style="width: 47%">계정 탈퇴하기</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+</body>
+</html>
