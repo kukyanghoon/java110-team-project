@@ -40,24 +40,7 @@
 </script>
 </head>
 <body class='site-menubar-unfold' data-action='edit' data-controller-path='partner/offers' data-controller='offers' data-sign-in>
-<!--[if lt ie 8]>
-<p class='browserupgrade'>You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
-<div class='page animsition'>
-<div class='page-header'>
-<ol class='breadcrumb'>
-<li>
-<a href='/partner'>상품등록</a>
-</li>
-<!--<li>
-<a href='/partner/offers'>상품 관리</a>
-</li>
-<li class='active'>상품 수정</li>
-</ol>-->
 
-</div>
-<div class='page-content container-fluid'>
-<div class='row'>
 <div class='col-md-9'>
 <div class='widget'>
 <div class='widget-header padding-20 clearfix'>
@@ -221,7 +204,7 @@
 <label class='col-xs-12' for='meeting_time_b'>
 <div class='col-xs-12 margin-bottom-10'>예약 확정 후 조율</div>
 <div class='col-xs-12'>
-<textarea class='col-xs-12 form-control' id='meetingTimeExtra' name='offer[meeting_time_extra]' rows='5'></textarea>
+<textarea class='col-xs-12 form-control' id='meetingTimeExtra' name='offer[meeting_time_extra]' rows='5' style="resize: none;"></textarea>
 <div class='col-xs-12'>
 <p class='help-block'>• 계절별로 만나는 시간이 다르거나 만나는 시간에 대한 추가 정보가 있을 경우 구체적인 시간을 안내해주세요.<br/>• 아무 내용도 작성하지 않을 시 "예약 확정 후 만나는 시간이 조율됩니다"라고 여행자에게 보여집니다.<br/></p>
 </div>
@@ -531,9 +514,7 @@
 </form>
 
 </div>
-</div>
-</div>
-</div>
+
 <script>
   window.App = App || {};
   App.directUpload = {
