@@ -1,541 +1,550 @@
--- ȸ��
+-- 회원
 DROP TABLE IF EXISTS memb RESTRICT;
 
--- ���̵�
+-- 가이드
 DROP TABLE IF EXISTS g_memb RESTRICT;
 
--- ����
+-- 여행
 DROP TABLE IF EXISTS tour RESTRICT;
 
--- ī�װ���
+-- 카테고리
 DROP TABLE IF EXISTS category RESTRICT;
 
--- �����û(����)
+-- 여행신청(결제)
 DROP TABLE IF EXISTS tour_req RESTRICT;
 
--- ���డ�ɳ�¥
+-- 여행가능날짜
 DROP TABLE IF EXISTS tour_avail RESTRICT;
 
--- ��������ݳ���
+-- 수익입출금내역
 DROP TABLE IF EXISTS cash_his RESTRICT;
 
--- ��������������ø
+-- 마이페이지사진첩
 DROP TABLE IF EXISTS mpg_phot RESTRICT;
 
--- �ڽ�����
+-- 코스사진
 DROP TABLE IF EXISTS course_phot RESTRICT;
 
--- �ڽ�
+-- 코스
 DROP TABLE IF EXISTS course RESTRICT;
 
--- �ı�
+-- 후기
 DROP TABLE IF EXISTS comment RESTRICT;
 
--- ��ŷ
+-- 랭킹
 DROP TABLE IF EXISTS ranking RESTRICT;
 
--- ������
+-- 여행자
 DROP TABLE IF EXISTS t_memb RESTRICT;
 
--- ��û��Ȳ
+-- 신청현황
 DROP TABLE IF EXISTS const_stat RESTRICT;
 
--- ȸ��
+-- 회원
 CREATE TABLE memb (
-	mno        INTEGER      NOT NULL COMMENT 'ȸ����ȣ', -- ȸ����ȣ
-	name       VARCHAR(50)  NOT NULL COMMENT '�̸�', -- �̸�
-	pwd        VARCHAR(255) NOT NULL COMMENT '��й�ȣ', -- ��й�ȣ
-	cert_email char(1)      NOT NULL COMMENT '�̸�����������', -- �̸�����������
-	email      VARCHAR(40)  NOT NULL COMMENT '�̸���', -- �̸���
-	photo      VARCHAR(255) NULL     COMMENT '����', -- ����
-	mtype      VARCHAR(2)   NOT NULL COMMENT 'ȸ������', -- ȸ������
-	path       VARCHAR(10)  NOT NULL COMMENT '���԰��', -- ���԰��
-	active     char(1)      NOT NULL COMMENT 'ȸ��Ż�𿩺�' -- ȸ��Ż�𿩺�
+    mno        INTEGER      NOT NULL COMMENT '회원번호', -- 회원번호
+    name       VARCHAR(50)  NOT NULL COMMENT '이름', -- 이름
+    pwd        VARCHAR(255) NOT NULL COMMENT '비밀번호', -- 비밀번호
+    cert_email char(1)      NOT NULL COMMENT '이메일인증여부', -- 이메일인증여부
+    email      VARCHAR(40)  NOT NULL COMMENT '이메일', -- 이메일
+    photo      VARCHAR(255) NULL     COMMENT '사진', -- 사진
+    mtype      VARCHAR(2)   NOT NULL COMMENT '회원구분', -- 회원구분
+    path       VARCHAR(10)  NOT NULL COMMENT '가입경로', -- 가입경로
+    active     char(1)      NOT NULL COMMENT '회원탈퇴여부' -- 회원탈퇴여부
 )
-COMMENT 'ȸ��';
+COMMENT '회원';
 
--- ȸ��
+-- 회원
 ALTER TABLE memb
-	ADD CONSTRAINT PK_memb -- ȸ�� �⺻Ű
-		PRIMARY KEY (
-			mno -- ȸ����ȣ
-		);
+    ADD CONSTRAINT PK_memb -- 회원 기본키
+        PRIMARY KEY (
+            mno -- 회원번호
+        );
 
--- ȸ�� ����ũ �ε���
+-- 회원 유니크 인덱스
 CREATE UNIQUE INDEX UIX_memb
-	ON memb ( -- ȸ��
-		email ASC -- �̸���
-	);
+    ON memb ( -- 회원
+        email ASC -- 이메일
+    );
 
 ALTER TABLE memb
-	MODIFY COLUMN mno INTEGER NOT NULL AUTO_INCREMENT COMMENT 'ȸ����ȣ';
+    MODIFY COLUMN mno INTEGER NOT NULL AUTO_INCREMENT COMMENT '회원번호';
 
--- ���̵�
+-- 가이드
 CREATE TABLE g_memb (
-	mno    INTEGER     NOT NULL COMMENT 'ȸ����ȣ', -- ȸ����ȣ
-	tel    VARCHAR(30) NOT NULL COMMENT '��ȭ��ȣ', -- ��ȭ��ȣ
-	intro  TEXT        NOT NULL COMMENT '�ڱ�Ұ�', -- �ڱ�Ұ�
-	cash   INTEGER     NOT NULL COMMENT '���ͱ�', -- ���ͱ�
-	bnk_cd VARCHAR(3)  NOT NULL COMMENT '�����ڵ�', -- �����ڵ�
-	a_acc  VARCHAR(22) NOT NULL COMMENT '���¹�ȣ', -- ���¹�ȣ
-	owner  VARCHAR(50) NOT NULL COMMENT '�����ָ�' -- �����ָ�
+    mno    INTEGER     NOT NULL COMMENT '회원번호', -- 회원번호
+    tel    VARCHAR(30) NOT NULL COMMENT '전화번호', -- 전화번호
+    intro  TEXT        NOT NULL COMMENT '자기소개', -- 자기소개
+    cash   INTEGER     NOT NULL COMMENT '수익금', -- 수익금
+    bnk_cd VARCHAR(3)  NOT NULL COMMENT '은행코드', -- 은행코드
+    a_acc  VARCHAR(22) NOT NULL COMMENT '계좌번호', -- 계좌번호
+    owner  VARCHAR(50) NOT NULL COMMENT '예금주명' -- 예금주명
 )
-COMMENT '���̵�';
+COMMENT '가이드';
 
--- ���̵�
+-- 가이드
 ALTER TABLE g_memb
-	ADD CONSTRAINT PK_g_memb -- ���̵� �⺻Ű
-		PRIMARY KEY (
-			mno -- ȸ����ȣ
-		);
+    ADD CONSTRAINT PK_g_memb -- 가이드 기본키
+        PRIMARY KEY (
+            mno -- 회원번호
+        );
 
--- ���̵� ����ũ �ε���
+-- 가이드 유니크 인덱스
 CREATE UNIQUE INDEX UIX_g_memb
-	ON g_memb ( -- ���̵�
-		bnk_cd ASC, -- �����ڵ�
-		a_acc ASC   -- ���¹�ȣ
-	);
+    ON g_memb ( -- 가이드
+        bnk_cd ASC, -- 은행코드
+        a_acc ASC   -- 계좌번호
+    );
 
--- ����
-CREATE TABLE tour (
-	tno        INTEGER      NOT NULL COMMENT '�����ȣ', -- �����ȣ
-	titl       VARCHAR(255) NOT NULL COMMENT 'Ÿ��Ʋ', -- Ÿ��Ʋ
-	loc        VARCHAR(255) NOT NULL COMMENT '����', -- ����
-	star       DOUBLE       NOT NULL COMMENT '�������', -- �������
-	cmt_cnt    INTEGER      NOT NULL COMMENT '�ıⰹ��', -- �ıⰹ��
-	hits       INTEGER      NOT NULL COMMENT '��ȸ��', -- ��ȸ��
-	amt        INTEGER      NOT NULL COMMENT '�ݾ�', -- �ݾ�
-	tour_intro TEXT         NOT NULL COMMENT '����Ұ�', -- ����Ұ�
-	req_inf    TEXT         NOT NULL COMMENT '�ʼ��ȳ�', -- �ʼ��ȳ�
-	reg_dt     DATE         NOT NULL COMMENT '����������', -- ����������
-	mod_dt     DATE         NOT NULL COMMENT '�����������', -- �����������
-	join_plc   VARCHAR(50)  NOT NULL COMMENT '���������', -- ���������
-	lat        DOUBLE       NOT NULL COMMENT '������', -- ������
-	lon        DOUBLE       NOT NULL COMMENT '�浵��', -- �浵��
-	join_tm    DATE         NOT NULL COMMENT '�����½ð�', -- �����½ð�
-	del_yn     char(1)      NOT NULL COMMENT '��������', -- ��������
-	pri_phot   VARCHAR(50)  NOT NULL COMMENT '��ǥ����', -- ��ǥ����
-	pri_mv     VARCHAR(255) NULL     COMMENT '��ǥ����', -- ��ǥ����
-	cat_no     INTEGER      NOT NULL COMMENT 'ī�װ�����ȣ', -- ī�װ�����ȣ
-	mno        INTEGER      NOT NULL COMMENT '��������' -- ��������
-)
-COMMENT '����';
-
--- ����
-ALTER TABLE tour
-	ADD CONSTRAINT PK_tour -- ���� �⺻Ű
-		PRIMARY KEY (
-			tno -- �����ȣ
-		);
-
-ALTER TABLE tour
-	MODIFY COLUMN tno INTEGER NOT NULL AUTO_INCREMENT COMMENT '�����ȣ';
-
--- ī�װ���
-CREATE TABLE category (
-	cat_no    INTEGER      NOT NULL COMMENT 'ī�װ�����ȣ', -- ī�װ�����ȣ
-	cat_name  VARCHAR(255) NOT NULL COMMENT 'ī�װ�����', -- ī�װ�����
-	up_cat_no INTEGER      NULL     COMMENT '����ī�װ�����ȣ' -- ����ī�װ�����ȣ
-)
-COMMENT 'ī�װ���';
-
--- ī�װ���
-ALTER TABLE category
-	ADD CONSTRAINT PK_category -- ī�װ��� �⺻Ű
-		PRIMARY KEY (
-			cat_no -- ī�װ�����ȣ
-		);
-
--- �����û(����)
-CREATE TABLE tour_req (
-	reqno    INTEGER     NOT NULL COMMENT '��û��ȣ', -- ��û��ȣ
-	tno      INTEGER     NOT NULL COMMENT '�����ȣ', -- �����ȣ
-	tour_dt  DATE        NOT NULL COMMENT '��������', -- ��������
-	mno      INTEGER     NOT NULL COMMENT 'ȸ����ȣ', -- ȸ����ȣ
-	t_dt     DATE        NOT NULL COMMENT '��û����', -- ��û����
-	req_cnt  INTEGER     NOT NULL COMMENT '��û�ο�', -- ��û�ο�
-	tot_pay  INTEGER     NOT NULL COMMENT '�Ѱ����ݾ�', -- �Ѱ����ݾ�
-	pay_type VARCHAR(50) NOT NULL COMMENT '��������', -- ��������
-	pay_stat VARCHAR(2)  NOT NULL COMMENT '��������', -- ��������
-	pay_dt   DATE        NOT NULL COMMENT '�����ð�', -- �����ð�
-	can_dt   DATE        NOT NULL COMMENT '��ҽð�', -- ��ҽð�
-	cur_cd   VARCHAR(50) NOT NULL COMMENT '��ȭ�ڵ�', -- ��ȭ�ڵ�
-	req_stat VARCHAR(2)  NOT NULL COMMENT '��û����' -- ��û����
-)
-COMMENT '�����û(����)';
-
--- �����û(����)
-ALTER TABLE tour_req
-	ADD CONSTRAINT PK_tour_req -- �����û(����) �⺻Ű
-		PRIMARY KEY (
-			reqno -- ��û��ȣ
-		);
-
-ALTER TABLE tour_req
-	MODIFY COLUMN reqno INTEGER NOT NULL AUTO_INCREMENT COMMENT '��û��ȣ';
-
--- ���డ�ɳ�¥
-CREATE TABLE tour_avail (
-	tour_dt DATE    NOT NULL COMMENT '��������', -- ��������
-	tno     INTEGER NOT NULL COMMENT '�����ȣ' -- �����ȣ
-)
-COMMENT '���డ�ɳ�¥';
-
--- ���డ�ɳ�¥
-ALTER TABLE tour_avail
-	ADD CONSTRAINT PK_tour_avail -- ���డ�ɳ�¥ �⺻Ű
-		PRIMARY KEY (
-			tour_dt, -- ��������
-			tno      -- �����ȣ
-		);
-
-ALTER TABLE tour_avail
-	MODIFY COLUMN tour_dt DATE NOT NULL AUTO_INCREMENT COMMENT '��������';
-
--- ��������ݳ���
-CREATE TABLE cash_his (
-	cno    INTEGER    NOT NULL COMMENT '���ͱݳ�����ȣ', -- ���ͱݳ�����ȣ
-	c_dt   DATE       NOT NULL COMMENT '�߻�����', -- �߻�����
-	c_amt  INTEGER    NOT NULL COMMENT '�ݾ�', -- �ݾ�
-	c_type VARCHAR(2) NOT NULL COMMENT '���������', -- ���������
-	c_stat VARCHAR(2) NOT NULL COMMENT 'ó������', -- ó������
-	mno    INTEGER    NOT NULL COMMENT 'ȸ����ȣ' -- ȸ����ȣ
-)
-COMMENT '��������ݳ���';
-
--- ��������ݳ���
-ALTER TABLE cash_his
-	ADD CONSTRAINT PK_cash_his -- ��������ݳ��� �⺻Ű
-		PRIMARY KEY (
-			cno -- ���ͱݳ�����ȣ
-		);
-
-ALTER TABLE cash_his
-	MODIFY COLUMN cno INTEGER NOT NULL AUTO_INCREMENT COMMENT '���ͱݳ�����ȣ';
-
--- ��������������ø
-CREATE TABLE mpg_phot (
-	photno   INTEGER      NOT NULL COMMENT '������ȣ', -- ������ȣ
-	tno      INTEGER      NOT NULL COMMENT '�����ȣ', -- �����ȣ
-	tour_dt  DATE         NOT NULL COMMENT '��������', -- ��������
-	name     VARCHAR(255) NOT NULL COMMENT '�̹�����', -- �̹�����
-	org_name VARCHAR(255) NOT NULL COMMENT '�����̹�����', -- �����̹�����
-	up_dt    DATE         NOT NULL COMMENT '���ε�����' -- ���ε�����
-)
-COMMENT '��������������ø';
-
--- ��������������ø
-ALTER TABLE mpg_phot
-	ADD CONSTRAINT PK_mpg_phot -- ��������������ø �⺻Ű
-		PRIMARY KEY (
-			photno -- ������ȣ
-		);
-
-ALTER TABLE mpg_phot
-	MODIFY COLUMN photno INTEGER NOT NULL AUTO_INCREMENT COMMENT '������ȣ';
-
--- �ڽ�����
-CREATE TABLE course_phot (
-	photno       INTEGER     NOT NULL COMMENT '������ȣ', -- ������ȣ
-	cr_no        INTEGER     NOT NULL COMMENT '�ڽ���ȣ', -- �ڽ���ȣ
-	cr_phot_name VARCHAR(50) NOT NULL COMMENT '�������ϸ�' -- �������ϸ�
-)
-COMMENT '�ڽ�����';
-
--- �ڽ�����
-ALTER TABLE course_phot
-	ADD CONSTRAINT PK_course_phot -- �ڽ����� �⺻Ű
-		PRIMARY KEY (
-			photno -- ������ȣ
-		);
-
-ALTER TABLE course_phot
-	MODIFY COLUMN photno INTEGER NOT NULL AUTO_INCREMENT COMMENT '������ȣ';
-
--- �ڽ�
-CREATE TABLE course (
-	cr_no    INTEGER      NOT NULL COMMENT '�ڽ���ȣ', -- �ڽ���ȣ
-	tno      INTEGER      NOT NULL COMMENT '�����ȣ', -- �����ȣ
-	cr_idx   INTEGER      NOT NULL COMMENT '����', -- ����
-	cr_name  VARCHAR(255) NOT NULL COMMENT '�ڽ��Ұ�����', -- �ڽ��Ұ�����
-	cr_intro TEXT         NOT NULL COMMENT '�ڽ��Ұ�' -- �ڽ��Ұ�
-)
-COMMENT '�ڽ�';
-
--- �ڽ�
-ALTER TABLE course
-	ADD CONSTRAINT PK_course -- �ڽ� �⺻Ű
-		PRIMARY KEY (
-			cr_no -- �ڽ���ȣ
-		);
-
--- �ڽ� ����ũ �ε���
-CREATE UNIQUE INDEX UIX_course
-	ON course ( -- �ڽ�
-		tno ASC,    -- �����ȣ
-		cr_idx ASC  -- ����
-	);
-
-ALTER TABLE course
-	MODIFY COLUMN cr_no INTEGER NOT NULL AUTO_INCREMENT COMMENT '�ڽ���ȣ';
-
--- �ı�
-CREATE TABLE comment (
-	cmt_no    INTEGER      NOT NULL COMMENT '�ı��ȣ', -- �ı��ȣ
-	mno       INTEGER      NOT NULL COMMENT '�ı��ۼ��ڹ�ȣ', -- �ı��ۼ��ڹ�ȣ
-	cont      TEXT         NOT NULL COMMENT '�ı�', -- �ı�
-	cont_star DOUBLE       NOT NULL COMMENT '�ı⺰��', -- �ı⺰��
-	cont_phot VARCHAR(255) NOT NULL COMMENT '�ı����', -- �ı����
-	cont_dt   DATE         NOT NULL COMMENT '�ı��ۼ��Ͻ�', -- �ı��ۼ��Ͻ�
-	del_yn    char(1)      NOT NULL COMMENT '��������', -- ��������
-	up_cmt_no INTEGER      NULL     COMMENT '�����ı��ȣ', -- �����ı��ȣ
-	tno       INTEGER      NOT NULL COMMENT '�����ȣ' -- �����ȣ
-)
-COMMENT '�ı�';
-
--- �ı�
-ALTER TABLE comment
-	ADD CONSTRAINT PK_comment -- �ı� �⺻Ű
-		PRIMARY KEY (
-			cmt_no -- �ı��ȣ
-		);
-
-ALTER TABLE comment
-	MODIFY COLUMN cmt_no INTEGER NOT NULL AUTO_INCREMENT COMMENT '�ı��ȣ';
-
--- ��ŷ
-CREATE TABLE ranking (
-	rnk_no   INTEGER     NOT NULL COMMENT '��ŷ�Ϸù�ȣ', -- ��ŷ�Ϸù�ȣ
-	rnk_type VARCHAR(2)  NOT NULL COMMENT '��ŷ����', -- ��ŷ����
-	rnk_item VARCHAR(50) NOT NULL COMMENT '��ŷ�׸�', -- ��ŷ�׸�
-	rnk      INTEGER     NOT NULL COMMENT '��ŷ', -- ��ŷ
-	tno      INTEGER     NOT NULL COMMENT '�����ȣ', -- �����ȣ
-	rnk_dt   DATE        NOT NULL COMMENT '��������' -- ��������
-)
-COMMENT '��ŷ';
-
--- ��ŷ
-ALTER TABLE ranking
-	ADD CONSTRAINT PK_ranking -- ��ŷ �⺻Ű
-		PRIMARY KEY (
-			rnk_no -- ��ŷ�Ϸù�ȣ
-		);
-
--- ��ŷ ����ũ �ε���
-CREATE UNIQUE INDEX UIX_ranking
-	ON ranking ( -- ��ŷ
-		rnk_type ASC, -- ��ŷ����
-		rnk_item ASC, -- ��ŷ�׸�
-		tno ASC,      -- �����ȣ
-		rnk ASC       -- ��ŷ
-	);
-
-ALTER TABLE ranking
-	MODIFY COLUMN rnk_no INTEGER NOT NULL AUTO_INCREMENT COMMENT '��ŷ�Ϸù�ȣ';
-
--- ������
-CREATE TABLE t_memb (
-	mno  INTEGER     NOT NULL COMMENT 'ȸ����ȣ', -- ȸ����ȣ
-	lang VARCHAR(50) NOT NULL COMMENT '��ȣ���' -- ��ȣ���
-)
-COMMENT '������';
-
--- ������
-ALTER TABLE t_memb
-	ADD CONSTRAINT PK_t_memb -- ������ �⺻Ű
-		PRIMARY KEY (
-			mno -- ȸ����ȣ
-		);
-
--- ��û��Ȳ
-CREATE TABLE const_stat (
-	tour_dt DATE    NOT NULL COMMENT '��������', -- ��������
-	tno     INTEGER NOT NULL COMMENT '�����ȣ', -- �����ȣ
-	mx_pn   INTEGER NOT NULL COMMENT '�ִ��ο�', -- �ִ��ο�
-	req_pn  INTEGER NOT NULL COMMENT '��û�ο�' -- ��û�ο�
-)
-COMMENT '��û��Ȳ';
-
--- ��û��Ȳ
-ALTER TABLE const_stat
-	ADD CONSTRAINT PK_const_stat -- ��û��Ȳ �⺻Ű
-		PRIMARY KEY (
-			tour_dt, -- ��������
-			tno      -- �����ȣ
-		);
-
--- ���̵�
 ALTER TABLE g_memb
-	ADD CONSTRAINT FK_memb_TO_g_memb -- ȸ�� -> ���̵�
-		FOREIGN KEY (
-			mno -- ȸ����ȣ
-		)
-		REFERENCES memb ( -- ȸ��
-			mno -- ȸ����ȣ
-		);
+    MODIFY COLUMN mno INTEGER NOT NULL AUTO_INCREMENT COMMENT '회원번호';
 
--- ����
+-- 여행
+CREATE TABLE tour (
+    tno        INTEGER      NOT NULL COMMENT '여행번호', -- 여행번호
+    titl       VARCHAR(255) NOT NULL COMMENT '타이틀', -- 타이틀
+    loc        VARCHAR(255) NOT NULL COMMENT '지역', -- 지역
+    star       DOUBLE       NOT NULL COMMENT '별점평균', -- 별점평균
+    cmt_cnt    INTEGER      NOT NULL COMMENT '후기갯수', -- 후기갯수
+    hits       INTEGER      NOT NULL COMMENT '조회수', -- 조회수
+    amt        INTEGER      NOT NULL COMMENT '금액', -- 금액
+    tour_intro TEXT         NOT NULL COMMENT '여행소개', -- 여행소개
+    req_inf    TEXT         NOT NULL COMMENT '필수안내', -- 필수안내
+    reg_dt     DATE         NOT NULL COMMENT '여행등록일자', -- 여행등록일자
+    mod_dt     DATE         NOT NULL COMMENT '여행수정일자', -- 여행수정일자
+    join_plc   VARCHAR(50)  NOT NULL COMMENT '만나는장소', -- 만나는장소
+    lat        DOUBLE       NOT NULL COMMENT '위도값', -- 위도값
+    lon        DOUBLE       NOT NULL COMMENT '경도값', -- 경도값
+    join_tm    DATE         NOT NULL COMMENT '만나는시간', -- 만나는시간
+    del_yn     char(1)      NOT NULL COMMENT '삭제여부', -- 삭제여부
+    pri_phot   VARCHAR(50)  NOT NULL COMMENT '대표사진', -- 대표사진
+    pri_mv     VARCHAR(255) NULL     COMMENT '대표영상', -- 대표영상
+    cat_no     INTEGER      NOT NULL COMMENT '카테고리번호', -- 카테고리번호
+    mno        INTEGER      NOT NULL COMMENT '여행등록자' -- 여행등록자
+)
+COMMENT '여행';
+
+-- 여행
 ALTER TABLE tour
-	ADD CONSTRAINT FK_category_TO_tour -- ī�װ��� -> ����
-		FOREIGN KEY (
-			cat_no -- ī�װ�����ȣ
-		)
-		REFERENCES category ( -- ī�װ���
-			cat_no -- ī�װ�����ȣ
-		);
+    ADD CONSTRAINT PK_tour -- 여행 기본키
+        PRIMARY KEY (
+            tno -- 여행번호
+        );
 
--- ����
 ALTER TABLE tour
-	ADD CONSTRAINT FK_g_memb_TO_tour -- ���̵� -> ����
-		FOREIGN KEY (
-			mno -- ��������
-		)
-		REFERENCES g_memb ( -- ���̵�
-			mno -- ȸ����ȣ
-		);
+    MODIFY COLUMN tno INTEGER NOT NULL AUTO_INCREMENT COMMENT '여행번호';
 
--- ī�װ���
+-- 카테고리
+CREATE TABLE category (
+    cat_no    INTEGER      NOT NULL COMMENT '카테고리번호', -- 카테고리번호
+    cat_name  VARCHAR(255) NOT NULL COMMENT '카테고리명', -- 카테고리명
+    up_cat_no INTEGER      NULL     COMMENT '상위카테고리번호' -- 상위카테고리번호
+)
+COMMENT '카테고리';
+
+-- 카테고리
 ALTER TABLE category
-	ADD CONSTRAINT FK_category_TO_category -- ī�װ��� -> ī�װ���
-		FOREIGN KEY (
-			up_cat_no -- ����ī�װ�����ȣ
-		)
-		REFERENCES category ( -- ī�װ���
-			cat_no -- ī�װ�����ȣ
-		);
+    ADD CONSTRAINT PK_category -- 카테고리 기본키
+        PRIMARY KEY (
+            cat_no -- 카테고리번호
+        );
 
--- �����û(����)
+ALTER TABLE category
+    MODIFY COLUMN cat_no INTEGER NOT NULL AUTO_INCREMENT COMMENT '카테고리번호';
+
+-- 여행신청(결제)
+CREATE TABLE tour_req (
+    reqno    INTEGER     NOT NULL COMMENT '신청번호', -- 신청번호
+    tno      INTEGER     NOT NULL COMMENT '여행번호', -- 여행번호
+    tour_dt  DATE        NOT NULL COMMENT '여행일자', -- 여행일자
+    mno      INTEGER     NOT NULL COMMENT '회원번호', -- 회원번호
+    t_dt     DATE        NOT NULL COMMENT '신청일자', -- 신청일자
+    req_cnt  INTEGER     NOT NULL COMMENT '신청인원', -- 신청인원
+    tot_pay  INTEGER     NOT NULL COMMENT '총결제금액', -- 총결제금액
+    pay_type VARCHAR(50) NOT NULL COMMENT '결제수단', -- 결제수단
+    pay_stat VARCHAR(2)  NOT NULL COMMENT '결제상태', -- 결제상태
+    pay_dt   DATE        NOT NULL COMMENT '결제시각', -- 결제시각
+    can_dt   DATE        NOT NULL COMMENT '취소시각', -- 취소시각
+    cur_cd   VARCHAR(50) NOT NULL COMMENT '통화코드', -- 통화코드
+    req_stat VARCHAR(2)  NOT NULL COMMENT '신청상태' -- 신청상태
+)
+COMMENT '여행신청(결제)';
+
+-- 여행신청(결제)
 ALTER TABLE tour_req
-	ADD CONSTRAINT FK_t_memb_TO_tour_req -- ������ -> �����û(����)
-		FOREIGN KEY (
-			mno -- ȸ����ȣ
-		)
-		REFERENCES t_memb ( -- ������
-			mno -- ȸ����ȣ
-		);
+    ADD CONSTRAINT PK_tour_req -- 여행신청(결제) 기본키
+        PRIMARY KEY (
+            reqno -- 신청번호
+        );
 
--- �����û(����)
 ALTER TABLE tour_req
-	ADD CONSTRAINT FK_tour_avail_TO_tour_req -- ���డ�ɳ�¥ -> �����û(����)
-		FOREIGN KEY (
-			tour_dt, -- ��������
-			tno      -- �����ȣ
-		)
-		REFERENCES tour_avail ( -- ���డ�ɳ�¥
-			tour_dt, -- ��������
-			tno      -- �����ȣ
-		);
+    MODIFY COLUMN reqno INTEGER NOT NULL AUTO_INCREMENT COMMENT '신청번호';
 
--- ���డ�ɳ�¥
+-- 여행가능날짜
+CREATE TABLE tour_avail (
+    tour_dt DATE    NOT NULL COMMENT '여행일자', -- 여행일자
+    tno     INTEGER NOT NULL COMMENT '여행번호' -- 여행번호
+)
+COMMENT '여행가능날짜';
+
+-- 여행가능날짜
 ALTER TABLE tour_avail
-	ADD CONSTRAINT FK_tour_TO_tour_avail -- ���� -> ���డ�ɳ�¥
-		FOREIGN KEY (
-			tno -- �����ȣ
-		)
-		REFERENCES tour ( -- ����
-			tno -- �����ȣ
-		);
+    ADD CONSTRAINT PK_tour_avail -- 여행가능날짜 기본키
+        PRIMARY KEY (
+            tour_dt, -- 여행일자
+            tno      -- 여행번호
+        );
 
--- ��������ݳ���
+-- 수익입출금내역
+CREATE TABLE cash_his (
+    cno    INTEGER    NOT NULL COMMENT '수익금내역번호', -- 수익금내역번호
+    c_dt   DATE       NOT NULL COMMENT '발생일자', -- 발생일자
+    c_amt  INTEGER    NOT NULL COMMENT '금액', -- 금액
+    c_type VARCHAR(2) NOT NULL COMMENT '입출금유형', -- 입출금유형
+    c_stat VARCHAR(2) NOT NULL COMMENT '처리상태', -- 처리상태
+    mno    INTEGER    NOT NULL COMMENT '회원번호' -- 회원번호
+)
+COMMENT '수익입출금내역';
+
+-- 수익입출금내역
 ALTER TABLE cash_his
-	ADD CONSTRAINT FK_g_memb_TO_cash_his -- ���̵� -> ��������ݳ���
-		FOREIGN KEY (
-			mno -- ȸ����ȣ
-		)
-		REFERENCES g_memb ( -- ���̵�
-			mno -- ȸ����ȣ
-		);
+    ADD CONSTRAINT PK_cash_his -- 수익입출금내역 기본키
+        PRIMARY KEY (
+            cno -- 수익금내역번호
+        );
 
--- ��������������ø
+ALTER TABLE cash_his
+    MODIFY COLUMN cno INTEGER NOT NULL AUTO_INCREMENT COMMENT '수익금내역번호';
+
+-- 마이페이지사진첩
+CREATE TABLE mpg_phot (
+    photno   INTEGER      NOT NULL COMMENT '사진번호', -- 사진번호
+    tno      INTEGER      NOT NULL COMMENT '여행번호', -- 여행번호
+    tour_dt  DATE         NOT NULL COMMENT '여행일자', -- 여행일자
+    name     VARCHAR(255) NOT NULL COMMENT '이미지명', -- 이미지명
+    org_name VARCHAR(255) NOT NULL COMMENT '원본이미지명', -- 원본이미지명
+    up_dt    DATE         NOT NULL COMMENT '업로드일자' -- 업로드일자
+)
+COMMENT '마이페이지사진첩';
+
+-- 마이페이지사진첩
 ALTER TABLE mpg_phot
-	ADD CONSTRAINT FK_tour_avail_TO_mpg_phot -- ���డ�ɳ�¥ -> ��������������ø
-		FOREIGN KEY (
-			tour_dt, -- ��������
-			tno      -- �����ȣ
-		)
-		REFERENCES tour_avail ( -- ���డ�ɳ�¥
-			tour_dt, -- ��������
-			tno      -- �����ȣ
-		);
+    ADD CONSTRAINT PK_mpg_phot -- 마이페이지사진첩 기본키
+        PRIMARY KEY (
+            photno -- 사진번호
+        );
 
--- �ڽ�����
+ALTER TABLE mpg_phot
+    MODIFY COLUMN photno INTEGER NOT NULL AUTO_INCREMENT COMMENT '사진번호';
+
+-- 코스사진
+CREATE TABLE course_phot (
+    photno       INTEGER     NOT NULL COMMENT '사진번호', -- 사진번호
+    cr_no        INTEGER     NOT NULL COMMENT '코스번호', -- 코스번호
+    cr_phot_name VARCHAR(50) NOT NULL COMMENT '사진파일명' -- 사진파일명
+)
+COMMENT '코스사진';
+
+-- 코스사진
 ALTER TABLE course_phot
-	ADD CONSTRAINT FK_course_TO_course_phot -- �ڽ� -> �ڽ�����
-		FOREIGN KEY (
-			cr_no -- �ڽ���ȣ
-		)
-		REFERENCES course ( -- �ڽ�
-			cr_no -- �ڽ���ȣ
-		);
+    ADD CONSTRAINT PK_course_phot -- 코스사진 기본키
+        PRIMARY KEY (
+            photno -- 사진번호
+        );
 
--- �ڽ�
+ALTER TABLE course_phot
+    MODIFY COLUMN photno INTEGER NOT NULL AUTO_INCREMENT COMMENT '사진번호';
+
+-- 코스
+CREATE TABLE course (
+    cr_no    INTEGER      NOT NULL COMMENT '코스번호', -- 코스번호
+    tno      INTEGER      NOT NULL COMMENT '여행번호', -- 여행번호
+    cr_idx   INTEGER      NOT NULL COMMENT '순서', -- 순서
+    cr_name  VARCHAR(255) NOT NULL COMMENT '코스소개제목', -- 코스소개제목
+    cr_intro TEXT         NOT NULL COMMENT '코스소개' -- 코스소개
+)
+COMMENT '코스';
+
+-- 코스
 ALTER TABLE course
-	ADD CONSTRAINT FK_tour_TO_course -- ���� -> �ڽ�
-		FOREIGN KEY (
-			tno -- �����ȣ
-		)
-		REFERENCES tour ( -- ����
-			tno -- �����ȣ
-		);
+    ADD CONSTRAINT PK_course -- 코스 기본키
+        PRIMARY KEY (
+            cr_no -- 코스번호
+        );
 
--- �ı�
+-- 코스 유니크 인덱스
+CREATE UNIQUE INDEX UIX_course
+    ON course ( -- 코스
+        tno ASC,    -- 여행번호
+        cr_idx ASC  -- 순서
+    );
+
+ALTER TABLE course
+    MODIFY COLUMN cr_no INTEGER NOT NULL AUTO_INCREMENT COMMENT '코스번호';
+
+-- 후기
+CREATE TABLE comment (
+    cmt_no    INTEGER      NOT NULL COMMENT '후기번호', -- 후기번호
+    mno       INTEGER      NOT NULL COMMENT '후기작성자번호', -- 후기작성자번호
+    cont      TEXT         NOT NULL COMMENT '후기', -- 후기
+    cont_star DOUBLE       NOT NULL COMMENT '후기별점', -- 후기별점
+    cont_phot VARCHAR(255) NOT NULL COMMENT '후기사진', -- 후기사진
+    cont_dt   DATE         NOT NULL COMMENT '후기작성일시', -- 후기작성일시
+    del_yn    char(1)      NOT NULL COMMENT '삭제여부', -- 삭제여부
+    up_cmt_no INTEGER      NULL     COMMENT '상위후기번호', -- 상위후기번호
+    tno       INTEGER      NOT NULL COMMENT '여행번호' -- 여행번호
+)
+COMMENT '후기';
+
+-- 후기
 ALTER TABLE comment
-	ADD CONSTRAINT FK_comment_TO_comment -- �ı� -> �ı�
-		FOREIGN KEY (
-			up_cmt_no -- �����ı��ȣ
-		)
-		REFERENCES comment ( -- �ı�
-			cmt_no -- �ı��ȣ
-		);
+    ADD CONSTRAINT PK_comment -- 후기 기본키
+        PRIMARY KEY (
+            cmt_no -- 후기번호
+        );
 
--- �ı�
 ALTER TABLE comment
-	ADD CONSTRAINT FK_tour_TO_comment -- ���� -> �ı�
-		FOREIGN KEY (
-			tno -- �����ȣ
-		)
-		REFERENCES tour ( -- ����
-			tno -- �����ȣ
-		);
+    MODIFY COLUMN cmt_no INTEGER NOT NULL AUTO_INCREMENT COMMENT '후기번호';
 
--- �ı�
-ALTER TABLE comment
-	ADD CONSTRAINT FK_memb_TO_comment -- ȸ�� -> �ı�
-		FOREIGN KEY (
-			mno -- �ı��ۼ��ڹ�ȣ
-		)
-		REFERENCES memb ( -- ȸ��
-			mno -- ȸ����ȣ
-		);
+-- 랭킹
+CREATE TABLE ranking (
+    rnk_no   INTEGER     NOT NULL COMMENT '랭킹일련번호', -- 랭킹일련번호
+    rnk_type VARCHAR(2)  NOT NULL COMMENT '랭킹유형', -- 랭킹유형
+    rnk_item VARCHAR(50) NOT NULL COMMENT '랭킹항목', -- 랭킹항목
+    rnk      INTEGER     NOT NULL COMMENT '랭킹', -- 랭킹
+    tno      INTEGER     NOT NULL COMMENT '여행번호', -- 여행번호
+    rnk_dt   DATE        NOT NULL COMMENT '산출일자' -- 산출일자
+)
+COMMENT '랭킹';
 
--- ��ŷ
+-- 랭킹
 ALTER TABLE ranking
-	ADD CONSTRAINT FK_tour_TO_ranking -- ���� -> ��ŷ
-		FOREIGN KEY (
-			tno -- �����ȣ
-		)
-		REFERENCES tour ( -- ����
-			tno -- �����ȣ
-		);
+    ADD CONSTRAINT PK_ranking -- 랭킹 기본키
+        PRIMARY KEY (
+            rnk_no -- 랭킹일련번호
+        );
 
--- ������
+-- 랭킹 유니크 인덱스
+CREATE UNIQUE INDEX UIX_ranking
+    ON ranking ( -- 랭킹
+        rnk_type ASC, -- 랭킹유형
+        rnk_item ASC, -- 랭킹항목
+        tno ASC,      -- 여행번호
+        rnk ASC       -- 랭킹
+    );
+
+ALTER TABLE ranking
+    MODIFY COLUMN rnk_no INTEGER NOT NULL AUTO_INCREMENT COMMENT '랭킹일련번호';
+
+-- 여행자
+CREATE TABLE t_memb (
+    mno  INTEGER     NOT NULL COMMENT '회원번호', -- 회원번호
+    lang VARCHAR(50) NOT NULL COMMENT '선호언어' -- 선호언어
+)
+COMMENT '여행자';
+
+-- 여행자
 ALTER TABLE t_memb
-	ADD CONSTRAINT FK_memb_TO_t_memb -- ȸ�� -> ������
-		FOREIGN KEY (
-			mno -- ȸ����ȣ
-		)
-		REFERENCES memb ( -- ȸ��
-			mno -- ȸ����ȣ
-		);
+    ADD CONSTRAINT PK_t_memb -- 여행자 기본키
+        PRIMARY KEY (
+            mno -- 회원번호
+        );
 
--- ��û��Ȳ
+ALTER TABLE t_memb
+    MODIFY COLUMN mno INTEGER NOT NULL AUTO_INCREMENT COMMENT '회원번호';
+
+-- 신청현황
+CREATE TABLE const_stat (
+    tour_dt DATE    NOT NULL COMMENT '여행일자', -- 여행일자
+    tno     INTEGER NOT NULL COMMENT '여행번호', -- 여행번호
+    mx_pn   INTEGER NOT NULL COMMENT '최대인원', -- 최대인원
+    req_pn  INTEGER NOT NULL COMMENT '신청인원' -- 신청인원
+)
+COMMENT '신청현황';
+
+-- 신청현황
 ALTER TABLE const_stat
-	ADD CONSTRAINT FK_tour_avail_TO_const_stat -- ���డ�ɳ�¥ -> ��û��Ȳ
-		FOREIGN KEY (
-			tour_dt, -- ��������
-			tno      -- �����ȣ
-		)
-		REFERENCES tour_avail ( -- ���డ�ɳ�¥
-			tour_dt, -- ��������
-			tno      -- �����ȣ
-		);
+    ADD CONSTRAINT PK_const_stat -- 신청현황 기본키
+        PRIMARY KEY (
+            tour_dt, -- 여행일자
+            tno      -- 여행번호
+        );
+
+ALTER TABLE const_stat
+    MODIFY COLUMN tour_dt DATE NOT NULL AUTO_INCREMENT COMMENT '여행일자';
+
+-- 가이드
+ALTER TABLE g_memb
+    ADD CONSTRAINT FK_memb_TO_g_memb -- 회원 -> 가이드
+        FOREIGN KEY (
+            mno -- 회원번호
+        )
+        REFERENCES memb ( -- 회원
+            mno -- 회원번호
+        );
+
+-- 여행
+ALTER TABLE tour
+    ADD CONSTRAINT FK_category_TO_tour -- 카테고리 -> 여행
+        FOREIGN KEY (
+            cat_no -- 카테고리번호
+        )
+        REFERENCES category ( -- 카테고리
+            cat_no -- 카테고리번호
+        );
+
+-- 여행
+ALTER TABLE tour
+    ADD CONSTRAINT FK_g_memb_TO_tour -- 가이드 -> 여행
+        FOREIGN KEY (
+            mno -- 여행등록자
+        )
+        REFERENCES g_memb ( -- 가이드
+            mno -- 회원번호
+        );
+
+-- 카테고리
+ALTER TABLE category
+    ADD CONSTRAINT FK_category_TO_category -- 카테고리 -> 카테고리
+        FOREIGN KEY (
+            up_cat_no -- 상위카테고리번호
+        )
+        REFERENCES category ( -- 카테고리
+            cat_no -- 카테고리번호
+        );
+
+-- 여행신청(결제)
+ALTER TABLE tour_req
+    ADD CONSTRAINT FK_t_memb_TO_tour_req -- 여행자 -> 여행신청(결제)
+        FOREIGN KEY (
+            mno -- 회원번호
+        )
+        REFERENCES t_memb ( -- 여행자
+            mno -- 회원번호
+        );
+
+-- 여행신청(결제)
+ALTER TABLE tour_req
+    ADD CONSTRAINT FK_tour_avail_TO_tour_req -- 여행가능날짜 -> 여행신청(결제)
+        FOREIGN KEY (
+            tour_dt, -- 여행일자
+            tno      -- 여행번호
+        )
+        REFERENCES tour_avail ( -- 여행가능날짜
+            tour_dt, -- 여행일자
+            tno      -- 여행번호
+        );
+
+-- 여행가능날짜
+ALTER TABLE tour_avail
+    ADD CONSTRAINT FK_tour_TO_tour_avail -- 여행 -> 여행가능날짜
+        FOREIGN KEY (
+            tno -- 여행번호
+        )
+        REFERENCES tour ( -- 여행
+            tno -- 여행번호
+        );
+
+-- 수익입출금내역
+ALTER TABLE cash_his
+    ADD CONSTRAINT FK_g_memb_TO_cash_his -- 가이드 -> 수익입출금내역
+        FOREIGN KEY (
+            mno -- 회원번호
+        )
+        REFERENCES g_memb ( -- 가이드
+            mno -- 회원번호
+        );
+
+-- 마이페이지사진첩
+ALTER TABLE mpg_phot
+    ADD CONSTRAINT FK_tour_avail_TO_mpg_phot -- 여행가능날짜 -> 마이페이지사진첩
+        FOREIGN KEY (
+            tour_dt, -- 여행일자
+            tno      -- 여행번호
+        )
+        REFERENCES tour_avail ( -- 여행가능날짜
+            tour_dt, -- 여행일자
+            tno      -- 여행번호
+        );
+
+-- 코스사진
+ALTER TABLE course_phot
+    ADD CONSTRAINT FK_course_TO_course_phot -- 코스 -> 코스사진
+        FOREIGN KEY (
+            cr_no -- 코스번호
+        )
+        REFERENCES course ( -- 코스
+            cr_no -- 코스번호
+        );
+
+-- 코스
+ALTER TABLE course
+    ADD CONSTRAINT FK_tour_TO_course -- 여행 -> 코스
+        FOREIGN KEY (
+            tno -- 여행번호
+        )
+        REFERENCES tour ( -- 여행
+            tno -- 여행번호
+        );
+
+-- 후기
+ALTER TABLE comment
+    ADD CONSTRAINT FK_comment_TO_comment -- 후기 -> 후기
+        FOREIGN KEY (
+            up_cmt_no -- 상위후기번호
+        )
+        REFERENCES comment ( -- 후기
+            cmt_no -- 후기번호
+        );
+
+-- 후기
+ALTER TABLE comment
+    ADD CONSTRAINT FK_tour_TO_comment -- 여행 -> 후기
+        FOREIGN KEY (
+            tno -- 여행번호
+        )
+        REFERENCES tour ( -- 여행
+            tno -- 여행번호
+        );
+
+-- 후기
+ALTER TABLE comment
+    ADD CONSTRAINT FK_memb_TO_comment -- 회원 -> 후기
+        FOREIGN KEY (
+            mno -- 후기작성자번호
+        )
+        REFERENCES memb ( -- 회원
+            mno -- 회원번호
+        );
+
+-- 랭킹
+ALTER TABLE ranking
+    ADD CONSTRAINT FK_tour_TO_ranking -- 여행 -> 랭킹
+        FOREIGN KEY (
+            tno -- 여행번호
+        )
+        REFERENCES tour ( -- 여행
+            tno -- 여행번호
+        );
+
+-- 여행자
+ALTER TABLE t_memb
+    ADD CONSTRAINT FK_memb_TO_t_memb -- 회원 -> 여행자
+        FOREIGN KEY (
+            mno -- 회원번호
+        )
+        REFERENCES memb ( -- 회원
+            mno -- 회원번호
+        );
+
+-- 신청현황
+ALTER TABLE const_stat
+    ADD CONSTRAINT FK_tour_avail_TO_const_stat -- 여행가능날짜 -> 신청현황
+        FOREIGN KEY (
+            tour_dt, -- 여행일자
+            tno      -- 여행번호
+        )
+        REFERENCES tour_avail ( -- 여행가능날짜
+            tour_dt, -- 여행일자
+            tno      -- 여행번호
+        );
