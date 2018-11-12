@@ -1,0 +1,179 @@
+/*
+@media only screen and (max-width: 824px) {
+    .lnb-menu .lnb-menu__item{
+    	padding: 0 30px;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .lnb-menu .lnb-menu__item{
+    	padding: 0 15px;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .lnb-menu .lnb-menu__item{
+    	padding: 0 5px;
+    }
+}
+*/
+
+.lnb-container{
+	top: -50px;
+}
+.lnb-menu .lnb-menu__item{
+	padding: 0 70px;
+}
+.lnb-container.transparent{
+	border-top: 1px solid #e9ecef;
+}
+.lnb-menu .lnb-menu__item .lnb-menu__item--link{
+	font-weight: 900;
+}
+.mrt-container2{
+	height: 100%;
+	position: relative;
+	margin: 0 auto;
+	width: 1060px;
+}
+.sub-menu{
+	height: inherit;
+	width: auto;
+	z-index: inherit;
+}
+
+.sub-menu__item-contain:first-of-type{
+	padding-left: 0;
+}
+.sub-menu__item-contain:last-of-type{
+	padding-right: 0;
+}
+
+.sub-menu__item-contain{
+	border: 1px solid #75787b;
+	visibility: hidden;
+	position: absolute;
+	background: #fff;
+	width: 100px;
+	height: auto;
+	z-index: 1000;
+	text-align: center;
+}
+.Drawer.Drawer--appear{
+	visibility: hidden;
+}
+.on{
+	visibility: visible;
+}
+.lnb-menu li:hover ul{
+	visibility: visible;
+}
+
+.sub-menu__item-contain a{
+	color: #75787b;
+	font-size: 12px;
+	font-weight: 900;
+	line-height: 25px;
+	z-index: 1000;
+}
+
+.sub-menu__item-contain li {
+	padding: 10px;
+}
+
+.lnb-menu ul li:hover a{
+	/*
+background: rgb(71,71,71);
+color:#FFFFFF;
+text-decoration:none;
+*/
+color: #2b96ed;
+}
+
+.area-best-view{
+	height: 700px;
+}
+.map-wrap{
+	width: 40%;
+	float: left;
+}
+.OfferList__Items__Body {
+	float: right;
+}
+.OfferListCard{
+	width: 500px;
+	margin-top: 40px;
+}
+.OfferListCard__Content{
+	width: 285px;
+}
+
+.experience__summary{
+	margin-top: 50px;
+}
+.main-common__row {
+	margin-top: 100px;
+}
+.lnb-menu .lnb-menu__item .lnb-menu__item--link{
+	font-size: 18px;
+}
+
+/* reservations.html */
+.reservation-box .btn-container{
+	margin-top: 46px;
+}
+#ci-img{
+	width:78px; 
+	height: 25px;
+}
+
+/* account */
+.row{
+	display: inline-block;
+	margin-top: 32px;
+	margin-left: inherit;
+	margin-right: inherit;
+}
+.control-label{
+	font-size: 16px;
+	font-weight: bolder;
+}
+.margin-bottom-30 {
+	width: 100%;
+}
+.btn-block {
+	height: 44px;
+}
+.btn {
+	font-size: 1.4rem;
+}
+
+@media only screen and (min-width: 1024px) {
+    .lnb-menu .lnb-menu__item{
+    	padding: 0 70px;
+    }
+}
+
+@media only screen and (min-width: 824px) and (max-width: 1023px) {
+    .lnb-menu .lnb-menu__item{
+    	padding: 0 50px;
+    }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 823px) {
+    .lnb-menu .lnb-menu__item{
+    	padding: 0 30px;
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 639px) {
+    .lnb-menu .lnb-menu__item{
+    	padding: 0 15px;
+    }
+}
+
+@media only screen and (max-width: 479px) {
+    .lnb-menu .lnb-menu__item{
+    	padding: 0 5px;
+    }
+}
