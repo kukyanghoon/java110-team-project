@@ -17,8 +17,8 @@ import org.springframework.web.multipart.MultipartFile;
 import bitcamp.java110.cms.domain.Student;
 import bitcamp.java110.cms.service.StudentService;
 
-@Controller
-@RequestMapping("/student")
+//@Controller
+//@RequestMapping("/student")
 public class StudentController{
     
     StudentService studentService;

@@ -17,8 +17,8 @@ import org.springframework.web.multipart.MultipartFile;
 import bitcamp.java110.cms.domain.Manager;
 import bitcamp.java110.cms.service.ManagerService;
 
-@Controller //managerListController
-@RequestMapping("/manager")
+//@Controller //managerListController
+//@RequestMapping("/manager")
 public class ManagerController { 
     
     ManagerService managerService;

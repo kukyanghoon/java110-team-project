@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import bitcamp.java110.cms.domain.Member;
 import bitcamp.java110.cms.service.AuthService;
 
-@Controller
-@RequestMapping("/auth")
+//@Controller
+//@RequestMapping("/auth")
 public class AuthController{
 
     AuthService authService;

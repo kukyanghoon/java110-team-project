@@ -29,11 +29,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
                 ))
 */
 @PropertySource(
-        {"classpath:/bitcamp/java110/cms/conf/jdbc.properties",
-            "classpath:/bitcamp/java110/cms/conf/sec.properties"})
+        {"classpath:/leadme/conf/jdbc.properties",
+            "classpath:/leadme/conf/sec.properties"})
 
 //Mybatis에서 자동으로 DAO를생성할 때 사용할 인터페이스가 들어있는 패키지 설정
-@MapperScan("bitcamp.java110.cms.dao")
+//@MapperScan("leadme.dao")
 
 // 트랜젝션 관리자를 활성화 하려면 다음 애노테이션을 붙여야 한다
 @EnableTransactionManagement
@@ -77,11 +77,11 @@ public class AppConfig {
             // 도메인 객체가 
             
             // 데이터를 저장할 때 사용할 도메인 객체의 별명을 자동으로 생성할 클래스가 들어있는 패키지 지정
-            factory.setTypeAliasesPackage("bitcamp.java110.cms.domain");
+            factory.setTypeAliasesPackage("leadme.domain");
             
             // SQL 맵퍼 파일 경로를 등록한다
             factory.setMapperLocations(appCtx.getResources(
-                    "classpath:/bitcamp/java110/cms/mapper/**/*.xml"));
+                    "classpath:/leadme/mapper/**/*.xml"));
             return factory.getObject();
             
         }catch (Exception e) {

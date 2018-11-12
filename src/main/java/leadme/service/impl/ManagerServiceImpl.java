@@ -14,7 +14,7 @@ import bitcamp.java110.cms.dao.PhotoDao;
 import bitcamp.java110.cms.domain.Manager;
 import bitcamp.java110.cms.service.ManagerService;
 
-@Service
+//@Service
 public class ManagerServiceImpl implements ManagerService {
 
     @Autowired MemberDao memberDao;

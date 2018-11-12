@@ -13,7 +13,7 @@ import bitcamp.java110.cms.dao.TeacherDao;
 import bitcamp.java110.cms.domain.Teacher;
 import bitcamp.java110.cms.service.TeacherService;
 
-@Service
+//@Service
 public class TeacherServiceImpl implements TeacherService {
 
     @Autowired MemberDao memberDao;
