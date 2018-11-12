@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MemberDao 클래스가 사용할 SQL이 들어 있는 파일 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.java110.cms.dao.TeacherDao">
+
+    <resultMap type="teacher" id="teacherMap">
+        <id column="mno"        property="no"/>
+        <result column="name"   property="name"/>
+        <result column="email"  property="email"/>
+        <result column="tel"    property="tel"/>
+        <result column="hrpay"   property="pay"/>
+        <result column="subj"   property="subjects"/>
+    </resultMap>
+    
+    <sql id="select1">
+        select 
+            m.mno,
+            m.name,
+            m.email,
+            m.tel,
+            t.hrpay,
+            t.subj,
+            mp.photo
+        from 
+            p1_tchr t
+            inner join p1_memb m on t.tno = m.mno
+            left outer join p1_memb_phot mp on t.tno = mp.mno
+    </sql>
+
+    <select id="findAll" resultMap="teacherMap" parameterType="map">
+        select
+            m.mno,
+            m.name, 
+            m.email, 
+            m.tel,
+            t.hrpay,
+            t.subj  
+        from 
+            p1_tchr t 
+            inner join p1_memb m on t.tno = m.mno
+        order by 
+            m.name asc
+        limit #{rowNo}, #{size} 
+    </select>
+
+    <select id="findByEmail" 
+            resultMap="teacherMap" parameterType="string">
+        <include refid="select1"></include>
+        where 
+            m.email=#{value}
+    </select>
+    
+    <select id="findByNo" 
+            resultMap="teacherMap" parameterType="int">
+        <include refid="select1"></include>
+        where 
+            m.mno=#{value}
+    </select>
+    
+    <select id="findByEmailPassword" 
+            resultMap="teacherMap" parameterType="map">
+        <include refid="select1"></include>
+        where
+            m.email=#{email} and m.pwd=password(#{password})
+    </select> 
+    
+    <insert id="insert" parameterType="manager">
+        insert into p1_tchr(tno,hrpay,subj) 
+        values(#{no},#{pay},#{subjects})
+    </insert> 
+    
+    <delete id="delete" parameterType="int">
+        delete from p1_tchr 
+        where tno=#{value}
+    </delete>
+</mapper>
+
+
+
+
+
+
+
+
+

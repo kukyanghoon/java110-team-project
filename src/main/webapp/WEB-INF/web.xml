@@ -8,10 +8,25 @@
   metadata-complete="false">
 
     <description>
-       LEADME
+       미니 프로젝트로 [수업 관리 시스템]을 구현한 웹 애플리케이션이다. 
     </description>
-    <display-name>bitcamp java110 final-project LEADME</display-name>
+    <display-name>Classroom Management System(CMS)</display-name>
 
+    <!-- 컨텍스트 초기화 파라미터 설정 -->
+
+    
+    <!--
+       다음 태그가 지원이 안되는 경우,
+       request.setCharacterEncoding()으로 POST 요청 한글 데이터를 처리해야 한다.  
+    <request-character-encoding>UTF-8</request-character-encoding>
+    -->
+    
+    <!-- 리스너 배치하기 -->
+    <!-- <listener>
+        <listener-class>bitcamp.java110.cms.listener.ContextLoaderListener</listener-class>
+    </listener> -->
+    
+    <!-- 필터 배치하기 -->
     <filter>
         <filter-name>CharacterEncodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>    
@@ -23,13 +38,29 @@
     
     <filter-mapping>
         <filter-name>CharacterEncodingFilter</filter-name>
-        <url-pattern>/leadme/*</url-pattern>
+        <url-pattern>/app/*</url-pattern>
     </filter-mapping>
     
+    <!-- 프론트 컨트롤러 서블릿 배치하기 -->
     <servlet>
-        <servlet-name>leadme</servlet-name>
+        <servlet-name>app</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         
+        <!-- 프런트 컨트롤러가 사용할 IoC 컨테이너 클래스를지정하기 -->
+        <!-- 
+        <init-param>
+            <param-name>contextClass</param-name>
+            <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+        </init-param>
+         -->
+        <!-- 위에서 지정한 IoC 컨테이너가 사용할 Java config 클래스 -->
+        <!-- 
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>bitcamp.java110.cms.AppConfig</param-value>
+        </init-param>
+         -->
+         
         <load-on-startup>1</load-on-startup>
         <multipart-config>
             <max-file-size>2000000</max-file-size>
@@ -38,10 +69,11 @@
     </servlet>
     
     <servlet-mapping>
-        <servlet-name>leadme</servlet-name>
-        <url-pattern>/leadme/*</url-pattern>
+        <servlet-name>app</servlet-name>
+        <url-pattern>/app/*</url-pattern>
     </servlet-mapping>
     
+    <!-- 클라이언트가 요청한 URL에 대해 기본 파일을 찾을 때 우선 순위 -->
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.jsp</welcome-file>

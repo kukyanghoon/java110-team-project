@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MemberDao 클래스가 사용할 SQL이 들어 있는 파일 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.java110.cms.dao.ManagerDao">
+
+    <resultMap type="manager" id="managerMap">
+        <id column="mno"        property="no"/>
+        <result column="name"   property="name"/>
+        <result column="email"  property="email"/>
+        <result column="tel"    property="tel"/>
+        <result column="posi"   property="position"/>
+        <result column="photo"  property="photo"/>
+    </resultMap>
+    
+    <sql id="select1">
+        select 
+            m.mno,
+            m.name,
+            m.email,
+            m.tel,
+            mr.posi,
+            mp.photo
+        from 
+            p1_mgr mr
+            inner join p1_memb m on mr.mrno = m.mno
+            left outer join p1_memb_phot mp on mr.mrno = mp.mno
+    </sql>
+
+    <select id="findAll" resultMap="managerMap" parameterType="map">
+        select
+            m.mno,
+            m.name, 
+            m.email, 
+            m.tel,
+            mr.posi 
+        from 
+            p1_mgr mr 
+            inner join p1_memb m on mr.mrno = m.mno
+        order by 
+            m.name asc
+        limit #{rowNo}, #{size}
+    </select>
+
+    <select id="findByEmail" 
+            resultMap="managerMap" parameterType="string">
+        <include refid="select1"></include>
+        where 
+            m.email=#{value}
+    </select>
+    
+    <select id="findByNo" 
+            resultMap="managerMap" parameterType="int">
+        <include refid="select1"></include>
+        where 
+            m.mno=#{value}
+    </select>
+    
+    <select id="findByEmailPassword" 
+            resultMap="managerMap" parameterType="map">
+        <include refid="select1"></include>
+        where
+            m.email=#{email} and m.pwd=password(#{password})
+    </select> 
+    
+    <insert id="insert" parameterType="manager">
+        insert into p1_mgr(mrno,posi) 
+        values(#{no},#{position})
+    </insert> 
+    
+    <delete id="delete" parameterType="int">
+        delete from p1_mgr 
+        where mrno=#{value}
+    </delete>
+</mapper>
+
+
+
+
+
+
+
+
+
