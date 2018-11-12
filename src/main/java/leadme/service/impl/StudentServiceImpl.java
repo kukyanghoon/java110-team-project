@@ -13,7 +13,7 @@ import leadme.dao.StudentDao;
 import leadme.domain.Student;
 import leadme.service.StudentService;
 
-@Service
+//@Service
 public class StudentServiceImpl implements StudentService {
 
     @Autowired MemberDao memberDao;

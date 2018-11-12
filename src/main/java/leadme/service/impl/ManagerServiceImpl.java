@@ -14,7 +14,7 @@ import leadme.dao.PhotoDao;
 import leadme.domain.Manager;
 import leadme.service.ManagerService;
 
-@Service
+//@Service
 public class ManagerServiceImpl implements ManagerService {
 
     @Autowired MemberDao memberDao;

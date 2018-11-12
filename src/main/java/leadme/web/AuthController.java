@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import leadme.domain.Member;
 import leadme.service.AuthService;
 
-@Controller
-@RequestMapping("/auth")
+//@Controller
+//@RequestMapping("/auth")
 public class AuthController{
 
     AuthService authService;

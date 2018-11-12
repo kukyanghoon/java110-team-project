@@ -17,8 +17,8 @@ import org.springframework.web.multipart.MultipartFile;
 import leadme.domain.Student;
 import leadme.service.StudentService;
 
-@Controller
-@RequestMapping("/student")
+//@Controller
+//@RequestMapping("/student")
 public class StudentController{
     
     StudentService studentService;

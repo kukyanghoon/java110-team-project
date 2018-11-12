@@ -3,10 +3,7 @@ package leadme.web;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import leadme.web.intercepter.AuthInterCepter;
 
 // 이 클래스가 IoC컨테이너가 사용해야할 설정 정보를 담고있는 클래스임을
 // 프론트 컨트롤러에게 알려주기위해서는 다음 애노테이션을 반드시 붙여야 한다
@@ -29,13 +26,15 @@ public class WebConfig
     
     // 인터셉터를 설정하고 싶다면 다음 메서드를 구현하라
     // => 이 메서드를 프론트 컨트롤러가 호출하여 인터셉터를 관리할 것이다
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
+    
+    
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
         // 추가하고픈 인터셉터를 등록기(registry)에 추가하라
-        registry.addInterceptor(new AuthInterCepter())
-                .addPathPatterns("/**/add","/**/delete");
+//        registry.addInterceptor(new AuthInterCepter())
+//                .addPathPatterns("/**/add","/**/delete");
         
         
-    }
+//    }
     
 }

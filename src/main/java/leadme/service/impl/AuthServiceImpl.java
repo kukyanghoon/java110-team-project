@@ -11,7 +11,7 @@ import leadme.dao.TeacherDao;
 import leadme.domain.Member;
 import leadme.service.AuthService;
 
-@Service
+//@Service
 public class AuthServiceImpl implements AuthService {
 
     @Autowired ManagerDao managerDao;

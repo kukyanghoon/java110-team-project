@@ -17,8 +17,8 @@ import org.springframework.web.multipart.MultipartFile;
 import leadme.domain.Manager;
 import leadme.service.ManagerService;
 
-@Controller //managerListController
-@RequestMapping("/manager")
+//@Controller //managerListController
+//@RequestMapping("/manager")
 public class ManagerController { 
     
     ManagerService managerService;
