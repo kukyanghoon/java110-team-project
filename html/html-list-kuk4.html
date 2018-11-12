@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #wrap{
+            width: 220px;
+            height: 432px;
+            border: 1px solid silver;
+        }
+        .c_item{
+            text-align : center;
+            
+        }
+        .list{
+            list-style: none;
+            float:left;
+            clear: both;
+            
+        }
+        .cta{
+            clear: both;
+        }
+        
+        li:hover{
+            color:aqua;
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="c_item" role="button" tabindex="-1">
+            <span class="item"><h2>역사/문화</h2></span>
+            <ul>
+                <li class="list">
+                    <a href="#"><h3>고궁</h3></a>
+                </li>
+                <li class="list">
+                    <a href="#"><h3>역사관/박물관</h3></a>
+                </li>
+                <li class="list">
+                    <a href="#"><h3>유적지</h3></a>
+                </li>
+                <li class="list">
+                    <a href="#"><h3>민속마을</h3></a>
+                </li>
+            </ul>
+        </div>
+        <div>
+        <ul class="cta">
+            <input type="checkbox"><span>경기도</span>
+            <input type="checkbox" checked><span>서울</span><br>
+            <input type="checkbox"><span>충청도</span>
+            <input type="checkbox"><span>부산</span><br>
+            <input type="checkbox"><span>강원도</span>
+            <input type="checkbox"><span>경상도</span><br>
+            <input type="checkbox"><span>전라도</span>
+            <input type="checkbox"><span>제주</span><br>
+        </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
