@@ -1,6 +1,6 @@
 package leadme.dao;
 
-import bitcamp.java110.cms.domain.Member;
+import leadme.domain.Member;
 
 public interface MemberDao {
     int insert(Member member);

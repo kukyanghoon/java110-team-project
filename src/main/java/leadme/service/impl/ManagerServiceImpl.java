@@ -2,17 +2,15 @@ package leadme.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
-import bitcamp.java110.cms.dao.ManagerDao;
-import bitcamp.java110.cms.dao.MemberDao;
-import bitcamp.java110.cms.dao.PhotoDao;
-import bitcamp.java110.cms.domain.Manager;
-import bitcamp.java110.cms.service.ManagerService;
+import leadme.dao.ManagerDao;
+import leadme.dao.MemberDao;
+import leadme.dao.PhotoDao;
+import leadme.domain.Manager;
+import leadme.service.ManagerService;
 
 @Service
 public class ManagerServiceImpl implements ManagerService {

@@ -1,44 +1,44 @@
 package leadme.service.impl;
 
 import java.util.HashMap;
-
+import java.util.Map;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import bitcamp.java110.cms.dao.ManagerDao;
-import bitcamp.java110.cms.dao.StudentDao;
-import bitcamp.java110.cms.dao.TeacherDao;
-import bitcamp.java110.cms.domain.Member;
-import bitcamp.java110.cms.service.AuthService;
+import leadme.dao.AuthDao;
+import leadme.domain.Member;
+import leadme.service.AuthService;
 
 @Service
 public class AuthServiceImpl implements AuthService {
 
-    @Autowired ManagerDao managerDao;
-    @Autowired TeacherDao teacherDao;
-    @Autowired StudentDao studentDao;
+  @Autowired AuthDao authDao;
+  
+  
+  @Override
+  public Member login(Member member) {
+    Map<String, Object> param = new HashMap<String, Object>();
+    param.put("email", member.getEmail());
+    param.put("password", member.getPassword());
     
-    @Override
-    public Member getMember(
-            String email, String password, String memberType) {
-        
-        HashMap<String,Object> params = new HashMap<>();
-        params.put("email", email);
-        params.put("password", password);
-        
-        if (memberType.equals("manager")) {
-            return managerDao.findByEmailPassword(params);
-            
-        } else if (memberType.equals("student")) {
-            return studentDao.findByEmailPassword(params);
-            
-        } else if (memberType.equals("teacher")) {
-            return teacherDao.findByEmailPassword(params);
-            //프록시 => 인터페이스구현을 대신해주는 
-        } else {
-            return null;
-        }
-    }
+    return authDao.login(param);
+  }
+  
+  @Override
+  public void loginPass(Member member, HttpSession session) {
+    
+    session.setAttribute("member", member);
+    
+    Member loginMember = (Member)session.getAttribute("member");
+    System.out.println("loginPass");
+    System.out.println(loginMember.getEmail());
+    System.out.println(loginMember.getName());
+    System.out.println(loginMember.getPhoto());
+    System.out.println(loginMember.getPath());
+  }
+
+
+
 }
 
 

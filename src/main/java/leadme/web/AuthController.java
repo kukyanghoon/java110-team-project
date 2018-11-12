@@ -1,17 +1,14 @@
 package leadme.web;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import bitcamp.java110.cms.domain.Member;
-import bitcamp.java110.cms.service.AuthService;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import leadme.domain.Member;
+import leadme.service.AuthService;
 
 @Controller
 @RequestMapping("/auth")
@@ -28,7 +25,27 @@ public class AuthController{
     }
     
     
-    @PostMapping("login")
+    @RequestMapping(value="login")
+    public String login() {
+      return "/auth/login";
+    }
+    
+    @RequestMapping(value="loginCheck.do", method=RequestMethod.POST)
+    @ResponseBody
+    public void loginCheck(@RequestBody Member member, HttpSession session) {
+      try {
+        authService.loginPass(authService.login(member), session);
+        
+      } catch (Exception e) {
+        System.out.println("회원 정보 없음");
+        
+      }
+      
+    }
+    
+    
+    
+    /*@PostMapping("login")
     public String login(
             String type,
             String email,
@@ -72,7 +89,7 @@ public class AuthController{
             return "redirect:form";
         }
         
-    }
+    }*/
     
     @RequestMapping("logout")
     public String logout(
