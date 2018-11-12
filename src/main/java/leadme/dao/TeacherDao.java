@@ -2,7 +2,6 @@ package leadme.dao;
 
 import java.util.List;
 import java.util.Map;
-
 import leadme.domain.Teacher;
 
 public interface TeacherDao {

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
 import leadme.dao.ManagerDao;
 import leadme.dao.MemberDao;
 import leadme.dao.PhotoDao;

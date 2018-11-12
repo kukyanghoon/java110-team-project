@@ -11,7 +11,14 @@ public class Member implements Serializable {
     protected String password;
     protected String tel;
     protected String photo;
+    protected String path;
     
+    public String getPath() {
+      return path;
+    }
+    public void setPath(String path) {
+      this.path = path;
+    }
     public int getNo() {
         return no;
     }
