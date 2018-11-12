@@ -34,7 +34,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 //Mybatis에서 자동으로 DAO를생성할 때 사용할 인터페이스가 들어있는 패키지 설정
 
-//@MapperScan("leadme.dao")
+@MapperScan("leadme.dao")
 
 // 트랜젝션 관리자를 활성화 하려면 다음 애노테이션을 붙여야 한다
 @EnableTransactionManagement

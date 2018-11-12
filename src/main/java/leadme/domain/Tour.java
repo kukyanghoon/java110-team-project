@@ -148,5 +148,13 @@ public class Tour implements Serializable {
       this.mno = mno;
     }
     
-    
+    @Override
+    public String toString() {
+      return "Tour [tno=" + tno + ", titl=" + titl + ", loc=" + loc + ", star=" + star
+          + ", cmt_cnt=" + cmt_cnt + ", hits=" + hits + ", amt=" + amt + ", tour_intro="
+          + tour_intro + ", req_inf=" + req_inf + ", req_dt=" + req_dt + ", mod_dt=" + mod_dt
+          + ", join_plc=" + join_plc + ", lat=" + lat + ", lon=" + lon + ", join_tm=" + join_tm
+          + ", del_yn=" + del_yn + ", pri_phot=" + pri_phot + ", pri_mv=" + pri_mv + ", cat_no="
+          + cat_no + ", mno=" + mno + "]";
+    }
 }

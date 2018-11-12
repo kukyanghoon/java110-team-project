@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MemberDao 클래스가 사용할 SQL이 들어 있는 파일 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="leadme.dao.RankingDao">
+
+    <resultMap type="tour" id="tourMap">
+        <id column="tno"           property="tno"/>
+        <result column="titl"      property="titl"/>
+        <result column="loc"       property="loc"/>
+        <result column="star"      property="star"/>
+        <result column="cmt_cnt"   property="cmt_cnt"/>
+        <result column="amt"       property="amt"/>
+        <result column="pri_phot"  property="pri_phot"/>
+        <result column="cat_no"    property="cat_no"/>
+    </resultMap>
+    
+    <sql id="select1">
+        select 
+            t.tno,
+            t.titl,
+            t.loc,
+            t.star,
+            t.cmt_cnt,
+            t.amt,
+            t.pri_phot,
+            t.cat_no
+         from 
+            tour t inner join ranking r on t.tno = r.tno            
+    </sql>
+
+    <select id="getListThemeBest" resultMap="tourMap" parameterType="String">
+        <include refid="select1"></include>
+        where r.rnk_type = '02'
+          and DATE_FORMAT(r.rnk_dt, '%Y-%m-%d') = #{value}
+        order by 
+            r.rnk_item, r.rnk asc
+    </select>
+
+</mapper>
+
+
+
+
+
+
+
+
+

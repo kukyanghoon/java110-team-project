@@ -1,22 +1,25 @@
 package leadme.web;
 
+import java.util.List;
 import javax.servlet.ServletContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import leadme.domain.Tour;
+import leadme.service.MainService;
 
 @Controller //managerListController
 //@RequestMapping("/main")
 public class MainController { 
     
-//    MainService mainService;
+    MainService mainService;
     ServletContext sc;
     
     public MainController(
-//            MainService mainService, 
+            MainService mainService, 
             ServletContext sc) {
-//        this.mainService = mainService;
+        this.mainService = mainService;
         this.sc = sc;
     }
 
@@ -24,20 +27,15 @@ public class MainController {
     public void main(
             @RequestParam(defaultValue="kor") String lang,
             Model model){
+      
+        List<Tour> list = mainService.getListThemeBest("2018-11-12");
         
-      /*
-            if (pageNo < 1)
-                pageNo = 1;
-            
-            if (pageSize < 3 || pageSize > 10)
-                pageSize = 3;
+        for(Tour t:list) {
+          System.out.println(t);
+        }
         
-        List<Manager> list = managerService.list(pageNo, pageSize);
         model.addAttribute("list", list);
-      */
-        
     }
-    
 }
 
 
