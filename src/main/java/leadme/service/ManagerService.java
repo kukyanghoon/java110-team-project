@@ -1,7 +1,6 @@
 package leadme.service;
 
 import java.util.List;
-
 import leadme.domain.Manager;
 
 public interface ManagerService {

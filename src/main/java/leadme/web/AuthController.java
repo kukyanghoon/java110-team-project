@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import leadme.domain.Member;
 import leadme.service.AuthService;
 
-//@Controller
-//@RequestMapping("/auth")
+@Controller
+@RequestMapping("/auth")
 public class AuthController{
 
     AuthService authService;
@@ -28,7 +28,7 @@ public class AuthController{
     }
     
     
-    @PostMapping("login")
+/*@PostMapping("login")
     public String login(
             String type,
             String email,
@@ -72,7 +72,7 @@ public class AuthController{
             return "redirect:form";
         }
         
-    }
+    }*/
     
     @RequestMapping("logout")
     public String logout(

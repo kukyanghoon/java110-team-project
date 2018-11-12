@@ -8,7 +8,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 // 이 클래스가 IoC컨테이너가 사용해야할 설정 정보를 담고있는 클래스임을
 // 프론트 컨트롤러에게 알려주기위해서는 다음 애노테이션을 반드시 붙여야 한다
 @Configuration
-
 //다음 애노테이션을 붙이면 <mvc:annotation-driven/> 와 같은의미이다
 // 즉 MVC 설정을 활성화 시킨다
 @EnableWebMvc

@@ -25,4 +25,31 @@ Release/
 
 hs_err_pid*
 
+node_modules/
+.vscode/
+.gradle/
+.settings/
+bin/
+build/
+temp/
+Debug/
+Release/
+
+.DS_Store
+.classpath
+.project
+*.class
+*.log
+*.ctxt
+.mtj.tmp/
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+**/sec.properties
+
+
 !build.gradle

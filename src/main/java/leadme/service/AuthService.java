@@ -1,7 +1,9 @@
 package leadme.service;
 
+import javax.servlet.http.HttpSession;
 import leadme.domain.Member;
 
 public interface AuthService {
-    Member getMember(String email, String password, String memberType);
+    Member login(Member member);
+    void loginPass(Member member, HttpSession session);
 }

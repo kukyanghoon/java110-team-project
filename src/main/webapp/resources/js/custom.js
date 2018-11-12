@@ -21,6 +21,7 @@ $('.map-link').on('mouseenter', function () {
 		
 		var classNm = $(this).attr('class');
 		var currentNm = classNm.split("-").pop();
+<<<<<<< HEAD
 		$('#map-img').attr('src', '/resources/img/map_korea_' + currentNm + '.jpg');
 		
 	}).on('mouseleave', function () {
@@ -30,6 +31,17 @@ $('.map-link').on('mouseenter', function () {
 			$('#map-img').attr('src', '/resources/img/map_korea_' + currentNm + '.jpg');
 		 } else {
 			$('#map-img').attr('src', '/resources/img/map_korea.jpg');
+=======
+		$('#map-img').attr('src', 'img/map_korea_' + currentNm + '.jpg');
+		
+	}).on('mouseleave', function () {
+		 var classNm = $(this).attr('class');
+		 var currentNm = classNm.split("-").pop();
+		 if($('#map-img').hasClass('clicked')) {
+			$('#map-img').attr('src', 'img/map_korea_' + currentNm + '.jpg');
+		 } else {
+			$('#map-img').attr('src', 'img/map_korea.jpg');
+>>>>>>> refs/heads/KimJongKyu
 		 }
 		 
 	}).on('click', function (e) {
