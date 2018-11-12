@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"
     trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 
 <!DOCTYPE html>
 <html>
@@ -664,412 +665,51 @@
 <div class='main-content'>
 <div class='offer-container card-type card-hot-deal swiper-container' name='offer_card'>
 <ul class='item-container offer-item-container item-container--swiper swiper-wrapper'>
-<li class='card-type-a item swiper-slide' data-gtm-action='인기 티켓/교통패스' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='5683' data-offer-id='5683' data-offer-type='ETicket'>
-<a class="wish" data-offer-id="5683" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/5683.js"><div class='icon'></div>
-</a><div class='card-cover'>
-<a class='offer-link' href='/offers/5683'>
-<div class='img-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/5683/153360_tiny_1525757069.jpg?1525757069'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/5683/153360_medium_1525757069.jpg?1525757069'>
-</div>
-</div>
-<div class='content-box'>
-<div class='city-name'>티켓/교통패스 • 오사카</div>
-<div class='name'>오사카 유니버셜 스튜디오 재팬™ 입장권 (UNIVERSAL STUDIOS JAPAN)</div>
-<div class='inner-container'>
-<div class='review'>
-<div class="rating-box"><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span></div>
-<div class='text'>후기 3649개</div>
-</div>
-<div class='price' data-offer-price='53,600원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span>53,600원</span>
-<span class='unit'>/ 1인</span>
-<meta content='KRW' itemprop='priceCurrency'>
-<meta content='53600' itemprop='price'>
-</div>
-<div class='instant-booking'>
-<img alt='instant booking' class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/ic_instant_small@2x-b1e30b9ec3cf4315c6aeff17fa811498296cd97ca981c9a1d219fd2adcc659d4.png' width='9'>
-<span class='hide-on-mobile'>바로사용</span>
-</div>
-</div>
-</div>
-</a>
-</div>
-</li>
-<li class='card-type-a item swiper-slide' data-gtm-action='인기 티켓/교통패스' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='21989' data-offer-id='21989' data-offer-type='ETicket'>
-<a class="wish" data-offer-id="21989" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/21989.js"><div class='icon'></div>
-</a><div class='card-cover'>
-<a class='offer-link' href='/offers/21989'>
-<div class='img-container'>
-<div class='best-price-box'>
-최저가 보장제
-</div>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/21989/133683_tiny_1525762622.jpg?1525762622'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/21989/133683_medium_1525762622.jpg?1525762622'>
-</div>
-</div>
-<div class='content-box'>
-<div class='city-name'>티켓/교통패스 • 도쿄</div>
-<div class='name'>[출력필수 e티켓] 도쿄 디즈니랜드/디즈니씨 (택1) 성인 입장권</div>
-<div class='inner-container'>
-<div class='review'>
-<div class="rating-box"><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span></div>
-<div class='text'>후기 2076개</div>
-</div>
-<div class='price' data-offer-price='48,300원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span>48,300원</span>
-<span class='unit'>/ 1인</span>
-<meta content='KRW' itemprop='priceCurrency'>
-<meta content='48300' itemprop='price'>
-</div>
-<div class='instant-booking'>
-<img alt='instant booking' class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/ic_instant_small@2x-b1e30b9ec3cf4315c6aeff17fa811498296cd97ca981c9a1d219fd2adcc659d4.png' width='9'>
-<span class='hide-on-mobile'>바로사용</span>
-</div>
-</div>
-</div>
-</a>
-</div>
-</li>
-<li class='card-type-a item swiper-slide' data-gtm-action='인기 티켓/교통패스' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='15441' data-offer-id='15441' data-offer-type='ETicket'>
-<a class="wish" data-offer-id="15441" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/15441.js"><div class='icon'></div>
-</a><div class='card-cover'>
-<a class='offer-link' href='/offers/15441'>
-<div class='img-container'>
-<div class='best-price-box'>
-최저가 보장제
-</div>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/15441/194552_tiny_1525743333.jpg?1525743333'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/15441/194552_medium_1525743333.jpg?1525743333'>
-</div>
-</div>
-<div class='content-box'>
-<div class='city-name'>티켓/교통패스 • 홍콩</div>
-<div class='name'> 홍콩 디즈니랜드 입장권 티켓</div>
-<div class='inner-container'>
-<div class='review'>
-<div class="rating-box"><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span></div>
-<div class='text'>후기 2185개</div>
-</div>
-<div class='price' data-offer-price='54,500원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span>54,500원</span>
-<span class='unit'>/ 1인</span>
-<meta content='KRW' itemprop='priceCurrency'>
-<meta content='54500' itemprop='price'>
-</div>
-<div class='instant-booking'>
-<img alt='instant booking' class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/ic_instant_small@2x-b1e30b9ec3cf4315c6aeff17fa811498296cd97ca981c9a1d219fd2adcc659d4.png' width='9'>
-<span class='hide-on-mobile'>바로사용</span>
-</div>
-</div>
-</div>
-</a>
-</div>
-</li>
-<li class='card-type-a item swiper-slide' data-gtm-action='인기 티켓/교통패스' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='21988' data-offer-id='21988' data-offer-type='ETicket'>
-<a class="wish" data-offer-id="21988" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/21988.js"><div class='icon'></div>
-</a><div class='card-cover'>
-<a class='offer-link' href='/offers/21988'>
-<div class='img-container'>
-<div class='best-price-box'>
-최저가 보장제
-</div>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/21988/133661_tiny_1525762500.jpg?1525762500'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/21988/133661_medium_1525762500.jpg?1525762500'>
-</div>
-</div>
-<div class='content-box'>
-<div class='city-name'>티켓/교통패스 • 싱가포르</div>
-<div class='name'>싱가포르(싱가폴) 유니버셜 스튜디오 입장권/티켓</div>
-<div class='inner-container'>
-<div class='review'>
-<div class="rating-box"><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span></div>
-<div class='text'>후기 1802개</div>
-</div>
-<div class='price' data-offer-price='35,800원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span>35,800원</span>
-<span class='unit'>/ 1인</span>
-<meta content='KRW' itemprop='priceCurrency'>
-<meta content='35800' itemprop='price'>
-</div>
-<div class='instant-booking'>
-<img alt='instant booking' class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/ic_instant_small@2x-b1e30b9ec3cf4315c6aeff17fa811498296cd97ca981c9a1d219fd2adcc659d4.png' width='9'>
-<span class='hide-on-mobile'>바로사용</span>
-</div>
-</div>
-</div>
-</a>
-</div>
-</li>
-<li class='card-type-a item swiper-slide' data-gtm-action='인기 티켓/교통패스' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='22565' data-offer-id='22565' data-offer-type='ETicket'>
-<a class="wish" data-offer-id="22565" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/22565.js"><div class='icon'></div>
-</a><div class='card-cover'>
-<a class='offer-link' href='/offers/22565'>
-<div class='img-container'>
-<div class='best-price-box'>
-최저가 보장제
-</div>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/22565/147564_tiny_1525760159.jpg?1525760159'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/22565/147564_medium_1525760159.jpg?1525760159'>
-</div>
-</div>
-<div class='content-box'>
-<div class='city-name'>티켓/교통패스 • 오사카</div>
-<div class='name'>[인천/김포/김해공항 수령] 오사카 라피트 왕복권 (교환권)</div>
-<div class='inner-container'>
-<div class='review'>
-<div class="rating-box"><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span></div>
-<div class='text'>후기 3080개</div>
-</div>
-<div class='price' data-offer-price='19,400원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span class='original-price'>23,977원</span>
-<span class='discount-price'>19,400원</span>
-<meta content='KRW' itemprop='priceCurrency'>
-<meta content='19400' itemprop='price'>
-</div>
-<div class='instant-booking'>
-<img alt='instant booking' class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/ic_instant_small@2x-b1e30b9ec3cf4315c6aeff17fa811498296cd97ca981c9a1d219fd2adcc659d4.png' width='9'>
-<span class='hide-on-mobile'>바로사용</span>
-</div>
-</div>
-</div>
-</a>
-</div>
-</li>
-<li class='card-type-a item swiper-slide' data-gtm-action='인기 티켓/교통패스' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='22563' data-offer-id='22563' data-offer-type='ETicket'>
-<a class="wish" data-offer-id="22563" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/22563.js"><div class='icon'></div>
-</a><div class='card-cover'>
-<a class='offer-link' href='/offers/22563'>
-<div class='img-container'>
-<div class='best-price-box'>
-최저가 보장제
-</div>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/22563/147566_tiny_1525746604.jpg?1525746604'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/22563/147566_medium_1525746604.jpg?1525746604'>
-</div>
-</div>
-<div class='content-box'>
-<div class='city-name'>티켓/교통패스 • 오사카</div>
-<div class='name'>[인천/김포/김해공항 수령] 오사카 주유패스 1일권</div>
-<div class='inner-container'>
-<div class='review'>
-<div class="rating-box"><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span></div>
-<div class='text'>후기 1864개</div>
-</div>
-<div class='price' data-offer-price='24,658원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span class='original-price'>28,544원</span>
-<span class='discount-price'>24,658원</span>
-<meta content='KRW' itemprop='priceCurrency'>
-<meta content='24658' itemprop='price'>
-</div>
-<div class='instant-booking'>
-<img alt='instant booking' class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/ic_instant_small@2x-b1e30b9ec3cf4315c6aeff17fa811498296cd97ca981c9a1d219fd2adcc659d4.png' width='9'>
-<span class='hide-on-mobile'>바로사용</span>
-</div>
-</div>
-</div>
-</a>
-</div>
-</li>
-<li class='card-type-a item swiper-slide' data-gtm-action='인기 티켓/교통패스' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='14644' data-offer-id='14644' data-offer-type='ETicket'>
-<a class="wish" data-offer-id="14644" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/14644.js"><div class='icon'></div>
-</a><div class='card-cover'>
-<a class='offer-link' href='/offers/14644'>
-<div class='img-container'>
-<div class='best-price-box'>
-최저가 보장제
-</div>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/14644/88878_tiny_1525743586.jpg?1525743586'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/14644/88878_medium_1525743586.jpg?1525743586'>
-</div>
-</div>
-<div class='content-box'>
-<div class='city-name'>티켓/교통패스 • 도쿄</div>
-<div class='name'>[e-바우처] 도쿄 롯본기힐즈 전망대 &amp; 모리미술관</div>
-<div class='inner-container'>
-<div class='review'>
-<div class="rating-box"><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span></div>
-<div class='text'>후기 1167개</div>
-</div>
-<div class='price' data-offer-price='9,000원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span>9,000원</span>
-<span class='unit'>/ 1인</span>
-<meta content='KRW' itemprop='priceCurrency'>
-<meta content='9000' itemprop='price'>
-</div>
-</div>
-</div>
-</a>
-</div>
-</li>
-<li class='card-type-a item swiper-slide' data-gtm-action='인기 티켓/교통패스' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='5047' data-offer-id='5047' data-offer-type='ETicket'>
-<a class="wish" data-offer-id="5047" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/5047.js"><div class='icon'></div>
-</a><div class='card-cover'>
-<a class='offer-link' href='/offers/5047'>
-<div class='img-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/5047/23871_tiny_1525259121.jpg?1525259121'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/5047/23871_medium_1525259121.jpg?1525259121'>
-</div>
-</div>
-<div class='content-box'>
-<div class='city-name'>티켓/교통패스 • 파리</div>
-<div class='name'>파리 바토무슈 E-티켓(바코드) [교환없이 즉시 탑승]</div>
-<div class='inner-container'>
-<div class='review'>
-<div class="rating-box"><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span></div>
-<div class='text'>후기 1012개</div>
-</div>
-<div class='price' data-offer-price='8,900원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span>8,900원</span>
-<span class='unit'>/ 1인</span>
-<meta content='KRW' itemprop='priceCurrency'>
-<meta content='8900' itemprop='price'>
-</div>
-</div>
-</div>
-</a>
-</div>
-</li>
-<li class='card-type-a item swiper-slide' data-gtm-action='인기 티켓/교통패스' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='9015' data-offer-id='9015' data-offer-type='ETicket'>
-<a class="wish" data-offer-id="9015" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/9015.js"><div class='icon'></div>
-</a><div class='card-cover'>
-<a class='offer-link' href='/offers/9015'>
-<div class='img-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/9015/186044_tiny_1525767752.jpg?1525767752'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/9015/186044_medium_1525767752.jpg?1525767752'>
-</div>
-</div>
-<div class='content-box'>
-<div class='city-name'>티켓/교통패스 • 타이페이</div>
-<div class='name'>#입장권# 타이베이 101 전망대 할인 전자티켓 ! (가을 인생여행 특가)</div>
-<div class='inner-container'>
-<div class='review'>
-<div class="rating-box"><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon half"></span></div>
-<div class='text'>후기 423개</div>
-</div>
-<div class='price' data-offer-price='17,700원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span>17,700원</span>
-<span class='unit'>/ 1인</span>
-<meta content='KRW' itemprop='priceCurrency'>
-<meta content='17700' itemprop='price'>
-</div>
-</div>
-</div>
-</a>
-</div>
-</li>
-<li class='card-type-a item swiper-slide' data-gtm-action='인기 티켓/교통패스' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='5757' data-offer-id='5757' data-offer-type='ETicket'>
-<a class="wish" data-offer-id="5757" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/5757.js"><div class='icon'></div>
-</a><div class='card-cover'>
-<a class='offer-link' href='/offers/5757'>
-<div class='img-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/5757/28307_tiny_1525259007.jpg?1525259007'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/5757/28307_medium_1525259007.jpg?1525259007'>
-</div>
-</div>
-<div class='content-box'>
-<div class='city-name'>티켓/교통패스 • 로스엔젤레스</div>
-<div class='name'>LA 유니버셜 스튜디오 할리우드 입장권 1DAY 티켓</div>
-<div class='inner-container'>
-<div class='review'>
-<div class="rating-box"><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span></div>
-<div class='text'>후기 809개</div>
-</div>
-<div class='price' data-offer-price='108,200원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span>108,200원</span>
-<span class='unit'>/ 1인</span>
-<meta content='KRW' itemprop='priceCurrency'>
-<meta content='108200' itemprop='price'>
-</div>
-</div>
-</div>
-</a>
-</div>
-</li>
-<li class='card-type-a item swiper-slide' data-gtm-action='인기 티켓/교통패스' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='14828' data-offer-id='14828' data-offer-type='IstanbulTicket'>
-<a class="wish" data-offer-id="14828" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/14828.js"><div class='icon'></div>
-</a><div class='card-cover'>
-<a class='offer-link' href='/offers/14828'>
-<div class='img-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/14828/90866_tiny_1525779391.jpg?1525779391'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/14828/90866_medium_1525779391.jpg?1525779391'>
-</div>
-</div>
-<div class='content-box'>
-<div class='city-name'>티켓/교통패스 • 전라도</div>
-<div class='name'>[당일사용/즉시할인] 아쿠아플라넷 여수 입장권 티켓</div>
-<div class='inner-container'>
-<div class='review'>
-<div class="rating-box"><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span></div>
-<div class='text'>후기 39개</div>
-</div>
-<div class='price' data-offer-price='15,800원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span>15,800원</span>
-<span class='unit'>/ 1인</span>
-<meta content='KRW' itemprop='priceCurrency'>
-<meta content='15800' itemprop='price'>
-</div>
-<div class='instant-booking'>
-<img alt='instant booking' class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/ic_instant_small@2x-b1e30b9ec3cf4315c6aeff17fa811498296cd97ca981c9a1d219fd2adcc659d4.png' width='9'>
-<span class='hide-on-mobile'>바로사용</span>
-</div>
-</div>
-</div>
-</a>
-</div>
-</li>
-<li class='card-type-a item swiper-slide' data-gtm-action='인기 티켓/교통패스' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='5573' data-offer-id='5573' data-offer-type='DeliveryTicket'>
-<a class="wish" data-offer-id="5573" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/5573.js"><div class='icon'></div>
-</a><div class='card-cover'>
-<a class='offer-link' href='/offers/5573'>
-<div class='img-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/5573/27049_tiny_1525258279.jpg?1525258279'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/5573/27049_medium_1525258279.jpg?1525258279'>
-</div>
-</div>
-<div class='content-box'>
-<div class='city-name'>티켓/교통패스 • 오사카</div>
-<div class='name'>[무료배송] JR WEST 간사이 와이드 패스 5일권</div>
-<div class='inner-container'>
-<div class='review'>
-<div class="rating-box"><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span></div>
-<div class='text'>후기 283개</div>
-</div>
-<div class='price' data-offer-price='85,400원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span>85,400원</span>
-<span class='unit'>/ 1인</span>
-<meta content='KRW' itemprop='priceCurrency'>
-<meta content='85400' itemprop='price'>
-</div>
-</div>
-</div>
-</a>
-</div>
-</li>
+
+
+
+
+<c:forEach items="${themeList}" var="list">
+	<li class='card-type-a item swiper-slide' data-gtm-action='인기 티켓/교통패스' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='5683' data-offer-id='5683' data-offer-type='ETicket'>
+	<div class='card-cover'>
+	<a class='offer-link' href='/offers/5683'>
+	<div class='img-container'>
+	<div class='img-placeholder'>
+	<img class='img-small' src='/resources/img/${list.pri_phot}'>
+	<div class='img-padding'></div>
+	<img class='img' data-echo='/resources/img/${list.pri_phot}'>
+	</div>
+	</div>
+	<div class='content-box'>
+	<div class='city-name'>${list.loc}</div>
+	<div class='name'>${list.titl}</div>
+	<div class='inner-container'>
+	<div class='review'>
+	<div class="rating-box">
+	<c:forEach var="i" begin="1" end="5">
+		<c:choose>
+			<c:when test="${i <= list.star}"><span class="icon active"></span></c:when>
+			<c:otherwise><span class="icon"></span></c:otherwise>
+		</c:choose>
+	</c:forEach>
+	</div>
+	<div class='text'>후기 ${list.cmt_cnt}개</div>
+	</div>
+	<div class='price' data-offer-price='53,600원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
+	<span><fmt:formatNumber value='${list.amt}' groupingUsed='true'/>원</span>
+	<span class='unit'>/ 1인</span>
+	</div>
+	</div>
+	</div>
+	</a>
+	</div>
+	</li>
+</c:forEach>
+<!-- one item end -->
+
+
+
+
 
 </ul>
 </div>
