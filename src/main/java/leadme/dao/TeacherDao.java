@@ -3,7 +3,7 @@ package leadme.dao;
 import java.util.List;
 import java.util.Map;
 
-import bitcamp.java110.cms.domain.Teacher;
+import leadme.domain.Teacher;
 
 public interface TeacherDao {
     int insert(Teacher teacher);

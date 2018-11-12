@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bitcamp.java110.cms.domain.Member;
+import leadme.domain.Member;
 
 //@WebFilter("/*")
 public class AuthFilter implements Filter {

@@ -3,7 +3,7 @@ package leadme.dao;
 import java.util.List;
 import java.util.Map;
 
-import bitcamp.java110.cms.domain.Manager;
+import leadme.domain.Manager;
 
 public interface ManagerDao {
     int insert(Manager manager);

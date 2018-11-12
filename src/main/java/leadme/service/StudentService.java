@@ -2,7 +2,7 @@ package leadme.service;
 
 import java.util.List;
 
-import bitcamp.java110.cms.domain.Student;
+import leadme.domain.Student;
 
 public interface StudentService {
     void add(Student student);
