@@ -5,11 +5,11 @@ import java.util.HashMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import bitcamp.java110.cms.dao.ManagerDao;
-import bitcamp.java110.cms.dao.StudentDao;
-import bitcamp.java110.cms.dao.TeacherDao;
-import bitcamp.java110.cms.domain.Member;
-import bitcamp.java110.cms.service.AuthService;
+import leadme.dao.ManagerDao;
+import leadme.dao.StudentDao;
+import leadme.dao.TeacherDao;
+import leadme.domain.Member;
+import leadme.service.AuthService;
 
 @Service
 public class AuthServiceImpl implements AuthService {

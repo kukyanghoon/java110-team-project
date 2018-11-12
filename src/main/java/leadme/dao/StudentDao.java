@@ -3,7 +3,7 @@ package leadme.dao;
 import java.util.List;
 import java.util.Map;
 
-import bitcamp.java110.cms.domain.Student;
+import leadme.domain.Student;
 
 public interface StudentDao {
     int insert(Student student);

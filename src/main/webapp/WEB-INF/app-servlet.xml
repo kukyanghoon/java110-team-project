@@ -11,7 +11,7 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!-- XML 설정 파일에서는 페이지 컨트롤러 객체만 생성한다 -->
-    <context:component-scan base-package="bitcamp.java110.cms"/>
+    <context:component-scan base-package="leadme"/>
     
     <!-- WebConfig 클래스에 설정 했기 때문에 다음 태그는 제거한다 -->
     <!-- <mvc:annotation-driven enable-matrix-variables="true"/> -->
