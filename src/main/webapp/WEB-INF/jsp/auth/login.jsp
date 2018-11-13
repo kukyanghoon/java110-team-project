@@ -173,14 +173,58 @@
                      </div>
                   </form>
                   <div class='panel-button' style="padding: 10px;">
-                     <div class='btn-wrap'>
-                        <a class='btn-new btn--type-outline btn--width-100 btn-sns' href='https://www.myrealtrip.com/users/auth/facebook'>
+                  <script>
+                  
+                  function autoServerLogin(accessToken) {
+                      location.href = "login08.jsp?accessToken=" + accessToken;
+                  }
+                  function statusChangeCallback(response) {
+                    console.log(response);
+                    if (response.status === 'connected') { // 로그인이 정상적으로 되었을 때,
+                        autoServerLogin(response.authResponse.accessToken);
+                    
+                    } else { // 로그인이 되지 않았을 때,
+                        console.log("로그인 되지 않았음");
+                    }
+                  }
+                    
+                  function checkLoginState() {
+                      FB.getLoginStatus(function(response) { 
+                        statusChangeCallback(response);
+                      });
+                  }
+                  window.fbAsyncInit = function() {
+                    console.log("window.fbAsyncInit() 호출됨!");
+                    FB.init({
+                      appId      : '341620679957072', // 개발자가 등록한 앱 ID
+                      cookie     : true,  
+                      xfbml      : true,  
+                      version    : 'v3.2' 
+                    });
+                    FB.AppEvents.logPageView();
+                  };
+                  (function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "https://connect.facebook.net/en_US/sdk.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                  }(document, 'script', 'facebook-jssdk'));
+
+                  
+                  
+                  </script>
+                
+                     <div class='btn-wrap' >
+                        <!-- <a class='btn-new btn--type-outline btn--width-100 btn-sns'>
                         <img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/fb-logo@2x-2a65bc6ab97a894a1baeca5b714f4201eb991cfc6d955ef657f86de8e56f89d5.png' width='18'>
                         <span>페이스북으로 로그인</span>
-                        </a>
+                        </a> -->
+                        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+                        
                      </div>
                      <div class='btn-wrap'>
-                        <a class='btn-new btn--type-outline btn--width-100 btn-sns' href='https://www.myrealtrip.com/users/auth/naver'>
+                        <a class='btn-new btn--type-outline btn--width-100 btn-sns'>
                         <img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/naver-logo@2x-332865f7b796a02822378e0b61e6dcace93ae9a24abd810cd774a06b5fbcb0b5.png' width='18'>
                         <span>네이버로 로그인</span>
                         </a>

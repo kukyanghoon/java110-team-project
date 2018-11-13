@@ -4,6 +4,6 @@ import javax.servlet.http.HttpSession;
 import leadme.domain.Member;
 
 public interface AuthService {
-    Member login(Member member);
-    void loginPass(Member member, HttpSession session);
+    AuthService login(Member member) throws Exception;
+    void loginPass(HttpSession session);
 }
