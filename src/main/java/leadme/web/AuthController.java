@@ -1,15 +1,11 @@
 package leadme.web;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import leadme.domain.Member;
 import leadme.service.AuthService;
 
@@ -23,64 +19,44 @@ public class AuthController{
         this.authService = authService;
     }
     
-    @GetMapping("form")
-    public void form() {
+    @RequestMapping(value="login")
+    public String login() {
+      return "/auth/login";
     }
     
+    @RequestMapping(value="loginCheck.do", method=RequestMethod.POST)
+    @ResponseBody
+    public void loginCheck(@RequestBody Member member, HttpSession session) {
+        
+      try {
+        authService.login(member).loginPass(session);
+      } catch (Exception e) {
+        System.out.println(e);
+      }
+      
+    }
     
-/*@PostMapping("login")
-    public String login(
-            String type,
-            String email,
-            String password,
-            String save,
-            HttpServletRequest request, 
-            HttpServletResponse response,
-            HttpSession session){
-        
-        if (save != null) {// 이메일 저장하기를 체크했다면,
-            Cookie cookie = new Cookie("email", email);
-            cookie.setMaxAge(60 * 60 * 24 * 15);
-            response.addCookie(cookie);
-            
-        } else {// 이메일을 저장하고 싶지 않다면,
-            Cookie cookie = new Cookie("email", "");
-            cookie.setMaxAge(0);
-            response.addCookie(cookie);
-        }
-        
-        Member loginUser = authService.getMember(email, password, type);
-        
-        if (loginUser != null) {
-            // 회원 정보를 세션에 보관한다.
-            session.setAttribute("loginUser", loginUser);
-            String redirectUrl = null;
-            switch (type) {
-            case "student":
-                redirectUrl = "../student/list";
-                break;
-            case "teacher":
-                redirectUrl = "../teacher/list";
-                break; 
-            case "manager":
-                redirectUrl = "../manager/list";
-                break; 
-            }
-            return "redirect:"+redirectUrl;
-        } else {
-            session.invalidate();
-            return "redirect:form";
-        }
-        
-    }*/
+    @RequestMapping(value="signup")
+    public String signup() {
+      return "/auth/signup";
+    }
+    
+    @RequestMapping(value="join.do", method=RequestMethod.POST)
+    @ResponseBody
+    public void join(@RequestBody Member member) {
+      
+      System.out.println(member.getName());
+      System.out.println(member.getEmail());
+      System.out.println(member.getPassword());
+      
+      
+      
+      
+    }
     
     @RequestMapping("logout")
-    public String logout(
-            HttpSession session){
-        
+    public String logout(HttpSession session){
         session.invalidate();
-        
-        return "redirect:form";
-        
+        return "redirect:login";
     }
 }

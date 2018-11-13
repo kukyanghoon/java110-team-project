@@ -14,39 +14,29 @@ public class AuthServiceImpl implements AuthService {
 
   @Autowired AuthDao authDao;
   
+  Member member;
   
   @Override
-  public Member login(Member member) {
+  public AuthServiceImpl login(Member member) throws Exception {
     Map<String, Object> param = new HashMap<String, Object>();
     param.put("email", member.getEmail());
     param.put("password", member.getPassword());
     
-    return authDao.login(param);
+    this.member = authDao.login(param);
+    
+    if(this.member == null) {
+      throw new Exception("db안에 일치흐는 회원 정보 없음");
+    }
+    
+    return this;
   }
   
   @Override
-  public void loginPass(Member member, HttpSession session) {
+  public void loginPass(HttpSession session) {
     
-    session.setAttribute("member", member);
-    
+    session.setAttribute("member", this.member);
     Member loginMember = (Member)session.getAttribute("member");
-    System.out.println("loginPass");
-    System.out.println(loginMember.getEmail());
-    System.out.println(loginMember.getName());
-    System.out.println(loginMember.getPhoto());
-    System.out.println(loginMember.getPath());
+    
   }
 
-
-
 }
-
-
-
-
-
-
-
-
-
-
