@@ -2,7 +2,6 @@ package leadme.web;
 
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,22 +19,38 @@ public class AuthController{
         this.authService = authService;
     }
     
+    @RequestMapping(value="login")
+    public String login() {
+      return "/auth/login";
+    }
     
-    @GetMapping("login")
-    public void login() {}
-    
-    /*
     @RequestMapping(value="loginCheck.do", method=RequestMethod.POST)
     @ResponseBody
     public void loginCheck(@RequestBody Member member, HttpSession session) {
         
       try {
         authService.login(member).loginPass(session);
+        System.out.println("session에 아이디값 저장");
       } catch (Exception e) {
         System.out.println(e);
       }
     }
-    */
+    
+    @RequestMapping(value="googleLoginCheck.do", method=RequestMethod.POST)
+    @ResponseBody
+    public void googleLoginCheck(@RequestBody Member member, HttpSession session) {
+        System.out.println(member.getEmail());
+        System.out.println(member.getName());
+        System.out.println(member.getPhoto());
+        try {
+          authService.socialLogin(member).loginPass(session);
+        } catch (Exception e) {
+          member.setPath("google");
+          authService.createUser(member).loginPass(session);
+        }
+    }
+    
+    
     
     @RequestMapping("fblogin")
     public String fblogin(
@@ -68,7 +83,7 @@ public class AuthController{
         } catch (Exception e) {
             e.printStackTrace();
             session.invalidate();
-            return "redirect:form";
+            return "redirect:login";
         }
     }
     

@@ -15,11 +15,30 @@
     <select id="login" resultMap="memberMap" parameterType="map">
         
         select * 
-		from memb
-		where email = #{email}
-		and pwd = password(#{password});
+        from memb
+        where email = #{email}
+        and pwd = password(#{password});
     
     </select>
+    
+    <select id="socialLogin" resultMap="memberMap" parameterType="map">
+        
+        select * 
+        from memb
+        where email = #{email};
+    
+    </select>
+    
+    
+    
+    <insert id="createUser" parameterType="member"
+            useGeneratedKeys="true" keyColumn="mno" keyProperty="no">
+   
+    insert into memb(name,pwd,cert_email,email,photo,mtype,path,active) values
+            (#{name}, password(#{password}), #{cert_email}, #{email}, #{photo}, #{mtype}, #{path}, #{active});
+   
+    </insert>
+    
     
 </mapper>
 
