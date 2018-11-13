@@ -7,6 +7,11 @@
 <html>
    <head>
       <meta charset="UTF-8">
+      
+      <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="639731399858-ahjc3pap9isuk2c10qp6h3i3icu37vsc.apps.googleusercontent.com">
+      
+      
       <title>LEADME</title>
       <link rel="shortcut icon" type="image/x-icon" href="https://d2yoing0loi5gh.cloudfront.net/assets/favicon-e7fc64f202376533d86106e6f712ed41eee1e843dbc5de3b2765938656f8eb93.ico">
       <script async="" src="//www.googletagmanager.com/gtm.js?id=GTM-NCVRS4"></script><script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/ko-7d27ea8334aef60e7e45f2e267dd1aee4667b38dd60ca09967b0a5fc4c5f44bf.js"></script>
@@ -172,6 +177,9 @@
                      </div>
                   </form>
                   <div class='panel-button' style="padding: 10px;">
+                  
+                  
+                  <script src="https://apis.google.com/js/platform.js" async defer></script>
                   <script>
                   
                   function autoServerLogin(accessToken) {
@@ -195,7 +203,7 @@
                   window.fbAsyncInit = function() {
                     console.log("window.fbAsyncInit() 호출됨!");
                     FB.init({
-                      appId      : '276928149622484', // 개발자가 등록한 앱 ID
+                      appId      : '1941679139472866', // 개발자가 등록한 앱 ID
                       cookie     : true,  
                       xfbml      : true,  
                       version    : 'v3.2' 
@@ -223,11 +231,62 @@
                         
                         </a>
                      </div>
+                     
+                     <script>
+                     function onSignIn(googleUser) {
+                         // Useful data for your client-side scripts:
+                         var profile = googleUser.getBasicProfile();
+                         console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+                         console.log('Full Name: ' + profile.getName());
+                         console.log('Given Name: ' + profile.getGivenName());
+                         console.log('Family Name: ' + profile.getFamilyName());
+                         console.log("Image URL: " + profile.getImageUrl());
+                         console.log("Email: " + profile.getEmail());
+                         
+                         $(document).ready(function(){
+                            console.log("aaa"); 
+                            
+                            $.ajax({
+                                url:'googleLoginCheck.do',
+                                type:'POST',
+                                dataType:'JSON',
+                                data:JSON.stringify(makeObj(profile)),
+                                contentType:"application/json",
+                                success:function(data){
+                                    console.log('success');
+                                    
+                                }
+                            
+                            });
+                            
+                            
+                         });
+                         // The ID token you need to pass to your backend:
+                         var id_token = googleUser.getAuthResponse().id_token;
+                         console.log("ID Token: " + id_token);
+                       };
+
+
+                       function makeObj(profile){
+                           var obj ={
+                                   'name': profile.getGivenName() + profile.getFamilyName(),
+                                   'email' : profile.getEmail(),
+                                   'photo' : profile.getImageUrl()
+                           }
+                           console.log(obj);
+                           return obj;
+                       }
+                       
+                       
+                      
+                     </script>
+                     
                      <div class='btn-wrap'>
                         <a class='btn-new btn--type-outline btn--width-100 btn-sns'>
                         <img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/naver-logo@2x-332865f7b796a02822378e0b61e6dcace93ae9a24abd810cd774a06b5fbcb0b5.png' width='18'>
                         <span>네이버로 로그인</span>
                         </a>
+                        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
                      </div>
                   </div>
                   <div class='panel-footer'>

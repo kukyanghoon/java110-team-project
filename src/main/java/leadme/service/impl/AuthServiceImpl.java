@@ -1,16 +1,19 @@
 package leadme.service.impl;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import leadme.dao.AuthDao;
-import leadme.domain.Manager;
 import leadme.domain.Member;
-import leadme.domain.Student;
-import leadme.domain.Teacher;
 import leadme.service.AuthService;
 
 @Service
@@ -31,17 +34,53 @@ public class AuthServiceImpl implements AuthService {
     if(this.member == null) {
       throw new Exception("db안에 일치흐는 회원 정보 없음");
     }
-    
     return this;
   }
   
   @Override
   public void loginPass(HttpSession session) {
-    
     session.setAttribute("member", this.member);
-    Member loginMember = (Member)session.getAttribute("member");
-    
   }
+  
+  @Override
+  public AuthServiceImpl socialLogin(Member member) throws Exception {
+    Map<String, Object> param = new HashMap<String, Object>();
+    param.put("email", member.getEmail());
+    
+    this.member = authDao.socialLogin(param);
+    
+    if(this.member == null) {
+      throw new Exception("db안에 일치하는 social회원 정보 없음");
+    }
+    return this;
+  }
+  
+  
+  
+  @Override
+  public AuthServiceImpl createUser(Member member) {
+    
+    member.setPassword(String.valueOf(System.currentTimeMillis()));
+    member.setCert_email("Y");
+    member.setMtype("U");
+    member.setActive("N");
+    
+    Map<String, Object> param = new HashMap<String, Object>();
+    param.put("name", member.getName());
+    param.put("password", member.getPassword());
+    param.put("cert_email", member.getCert_email());
+    param.put("email", member.getEmail());
+    param.put("photo", member.getPhoto());
+    param.put("mtype", member.getMtype());
+    param.put("path", member.getPath());
+    param.put("active", member.getActive());
+    
+    authDao.createUser(param);
+    
+    return this;
+  }
+  
+  
 
   @Override
   public Member getFacebookMember(String accessToken, String memberType) {
@@ -54,12 +93,34 @@ public class AuthServiceImpl implements AuthService {
         "https://graph.facebook.com/v3.2/me?access_token={v1}&fields={v2}", 
         Map.class,
         accessToken,
-        "id,name,email");
-  
+        "id,name,email,picture{url}");
+  /*
     System.out.println(response.get("id"));
     System.out.println(response.get("name"));
     System.out.println(response.get("email"));
-    /*
+    System.out.println(response.get("picture"));
+    
+    String a = String.valueOf(response.get("picture"));
+    System.out.println(a);
+    
+    ObjectMapper mapper = new ObjectMapper();
+    mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
+ 
+    
+    Map<String, Object> map = new HashMap<String, Object>();
+    try {
+      map = mapper.readValue(a, new TypeReference<Map<String, String>>(){});
+      
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    
+    
+    System.out.println(map);
+    System.out.println(map.get("data"));
+    System.out.println(map.get("url"));
+    
+    
     // Facebook 사용자의 이메일로 현재 서버의 사용자 정보를 찾는다.
     Member member = null;
     if (type.equals("manager")) {
