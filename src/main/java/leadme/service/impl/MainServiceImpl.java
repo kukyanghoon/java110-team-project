@@ -1,5 +1,6 @@
 package leadme.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,13 +34,21 @@ public class MainServiceImpl implements MainService {
     }
 
     @Override
-    public List<Tour> getListThemeBest(String baseDt) {
-      return rankingDao.getListThemeBest(baseDt);
+    public List<Tour> getListThemeBest(String baseDt, String rnk_item) {
+      HashMap<String,Object> params = new HashMap<>();
+      params.put("baseDt", baseDt);
+      params.put("rnk_item", rnk_item);
+      
+      return rankingDao.getListThemeBest(params);
     }
 
     @Override
-    public List<Tour> getListLocalBest(String baseDt) {
-      return rankingDao.getListLocalBest(baseDt);
+    public List<Tour> getListLocalBest(String baseDt, String rnk_item) {
+      HashMap<String,Object> params = new HashMap<>();
+      params.put("baseDt", baseDt);
+      params.put("rnk_item", rnk_item);
+      
+      return rankingDao.getListLocalBest(params);
     }
 
 }

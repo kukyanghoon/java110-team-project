@@ -17,7 +17,6 @@
 <title>리드미 :: 현지 친구와 진짜 여행을</title>
 <link rel="shortcut icon" type="image/x-icon" href="https://d2yoing0loi5gh.cloudfront.net/assets/favicon-e7fc64f202376533d86106e6f712ed41eee1e843dbc5de3b2765938656f8eb93.ico" />
 <script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/ko-9d53604fb5c8a610df23b77f7135903c1affe982fa1d15f3354fdc521e10862a.js"></script>
-<link rel="stylesheet" media="screen" href="https://d2yoing0loi5gh.cloudfront.net/webpack/vendor.6823a52822019093f642.css" />
 <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application_template-5da62e3a802820a73815ac9769d004d04db514aa47276f57320c206cc043d2ac.css" />
 <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-4b8ab07154cf2c04a97bb950234f455fe5a721876f501316a714f1a8b65b12ae.css" />
 <link rel="stylesheet" media="screen" href="https://d2yoing0loi5gh.cloudfront.net/webpack/application.6823a52822019093f642.css" />
@@ -45,7 +44,7 @@
 
 
         <div class="mrt-logo-container gtm-gnb-logo">
-            <a href="#"><img src="/resources/img/logo1.png" alt="리드미 로고"></a>
+            <a href="main"><img src="/resources/img/logo1.png" alt="리드미 로고"></a>
         </div>
         <div class="gnb-menu__container">
             <a data-turbolinks="false">
@@ -61,7 +60,7 @@
                     </a>
                 </li>
                 <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
-                    <a href="#" class="gnb-common-menu__item__link">
+                    <a href="auth/login" class="gnb-common-menu__item__link">
                         <span class="gnb-common-menu__item--text transparent">로그인</span>
                     </a>
                 </li>
@@ -657,14 +656,14 @@
 <div class='experience__common__row'>
 <div class='main-content'>
 <div class='main-content__title-container'>
-<h3 class='main-content__title'>명소/역사 BEST</h3>
+<h3 class='main-content__title' id='theme-title'>식도락 BEST</h3>
 </div>
 </div>
 </div>
 <div class='experience__common__row experience__common__row-whole'>
 <div class='main-content'>
 <div class='offer-container card-type card-hot-deal swiper-container' name='offer_card'>
-<ul class='item-container offer-item-container item-container--swiper swiper-wrapper'>
+<ul class='item-container offer-item-container item-container--swiper swiper-wrapper' id='theme-item-container'>
 
 
 
@@ -705,6 +704,7 @@
 	</div>
 	</li>
 </c:forEach>
+ 
 <!-- one item end -->
 
 
@@ -817,116 +817,40 @@
     <img alt='go link' class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/main/ic_arrow_medium_gray@2x-9d76b3043fad7aff12f7edf4dab8bf4b320fe92e598c476c4708d7a657679751.png' width='7px'>
   </a>
   <div class="OfferList__Cards">
-    <a class="OfferListCard" href="/offers/30629" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product" data-offer-type="HotDeal" data-offer-id="30629">
+  
+  <c:forEach items="${localList}" var="list">
+  <a class="OfferListCard" href="/offers/30629" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product" data-offer-type="HotDeal" data-offer-id="30629">
 
-  <div class="OfferListCard__Thumbnail" style="background-image: url(&quot;https://d2ur7st6jjikze.cloudfront.net/offer_photos/30629/193352_medium_1525749039.jpg?1525749039&quot;);"></div>
-  <div class="OfferListCard__Content"><div class="OfferListCard__Content__Category"><span>렌터카</span><span class="hide-on-mobile"></span></div>
+  <div class="OfferListCard__Thumbnail" style="background-image: url(&quot;/resources/img/${list.pri_phot}&quot;);"></div>
+  <div class="OfferListCard__Content"><div class="OfferListCard__Content__Category"><span>${list.loc}</span><span class="hide-on-mobile"></span></div>
   <div class="OfferListCard__Content__Title">
-  <div class="LinesEllipsis  ">[제주] 제주렌터카 빌리카 Open! (자차포함+19년 1월까지!)<wbr></div>
-  </div>
-  <div class="OfferListCard__Content__Guide">
-    <span class="name">제주동행</span>
+  <div class="LinesEllipsis  ">${list.titl}<wbr></div>
   </div>
   <div class="OfferListCard__Content__Review">
     <div class="starRating starRating--m starRating--blue">
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-        <path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path>
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-        <path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path>
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-        <path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path>
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path>
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-        <g fill="none" fill-rule="evenodd">
-        <path fill="#DEE2E6" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path>
-        <path class="starColor" fill="#51ABF3" d="M6 .151v9.01l-.077-.04L2.263 11l.699-3.98L0 4.202l4.093-.581L5.923 0 6 .151z"></path>
-      </g>
-    </svg>
+    <c:forEach var="i" begin="1" end="5">
+        <c:choose>
+            <c:when test="${i <= list.star}">
+	            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+	                <path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path>
+	            </svg>
+            </c:when>
+            <c:otherwise>
+	            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+	                <path fill='#DEE2E6' d='M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z'></path>
+	            </svg>
+            </c:otherwise>
+        </c:choose>
+    </c:forEach>
   </div>
-  <span class="count">66</span></div>
-  <div class="OfferListCard__Content__Price"><span class="SalePrice">5,900원</span></div>
-  <div class="OfferListCard__Content__Wishlist"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjQ0VENERBIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTEyLjEwNSAxOS41ODZsNy4wMTItNy4wMTJhNC41ODMgNC41ODMgMCAxIDAtNi40ODItNi40ODJsLS41My41My0uNTMtLjUzYTQuNTgzIDQuNTgzIDAgMCAwLTYuNDgzIDYuNDgybDcuMDEzIDcuMDEyeiIvPgo8L3N2Zz4K" alt="wishlist" role="button" tabindex="-1" style="width: 24px; height: 24px;"></div>
+  <span class="count">${list.cmt_cnt}</span></div>
+  <div class="OfferListCard__Content__Price"><span class="SalePrice"><fmt:formatNumber value='${list.amt}' groupingUsed='true'/>원</span></div>
 </div>
 </a> <!-- single Item end -->
-    <a class="OfferListCard" href="/offers/30629" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product" data-offer-type="HotDeal" data-offer-id="30629">
-
-  <div class="OfferListCard__Thumbnail" style="background-image: url(&quot;https://d2ur7st6jjikze.cloudfront.net/offer_photos/30629/193352_medium_1525749039.jpg?1525749039&quot;);"></div>
-  <div class="OfferListCard__Content"><div class="OfferListCard__Content__Category"><span>렌터카</span><span class="hide-on-mobile"></span></div>
-  <div class="OfferListCard__Content__Title">
-  <div class="LinesEllipsis  ">[제주] 제주렌터카 빌리카 Open! (자차포함+19년 1월까지!)<wbr></div>
-  </div>
-  <div class="OfferListCard__Content__Guide">
-    <span class="name">제주동행</span>
-  </div>
-  <div class="OfferListCard__Content__Review">
-    <div class="starRating starRating--m starRating--blue">
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-        <path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path>
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-        <path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path>
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-        <path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path>
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path>
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-        <g fill="none" fill-rule="evenodd">
-        <path fill="#DEE2E6" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path>
-        <path class="starColor" fill="#51ABF3" d="M6 .151v9.01l-.077-.04L2.263 11l.699-3.98L0 4.202l4.093-.581L5.923 0 6 .151z"></path>
-      </g>
-    </svg>
-  </div>
-  <span class="count">66</span></div>
-  <div class="OfferListCard__Content__Price"><span class="SalePrice">5,900원</span></div>
-  <div class="OfferListCard__Content__Wishlist"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjQ0VENERBIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTEyLjEwNSAxOS41ODZsNy4wMTItNy4wMTJhNC41ODMgNC41ODMgMCAxIDAtNi40ODItNi40ODJsLS41My41My0uNTMtLjUzYTQuNTgzIDQuNTgzIDAgMCAwLTYuNDgzIDYuNDgybDcuMDEzIDcuMDEyeiIvPgo8L3N2Zz4K" alt="wishlist" role="button" tabindex="-1" style="width: 24px; height: 24px;"></div>
-</div>
-</a> <!-- single Item end -->
-    <a class="OfferListCard" href="/offers/30629" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product" data-offer-type="HotDeal" data-offer-id="30629">
-
-  <div class="OfferListCard__Thumbnail" style="background-image: url(&quot;https://d2ur7st6jjikze.cloudfront.net/offer_photos/30629/193352_medium_1525749039.jpg?1525749039&quot;);"></div>
-  <div class="OfferListCard__Content"><div class="OfferListCard__Content__Category"><span>렌터카</span><span class="hide-on-mobile"></span></div>
-  <div class="OfferListCard__Content__Title">
-  <div class="LinesEllipsis  ">[제주] 제주렌터카 빌리카 Open! (자차포함+19년 1월까지!)<wbr></div>
-  </div>
-  <div class="OfferListCard__Content__Guide">
-    <span class="name">제주동행</span>
-  </div>
-  <div class="OfferListCard__Content__Review">
-    <div class="starRating starRating--m starRating--blue">
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-        <path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path>
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-        <path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path>
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-        <path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path>
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path>
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-        <g fill="none" fill-rule="evenodd">
-        <path fill="#DEE2E6" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path>
-        <path class="starColor" fill="#51ABF3" d="M6 .151v9.01l-.077-.04L2.263 11l.699-3.98L0 4.202l4.093-.581L5.923 0 6 .151z"></path>
-      </g>
-    </svg>
-  </div>
-  <span class="count">66</span></div>
-  <div class="OfferListCard__Content__Price"><span class="SalePrice">5,900원</span></div>
-  <div class="OfferListCard__Content__Wishlist"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjQ0VENERBIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTEyLjEwNSAxOS41ODZsNy4wMTItNy4wMTJhNC41ODMgNC41ODMgMCAxIDAtNi40ODItNi40ODJsLS41My41My0uNTMtLjUzYTQuNTgzIDQuNTgzIDAgMCAwLTYuNDgzIDYuNDgybDcuMDEzIDcuMDEyeiIvPgo8L3N2Zz4K" alt="wishlist" role="button" tabindex="-1" style="width: 24px; height: 24px;"></div>
-</div>
-</a> <!-- single Item end -->
+</c:forEach>
+   
 </div>
 </div> <!-- OfferList__Items__Body end -->
-
-
-
 
 
 </div>

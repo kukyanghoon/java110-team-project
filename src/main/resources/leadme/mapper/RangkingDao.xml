@@ -30,12 +30,22 @@
             tour t inner join ranking r on t.tno = r.tno            
     </sql>
 
-    <select id="getListThemeBest" resultMap="tourMap" parameterType="String">
+    <select id="getListThemeBest" resultMap="tourMap" parameterType="map">
         <include refid="select1"></include>
         where r.rnk_type = '02'
-          and DATE_FORMAT(r.rnk_dt, '%Y-%m-%d') = #{value}
+          and rnk_item = #{rnk_item}
+          and DATE_FORMAT(r.rnk_dt, '%Y-%m-%d') = #{baseDt}
         order by 
-            r.rnk_item, r.rnk asc
+            r.rnk asc
+    </select>
+    
+    <select id="getListLocalBest" resultMap="tourMap" parameterType="map">
+        <include refid="select1"></include>
+        where r.rnk_type = '03'
+          and rnk_item = #{rnk_item}
+          and DATE_FORMAT(r.rnk_dt, '%Y-%m-%d') = #{baseDt}
+        order by 
+            r.rnk asc
     </select>
 
 </mapper>

@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import leadme.domain.Tour;
 import leadme.service.MainService;
 
@@ -30,14 +28,27 @@ public class MainController {
     @GetMapping("main")
     public void main(
             @RequestParam(defaultValue="kor") String lang,
-            Model model){
+            @RequestParam(defaultValue="20")  String rnk_item,
+            Model model) {
       
-        List<Tour> list = mainService.getListThemeBest("2018-11-12");
-        /*
-        for(Tour t:list) {
-          System.out.println(t);
-        }*/
-        model.addAttribute("themeList", list);
+        
+        List<Tour> list1 = mainService.getListThemeBest("2018-11-12", rnk_item);
+        List<Tour> list2 = mainService.getListLocalBest("2018-11-12", "01");
+        
+        model.addAttribute("themeList", list1);
+        model.addAttribute("localList", list2);
+    }
+    
+    @RequestMapping(value="main/theme", produces="application/json;charset=UTF-8")
+    @ResponseBody
+    public List<Tour> theme(String rnk_item) {
+      return mainService.getListThemeBest("2018-11-12", rnk_item);
+    }
+    
+    @RequestMapping(value="main/local", produces="application/json;charset=UTF-8")
+    @ResponseBody
+    public List<Tour> local(String rnk_item) {
+      return mainService.getListLocalBest("2018-11-12", rnk_item);
     }
 }
 
