@@ -2,6 +2,7 @@ package leadme.web;
 
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,11 +20,11 @@ public class AuthController{
         this.authService = authService;
     }
     
-    @RequestMapping(value="login")
-    public String login() {
-      return "/auth/login";
-    }
     
+    @GetMapping("login")
+    public void login() {}
+    
+    /*
     @RequestMapping(value="loginCheck.do", method=RequestMethod.POST)
     @ResponseBody
     public void loginCheck(@RequestBody Member member, HttpSession session) {
@@ -33,7 +34,42 @@ public class AuthController{
       } catch (Exception e) {
         System.out.println(e);
       }
-      
+    }
+    */
+    
+    @RequestMapping("fblogin")
+    public String fblogin(
+            String accessToken,
+            HttpSession session) {
+        
+        try {
+          Member loginUser = authService.getFacebookMember(accessToken, "N"); // "N": 일반회원 하드코딩 test
+          
+          // 회원 정보를 세션에 보관한다.
+          /*
+          session.setAttribute("loginUser", loginUser);
+          String redirectUrl = null;
+          
+          switch (type) {
+          case "student":
+              redirectUrl = "../student/list";
+              break;
+          case "teacher":
+              redirectUrl = "../teacher/list";
+              break; 
+          case "manager":
+              redirectUrl = "../manager/list";
+              break; 
+          }
+          return "redirect:" + redirectUrl;
+           */
+          return "redirect:../main";
+          
+        } catch (Exception e) {
+            e.printStackTrace();
+            session.invalidate();
+            return "redirect:form";
+        }
     }
     
     @RequestMapping(value="signup")

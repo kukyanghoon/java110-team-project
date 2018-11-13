@@ -6,4 +6,6 @@ import leadme.domain.Member;
 public interface AuthService {
     AuthService login(Member member) throws Exception;
     void loginPass(HttpSession session);
+    
+    Member getFacebookMember(String accessToken,String memberType);
 }

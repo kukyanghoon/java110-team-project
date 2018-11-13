@@ -6,7 +6,6 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <iframe id="facebook-jssdk-iframe" src="javascript:false" style="width: 0px; height: 0px; border: 0px;"></iframe><script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/ec.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/linkid.js"></script><script src="https://connect.facebook.net/signals/config/1650301975237886?v=2.8.33&amp;r=stable" async=""></script><script async="" src="//connect.facebook.net/en_US/fbevents.js"></script><script id="facebook-jssdk" src="//connect.facebook.net/en_US/all.js#xfbml=1&amp;appId=113823448739791"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="//linkback.contentsfeed.com/src/time.php?jsoncallback=linkback.setViewStart"></script><script type="text/javascript" async="" src="https://linkback.contentsfeed.com/src/lb4myrt.min.js" charset="utf-8"></script>
       <meta charset="UTF-8">
       <title>LEADME</title>
       <link rel="shortcut icon" type="image/x-icon" href="https://d2yoing0loi5gh.cloudfront.net/assets/favicon-e7fc64f202376533d86106e6f712ed41eee1e843dbc5de3b2765938656f8eb93.ico">
@@ -176,7 +175,7 @@
                   <script>
                   
                   function autoServerLogin(accessToken) {
-                      location.href = "login08.jsp?accessToken=" + accessToken;
+                      location.href = "fblogin?&accessToken="+accessToken;
                   }
                   function statusChangeCallback(response) {
                     console.log(response);
@@ -196,7 +195,7 @@
                   window.fbAsyncInit = function() {
                     console.log("window.fbAsyncInit() 호출됨!");
                     FB.init({
-                      appId      : '341620679957072', // 개발자가 등록한 앱 ID
+                      appId      : '276928149622484', // 개발자가 등록한 앱 ID
                       cookie     : true,  
                       xfbml      : true,  
                       version    : 'v3.2' 
@@ -215,13 +214,14 @@
                   
                   </script>
                 
-                     <div class='btn-wrap' >
-                        <!-- <a class='btn-new btn--type-outline btn--width-100 btn-sns'>
+                     <div class='btn-wrap' id="btn-wrap-fb">
+                     
+                       <!--  <a class='btn-new btn--type-outline btn--width-100 btn-sns'>
                         <img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/fb-logo@2x-2a65bc6ab97a894a1baeca5b714f4201eb991cfc6d955ef657f86de8e56f89d5.png' width='18'>
-                        <span>페이스북으로 로그인</span>
-                        </a> -->
+                        <span>페이스북으로 로그인</span> -->
                         <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
                         
+                        </a>
                      </div>
                      <div class='btn-wrap'>
                         <a class='btn-new btn--type-outline btn--width-100 btn-sns'>
@@ -377,11 +377,6 @@
          </script>
       </div>
       <div style="display: none; visibility: hidden;">
-         <script>/msie [1-7]./.test(navigator.userAgent.toLowerCase())||function(a,b,c){var e=0x6785963aafcf,d=a.getElementsByTagName(b)[0];a.getElementById(c)||(a=a.createElement(b),a.id=c,a.src="//connect.facebook.net/en_US/all.js#xfbml\x3d1\x26appId\x3d"+e,d.parentNode.insertBefore(a,d))}(document,"script","facebook-jssdk");</script>
-         <script>!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","//connect.facebook.net/en_US/fbevents.js");window._fbEventInited||(fbq("init","1650301975237886"),window._fbEventInited=!0);fbq("track","PageView");</script>
-         <noscript></noscript>
-      </div>
-      <div style="display: none; visibility: hidden;">
          <script type="text/javascript" src="https://wcs.naver.net/wcslog.js"></script> 
          <script type="text/javascript">if(!wcs_add)var wcs_add={};wcs_add.wa="s_2652984f26f1";if(!_nasa)var _nasa={};wcs.inflow();wcs_do(_nasa);</script>
       </div>
@@ -389,17 +384,8 @@
          <script type="text/javascript">var roosevelt_params={retargeting_id:"CO4BPcxxuPf7EMtOqlDEMw00",tag_label:"fDUszzkYQtK6Ijtu6-bHRA"};</script>
          <script type="text/javascript" src="//adimg.daumcdn.net/rt/roosevelt.js" async="null"></script>
       </div>
-      <div id="fb-root" class=" fb_reset">
-         <div style="position: absolute; top: -10000px; height: 0px; width: 0px;">
-            <div></div>
-         </div>
-         <div style="position: absolute; top: -10000px; height: 0px; width: 0px;">
-            <div><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="https://staticxx.facebook.com/connect/xd_arbiter/r/__Bz3h5RzMx.js?version=42#channel=f261eafcfcaf71&amp;origin=https%3A%2F%2Fwww.myrealtrip.com" style="border: none;"></iframe></div>
-         </div>
-      </div>
       
       <script src="js/custom.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-      
+
    </body>
 </html>
