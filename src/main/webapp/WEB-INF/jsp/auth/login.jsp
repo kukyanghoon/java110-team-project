@@ -30,12 +30,12 @@
       <script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-01ea8c7c94c68924dc912350d530fb7e62968738f000a46cec5b9f8c3187e0c5.js"></script>
       <style type="text/css"></style>
       <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyC84fbqS1JuAJ9t24SLY2LEWf2Ud8W8F1E&amp;libraries=places&amp;language=ko" async="async" defer="defer"></script>
-      <script src="//cdn.ravenjs.com/3.24.2/raven.min.js" async="async" defer="defer" onload="initRaven()"></script>
       <script>
          function initRaven() {
            Raven.config('https://5bfa4c779b0a477cb4cdb9b8b659cb8b@sentry.io/146345').install();
          }
       </script>
+      <!-- Google Tag Manager -->
       <script>
          dataLayer = [];
          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -44,7 +44,7 @@
          '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
          })(window,document,'script','dataLayer','GTM-NCVRS4');
       </script>
-      
+      <!-- End Google Tag Manager -->
       <script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
       <script type="text/javascript">
          kakaoPixel('5174958686083042808').pageView();
@@ -56,7 +56,7 @@
       <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/34/16/intl/ko_ALL/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/34/16/intl/ko_ALL/util.js"></script>
       
        
-       <link rel="stylesheet" type="text/css" href="/resources/css/hyun.css">
+       <link rel="stylesheet" type="text/css" href="css/hyun.css">
       <style>
        .gnb-common-menu__container .gnb-common-menu__list .gnb-common-menu__item .gnb-common-menu__item__link .gnb-common-menu__item--text.transparent{
          color: black;
@@ -76,9 +76,16 @@
          .mrt-button{
          }
        </style>
+      
    </head>
    
    <body class="body" data-action="new" data-controller-path="users/sessions" data-controller="sessions">
+   
+   <header>
+   <jsp:include page="../headerTest.jsp"></jsp:include>
+   </header>
+   
+   
       <!-- Google Tag Manager (noscript) -->
       <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NCVRS4"
          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -158,8 +165,10 @@
                                   data:JSON.stringify(obj),
                                   contentType:"application/json",
                                   success:function(data){
-                                      console.log('success');
-                                      
+                                      location.href = '../main';
+                                  },
+                                  error:function(){
+                                      console.log('실패');
                                   }
                               
                               });
@@ -201,7 +210,7 @@
                   window.fbAsyncInit = function() {
                     console.log("window.fbAsyncInit() 호출됨!");
                     FB.init({
-                      appId      : '276928149622484', // 개발자가 등록한 앱 ID
+                      appId      : '253769075288702', // 개발자가 등록한 앱 ID
                       cookie     : true,  
                       xfbml      : true,  
                       version    : 'v3.2' 
@@ -220,7 +229,7 @@
                   
                   </script>
                 
-                     <div class='btn-wrap' id="btn-wrap-fb">
+                     <div class='btn-wrap' data-use-continue-as="true" id="btn-wrap-fb">
                      
                        <!--  <a class='btn-new btn--type-outline btn--width-100 btn-sns'>
                         <img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/fb-logo@2x-2a65bc6ab97a894a1baeca5b714f4201eb991cfc6d955ef657f86de8e56f89d5.png' width='18'>
@@ -231,6 +240,8 @@
                      </div>
                      
                      <script>
+                                 
+                                 
                      function onSignIn(googleUser) {
                          // Useful data for your client-side scripts:
                          var profile = googleUser.getBasicProfile();
@@ -241,9 +252,8 @@
                          console.log("Image URL: " + profile.getImageUrl());
                          console.log("Email: " + profile.getEmail());
                          
-                         $(document).ready(function(){
                             console.log("aaa"); 
-                            
+                            $(document).ready(function(){
                             $.ajax({
                                 url:'googleLoginCheck.do',
                                 type:'POST',
@@ -251,19 +261,17 @@
                                 data:JSON.stringify(makeObj(profile)),
                                 contentType:"application/json",
                                 success:function(data){
-                                    console.log('success');
-                                    
+                                    console.log(data);
+                                    //location.href = "test";
                                 }
                             
                             });
-                            
                             
                          });
                          // The ID token you need to pass to your backend:
                          var id_token = googleUser.getAuthResponse().id_token;
                          console.log("ID Token: " + id_token);
                        };
-
 
                        function makeObj(profile){
                            var obj ={
@@ -275,7 +283,6 @@
                            return obj;
                        }
                        
-                       
                       
                      </script>
                      
@@ -284,7 +291,7 @@
                         <img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/naver-logo@2x-332865f7b796a02822378e0b61e6dcace93ae9a24abd810cd774a06b5fbcb0b5.png' width='18'>
                         <span>네이버로 로그인</span>
                         </a>
-                        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                        <div id='googleLoginBtn' class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
                      </div>
                   </div>
                   <div class='panel-footer'>
@@ -442,7 +449,10 @@
          <script type="text/javascript" src="//adimg.daumcdn.net/rt/roosevelt.js" async="null"></script>
       </div>
       
-      <script src="/resources/js/custom.js"></script>
+      <script src="js/custom.js"></script>
 
+    <footer>
+        <jsp:include page="../footerTest.jsp"></jsp:include>
+    </footer>
    </body>
 </html>
