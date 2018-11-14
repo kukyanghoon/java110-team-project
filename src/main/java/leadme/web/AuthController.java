@@ -1,5 +1,7 @@
 package leadme.web;
 
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,83 +28,72 @@ public class AuthController{
     
     @RequestMapping(value="loginCheck.do", method=RequestMethod.POST)
     @ResponseBody
-    public void loginCheck(@RequestBody Member member, HttpSession session) {
-        
+    public Map<String ,Object> loginCheck(@RequestBody Member member, HttpSession session) {
+      Map<String ,Object> message = new HashMap<String, Object>();
       try {
         authService.login(member).loginPass(session);
         System.out.println("session에 아이디값 저장");
+        message.put("message", true);
       } catch (Exception e) {
         System.out.println(e);
+        return null;
       }
+      return message;
     }
     
     @RequestMapping(value="googleLoginCheck.do", method=RequestMethod.POST)
     @ResponseBody
-    public void googleLoginCheck(@RequestBody Member member, HttpSession session) {
-        System.out.println(member.getEmail());
-        System.out.println(member.getName());
-        System.out.println(member.getPhoto());
+    public Map<String ,Object> googleLoginCheck(@RequestBody Member member, HttpSession session) {
+      Map<String ,Object> message = new HashMap<String, Object>();
         try {
           authService.socialLogin(member).loginPass(session);
+          message.put("message", "로그인 성공");
+          System.out.println("기존 google 아이디로 로그인 성공");
         } catch (Exception e) {
           member.setPath("google");
-          authService.createUser(member).loginPass(session);
+          authService.createSocialUser(member).loginPass(session);
+          message.put("message", "자동 회원 가입 후 로그인 성공");
+          System.out.println("google 아이디 자동 가입 후  로그인 성공");
         }
+        
+        return message;
     }
-    
-    
     
     @RequestMapping("fblogin")
     public String fblogin(
             String accessToken,
             HttpSession session) {
         
+      Member loginUser = authService.getFacebookMember(accessToken, "N"); // "N": 일반회원 하드코딩 test
         try {
-          Member loginUser = authService.getFacebookMember(accessToken, "N"); // "N": 일반회원 하드코딩 test
           
-          // 회원 정보를 세션에 보관한다.
-          /*
-          session.setAttribute("loginUser", loginUser);
-          String redirectUrl = null;
-          
-          switch (type) {
-          case "student":
-              redirectUrl = "../student/list";
-              break;
-          case "teacher":
-              redirectUrl = "../teacher/list";
-              break; 
-          case "manager":
-              redirectUrl = "../manager/list";
-              break; 
-          }
-          return "redirect:" + redirectUrl;
-           */
-          return "redirect:../main";
-          
+          authService.socialLogin(loginUser).loginPass(session);;
+          //return "redirect:../main";
+          return "redirect:login";
         } catch (Exception e) {
-            e.printStackTrace();
-            session.invalidate();
+          loginUser.setPath("facebook");
+          authService.createSocialUser(loginUser).loginPass(session);;
             return "redirect:login";
         }
     }
     
     @RequestMapping(value="signup")
-    public String signup() {
+    public String signUp() {
       return "/auth/signup";
     }
     
-    @RequestMapping(value="join.do", method=RequestMethod.POST)
+    @RequestMapping(value="signup.do", method=RequestMethod.POST)
     @ResponseBody
-    public void join(@RequestBody Member member) {
-      
-      System.out.println(member.getName());
-      System.out.println(member.getEmail());
-      System.out.println(member.getPassword());
-      
-      
-      
-      
+    public Map<String ,Object> signUp(@RequestBody Member member) {
+      Map<String ,Object> message = new HashMap<String, Object>();
+      try {
+        authService.createUser(member);
+        message.put("message", "true");
+      } catch (Exception e) {
+        System.out.println("이미 가입 되어있는 회원");
+        message.put("message", "false");
+      }
+      return message;
     }
     
     @RequestMapping("logout")

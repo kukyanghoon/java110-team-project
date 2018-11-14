@@ -107,27 +107,31 @@
                           }
                           
                           if(!( emptyCheck($('#checkTerms')) && emptyCheck($('#checkAgree')) )){
+                              console.log("약관 빔");
                               return;
                           }
                           
                           var obj = {
                                   'name' : name.val(),
                                   'email' : email.val(),
-                                  'password' : pwd.val(),
+                                  'password' : pwd.val()
                           }
                           
                           console.log(obj);
                           
                           
                            $.ajax({
-                              url:'join.do',
+                              url:'signup.do',
                               type:'POST',
                               dataType:'JSON',
                               data:JSON.stringify(obj),
                               contentType:"application/json",
                               success:function(data){
-                                  
-                                  
+                                  console.log(data);
+                                  if(data.message == 'true'){
+                                      location.href = "login"
+                                  }
+                                      console.log('아니아니아니아니아니아니아니되오');
                               }
                           }); 
                          
@@ -382,5 +386,8 @@
          });
          }
       </script>
+      <footer>
+        <jsp:include page="../footerTest.jsp"></jsp:include>
+    </footer>
    </body>
 </html>
