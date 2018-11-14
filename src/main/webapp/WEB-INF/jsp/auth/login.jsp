@@ -30,7 +30,6 @@
       <script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-01ea8c7c94c68924dc912350d530fb7e62968738f000a46cec5b9f8c3187e0c5.js"></script>
       <style type="text/css"></style>
       <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyC84fbqS1JuAJ9t24SLY2LEWf2Ud8W8F1E&amp;libraries=places&amp;language=ko" async="async" defer="defer"></script>
-      <script src="//cdn.ravenjs.com/3.24.2/raven.min.js" async="async" defer="defer" onload="initRaven()"></script>
       <script>
          function initRaven() {
            Raven.config('https://5bfa4c779b0a477cb4cdb9b8b659cb8b@sentry.io/146345').install();
@@ -81,6 +80,12 @@
    </head>
    
    <body class="body" data-action="new" data-controller-path="users/sessions" data-controller="sessions">
+   
+   <header>
+   <jsp:include page="../headerTest.jsp"></jsp:include>
+   </header>
+   
+   
       <!-- Google Tag Manager (noscript) -->
       <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NCVRS4"
          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -160,8 +165,10 @@
                                   data:JSON.stringify(obj),
                                   contentType:"application/json",
                                   success:function(data){
-                                      console.log('success');
-                                      
+                                      location.href = '../main';
+                                  },
+                                  error:function(){
+                                      console.log('실패');
                                   }
                               
                               });
@@ -233,6 +240,8 @@
                      </div>
                      
                      <script>
+                                 
+                                 
                      function onSignIn(googleUser) {
                          // Useful data for your client-side scripts:
                          var profile = googleUser.getBasicProfile();
@@ -243,9 +252,8 @@
                          console.log("Image URL: " + profile.getImageUrl());
                          console.log("Email: " + profile.getEmail());
                          
-                         $(document).ready(function(){
                             console.log("aaa"); 
-                            
+                            $(document).ready(function(){
                             $.ajax({
                                 url:'googleLoginCheck.do',
                                 type:'POST',
@@ -253,19 +261,17 @@
                                 data:JSON.stringify(makeObj(profile)),
                                 contentType:"application/json",
                                 success:function(data){
-                                    console.log('success');
-                                    
+                                    console.log(data);
+                                    //location.href = "test";
                                 }
                             
                             });
-                            
                             
                          });
                          // The ID token you need to pass to your backend:
                          var id_token = googleUser.getAuthResponse().id_token;
                          console.log("ID Token: " + id_token);
                        };
-
 
                        function makeObj(profile){
                            var obj ={
@@ -277,7 +283,6 @@
                            return obj;
                        }
                        
-                       
                       
                      </script>
                      
@@ -286,7 +291,7 @@
                         <img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/naver-logo@2x-332865f7b796a02822378e0b61e6dcace93ae9a24abd810cd774a06b5fbcb0b5.png' width='18'>
                         <span>네이버로 로그인</span>
                         </a>
-                        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                        <div id='googleLoginBtn' class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
                      </div>
                   </div>
                   <div class='panel-footer'>
@@ -446,5 +451,8 @@
       
       <script src="js/custom.js"></script>
 
+    <footer>
+        <jsp:include page="../footerTest.jsp"></jsp:include>
+    </footer>
    </body>
 </html>
