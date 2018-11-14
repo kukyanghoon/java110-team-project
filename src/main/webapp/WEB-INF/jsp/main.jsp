@@ -409,10 +409,10 @@
 <img alt='experience-product' class='summary__image' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/experience/ic-tnt-feature-products-599e6e539e3d533485af3529599282548c372498a0541251788f61aaab466b38.svg'>
 <div class='summary__content'>
 <div class='summary__content__title'>
-전 세계 투어&amp;티켓 예약
+현지 가이드가 알려주는 동네 투어
 </div>
 <div class='summary__content__desc'>
-가이드 투어부터 교통 패스까지!
+누구나 가이드가 될 수 있습니다!
 </div>
 </div>
 </div>
