@@ -36,7 +36,6 @@
            Raven.config('https://5bfa4c779b0a477cb4cdb9b8b659cb8b@sentry.io/146345').install();
          }
       </script>
-      <!-- Google Tag Manager -->
       <script>
          dataLayer = [];
          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -45,7 +44,7 @@
          '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
          })(window,document,'script','dataLayer','GTM-NCVRS4');
       </script>
-      <!-- End Google Tag Manager -->
+      
       <script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
       <script type="text/javascript">
          kakaoPixel('5174958686083042808').pageView();
@@ -57,7 +56,7 @@
       <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/34/16/intl/ko_ALL/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/34/16/intl/ko_ALL/util.js"></script>
       
        
-       <link rel="stylesheet" type="text/css" href="css/hyun.css">
+       <link rel="stylesheet" type="text/css" href="/resources/css/hyun.css">
       <style>
        .gnb-common-menu__container .gnb-common-menu__list .gnb-common-menu__item .gnb-common-menu__item__link .gnb-common-menu__item--text.transparent{
          color: black;
@@ -77,7 +76,6 @@
          .mrt-button{
          }
        </style>
-      
    </head>
    
    <body class="body" data-action="new" data-controller-path="users/sessions" data-controller="sessions">
@@ -203,7 +201,7 @@
                   window.fbAsyncInit = function() {
                     console.log("window.fbAsyncInit() 호출됨!");
                     FB.init({
-                      appId      : '1941679139472866', // 개발자가 등록한 앱 ID
+                      appId      : '276928149622484', // 개발자가 등록한 앱 ID
                       cookie     : true,  
                       xfbml      : true,  
                       version    : 'v3.2' 
@@ -444,7 +442,7 @@
          <script type="text/javascript" src="//adimg.daumcdn.net/rt/roosevelt.js" async="null"></script>
       </div>
       
-      <script src="js/custom.js"></script>
+      <script src="/resources/js/custom.js"></script>
 
    </body>
 </html>

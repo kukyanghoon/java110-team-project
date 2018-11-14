@@ -30,6 +30,14 @@
             tour t inner join ranking r on t.tno = r.tno            
     </sql>
 
+    <select id="getListTourBest" resultMap="tourMap" parameterType="map">
+        <include refid="select1"></include>
+        where r.rnk_type = '01'
+          and DATE_FORMAT(r.rnk_dt, '%Y-%m-%d') = #{baseDt}
+        order by 
+            r.rnk asc
+    </select>
+    
     <select id="getListThemeBest" resultMap="tourMap" parameterType="map">
         <include refid="select1"></include>
         where r.rnk_type = '02'

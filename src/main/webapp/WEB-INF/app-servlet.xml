@@ -41,7 +41,24 @@
 	    <property name="prefix" value="/WEB-INF/jsp/"/>
 	    <property name="suffix" value=".jsp"/>
 	</bean>
+	
+	
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource"> 
+    <property name="basenames"> 
+        <list> <!-- 메세지 파일의 위치를 지정합니다. message_언어.properties 파일을 찾습니다. --> 
+            <value>/WEB-INF/messages/message</value> 
+        </list> 
+    </property> <!-- 파일의 기본 인코딩을 지정합니다. --> 
+    <property name="defaultEncoding" value="UTF-8" /> <!-- properties 파일이 변경되었는지 확인하는 주기를 지정합니다. 60초 간격으로 지정했습니다. --> 
+    <property name="cacheSeconds" value="60" /> </bean> <!-- 언어 정보를 세션에 저장하여 사용합니다. --> 
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver" />
     
+    <mvc:interceptors> 
+        <bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"> 
+            <property name="paramName" value="lang" /> 
+        </bean> 
+    </mvc:interceptors>
+
 </beans>
 
 

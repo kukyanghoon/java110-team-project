@@ -3,7 +3,8 @@
     pageEncoding="UTF-8"
     trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
 <!DOCTYPE html>
 <html>
@@ -14,7 +15,7 @@
 <meta content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 <meta content='yes' name='apple-mobile-web-app-capable'>
 <meta content='black' name='apple-mobile-web-app-status-bar-style'>
-<title>리드미 :: 현지 친구와 진짜 여행을</title>
+<title><spring:message code="site.title" text="환영합니다" /></title>
 <link rel="shortcut icon" type="image/x-icon" href="https://d2yoing0loi5gh.cloudfront.net/assets/favicon-e7fc64f202376533d86106e6f712ed41eee1e843dbc5de3b2765938656f8eb93.ico" />
 <script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/ko-9d53604fb5c8a610df23b77f7135903c1affe982fa1d15f3354fdc521e10862a.js"></script>
 <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application_template-5da62e3a802820a73815ac9769d004d04db514aa47276f57320c206cc043d2ac.css" />
@@ -23,11 +24,10 @@
 <link rel="stylesheet" media="screen" href="https://d2yoing0loi5gh.cloudfront.net/webpack/application.e01e462572b9064a1cc4.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/custom1.css">
 <script src="https://d2yoing0loi5gh.cloudfront.net/webpack/vendor.e01e462572b9064a1cc4.js"></script>
-<script src="https://d2yoing0loi5gh.cloudfront.net/webpack/application.e01e462572b9064a1cc4.js"></script>
 <!--[if lte ie 9]>
 <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/ie-b751bcff1f912d9f2d6eb3f5f25a09494364fee359047b3bcf9e161c4d714527.css" />
 <![endif]-->
-<script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-ce3fc3507853263820d2d1429b62056a0198477b4727cfb36e1facadea05fbcd.js"></script>
+
 
 </head>
 <body class='body' data-action='index' data-controller-path='kitty/experiences/main' data-controller='main'>
@@ -56,18 +56,20 @@
             <ul class="gnb-common-menu__list">
                 <li class="gnb-common-menu__item gtm-gnb-becomeguide-before-login hidden-tablet-down">
                     <a href="#" class="gnb-common-menu__item__link">
-                        <span class="gnb-common-menu__item--text transparent">가이드 등록하기</span>
+                        <span class="gnb-common-menu__item--text transparent"><spring:message code="site.reg.guide" text="가이드 등록하기" /></span>
                     </a>
                 </li>
                 <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
-                    <a href="auth/login" class="gnb-common-menu__item__link">
-                        <span class="gnb-common-menu__item--text transparent">로그인</span>
+                    <a href="#" class="gnb-common-menu__item__link" 
+                       onclick="event.preventDefault(); location.href='auth/login'">
+                        <span class="gnb-common-menu__item--text transparent"><spring:message code="site.signin" text="로그인" /></span>
                     </a>
                 </li>
                 <li class="gnb-common-menu__item gtm-gnb-signup hidden-tablet-down">
-                    <a href="#" class="gnb-common-menu__item__link">
+                    <a href="#" class="gnb-common-menu__item__link" 
+                       onclick="event.preventDefault(); location.href='auth/signup'">
                         <button class="mrt-button white" style="font-size: 14px; font-weight: 700; height: 40px; line-height: 38px; width: 114px;">
-                            <span class="btn-label">회원가입</span>
+                            <span class="btn-label"><spring:message code="site.signup" text="회원가입" /></span>
                         </button>
                     </a>
                 </li>
@@ -207,7 +209,7 @@
 </div>
 </div>
 </div>
-<div class='main__header__text'>대한민국 구석구석<br/>현지친구와 진짜 여행을 떠나보세요.<br/></div>
+<div class='main__header__text'><spring:message code="site.welcome1" text="" /><br/><spring:message code="site.welcome2" text="" /><br/></div>
 <div class='main__header__search'>
 <div class='search__wrapper'>
 <img class='search__icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/gnb/experience/ic-search-md-gray-500-6a187a261605c7d19ed2208391ae26f29e387b7f26a9b86b32dd5e1fd1a48561.svg' width='22'>
@@ -222,47 +224,47 @@
       <nav class="mrt-container">
           <ul class="lnb-menu">
               <li class="lnb-menu__item gtm-lnb-home">
-                <a href="#" class="lnb-menu__item--link transparent" id="home-link1" data-turbolinks="false">전체</a>
+                <a href="#" class="lnb-menu__item--link transparent" id="home-link1" data-turbolinks="false"><spring:message code="site.cate0" text="전체" /></a>
               </li>
               <li class="lnb-menu__item gtm-lnb-home">
-                <a href="#" class="lnb-menu__item--link transparent" id="home-link2" data-turbolinks="false">식도락</a>
+                <a href="#" class="lnb-menu__item--link transparent" id="home-link2" data-turbolinks="false"><spring:message code="site.cate1" text="식도락" /></a>
                 <ul class="sub-menu__item-contain">
-                    <li><a href="#">전통음식</a></li>
-                    <li><a href="#">고급식당</a></li>
-                    <li><a href="#">일반식당</a></li>
-                    <li><a href="#">채식</a></li>
+                    <li><a href="#"><spring:message code="site.cate1-1" text="전통음식" /></a></li>
+                    <li><a href="#"><spring:message code="site.cate1-2" text="고급식당" /></a></li>
+                    <li><a href="#"><spring:message code="site.cate1-3" text="일반식당" /></a></li>
+                    <li><a href="#"><spring:message code="site.cate1-4" text="채식" /></a></li>
                     
                 </ul>
               </li>
               <li class="lnb-menu__item gtm-lnb-home">
-                <a href="#" class="lnb-menu__item--link transparent" id="home-link3" data-turbolinks="false">역사/문화</a>
+                <a href="#" class="lnb-menu__item--link transparent" id="home-link3" data-turbolinks="false"><spring:message code="site.cate2" text="역사/문화" /></a>
                 <ul class="sub-menu__item-contain">
-                    <li><a href="#">고궁</a></li>
-                    <li><a href="#">박물관</a></li>
-                    <li><a href="#">유적지</a></li>
-                    <li><a href="#">민속마을</a></li>
+                    <li><a href="#"><spring:message code="site.cate2-1" text="고궁" /></a></li>
+                    <li><a href="#"><spring:message code="site.cate2-2" text="박물관" /></a></li>
+                    <li><a href="#"><spring:message code="site.cate2-3" text="유적지" /></a></li>
+                    <li><a href="#"><spring:message code="site.cate2-4" text="민속마을" /></a></li>
                 </ul>                
               </li>
               <li class="lnb-menu__item gtm-lnb-home">
-                <a href="#" class="lnb-menu__item--link transparent" id="home-link4" data-turbolinks="false">명소</a>
+                <a href="#" class="lnb-menu__item--link transparent" id="home-link4" data-turbolinks="false"><spring:message code="site.cate3" text="명소" /></a>
                 <ul class="sub-menu__item-contain">
-                    <li><a href="#">랜드마크</a></li>
-                    <li><a href="#">자연</a></li>
-                    <li><a href="#">테마거리</a></li>
+                    <li><a href="#"><spring:message code="site.cate3-1" text="랜드마크" /></a></li>
+                    <li><a href="#"><spring:message code="site.cate3-2" text="자연" /></a></li>
+                    <li><a href="#"><spring:message code="site.cate3-3" text="테마거리" /></a></li>
                 </ul>                
               </li>
               <li class="lnb-menu__item gtm-lnb-home">
-                <a href="#" class="lnb-menu__item--link transparent" id="home-link5" data-turbolinks="false">액티비티</a>
+                <a href="#" class="lnb-menu__item--link transparent" id="home-link5" data-turbolinks="false"><spring:message code="site.cate4" text="액티비티" /></a>
                 <ul class="sub-menu__item-contain">
-                    <li><a href="#">문화체험</a></li>
-                    <li><a href="#">스포츠</a></li>
-                    <li><a href="#">트래킹</a></li>
-                    <li><a href="#">힐링</a></li>
-                    <li><a href="#">나이트라이프</a></li>
+                    <li><a href="#"><spring:message code="site.cate4-1" text="문화체험" /></a></li>
+                    <li><a href="#"><spring:message code="site.cate4-2" text="스포츠" /></a></li>
+                    <li><a href="#"><spring:message code="site.cate4-3" text="트래킹" /></a></li>
+                    <li><a href="#"><spring:message code="site.cate4-4" text="힐링" /></a></li>
+                    <li><a href="#"><spring:message code="site.cate4-5" text="나이트라이프" /></a></li>
                 </ul>                
               </li>
               <li class="lnb-menu__item gtm-lnb-home">
-                <a href="#" class="lnb-menu__item--link transparent" id="home-link6" data-turbolinks="false">쇼핑</a>
+                <a href="#" class="lnb-menu__item--link transparent" id="home-link6" data-turbolinks="false"><spring:message code="site.cate5" text="쇼핑" /></a>
               </li>
           </ul>
       </nav>
@@ -277,7 +279,7 @@
 <div class='experience__common__row'>
 <div class='main-content'>
 <div class='main-content__title-container'>
-<h3 class='main-content__title'>인기 가이드투어 </h3>
+<h3 class='main-content__title'><spring:message code="site.rank1" text="인기 가이드투어" /> </h3>
 </div>
 </div>
 </div>
@@ -285,268 +287,38 @@
 <div class='main-content'>
 <div class='offer-container card-type card-hot-deal swiper-container' name='offer_card'>
 <ul class='item-container offer-item-container item-container--swiper swiper-wrapper'>
-<li class='card-type-a item swiper-slide' data-gtm-action='인기 가이드투어 ' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='43258' data-offer-id='43258' data-offer-type='Tour'>
-<a class="wish" data-offer-id="43258" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/43258.js"><div class='icon'></div>
-</a><div class='card-cover'>
-<a class='offer-link' href='/offers/43258'>
-<div class='img-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/43258/269785_tiny_1538313707.jpg?1538313707'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/43258/269785_medium_1538313707.jpg?1538313707'>
-</div>
-</div>
-<div class='content-box'>
-<div class='city-name'>액티비티 • 교토</div>
-<div class='name'>[투어] 교토 기모노 체험:: 여성 기모노 K코스 :: 일본/교토</div>
-<div class='inner-container'>
-<div class='review'>
-<img alt='review' class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/ic_reviewevent@2x-e0cd14bb5a469b7f06ef7a64136d6565713702aa206716d6c8bbacd00e71ef09.png' width='14'>
-<div class='text font-blue'>후기 이벤트</div>
-</div>
-<div class='price' data-offer-price='29,258원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span>29,258원</span>
-<span class='unit'>/ 1인</span>
-<meta content='KRW' itemprop='priceCurrency'>
-<meta content='29257' itemprop='price'>
-</div>
-</div>
-</div>
-</a>
-</div>
-</li>
-<li class='card-type-a item swiper-slide' data-gtm-action='인기 가이드투어 ' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='44135' data-offer-id='44135' data-offer-type='Tour'>
-<a class="wish" data-offer-id="44135" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/44135.js"><div class='icon'></div>
-</a><div class='card-cover'>
-<a class='offer-link' href='/offers/44135'>
-<div class='img-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/44135/273897_tiny_1539198332.jpg?1539198332'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/44135/273897_medium_1539198332.jpg?1539198332'>
-</div>
-</div>
-<div class='content-box'>
-<div class='city-name'>가이드 투어 • 파리</div>
-<div class='name'>[투어] 솔로예찬! 파리 종일 투어(최대 5인) :: 프랑스/파리</div>
-<div class='inner-container'>
-<div class='review'>
-<img alt='review' class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/ic_reviewevent@2x-e0cd14bb5a469b7f06ef7a64136d6565713702aa206716d6c8bbacd00e71ef09.png' width='14'>
-<div class='text font-blue'>후기 이벤트</div>
-</div>
-<div class='price' data-offer-price='50,000원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span>50,000원</span>
-<span class='unit'>/ 1인</span>
-<meta content='KRW' itemprop='priceCurrency'>
-<meta content='50000' itemprop='price'>
-</div>
-</div>
-</div>
-</a>
-</div>
-</li>
-<li class='card-type-a item swiper-slide' data-gtm-action='인기 가이드투어 ' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='39395' data-offer-id='39395' data-offer-type='ETicket'>
-<a class="wish" data-offer-id="39395" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/39395.js"><div class='icon'></div>
-</a><div class='card-cover'>
-<a class='offer-link' href='/offers/39395'>
-<div class='img-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/39395/244882_tiny_1532583658.jpg?1532583658'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/39395/244882_medium_1532583658.jpg?1532583658'>
-</div>
-</div>
-<div class='content-box'>
-<div class='city-name'>가이드 투어 • 서울</div>
-<div class='name'>한국자전거나라와 함께하는 덕수궁 야경 투어! </div>
-<div class='inner-container'>
-<div class='review'>
-<div class="rating-box"><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span></div>
-<div class='text'>후기 6개</div>
-</div>
-<div class='price' data-offer-price='16,000원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span>16,000원</span>
-<span class='unit'>/ 1인</span>
-<meta content='KRW' itemprop='priceCurrency'>
-<meta content='16000' itemprop='price'>
-</div>
-</div>
-</div>
-</a>
-</div>
-</li>
-<li class='card-type-a item swiper-slide' data-gtm-action='인기 가이드투어 ' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='37481' data-offer-id='37481' data-offer-type='Tour'>
-<a class="wish" data-offer-id="37481" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/37481.js"><div class='icon'></div>
-</a><div class='card-cover'>
-<a class='offer-link' href='/offers/37481'>
-<div class='img-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/37481/232347_tiny_1531805254.jpg?1531805254'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/37481/232347_medium_1531805254.jpg?1531805254'>
-</div>
-</div>
-<div class='content-box'>
-<div class='city-name'>가이드 투어 • 토론토</div>
-<div class='name'>[푸른투어 캐나다] 캐나다에서 보는 나이아가라 하루만에 제대로 즐기기!</div>
-<div class='inner-container'>
-<div class='review'>
-<div class="rating-box"><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span></div>
-<div class='text'>후기 7개</div>
-</div>
-<div class='price' data-offer-price='68,698원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span>68,698원</span>
-<span class='unit'>/ 1인</span>
-<meta content='KRW' itemprop='priceCurrency'>
-<meta content='68697' itemprop='price'>
-</div>
-</div>
-</div>
-</a>
-</div>
-</li>
-<li class='card-type-a item swiper-slide' data-gtm-action='인기 가이드투어 ' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='44123' data-offer-id='44123' data-offer-type='Tour'>
-<a class="wish" data-offer-id="44123" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/44123.js"><div class='icon'></div>
-</a><div class='card-cover'>
-<a class='offer-link' href='/offers/44123'>
-<div class='img-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/44123/273312_tiny_1539092009.jpg?1539092009'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/44123/273312_medium_1539092009.jpg?1539092009'>
-</div>
-</div>
-<div class='content-box'>
-<div class='city-name'>가이드 투어 • 치앙마이</div>
-<div class='name'>[투어] (단독) 치앙마이 하일라이트 - 한국어 가이드 안내 :: 태국/치앙마이</div>
-<div class='inner-container'>
-<div class='review'>
-<img alt='review' class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/ic_reviewevent@2x-e0cd14bb5a469b7f06ef7a64136d6565713702aa206716d6c8bbacd00e71ef09.png' width='14'>
-<div class='text font-blue'>후기 이벤트</div>
-</div>
-<div class='price' data-offer-price='177,000원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span>177,000원</span>
-<span class='unit'>/ 1인</span>
-<meta content='KRW' itemprop='priceCurrency'>
-<meta content='177000' itemprop='price'>
-</div>
-</div>
-</div>
-</a>
-</div>
-</li>
-<li class='card-type-a item swiper-slide' data-gtm-action='인기 가이드투어 ' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='43615' data-offer-id='43615' data-offer-type='Tour'>
-<a class="wish" data-offer-id="43615" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/43615.js"><div class='icon'></div>
-</a><div class='card-cover'>
-<a class='offer-link' href='/offers/43615'>
-<div class='img-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/43615/270556_tiny_1538453155.jpg?1538453155'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/43615/270556_medium_1538453155.jpg?1538453155'>
-</div>
-</div>
-<div class='content-box'>
-<div class='city-name'>가이드 투어 • 마카오</div>
-<div class='name'>[투어] 마카오 성지순례 시티투어(다른팀과 조인없이 단독 진행) :: 마카오</div>
-<div class='inner-container'>
-<div class='review'>
-<img alt='review' class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/ic_reviewevent@2x-e0cd14bb5a469b7f06ef7a64136d6565713702aa206716d6c8bbacd00e71ef09.png' width='14'>
-<div class='text font-blue'>후기 이벤트</div>
-</div>
-<div class='price' data-offer-price='45,560원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span>45,560원</span>
-<span class='unit'>/ 1인</span>
-<meta content='KRW' itemprop='priceCurrency'>
-<meta content='45560' itemprop='price'>
-</div>
-</div>
-</div>
-</a>
-</div>
-</li>
-<li class='card-type-a item swiper-slide' data-gtm-action='인기 가이드투어 ' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='44339' data-offer-id='44339' data-offer-type='Tour'>
-<a class="wish" data-offer-id="44339" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/44339.js"><div class='icon'></div>
-</a><div class='card-cover'>
-<a class='offer-link' href='/offers/44339'>
-<div class='img-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/44339/274422_tiny_1539247613.jpg?1539247613'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/44339/274422_medium_1539247613.jpg?1539247613'>
-</div>
-</div>
-<div class='content-box'>
-<div class='city-name'>가이드 투어 • 블라디보스토크</div>
-<div class='name'>[투어] 우수리스크 역사 투어 :: 러시아/블라디보스토크</div>
-<div class='inner-container'>
-<div class='review'>
-<img alt='review' class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/ic_reviewevent@2x-e0cd14bb5a469b7f06ef7a64136d6565713702aa206716d6c8bbacd00e71ef09.png' width='14'>
-<div class='text font-blue'>후기 이벤트</div>
-</div>
-<div class='price' data-offer-price='159,000원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span>159,000원</span>
-<span class='unit'>/ 1인</span>
-<meta content='KRW' itemprop='priceCurrency'>
-<meta content='159000' itemprop='price'>
-</div>
-</div>
-</div>
-</a>
-</div>
-</li>
-<li class='card-type-a item swiper-slide' data-gtm-action='인기 가이드투어 ' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='41918' data-offer-id='41918' data-offer-type='Tour'>
-<a class="wish" data-offer-id="41918" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/41918.js"><div class='icon'></div>
-</a><div class='card-cover'>
-<a class='offer-link' href='/offers/41918'>
-<div class='img-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/41918/267829_tiny_1537529781.jpg?1537529781'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/41918/267829_medium_1537529781.jpg?1537529781'>
-</div>
-</div>
-<div class='content-box'>
-<div class='city-name'>가이드 투어 • 나트랑</div>
-<div class='name'>[투어] 체크아웃 투어 6시간 (for 베트남항공, 한국인 가이드) :: 베트남/나트랑</div>
-<div class='inner-container'>
-<div class='review'>
-<img alt='review' class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/ic_reviewevent@2x-e0cd14bb5a469b7f06ef7a64136d6565713702aa206716d6c8bbacd00e71ef09.png' width='14'>
-<div class='text font-blue'>후기 이벤트</div>
-</div>
-<div class='price' data-offer-price='63,000원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span>63,000원</span>
-<span class='unit'>/ 1인</span>
-<meta content='KRW' itemprop='priceCurrency'>
-<meta content='63000' itemprop='price'>
-</div>
-</div>
-</div>
-</a>
-</div>
-</li>
+
+
+<!-- single item start -->
+<c:forEach items="${tourList}" var="list">
 <li class='card-type-a item swiper-slide' data-gtm-action='인기 가이드투어 ' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='42416' data-offer-id='42416' data-offer-type='Tour'>
-<a class="wish" data-offer-id="42416" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/42416.js"><div class='icon'></div>
-</a><div class='card-cover'>
+<div class='card-cover'>
 <a class='offer-link' href='/offers/42416'>
 <div class='img-container'>
 <div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/42416/263185_tiny_1536720039.jpg?1536720039'>
+<img class='img-small' src='/resources/img/${list.pri_phot}'>
 <div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/42416/263185_medium_1536720039.jpg?1536720039'>
+<img class='img' data-echo='/resources/img/${list.pri_phot}'>
 </div>
 </div>
 <div class='content-box'>
-<div class='city-name'>가이드 투어 • 타이페이</div>
-<div class='name'>[투어] 안전한 한국어 택시투어 예스진지(예류-스펀-진과스-지우펀) 대만/타이페이</div>
+<div class='city-name'>${list.loc}</div>
+<div class='name'>${list.titl}</div>
 <div class='inner-container'>
 <div class='review'>
-<div class="rating-box"><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span></div>
-<div class='text'>후기 1개</div>
+<div class="rating-box">
+<c:forEach var="i" begin="1" end="5">
+    <c:choose>
+        <c:when test="${i <= list.star}"><span class="icon active"></span></c:when>
+        <c:otherwise><span class="icon"></span></c:otherwise>
+    </c:choose>
+</c:forEach>
+</div>
+<div class='text'><spring:message code="tour.review" text="후기" /><span> ${list.cmt_cnt}</span><spring:message code="tour.cnt" text="" /></div>
 </div>
 <div class='price' data-offer-price='90,000원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span>90,000원</span>
-<span class='unit'>/ 1인</span>
+<span><fmt:formatNumber value='${list.amt}' groupingUsed='true'/></span> <spring:message code="tour.won" text="원" />
+<span class='unit'> <spring:message code="tour.per" text="/ 1인" /></span>
 <meta content='KRW' itemprop='priceCurrency'>
 <meta content='90000' itemprop='price'>
 </div>
@@ -555,97 +327,8 @@
 </a>
 </div>
 </li>
-<li class='card-type-a item swiper-slide' data-gtm-action='인기 가이드투어 ' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='43978' data-offer-id='43978' data-offer-type='ETicket'>
-<a class="wish" data-offer-id="43978" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/43978.js"><div class='icon'></div>
-</a><div class='card-cover'>
-<a class='offer-link' href='/offers/43978'>
-<div class='img-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/43978/272383_tiny_1538722529.jpg?1538722529'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/43978/272383_medium_1538722529.jpg?1538722529'>
-</div>
-</div>
-<div class='content-box'>
-<div class='city-name'>액티비티 • 오키나와</div>
-<div class='name'>[투어] 고래 관찰 투어! - 겨울철 한정/차탄 출발/반나절 투어 :: 오키나와/일본</div>
-<div class='inner-container'>
-<div class='review'>
-<img alt='review' class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/ic_reviewevent@2x-e0cd14bb5a469b7f06ef7a64136d6565713702aa206716d6c8bbacd00e71ef09.png' width='14'>
-<div class='text font-blue'>후기 이벤트</div>
-</div>
-<div class='price' data-offer-price='50,600원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span>50,600원</span>
-<span class='unit'>/ 1인</span>
-<meta content='KRW' itemprop='priceCurrency'>
-<meta content='50600' itemprop='price'>
-</div>
-</div>
-</div>
-</a>
-</div>
-</li>
-<li class='card-type-a item swiper-slide' data-gtm-action='인기 가이드투어 ' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='43747' data-offer-id='43747' data-offer-type='Tour'>
-<a class="wish" data-offer-id="43747" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/43747.js"><div class='icon'></div>
-</a><div class='card-cover'>
-<a class='offer-link' href='/offers/43747'>
-<div class='img-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/43747/271324_tiny_1538600975.jpg?1538600975'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/43747/271324_medium_1538600975.jpg?1538600975'>
-</div>
-</div>
-<div class='content-box'>
-<div class='city-name'>가이드 투어 • 리스본</div>
-<div class='name'>[투어] 감성충전 신트라 근교 차량 투어 :: 포르투갈/리스본</div>
-<div class='inner-container'>
-<div class='review'>
-<img alt='review' class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/ic_reviewevent@2x-e0cd14bb5a469b7f06ef7a64136d6565713702aa206716d6c8bbacd00e71ef09.png' width='14'>
-<div class='text font-blue'>후기 이벤트</div>
-</div>
-<div class='price' data-offer-price='120,000원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span>120,000원</span>
-<span class='unit'>/ 1인</span>
-<meta content='KRW' itemprop='priceCurrency'>
-<meta content='120000' itemprop='price'>
-</div>
-</div>
-</div>
-</a>
-</div>
-</li>
-<li class='card-type-a item swiper-slide' data-gtm-action='인기 가이드투어 ' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='44375' data-offer-id='44375' data-offer-type='Tour'>
-<a class="wish" data-offer-id="44375" data-remote="true" rel="nofollow" data-method="put" href="/wishlists/44375.js"><div class='icon'></div>
-</a><div class='card-cover'>
-<a class='offer-link' href='/offers/44375'>
-<div class='img-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/44375/274544_tiny_1539275503.jpg?1539275503'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/44375/274544_medium_1539275503.jpg?1539275503'>
-</div>
-</div>
-<div class='content-box'>
-<div class='city-name'>가이드 투어 • 싱가포르</div>
-<div class='name'>[투어] 싱가포르 골목 먹방 투어!! (차이나타운) :: 싱가포르</div>
-<div class='inner-container'>
-<div class='review'>
-<img alt='review' class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/ic_reviewevent@2x-e0cd14bb5a469b7f06ef7a64136d6565713702aa206716d6c8bbacd00e71ef09.png' width='14'>
-<div class='text font-blue'>후기 이벤트</div>
-</div>
-<div class='price' data-offer-price='59,900원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-<span>59,900원</span>
-<span class='unit'>/ 1인</span>
-<meta content='KRW' itemprop='priceCurrency'>
-<meta content='59900' itemprop='price'>
-</div>
-</div>
-</div>
-</a>
-</div>
-</li>
-
+<!-- item end -->
+</c:forEach>
 </ul>
 </div>
 </div>
@@ -656,7 +339,7 @@
 <div class='experience__common__row'>
 <div class='main-content'>
 <div class='main-content__title-container'>
-<h3 class='main-content__title' id='theme-title'>식도락 BEST</h3>
+<h3 class='main-content__title' id='theme-title'><spring:message code="site.cate1" text="식도락" /> BEST</h3>
 </div>
 </div>
 </div>
@@ -692,11 +375,11 @@
 		</c:choose>
 	</c:forEach>
 	</div>
-	<div class='text'>후기 ${list.cmt_cnt}개</div>
+	<div class='text'><spring:message code="tour.review" text="후기" /><span> ${list.cmt_cnt}</span><spring:message code="tour.cnt" text="" /></div>
 	</div>
 	<div class='price' data-offer-price='53,600원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>
-	<span><fmt:formatNumber value='${list.amt}' groupingUsed='true'/>원</span>
-	<span class='unit'>/ 1인</span>
+	<span><fmt:formatNumber value='${list.amt}' groupingUsed='true'/></span> <spring:message code="tour.won" text="원" />
+<span class='unit'> <spring:message code="tour.per" text="/ 1인" /></span>
 	</div>
 	</div>
 	</div>
@@ -772,7 +455,7 @@
 <div class='main-content'>
 <div class='main-content__title-container'>
 
-<h3 class='main-content__title'>우리동네 BEST</h3>
+<h3 class='main-content__title'><spring:message code="site.rank2" text="우리동네" /> BEST</h3>
 </div>
 </div>
 </div>
@@ -813,7 +496,7 @@
 
 <div class="OfferList__Items__Body ">
   <a class='link-container theme-margin-top hidden-tablet-down' href='/themes'>
-    <div class='text'>우리동네 여행 전체보기</div>
+    <div class='text'><spring:message code="site.rank2.more" text="우리동네 여행 전체보기" /></div>
     <img alt='go link' class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/main/ic_arrow_medium_gray@2x-9d76b3043fad7aff12f7edf4dab8bf4b320fe92e598c476c4708d7a657679751.png' width='7px'>
   </a>
   <div class="OfferList__Cards">
@@ -844,7 +527,7 @@
     </c:forEach>
   </div>
   <span class="count">${list.cmt_cnt}</span></div>
-  <div class="OfferListCard__Content__Price"><span class="SalePrice"><fmt:formatNumber value='${list.amt}' groupingUsed='true'/>원</span></div>
+  <div class="OfferListCard__Content__Price"><span class="SalePrice"><fmt:formatNumber value='${list.amt}' groupingUsed='true'/><span> <spring:message code="tour.won" text="원" /></span></span></div>
 </div>
 </a> <!-- single Item end -->
 </c:forEach>
@@ -860,25 +543,8 @@
 </main>
 
 <!-- 푸터 -->
-<div id="Footer-react-component-11079516-03d3-4141-b7da-a975e825a267">
-   <footer class="mrt-component">
-      <div class="mrt-footer">
-         <div class="mrt-sitemap--desktop hide-on-mobile">
-            <p class="footer-copyright">상호명 LEAD ME | 대표 : 김진호 | 개인정보책임자 : 국양훈<br>
-               사업자등록번호 : 209-81-55339 | 통신판매업신고번호 : 2017-서울강남-03960 | <a target="_blank" href="http://www.ftc.go.kr/www/bizCommView.do?key=232&amp;apv_perm_no=2017322016230203960&amp;pageUnit=10&amp;searchCnd=wrkr_no&amp;searchKrwd=2098155339&amp;pageIndex=1">사업자정보확인</a><br>
-               서울특별시 서초구 강남대로 364(역삼동), 비트컴퓨터 빌딩 5층 (주)LEAD ME<br>
-               <span class="tel-connect">본사 전화문의 : 1661-2860</span> | 본사 이메일문의 : leadme@gmail.com 운영시간(한국) 09:00 ~ 22:00, 주말/공휴일 포함.<br>
-               <span class="tel-connect">고객센터 전화문의 : 1661-2644</span> | 고객센터 이메일문의 : customcenter@gmail.com 운영시간(한국) 09:00 ~ 18:00, 주말/공휴일 휴무.<br>
-               <span class="tel-connect">마케팅/제휴 이메일문의</span> : marketing@gmail.com 운영시간(한국) 09:00 ~ 18:00, 주말/공휴일 휴무<br>
-               자사는 서울특별시관광협회 공제영업보증보험에 가입이 되어 있습니다.<br>
-               LEAD ME는 통신판매중개자이며 통신판매의 당사자가 아닙니다. 따라서 LEAD ME는 상품·거래정보 및 거래에 대하여 책임을 지지 않습니다.<br>
-               COPYRIGHT ⓒ LEADME SERVICE INC. ALL RIGHT RESERVED
-            </p>
-         </div>
-      </div>
-   </footer>
-</div>
-      
+<jsp:include page="footer.jsp"/>      
+<!-- 푸터 끝 -->
 
 <div id='popup-mask'></div>
 <div id='gnb-popup-mask'></div>
@@ -907,7 +573,8 @@
     }
   }
 </script>
-<script src="/resources/js/custom.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-ce3fc3507853263820d2d1429b62056a0198477b4727cfb36e1facadea05fbcd.js"></script>
+<script src="/resources/js/custom.js"></script>
 </body>
 </html>
