@@ -148,9 +148,14 @@ color: #2b96ed;
 	font-size: 1.4rem;
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1440px) {
     .lnb-menu .lnb-menu__item{
-    	padding: 0 70px;
+        padding: 0 70px;
+    }
+}
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+    .lnb-menu .lnb-menu__item{
+    	padding: 0 60px;
     }
 }
 
