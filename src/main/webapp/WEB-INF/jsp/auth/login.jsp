@@ -203,7 +203,7 @@
                   window.fbAsyncInit = function() {
                     console.log("window.fbAsyncInit() 호출됨!");
                     FB.init({
-                      appId      : '1941679139472866', // 개발자가 등록한 앱 ID
+                      appId      : '253769075288702', // 개발자가 등록한 앱 ID
                       cookie     : true,  
                       xfbml      : true,  
                       version    : 'v3.2' 
@@ -222,7 +222,7 @@
                   
                   </script>
                 
-                     <div class='btn-wrap' id="btn-wrap-fb">
+                     <div class='btn-wrap' data-use-continue-as="true" id="btn-wrap-fb">
                      
                        <!--  <a class='btn-new btn--type-outline btn--width-100 btn-sns'>
                         <img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/fb-logo@2x-2a65bc6ab97a894a1baeca5b714f4201eb991cfc6d955ef657f86de8e56f89d5.png' width='18'>
