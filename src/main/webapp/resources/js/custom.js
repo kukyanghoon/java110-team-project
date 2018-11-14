@@ -1,6 +1,17 @@
 /* header */
 
+var locale;
+$().ready(function(){
+    $.get("http://localhost:8888/app/main/locale", function(data, status){
+        locale = data;
+    });
+});
+
 (function(){
+    
+    
+    
+    
 	$('.ProfilePhoto').on('click',openMenu);
 
 	function openMenu(){
@@ -28,11 +39,11 @@
 	
 	function loadThemeBestView(rnk_item){
 
-	    $.ajax("http://localhost:8888/app/main/theme",{
+	    $.ajax("http://localhost:8888/app/main/theme/"+rnk_item,{
 	        headers: {
 	            'Content-Type': "application/json"
 	        },
-	        data: {rnk_item: rnk_item},
+//	        data: {rnk_item: rnk_item},
 	        success: function(data){
 	            createTourItems(data, rnk_item);
 	        },
@@ -48,22 +59,43 @@
         var title;
         var innerHtml;
         
-        switch(rnk_item){
-        case 10:
-            title = '식도락 BEST';
-            break;
-        case 20:
-            title = '역사/문화 BEST';
-            break;
-        case 30:
-            title = '명소 BEST';
-            break;
-        case 40:
-            title = '액티비티 BEST';
-            break;
-        case 50:
-            title = '쇼핑 BEST';
-            break;
+        if (locale === 'en'){
+            switch(rnk_item){
+            case 10:
+                title = 'Foodie BEST';
+                break;
+            case 20:
+                title = 'History/Culture BEST';
+                break;
+            case 30:
+                title = 'Attraction BEST';
+                break;
+            case 40:
+                title = 'Activity BEST';
+                break;
+            case 50:
+                title = 'Shopping BEST';
+                break;
+            }
+        } else {
+        
+            switch(rnk_item){
+            case 10:
+                title = '식도락 BEST';
+                break;
+            case 20:
+                title = '역사/문화 BEST';
+                break;
+            case 30:
+                title = '명소 BEST';
+                break;
+            case 40:
+                title = '액티비티 BEST';
+                break;
+            case 50:
+                title = '쇼핑 BEST';
+                break;
+            }
         }
 	        
 	    
@@ -126,11 +158,11 @@
 	        paramStr = ""+(this+1);
 	    }
 	    
-       $.ajax("http://localhost:8888/app/main/local",{
+       $.ajax("http://localhost:8888/app/main/local/"+paramStr,{
             headers: {
                 'Content-Type': "application/json"
             },
-            data: {rnk_item: paramStr},
+//            data: {rnk_item: paramStr},
             success: function(data){
                 var innerHtml;
                 $('.OfferList__Cards').empty();
@@ -183,65 +215,117 @@
 	function getLocalName(localCd){
 	    var name;
 	    
-	    switch(localCd){
-        case "01":
-            name = '제주도';
-            break;
-        case "02":
-            name = '부산';
-            break;
-        case "03":
-            name = '울산';
-            break;
-        case "04":
-            name = '경상남도';
-            break;
-        case "05":
-            name = '광주';
-            break;
-        case "06":
-            name = '전라남도';
-            break;
-        case "07":
-            name = '전라북도';
-            break;
-        case "08":
-            name = '대구';
-            break;
-        case "09":
-            name = '경상북도';
-            break;
-        case "10":
-            name = '대전';
-            break;
-        case "11":
-            name = '세종';
-            break;
-        case "12":
-            name = '충청북도';
-            break;
-        case "13":
-            name = '충청남도';
-            break;
-        case "14":
-            name = '강원도';
-            break;
-        case "15":
-            name = '서울시';
-            break;
-        case "16":
-            name = '경기도';
-            break;
-        case "17":
-            name = '인천시';
-            break;
-        }
+	    if (locale === 'en'){
+	        switch(localCd){
+            case "01":
+                name = 'Jeju';
+                break;
+            case "02":
+                name = 'Busan';
+                break;
+            case "03":
+                name = 'Ulsan';
+                break;
+            case "04":
+                name = 'GyeongNam';
+                break;
+            case "05":
+                name = 'GwangJu';
+                break;
+            case "06":
+                name = 'JeonNam';
+                break;
+            case "07":
+                name = 'JeonBuk';
+                break;
+            case "08":
+                name = 'Daegu';
+                break;
+            case "09":
+                name = 'GyeongBuk';
+                break;
+            case "10":
+                name = 'Daejun';
+                break;
+            case "11":
+                name = 'Sejong';
+                break;
+            case "12":
+                name = 'ChungBuk';
+                break;
+            case "13":
+                name = 'ChungNam';
+                break;
+            case "14":
+                name = 'Gangwon';
+                break;
+            case "15":
+                name = 'Seoul';
+                break;
+            case "16":
+                name = 'Gyeonggi';
+                break;
+            case "17":
+                name = 'Incheon';
+                break;
+            }	        
+	    } else {
+    	    switch(localCd){
+            case "01":
+                name = '제주도';
+                break;
+            case "02":
+                name = '부산';
+                break;
+            case "03":
+                name = '울산';
+                break;
+            case "04":
+                name = '경상남도';
+                break;
+            case "05":
+                name = '광주';
+                break;
+            case "06":
+                name = '전라남도';
+                break;
+            case "07":
+                name = '전라북도';
+                break;
+            case "08":
+                name = '대구';
+                break;
+            case "09":
+                name = '경상북도';
+                break;
+            case "10":
+                name = '대전';
+                break;
+            case "11":
+                name = '세종';
+                break;
+            case "12":
+                name = '충청북도';
+                break;
+            case "13":
+                name = '충청남도';
+                break;
+            case "14":
+                name = '강원도';
+                break;
+            case "15":
+                name = '서울시';
+                break;
+            case "16":
+                name = '경기도';
+                break;
+            case "17":
+                name = '인천시';
+                break;
+            }
+	    }
 	    return name;
 	}
-	
-	
-	
-	
 })()
 
 

@@ -55,6 +55,13 @@
         <div class="gnb-common-menu__container">
             <ul class="gnb-common-menu__list">
                 <li class="gnb-common-menu__item gtm-gnb-becomeguide-before-login hidden-tablet-down">
+		            <select class="form-control" onchange="changeLang(this.value);">
+		                 <option value="" selected disabled>language</option>
+		                 <option value="ko">한국어</option>
+		                 <option value="en">ENGLISH</option>
+		            </select>
+                </li>
+                <li class="gnb-common-menu__item gtm-gnb-becomeguide-before-login hidden-tablet-down">
                     <a href="#" class="gnb-common-menu__item__link">
                         <span class="gnb-common-menu__item--text transparent"><spring:message code="site.reg.guide" text="가이드 등록하기" /></span>
                     </a>
@@ -409,10 +416,10 @@
 <img alt='experience-product' class='summary__image' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/experience/ic-tnt-feature-products-599e6e539e3d533485af3529599282548c372498a0541251788f61aaab466b38.svg'>
 <div class='summary__content'>
 <div class='summary__content__title'>
-현지 가이드가 알려주는 동네 투어
+<spring:message code="site.intro1" text="현지인이 알려주는 동네 투어" />
 </div>
 <div class='summary__content__desc'>
-누구나 가이드가 될 수 있습니다!
+<spring:message code="site.intro1-1" text="누구나 가이드가 될 수 있습니다!" />
 </div>
 </div>
 </div>
@@ -421,10 +428,10 @@
 <img alt='experience-product' class='summary__image' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/experience/ic-tnt-feature-reviews-2f0586217b23a1a2b518cb59daec89b8dcad44d8881de8a7031545202dcc3306.svg'>
 <div class='summary__content'>
 <div class='summary__content__title'>
-최신 여행 후기
+<spring:message code="site.intro2" text="최신 여행 후기" />
 </div>
 <div class='summary__content__desc'>
-직접 다녀온 여행자가 남긴 후기
+<spring:message code="site.intro2-1" text="직접 다녀온 여행자가 남긴 후기" />
 </div>
 </div>
 </div>
@@ -433,10 +440,10 @@
 <img alt='experience-product' class='summary__image' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/experience/ic-tnt-feature-chat-22a5811f342cae4a8ff09372fcc21219e42de4f68339d8cb9f87dee0f151c61b.svg'>
 <div class='summary__content'>
 <div class='summary__content__title'>
-1:1 가이드 문의
+<spring:message code="site.intro3" text="1:1 가이드 문의" />
 </div>
 <div class='summary__content__desc'>
-현지 가이드에게 직접 문의하기
+<spring:message code="site.intro2" text="현지 가이드에게 직접 문의하기" />
 </div>
 </div>
 </div>
@@ -543,7 +550,14 @@
 </main>
 
 <!-- 푸터 -->
-<jsp:include page="footer.jsp"/>      
+<c:choose>
+        <c:when test="${lang == 'en'}">
+            <jsp:include page="footerEng.jsp"/>    
+        </c:when>
+        <c:otherwise>
+            <jsp:include page="footer.jsp"/>
+        </c:otherwise>
+</c:choose>
 <!-- 푸터 끝 -->
 
 <div id='popup-mask'></div>
@@ -573,8 +587,14 @@
     }
   }
 </script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-ce3fc3507853263820d2d1429b62056a0198477b4727cfb36e1facadea05fbcd.js"></script>
 <script src="/resources/js/custom.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script>
+
+function changeLang(lang){
+    window.location.href='main?lang='+lang;
+}
+</script>
 </body>
 </html>
