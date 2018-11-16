@@ -5,13 +5,12 @@
     <script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/ec.js"></script>
     <script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/linkid.js"></script>
     <script src="https://connect.facebook.net/signals/config/1650301975237886?v=2.8.33&amp;r=stable" async=""></script>
-    <script async="" src="//connect.facebook.net/en_US/fbevents.js"></script>
-    <script id="facebook-jssdk" src="//connect.facebook.net/en_US/all.js#xfbml=1&amp;appId=113823448739791"></script>
+
     <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
-    <script type="text/javascript" async="" src="//linkback.contentsfeed.com/src/time.php?jsoncallback=linkback.setViewStart"></script>
+
     <script type="text/javascript" async="" src="https://linkback.contentsfeed.com/src/lb4myrt.min.js" charset="utf-8"></script>
 
-    <script async="" src="//www.googletagmanager.com/gtm.js?id=GTM-NCVRS4"></script>
+
     <script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/ko-7d27ea8334aef60e7e45f2e267dd1aee4667b38dd60ca09967b0a5fc4c5f44bf.js"></script>
     <link rel="stylesheet" media="screen" href="https://d2yoing0loi5gh.cloudfront.net/webpack/vendor.e01e462572b9064a1cc4.css">
     <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application_template-5da62e3a802820a73815ac9769d004d04db514aa47276f57320c206cc043d2ac.css">
@@ -24,34 +23,10 @@
 <![endif]-->
     <script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-01ea8c7c94c68924dc912350d530fb7e62968738f000a46cec5b9f8c3187e0c5.js"></script>
     <style type="text/css"></style>
-    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyC84fbqS1JuAJ9t24SLY2LEWf2Ud8W8F1E&amp;libraries=places&amp;language=ko" async="async" defer="defer"></script>
-    <script src="//cdn.ravenjs.com/3.24.2/raven.min.js" async="async" defer="defer" onload="initRaven()"></script>
-    <script>
-        function initRaven() {
-            Raven.config('https://5bfa4c779b0a477cb4cdb9b8b659cb8b@sentry.io/146345').install();
-        }
-    </script>
-    <!-- Google Tag Manager -->
-    <script>
-        dataLayer = [];
-        (function(w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start': new Date().getTime(),
-                event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src =
-                '//www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-NCVRS4');
-    </script>
-    <!-- End Google Tag Manager -->
 
-    <script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
+    
+
+
     <script type="text/javascript">
         kakaoPixel('5174958686083042808').pageView();
     </script>
@@ -60,6 +35,10 @@
         window.App = App || {};
     </script>
     <style type="text/css">
+    
+    main.traveler{
+        background-color: #fff;
+    }
         .fb_hidden {
             position: absolute;
             top: -10000px;
@@ -573,11 +552,7 @@
 </head>
 
 <body class="body" data-action="ongoing" data-controller-path="kitty/traveler/reservations" data-controller="reservations" data-sign-in="">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-NCVRS4" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
-    <!-- End Google Tag Manager (noscript) -->
+ 
 
     <div class="global-alert-box">
     </div>
@@ -696,50 +671,26 @@
 
     <main class="traveler">
         <div class="clearfix traveler-container traveler-reservation-container">
-            <div class="extra-button">
-                <a class="btn-new btn--size-xs btn--type-gray" href="https://flights.myrealtrip.com/air/b2c/AIR/AAA/AIRAAALST0100000010.k1?KSESID=air:b2c:SELK138RB:SELK138RB::00">항공권 예약내역</a>
-            </div>
-            <div class="sidebar-heading">예약내역</div>
+           
             <div class="traveler-sidebar">
                 <div class="menu-container box clearfix">
-                    <a class="active menu-wrapper" href="/traveler/reservations/ongoing">
-                        <div class="menu-item text-lg">
-                            준비중인 여행
-                            <div class="menu-count text-md">1</div>
-                        </div>
-                    </a>
-                    <a class="menu-wrapper" href="/traveler/reservations/finish">
-                        <div class="menu-item text-lg">
-                            지난 여행 • 후기
-                            <div class="menu-count text-md">2</div>
-                        </div>
-                    </a>
-                    <a class="menu-wrapper" href="/traveler/reservations?status=cancel">
-                        <div class="menu-item text-lg">
-                            취소된 여행
-                        </div>
-                    </a>
+                   <div class="offer-category__container border-shadow">
+                        <div class=" offer-category__item active" role="button" tabindex="-1">
+                            <span class="offer-category__item__label">프로필관리</span></div>
+                        <div class=" offer-category__item " role="button" tabindex="-1">
+                            <span class="offer-category__item__label">비밀번호 변경</span></div>
+                        <div class=" offer-category__item " role="button" tabindex="-1">
+                            <span class="offer-category__item__label">예정 여행</span></div>
+                        <div class=" offer-category__item " role="button" tabindex="-1">
+                            <span class="offer-category__item__label">완료 여행</span></div>
+                        <div class=" offer-category__item " role="button" tabindex="-1">
+                            <span class="offer-category__item__label">취소 여행</span></div>
+                    </div>
                 </div>
 
             </div>
             <div class="traveler-body">
-                <div class="traveler-alert-container box">
-                    <img alt="예약내역" class="close-icon item-inline" height="16px" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/traveler/reservation/ic_close@2x-a5965c66bc448bf01886f751bfbb46c3342bbf29df5885f133ac5b804fa8b24d.png" width="17px">
-                    <img alt="예약내역" class="alert-header-icon" height="46px" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/traveler/reservation/finish/ic_review_event@2x-778a251d7b1acb5f8e81586eaabde11571349b1b4a7343a87845453a75a4d615.png" width="38px">
-                    <div class="alert-header">
-                        <div class="alert-title">즐거운 마이리얼트립 되셨나요?</div>
-                        <div class="alert-message">후기를 써주시면 5천원 할인쿠폰을 드려요. 첫 후기라면 3만원 할인쿠폰 지급</div>
-                    </div>
-                    <div class="alert-body">
-                        <div class="alert-body-wrapper clearfix">
-                            <div class="text-md item-inline text-offer-title">
-                                마이리얼트립 가이드의 <b>"[인천/김포/김해공항 수령] 오사카 주유패스 1일권"</b>
-                                <br>
-                            </div>
-                            <a class="text-sm font-semibold item-inline link-review" href="/traveler/reservations/1200621/review/new">후기 작성하기</a>
-                        </div>
-                    </div>
-                </div>
+                
 
                 <div class="traveler-reservation box clearfix" data-date="2018-12-05" data-src="/traveler/reservations/2126408">
                     <div class="detail-wrapper">
@@ -920,8 +871,7 @@
         var google_remarketing_only = true;
         /* ]]> */
     </script>
-    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion_async.js">
-    </script>
+
     <noscript>
         <div style="display:inline;">
             <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1004447359/?guid=ON&amp;script=0" />

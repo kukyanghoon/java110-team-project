@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
    <head>
@@ -53,11 +54,6 @@
 
 <div class='global-alert-box'>
 </div>
-
-      
-      
-      
-      
       
       <div id='mrt-header'></div>
       <div id="Header-react-component-b71c031f-0e79-40fc-972d-7a2f7d4f7889">
@@ -73,14 +69,35 @@
                   <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAOBJREFUaAXt1jEOgjAUxvHvEcNF1Ls4OnsAEwddXRxdXHUwcVZnR++iXoSBSpkqnQgkQPx36gul7+svJFRiIIAAAggggEB3AlZt7Zyz1Wa7kGlafdZp7fQ6Hw93M3NhjlFY+LkPn8td9bOsuqqbusjmG9/C7klYDHE++E9oiOhkRgABBBBoTyD6kS3Xu7GUPSU3aa9NGzvZW0pnl9P+E+4WXyWSbN6/8D5yAVpmC+NL8QHy9CH50/ZtFJnKbH3LRR4EEEAAAQQaCHAXaoBX81XuQjXBWI4AAggggAACfyDwBcPlP04v6vDBAAAAAElFTkSuQmCC" alt="menu" class="gnb-menu__icon gnb-menu__icon--menu show">
                   </a>
                </div>
+                     아이디 : ${memberInfo.email }
                <div class="gnb-common-menu__container">
                   <ul class="gnb-common-menu__list">
-                     <li class="gnb-common-menu__item gtm-gnb-becomeguide-before-login hidden-tablet-down">
-                        <a href="#" class="gnb-common-menu__item__link">
-                        <span class="gnb-common-menu__item--text transparent">가이드 등록하기</span>
-                        </a>
-                     </li>
-                     <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
+                     <c:choose>
+                        <c:when test="${sessionScope.memberInfo.email eq null}">
+                            <li class="gnb-common-menu__item gtm-gnb-becomeguide-before-login hidden-tablet-down">
+                                <a href="#" class="gnb-common-menu__item__link">
+                                <span class="gnb-common-menu__item--text transparent">가이드 등록하기</span>
+                                </a>
+                            </li>
+                            <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
+                                <a href="#" class="gnb-common-menu__item__link">
+                                    <span class="gnb-common-menu__item--text transparent">로그인</span>
+                                </a>
+                            </li>
+                            <li class="gnb-common-menu__item gtm-gnb-signup hidden-tablet-down" style="padding-top:7px; padding-left:12px;">
+                                <div class="ProfileNavItems__item gtm-gnb-signup" ><a class="ProfileNavItems__button ProfileNavItems__button--outline" href="/users/sign_up" data-turbolinks="false" >회원가입</a>
+                                </div>
+                            </li>
+                        </c:when>
+                        <c:otherwise>
+                            <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
+                                <a href="logout" class="gnb-common-menu__item__link">
+                                    <span class="gnb-common-menu__item--text transparent">로그아웃</span>
+                                </a>
+                            </li>   
+                        </c:otherwise>
+                    </c:choose>
+                     <!-- <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
                         <a href="#" class="gnb-common-menu__item__link">
                         <span class="gnb-common-menu__item--text transparent">로그인</span>
                         </a>
@@ -88,7 +105,7 @@
                      <li class="gnb-common-menu__item gtm-gnb-signup hidden-tablet-down" style="padding-top:7px; padding-left:12px;">
                         <div class="ProfileNavItems__item gtm-gnb-signup" ><a class="ProfileNavItems__button ProfileNavItems__button--outline" href="/users/sign_up" data-turbolinks="false" >회원가입</a>
                         </div>
-                     </li>
+                     </li> -->
                   </ul>
                </div>
                
@@ -185,10 +202,15 @@
       <ul class="Drawer__section Drawer__section--no-top-spacing">
       <li class="Drawer__logo">
       <div class="Logo mrt-logo-container gtm-gnb-logo">
-      <a class="" href="/" data-turbolinks="false"><img class="mrt-logo-img" src="img/logo.png" alt="logo"></a>
+      <a class="" href="/" data-turbolinks="false"><img class="mrt-logo-img" src="../../../resources/img/logo.png" alt="logo"></a>
       </div>
       </li>
-      <li class="DrawerItem  DrawerItem--bottom-spacing-8 gtm-gnb-signin"><a class="DrawerItem__button DrawerItem__button--normal" href="/users/sign_in" data-turbolinks="false">로그인</a></li>
+      
+      
+      
+      <c:choose>
+                        <c:when test="${sessionScope.memberInfo.email eq null}">
+                            <li class="DrawerItem  DrawerItem--bottom-spacing-8 gtm-gnb-signin"><a class="DrawerItem__button DrawerItem__button--normal" href="/users/sign_in" data-turbolinks="false">로그인</a></li>
       <li class="DrawerItem  gtm-gnb-signup">
       <a class="DrawerItem__button DrawerItem__button--outline" href="/users/sign_up" data-turbolinks="false">회원가입</a>
       </li>
@@ -197,6 +219,14 @@
       <li class="DrawerItem  DrawerItem--bottom-spacing-20 gtm-gnb-becomeguide-before-login">
       <a class="DrawerItem__link" href="/about/becomeguide" data-turbolinks="false">가이드 등록하기</a>
       </li>
+                        </c:when>
+                        <c:otherwise>
+                            <li class="DrawerItem  DrawerItem--bottom-spacing-8 gtm-gnb-signin"><a class="DrawerItem__button DrawerItem__button--normal" href="/users/sign_in" data-turbolinks="false">로그아웃</a></li>
+                            <div class="Drawer__section Drawer__section--no-border">
+                        </c:otherwise>
+                    </c:choose>
+      
+      
       <li class="DrawerItem  gtm-lnb-howtouse">
       <a class="DrawerItem__link" href="/about/howitworks" data-turbolinks="false">이용 방법</a>
       </li>
@@ -296,7 +326,7 @@
            }
          }
       </script>
-      <script src="js/custom.js"></script>
+      <script src="../../resources/js/custom.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
    </body>
 </html></html>

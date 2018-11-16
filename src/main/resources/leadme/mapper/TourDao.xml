@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MemberDao 클래스가 사용할 SQL이 들어 있는 파일 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="leadme.dao.TourDao">
+    
+    <resultMap type="tour" id="tourMap">
+        <id column="tno"  property="tno"/>
+        <result column="titl"    property="titl"/>
+        <result column="star"    property="star"/>
+        <result column="loc"    property="loc"/>
+        <result column="amt"    property="amt"/>
+        <result column="hit"    property="hit"/>
+        <result column="cmt_cnt"    property="cmt_cnt"/>
+        <association property="member" javaType="member">
+            <result column="name"    property="name"/>
+        </association>
+        <association property="category" javaType="category">
+            <result column="cat_name"    property="cat_name"/>
+        </association>
+    </resultMap>    
+    
+    <select id="tourList" resultMap="tourMap" parameterType="map">
+    
+    select 
+            t.titl, t.star, t.loc, t.amt, t.hits, t.cmt_cnt, m.name, c2.cat_name, t.tour_intro
+    from 
+            memb m  join g_memb g join tour t join category c right outer join category c2
+    on 
+            m.mno = g.mno
+    where 
+            t.mno = g.mno
+    and c.cat_no = t.cat_no
+    and t.cat_no = c2.cat_no;
+    
+    </select>
+    
+    
+</mapper>
+
+
+
+
+
+
+
+
+
