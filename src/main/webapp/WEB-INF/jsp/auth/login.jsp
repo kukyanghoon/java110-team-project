@@ -257,7 +257,7 @@
      
     
    </script>
-<<<<<<< HEAD
+
    <script>
    window.onload=function(){
        document.getElementsByClassName('abcRioButton')[0].style.height="48px";
@@ -270,9 +270,9 @@
        document.getElementsByClassName('abcRioButtonIcon')[0].style.left="5px";
    }
    </script>
-=======
+
    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
->>>>>>> branch 'master' of https://github.com/kukyanghoon/java110-team-project.git
+
    </body>
    
 </html>
