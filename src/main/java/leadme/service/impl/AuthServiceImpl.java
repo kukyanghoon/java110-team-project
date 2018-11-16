@@ -34,6 +34,7 @@ public class AuthServiceImpl implements AuthService {
   @Override
   public void loginPass(HttpSession session) {
     session.setAttribute("memberInfo", this.member);
+    
     System.out.println("session에 회원 정보 저장");
   }
   
