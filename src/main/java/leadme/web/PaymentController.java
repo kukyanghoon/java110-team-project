@@ -8,10 +8,12 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import leadme.service.MainService;
 
+@RequestMapping("payment")
 @Controller
 public class PaymentController { 
     
@@ -32,8 +34,8 @@ public class PaymentController {
     }
 
     
-    @GetMapping("payment")
-    public void payment(
+    @GetMapping
+    public String payment(
         Locale locale,
         HttpServletRequest request,
         @RequestParam(defaultValue="20")  String rnk_item,
@@ -45,6 +47,7 @@ public class PaymentController {
       System.out.println(localeResolver.resolveLocale(request));
       System.out.println(messageSource.getMessage("site.title", null, "default text", locale));
       */
+      return "/payment/payment";
     }
 }
 

@@ -39,7 +39,7 @@ $().ready(function(){
 	
 	function loadThemeBestView(rnk_item){
 
-	    $.ajax("http://localhost:8888/app/main/theme/"+rnk_item,{
+	    $.ajax("/app/main/theme/"+rnk_item,{
 	        headers: {
 	            'Content-Type': "application/json"
 	        },
@@ -158,7 +158,7 @@ $().ready(function(){
 	        paramStr = ""+(this+1);
 	    }
 	    
-       $.ajax("http://localhost:8888/app/main/local/"+paramStr,{
+       $.ajax("/app/main/local/"+paramStr,{
             headers: {
                 'Content-Type': "application/json"
             },
