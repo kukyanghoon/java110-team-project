@@ -44,6 +44,11 @@
        
        <link rel="stylesheet" type="text/css" href="css/hyun.css">
        -->
+       <style>
+        .fb-login-button{
+            margin-left:40px;
+        }
+       </style>
       
    </head>
    
@@ -117,20 +122,19 @@
                   <div class='panel-button' style="padding: 10px;">
                      <div class='btn-wrap' data-use-continue-as="true" id="btn-wrap-fb">
                      
-                       <!--  <a class='btn-new btn--type-outline btn--width-100 btn-sns'>
-                        <img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/fb-logo@2x-2a65bc6ab97a894a1baeca5b714f4201eb991cfc6d955ef657f86de8e56f89d5.png' width='18'>
-                        <span>페이스북으로 로그인</span> -->
-                        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+                      <fb:login-button scope="public_profile,email"
+                     onlogin="checkLoginState();" class="fb-login-button"
+                     data-max-rows="1" data-size="large" data-button-type="login_with"
+                     data-show-faces="false" data-auto-logout-link="false"
+                     data-use-continue-as="false"></fb:login-button>
                         
                         </a>
                      </div>
                      
                      <div class='btn-wrap'>
-                        <a class='btn-new btn--type-outline btn--width-100 btn-sns'>
-                        <img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/naver-logo@2x-332865f7b796a02822378e0b61e6dcace93ae9a24abd810cd774a06b5fbcb0b5.png' width='18'>
-                        <span>네이버로 로그인</span>
-                        </a>
-                        <div id='googleLoginBtn' class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                       <div id='googleLoginBtn' class="g-signin2"
+                     data-theme="dark" data-width="standard"
+                     data-onsuccess="onSignIn"></div>
                      </div>
                   </div>
                   <div class='panel-footer'>
@@ -210,12 +214,12 @@
        FB.AppEvents.logPageView();
      };
      (function(d, s, id) {
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) return;
-       js = d.createElement(s); js.id = id;
-       js.src = "https://connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) return;
+         js = d.createElement(s); js.id = id;
+         js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2&appId=1941679139472866&autoLogAppEvents=1';
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
    </script>
    <script>
    function onSignIn(googleUser) {
@@ -238,10 +242,7 @@
               contentType:"application/json",
               success:function(data){
                   console.log(data);
-                  if(data.message == true){
-                      location
-                  }
-                  //location.href = "test";
+                  location.href = "../main";
               }
           
           });
