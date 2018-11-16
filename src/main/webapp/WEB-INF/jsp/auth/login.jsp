@@ -37,7 +37,7 @@
      		text-align:center;
      	}
        </style>
-      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    </head>
    
    <body class="body" data-action="new" data-controller-path="users/sessions" data-controller="sessions">
@@ -145,7 +145,9 @@
    <script>
         $(document).ready(function(){
            $('#loginBtn').on('click', function(){
-              var obj = {
+               
+               
+               var obj = {
                       'email' : $('#userEmail').val(),
                       'password' : $('#userPassword').val()
               }
@@ -163,15 +165,16 @@
                   },
                   error:function(){
                       console.log('실패');
+                      swal("로그인 실패", "아이디 또는 비밀번호가 틀립니다", "error");
                   }
               
-              });
+              }); 
               
            });
         });
     </script>
     
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="/resources/js/platform.js" async defer></script>
      <script>
      
      function autoServerLogin(accessToken) {
@@ -254,6 +257,22 @@
      
     
    </script>
+<<<<<<< HEAD
+   <script>
+   window.onload=function(){
+       document.getElementsByClassName('abcRioButton')[0].style.height="48px";
+       document.getElementsByClassName('abcRioButtonContents')[0].firstElementChild.textContent='Google으로 로그인';
+       document.getElementsByClassName('abcRioButtonContents')[0].style.lineHeight="48px";
+       document.getElementsByClassName('panel-button')[0].style.paddingLeft=0;
+       document.getElementsByClassName('panel-button')[0].style.paddingRight=0;
+       document.getElementsByClassName('abcRioButtonIcon')[0].style.position="relative";
+       document.getElementsByClassName('abcRioButtonIcon')[0].style.top="6px";
+       document.getElementsByClassName('abcRioButtonIcon')[0].style.left="5px";
+   }
+   </script>
+=======
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+>>>>>>> branch 'master' of https://github.com/kukyanghoon/java110-team-project.git
    </body>
    
 </html>

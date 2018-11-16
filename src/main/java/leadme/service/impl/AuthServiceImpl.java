@@ -69,6 +69,7 @@ public class AuthServiceImpl implements AuthService {
     param.put("path", member.getPath());
     param.put("active", member.getActive());
     
+    this.member = member;
     authDao.createSocialUser(param);
     
     return this;

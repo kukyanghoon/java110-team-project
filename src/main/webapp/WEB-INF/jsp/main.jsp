@@ -61,6 +61,8 @@
 		                 <option value="en">ENGLISH</option>
 		            </select>
                 </li>
+                <c:choose>
+                        <c:when test="${sessionScope.memberInfo.email eq null}">
                 <li class="gnb-common-menu__item gtm-gnb-becomeguide-before-login hidden-tablet-down">
                     <a href="#" class="gnb-common-menu__item__link">
                         <span class="gnb-common-menu__item--text transparent"><spring:message code="site.reg.guide" text="가이드 등록하기" /></span>
@@ -80,6 +82,16 @@
                         </button>
                     </a>
                 </li>
+                </c:when>
+                        <c:otherwise>
+                        <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
+                                <a href="#" class="gnb-common-menu__item__link" 
+                                onclick="event.preventDefault(); location.href='auth/logout'">>
+                                    <span class="gnb-common-menu__item--text transparent">로그아웃</span>
+                                </a>
+                            </li>   
+                        </c:otherwise>
+                        </c:choose>
             </ul>
         </div>
         <div class="mrt-notify-popup">
@@ -179,6 +191,8 @@
                 <a class="" href="/" data-turbolinks="false"><img class="mrt-logo-img" src="/resources/img/logo.png" alt="logo"></a>
             </div>
         </li>
+        <c:choose>
+            <c:when test="${sessionScope.memberInfo.email eq null}">
         <li class="DrawerItem  DrawerItem--bottom-spacing-8 gtm-gnb-signin"><a class="DrawerItem__button DrawerItem__button--normal" href="/users/sign_in" data-turbolinks="false">로그인</a></li>
         <li class="DrawerItem  gtm-gnb-signup">
           <a class="DrawerItem__button DrawerItem__button--outline" href="/users/sign_up" data-turbolinks="false">회원가입</a>
@@ -188,6 +202,14 @@
         <li class="DrawerItem  DrawerItem--bottom-spacing-20 gtm-gnb-becomeguide-before-login">
           <a class="DrawerItem__link" href="/about/becomeguide" data-turbolinks="false">가이드 등록하기</a>
         </li>
+        
+        </c:when>
+                        <c:otherwise>
+                            <li class="DrawerItem  DrawerItem--bottom-spacing-8 gtm-gnb-signin"><a class="DrawerItem__button DrawerItem__button--normal" href="/users/sign_in" data-turbolinks="false">로그아웃</a></li>
+                            <div class="Drawer__section Drawer__section--no-border">
+                        </c:otherwise>
+                    </c:choose>
+        
         <li class="DrawerItem  gtm-lnb-howtouse">
           <a class="DrawerItem__link" href="/about/howitworks" data-turbolinks="false">이용 방법</a>
         </li>
@@ -512,7 +534,7 @@
   <a class="OfferListCard" href="/offers/30629" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product" data-offer-type="HotDeal" data-offer-id="30629">
 
   <div class="OfferListCard__Thumbnail" style="background-image: url(&quot;/resources/img/${list.pri_phot}&quot;);"></div>
-  <div class="OfferListCard__Content"><div class="OfferListCard__Content__Category"><span>${list.loc}</span><span class="hide-on-mobile"></span></div>
+  <div class="OfferListCard__Content"><div class="OfferListCard__Content__Category"><span class="city-name">${list.loc}</span><span class="hide-on-mobile"></span></div>
   <div class="OfferListCard__Content__Title">
   <div class="LinesEllipsis  ">${list.titl}<wbr></div>
   </div>
