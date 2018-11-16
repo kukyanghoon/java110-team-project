@@ -216,9 +216,12 @@
                               contentType:"application/json",
                               success:function(data){
                                   console.log(data);
-                                      location.href = "login"
+                                  swal("가입 완료", "환영합니다.", "success").then((value) => {
+                                      location.href = "login"});
+                                      
                               },
                               error:function(){
+                                  swal("가입 실패", "이미 가입 되어있는 이메일입니다.", "error");
                                       console.log('아니아니아니아니아니아니아니되오');
                               }
                           }); 
@@ -252,6 +255,8 @@
                       
                   });
                   </script>
+                  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                  
    </body>
    
 </html>

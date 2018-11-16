@@ -176,6 +176,7 @@
                   },
                   error:function(){
                       console.log('실패');
+                      swal("로그인 실패", "아이디 또는 비밀번호가 틀립니다", "error");
                   }
               
               }); 
@@ -267,6 +268,7 @@
      
     
    </script>
+<<<<<<< HEAD
    <script>
    window.onload=function(){
        document.getElementsByClassName('abcRioButton')[0].style.height="48px";
@@ -279,6 +281,9 @@
        document.getElementsByClassName('abcRioButtonIcon')[0].style.left="5px";
    }
    </script>
+=======
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+>>>>>>> branch 'master' of https://github.com/kukyanghoon/java110-team-project.git
    </body>
    
 </html>

@@ -61,7 +61,7 @@
          <nav class="mrt-gnb-header transparent">
             <div class="mrt-container gnb-container">
                <div class="mrt-logo-container gtm-gnb-logo">
-                  <a href="#"><img src="../../resources/img/logo.png" alt="리드미 로고"></a>
+                  <a href="/app/main"><img src="../../resources/img/logo.png" alt="리드미 로고"></a>
                </div>
                <div class="gnb-menu__container">
                   <a data-turbolinks="false">
@@ -69,7 +69,7 @@
                   <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAOBJREFUaAXt1jEOgjAUxvHvEcNF1Ls4OnsAEwddXRxdXHUwcVZnR++iXoSBSpkqnQgkQPx36gul7+svJFRiIIAAAggggEB3AlZt7Zyz1Wa7kGlafdZp7fQ6Hw93M3NhjlFY+LkPn8td9bOsuqqbusjmG9/C7klYDHE++E9oiOhkRgABBBBoTyD6kS3Xu7GUPSU3aa9NGzvZW0pnl9P+E+4WXyWSbN6/8D5yAVpmC+NL8QHy9CH50/ZtFJnKbH3LRR4EEEAAAQQaCHAXaoBX81XuQjXBWI4AAggggAACfyDwBcPlP04v6vDBAAAAAElFTkSuQmCC" alt="menu" class="gnb-menu__icon gnb-menu__icon--menu show">
                   </a>
                </div>
-                     아이디 : ${memberInfo.email }
+                   <%--   아이디 : ${memberInfo.email } --%>
                <div class="gnb-common-menu__container">
                   <ul class="gnb-common-menu__list">
                      <c:choose>
@@ -85,7 +85,7 @@
                                 </a>
                             </li>
                             <li class="gnb-common-menu__item gtm-gnb-signup hidden-tablet-down" style="padding-top:7px; padding-left:12px;">
-                                <div class="ProfileNavItems__item gtm-gnb-signup" ><a class="ProfileNavItems__button ProfileNavItems__button--outline" href="/users/sign_up" data-turbolinks="false" >회원가입</a>
+                                <div class="ProfileNavItems__item gtm-gnb-signup" ><a class="ProfileNavItems__button ProfileNavItems__button--outline" href="/app/auth/signup" data-turbolinks="false" >회원가입</a>
                                 </div>
                             </li>
                         </c:when>
