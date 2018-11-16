@@ -26,7 +26,22 @@ public class Tour implements Serializable {
     private String pri_mv;      /* 동영상주소 */
     private int cat_no;         /* 카테고리번호 */
     private int mno;            /* 여행등록회원번호 */
+    private Member member;      /* 회원 정보*/
+    private Category category;  /*카테고리 정보*/
     
+    
+    public Category getCategory() {
+      return category;
+    }
+    public void setCategory(Category category) {
+      this.category = category;
+    }
+    public Member getMember() {
+      return member;
+    }
+    public void setMember(Member member) {
+      this.member = member;
+    }
     public int getTno() {
       return tno;
     }
@@ -147,7 +162,6 @@ public class Tour implements Serializable {
     public void setMno(int mno) {
       this.mno = mno;
     }
-    
     @Override
     public String toString() {
       return "Tour [tno=" + tno + ", titl=" + titl + ", loc=" + loc + ", star=" + star
@@ -155,6 +169,11 @@ public class Tour implements Serializable {
           + tour_intro + ", req_inf=" + req_inf + ", req_dt=" + req_dt + ", mod_dt=" + mod_dt
           + ", join_plc=" + join_plc + ", lat=" + lat + ", lon=" + lon + ", join_tm=" + join_tm
           + ", del_yn=" + del_yn + ", pri_phot=" + pri_phot + ", pri_mv=" + pri_mv + ", cat_no="
-          + cat_no + ", mno=" + mno + "]";
+          + cat_no + ", mno=" + mno + ", member=" + member + ", category=" + category + "]";
     }
+    
+    
+    
+    
+    
 }

@@ -22,35 +22,14 @@
       <script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-01ea8c7c94c68924dc912350d530fb7e62968738f000a46cec5b9f8c3187e0c5.js"></script>
       <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyC84fbqS1JuAJ9t24SLY2LEWf2Ud8W8F1E&amp;libraries=places&amp;language=ko" async="async" defer="defer"></script>
       <script src="//cdn.ravenjs.com/3.24.2/raven.min.js" async="async" defer="defer" onload="initRaven()"></script>
-      <script>
-         function initRaven() {
-           Raven.config('https://5bfa4c779b0a477cb4cdb9b8b659cb8b@sentry.io/146345').install();
-         }
-      </script>
-      <!-- Google Tag Manager -->
-      <script>
-         dataLayer = [];
-         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-         '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-         })(window,document,'script','dataLayer','GTM-NCVRS4');
-      </script>
-      <!-- End Google Tag Manager -->
-      <script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
-      <script type="text/javascript">
-         kakaoPixel('5174958686083042808').pageView();
-      </script>
-      <script>
-         window.App = App || {};
-      </script>
+      
    </head>
    <body class='body' data-action='new' data-controller-path='users/registrations' data-controller='registrations'>
-      <!-- Google Tag Manager (noscript) -->
-      <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NCVRS4"
-         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-      <!-- End Google Tag Manager (noscript) -->
-      <div class='global-alert-box'></div>
+   
+   <header>
+    <jsp:include page="../headerTest.jsp"></jsp:include>
+   </header>
+   
       <!-- 컨텐츠 -->
       <main class='member member-signup'>
          <div class='container-fluid content-wrap'>
@@ -79,99 +58,7 @@
                      <div class='or'>또는</div>
                   </div>
                   
-                  <script>
-                  $(document).ready(function(){
-                      var emailValid = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-                      var pwdValid = /^[a-zA-Z0-9]{6,20}$/;
-                      
-                      var name = $('#name');
-                      var email = $('#email');
-                      var pwd = $('#password');
-                      var pwdchk = $('#passwordCheck');
-                      
-                      $('#signUpBtn').on('click', function(){
-                          
-                          if(!validCheck(emailValid,email)){
-                              console.log("email");
-                              return;
-                          }
-                          
-                          if(!validCheck(pwdValid,pwd)){
-                              console.log("pwd");
-                              return;
-                          }
-                          
-                          if(!pwdCheck()){
-                              console.log("222");
-                              return;
-                          }
-                          
-                          if(!( emptyCheck($('#checkTerms')) && emptyCheck($('#checkAgree')) )){
-                              console.log("약관 빔");
-                              return;
-                          }
-                          
-                          var obj = {
-                                  'name' : name.val(),
-                                  'email' : email.val(),
-                                  'password' : pwd.val()
-                          }
-                          
-                          console.log(obj);
-                          
-                          
-                           $.ajax({
-                              url:'signup.do',
-                              type:'POST',
-                              dataType:'JSON',
-                              data:JSON.stringify(obj),
-                              contentType:"application/json",
-                              success:function(data){
-                                  console.log(data);
-                                  if(data.message == 'true'){
-                                      location.href = "login"
-                                  }
-                                      console.log('아니아니아니아니아니아니아니되오');
-                              }
-                          }); 
-                         
-                         
-                         
-                         
-                         
-                         
-                      });
-                      
-                      function emptyCheck(name){
-                          if(name.is(':checked')){
-                              return true;
-                          }
-                          return false;
-                      }
-                      
-                      
-                      function validCheck(valid,value){
-                          if(valid.test(value.val())){
-                              return true;
-                          }
-                          return false;
-                      }
-                      
-                      
-                      function pwdCheck(){
-                          if(pwdchk.val() == ""){
-                              pwdchk.focus();
-                              return false;
-                          }else if(!(pwd.val() == pwdchk.val())){
-                              pwdchk.focus();
-                              return false;
-                          }
-                              return true;
-                      }
-                      
-                      
-                  });
-                  </script>
+                  
                   
                   <div class='panel-body'>
                      <div class='form-wrapper'>
@@ -275,119 +162,96 @@
       </main>
       <div id='popup-mask'></div>
       <div id='gnb-popup-mask'></div>
-      <!--  링크백 태그 -->
-      <script type="text/javascript">
-         var linkback = linkback|| {};
-         (function() {
-             var d = document, scr = d.createElement('script'), pro = d.location.protocol,
-             tar = d.getElementsByTagName('head')[0];
-             scr.type = 'text/javascript';  scr.async = true;
-             scr.src = ((pro === 'https:') ? 'https' : 'http') + '://linkback.contentsfeed.com/src/lb4myrt.min.js';
-             scr.charset='utf-8';
-             if(!linkback.l){linkback.l=true; tar.insertBefore(scr, tar.firstChild);}
-         })();
-      </script>
-      <script type="text/javascript">
-         var google_tag_params = {
-         ecomm_prodid: 'REPLACE_WITH_VALUE',
-         ecomm_pagetype: 'REPLACE_WITH_VALUE',
-         ecomm_totalvalue: 'REPLACE_WITH_VALUE',
-         travel_destid: 'REPLACE_WITH_VALUE',
-         travel_originid: 'REPLACE_WITH_VALUE',
-         travel_startdate: 'REPLACE_WITH_VALUE',
-         travel_enddate: 'REPLACE_WITH_VALUE',
-         travel_pagetype: 'REPLACE_WITH_VALUE',
-         travel_totalvalue: 'REPLACE_WITH_VALUE',
-         };
-      </script>
-      <script type="text/javascript">
-         /* <![CDATA[ */
-         var google_conversion_id = 1004447359;
-         var google_custom_params = window.google_tag_params;
-         var google_remarketing_only = true;
-         /* ]]> */
-      </script>
-      <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion_async.js"></script>
-      <noscript>
-         <div style="display:inline;">
-            <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1004447359/?guid=ON&amp;script=0"/>
-         </div>
-      </noscript>
-      <!--  공통 스크립트 -->
-      <script src="https://d2yoing0loi5gh.cloudfront.net/assets/adiz_sv120-38fea29758c151518c764b4bc1a0bdd8e78c105c31e114ef16a4fd0b8be47a31.js"></script>
-      <script type="text/javascript">
-         window.criteo_q = window.criteo_q || [];
-         window.userEmail = "";
-         window.userAgent = "d";
-         
-         
-         if(navigator.userAgent.match(/Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
-           //모바일(스마트폰+태블릿)일 때
-           window.userAgent = "t";
-           if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
-             //스마트폰일 때
-             window.userAgent = "m";
-           }
-         }
-      </script>
-      <script>
-         var user = '0'
-         
-         
-         dataLayer.push( {
-         'userID': user
-         });
-         /**** fire remarketingTag ******/
-         dataLayer.push({
-         'event': 'fireRemarketingTag',
-         'google_tag_params': {
-           'ecomm_prodid': '',
-           'ecomm_pagetype': 'other',
-           'ecomm_totalvalue': ''
-         }
-         });
-         /****** fire remarketingTag ******/
-         
-         if (window.jQuery) {
-         $(document).ready(function() {
-           $('.offer-item-container li.item').click(function(event){
-             var $offer_item = $(this);
-         
-             var offer_id = $offer_item.attr('data-offer-id');
-             var offer_name = $offer_item.find('.name').text();
-             var offer_price = $offer_item.find('.price[data-offer-price]').attr('data-offer-price');
-             var offer_category = $offer_item.attr('data-offer-type');
-         
-             var offer_url = $offer_item.find('a.offer-link').attr('href');
-         
-             dataLayer.push({
-               'event': 'productClick',
-               'ecommerce': {
-                 'click': {
-                   'actionField': {'list': offer_category},      // Optional list property.
-                   'products': [{
-                     'name': offer_name,                      // Name or ID is required.
-                     'id': offer_id,
-                     'price': offer_price,
-                     'category': offer_category
-                    }]
-                  }
-                }
-             });
-           });
-         
-         
-           $(document).on('wishChecked', function(e) {
-             dataLayer.push({
-               'event': 'addToWishlist',
-               'offer_id': e.detail.offerId
-             });
-           });
-         });
-         }
-      </script>
+
       <footer>
         <jsp:include page="../footerTest.jsp"></jsp:include>
     </footer>
+
+    
+    <script>
+                  $(document).ready(function(){
+                      var emailValid = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+                      var pwdValid = /^[a-zA-Z0-9]{6,20}$/;
+                      
+                      var name = $('#name');
+                      var email = $('#email');
+                      var pwd = $('#password');
+                      var pwdchk = $('#passwordCheck');
+                      
+                      $('#signUpBtn').on('click', function(){
+                          
+                          if(!validCheck(emailValid,email)){
+                              console.log("email");
+                              return;
+                          }
+                          
+                          if(!validCheck(pwdValid,pwd)){
+                              console.log("pwd");
+                              return;
+                          }
+                          
+                          if(!pwdCheck()){
+                              console.log("222");
+                              return;
+                          }
+                          
+                          if(!( emptyCheck($('#checkTerms')) && emptyCheck($('#checkAgree')) )){
+                              console.log("약관 빔");
+                              return;
+                          }
+                          
+                          var obj = {
+                                  'name' : name.val(),
+                                  'email' : email.val(),
+                                  'password' : pwd.val()
+                          }
+                          
+                          console.log(obj);
+                          
+                           $.ajax({
+                              url:'signup.do',
+                              type:'POST',
+                              dataType:'JSON',
+                              data:JSON.stringify(obj),
+                              contentType:"application/json",
+                              success:function(data){
+                                  console.log(data);
+                                      location.href = "login"
+                              },
+                              error:function(){
+                                      console.log('아니아니아니아니아니아니아니되오');
+                              }
+                          }); 
+                         
+                      });
+                      
+                      function emptyCheck(name){
+                          if(name.is(':checked')){
+                              return true;
+                          }
+                          return false;
+                      }
+                      
+                      function validCheck(valid,value){
+                          if(valid.test(value.val())){
+                              return true;
+                          }
+                          return false;
+                      }
+                      
+                      function pwdCheck(){
+                          if(pwdchk.val() == ""){
+                              pwdchk.focus();
+                              return false;
+                          }else if(!(pwd.val() == pwdchk.val())){
+                              pwdchk.focus();
+                              return false;
+                          }
+                              return true;
+                      }
+                      
+                  });
+                  </script>
    </body>
+   
 </html>
