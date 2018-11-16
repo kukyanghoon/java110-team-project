@@ -17,9 +17,11 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import leadme.domain.Tour;
 import leadme.service.MainService;
 
+@RequestMapping("/main")
 @Controller
 public class MainController { 
-    
+
+    public static final String LANG_EN = "en";
     MainService mainService;
     ServletContext sc;
     SessionLocaleResolver localeResolver;
@@ -37,11 +39,11 @@ public class MainController {
     }
 
     
-    @GetMapping("main")
+    @GetMapping
     public void main(
         Locale locale,
         HttpServletRequest request,
-        @RequestParam(defaultValue="20")  String rnk_item,
+        @RequestParam(defaultValue="10")  String rnk_item,
         HttpSession session,
         Model model) {
 
@@ -51,27 +53,30 @@ public class MainController {
       System.out.println(messageSource.getMessage("site.title", null, "default text", locale));
       */
       
+        if(!LANG_EN.equals(locale))
+          locale = localeResolver.resolveLocale(request);
+      
         model.addAttribute("tourList" , mainService.getListTourBest("2018-11-12"));
         model.addAttribute("themeList", mainService.getListThemeBest("2018-11-12", rnk_item));
         model.addAttribute("localList", mainService.getListLocalBest("2018-11-12", "01"));
         session.setAttribute("lang", locale.toString());
     }
     
-    @RequestMapping(value="main/theme/{rnk_item}", 
+    @RequestMapping(value="theme/{rnk_item}", 
         produces="application/json;charset=UTF-8")
     @ResponseBody
     public List<Tour> theme(@PathVariable String rnk_item) {
       return mainService.getListThemeBest("2018-11-12", rnk_item);
     }
     
-    @RequestMapping(value="main/local/{rnk_item}", 
+    @RequestMapping(value="local/{rnk_item}", 
         produces="application/json;charset=UTF-8")
     @ResponseBody
     public List<Tour> local(@PathVariable String rnk_item) {
       return mainService.getListLocalBest("2018-11-12", rnk_item);
     }
     
-    @RequestMapping(value="main/locale", 
+    @RequestMapping(value="locale", 
         produces="application/json;charset=UTF-8")
     @ResponseBody
     public Object locale(Locale locale) {
