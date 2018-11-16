@@ -174,6 +174,7 @@
                   },
                   error:function(){
                       console.log('실패');
+                      alert("아이디 또는 비밀번호가 틀립니다");
                   }
               
               });

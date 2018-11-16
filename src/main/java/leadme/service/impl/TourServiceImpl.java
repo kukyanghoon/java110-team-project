@@ -16,18 +16,9 @@ public class TourServiceImpl implements TourService {
   public List<Tour> tourList() {
     
     List<Tour> tourList = tourDao.tourList();
-    for (Tour tour : tourList) {
-      System.out.println(tour);
-      System.out.println(tour.getTitl());
-      System.out.println(tour.getLoc());
-      System.out.println(tour.getStar());
-      System.out.println(tour.getCmt_cnt());
-      System.out.println(tour.getAmt());
-      System.out.println(tour.getCategory().getCat_name());
-      System.out.println(tour.getMember().getName());
-    }
+
     
-    return null;
+    return tourList;
   }
 
   

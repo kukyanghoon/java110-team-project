@@ -216,9 +216,11 @@
                               contentType:"application/json",
                               success:function(data){
                                   console.log(data);
+                                  alert("가입 성공!!");
                                       location.href = "login"
                               },
                               error:function(){
+                                  alert("이미 가입되어 있는 이메일 입니다.");
                                       console.log('아니아니아니아니아니아니아니되오');
                               }
                           }); 
