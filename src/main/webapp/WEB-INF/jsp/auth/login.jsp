@@ -174,7 +174,7 @@
                   },
                   error:function(){
                       console.log('실패');
-                      alert("아이디 또는 비밀번호가 틀립니다");
+                      swal("로그인 실패", "아이디 또는 비밀번호가 틀립니다", "error");
                   }
               
               });
@@ -266,6 +266,7 @@
      
     
    </script>
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
    </body>
    
 </html>
