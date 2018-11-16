@@ -13,41 +13,29 @@
       
       
       <title>LEADME</title>
-      <!-- <link rel="shortcut icon" type="image/x-icon" href="https://d2yoing0loi5gh.cloudfront.net/assets/favicon-e7fc64f202376533d86106e6f712ed41eee1e843dbc5de3b2765938656f8eb93.ico">
-      <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application_template-5da62e3a802820a73815ac9769d004d04db514aa47276f57320c206cc043d2ac.css">
-      <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-4b8ab07154cf2c04a97bb950234f455fe5a721876f501316a714f1a8b65b12ae.css" />
-      <link rel="stylesheet" media="screen" href="https://d2yoing0loi5gh.cloudfront.net/webpack/application.6823a52822019093f642.css" />
-      <link rel="stylesheet" media="screen" href="https://d2yoing0loi5gh.cloudfront.net/webpack/application.e01e462572b9064a1cc4.css">
-      <script src="https://d2yoing0loi5gh.cloudfront.net/webpack/application.e01e462572b9064a1cc4.js"></script>
-      <script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-01ea8c7c94c68924dc912350d530fb7e62968738f000a46cec5b9f8c3187e0c5.js"></script>
-      <style type="text/css"></style>
-      Google Tag Manager
-      <script>
-         dataLayer = [];
-         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-         '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-         })(window,document,'script','dataLayer','GTM-NCVRS4');
-      </script>
-      End Google Tag Manager
-      <script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
-      <script type="text/javascript">
-         kakaoPixel('5174958686083042808').pageView();
-      </script>
-      <script>
-         window.App = App || {};
-      </script>
-     
-      <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/34/16/intl/ko_ALL/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/34/16/intl/ko_ALL/util.js"></script>
-      
-       
-       <link rel="stylesheet" type="text/css" href="css/hyun.css">
-       -->
+
        <style>
         .fb-login-button{
             margin-left:40px;
         }
+        
+       
+     	.btn-wrap{
+     		border : 1px solid silver;
+     	}
+       
+       .panel-button
+       {
+     		border : 1px solid silver;
+     	}
+     	.wrap2{
+     		width:100%;
+     		text-align:center;
+     	}
+     	#googleLoginBtn{
+     	width:100%;
+     		text-align:center;
+     	}
        </style>
       
    </head>
@@ -121,20 +109,21 @@
                   </form>
                   <div class='panel-button' style="padding: 10px;">
                      <div class='btn-wrap' data-use-continue-as="true" id="btn-wrap-fb">
-                     
-                      <fb:login-button scope="public_profile,email"
+                     <div class='wrap2'>
+                      <fb:login-button class='btn-wrap' scope="public_profile,email"
                      onlogin="checkLoginState();" class="fb-login-button"
                      data-max-rows="1" data-size="large" data-button-type="login_with"
-                     data-show-faces="false" data-auto-logout-link="false"
+                     data-show-faces="false" data-size="standard" data-auto-logout-link="false"
                      data-use-continue-as="false"></fb:login-button>
-                        
-                        </a>
+                        </div>
                      </div>
                      
                      <div class='btn-wrap'>
+                     <div class='wrap2'>
                        <div id='googleLoginBtn' class="g-signin2"
-                     data-theme="dark" data-width="standard"
+                     data-theme="dark" size="standard" data-longtitle="true"
                      data-onsuccess="onSignIn"></div>
+                     </div>
                      </div>
                   </div>
                   <div class='panel-footer'>
