@@ -110,8 +110,8 @@ CREATE TABLE tour (
     amt        INTEGER      NOT NULL COMMENT '금액', -- 금액
     tour_intro TEXT         NOT NULL COMMENT '여행소개', -- 여행소개
     req_inf    TEXT         NOT NULL COMMENT '필수안내', -- 필수안내
-    reg_dt     DATE         NOT NULL COMMENT '여행등록일자', -- 여행등록일자
-    mod_dt     DATE         NOT NULL COMMENT '여행수정일자', -- 여행수정일자
+    reg_dt     DATETIME     NOT NULL COMMENT '여행등록일자', -- 여행등록일자
+    mod_dt     DATETIME     NOT NULL COMMENT '여행수정일자', -- 여행수정일자
     join_plc   VARCHAR(50)  NOT NULL COMMENT '만나는장소', -- 만나는장소
     lat        DOUBLE       NOT NULL COMMENT '위도값', -- 위도값
     lon        DOUBLE       NOT NULL COMMENT '경도값', -- 경도값
@@ -156,15 +156,15 @@ ALTER TABLE category
 CREATE TABLE tour_req (
     reqno    INTEGER     NOT NULL COMMENT '신청번호', -- 신청번호
     tno      INTEGER     NOT NULL COMMENT '여행번호', -- 여행번호
-    tour_dt  DATE        NOT NULL COMMENT '여행일자', -- 여행일자
+    tour_dt  DATETIME    NOT NULL COMMENT '여행일자', -- 여행일자
     mno      INTEGER     NOT NULL COMMENT '회원번호', -- 회원번호
-    t_dt     DATE        NOT NULL COMMENT '신청일자', -- 신청일자
+    t_dt     DATETIME    NOT NULL COMMENT '신청일자', -- 신청일자
     req_cnt  INTEGER     NOT NULL COMMENT '신청인원', -- 신청인원
     tot_pay  INTEGER     NOT NULL COMMENT '총결제금액', -- 총결제금액
     pay_type VARCHAR(50) NOT NULL COMMENT '결제수단', -- 결제수단
     pay_stat VARCHAR(2)  NOT NULL COMMENT '결제상태', -- 결제상태
-    pay_dt   DATE        NOT NULL COMMENT '결제시각', -- 결제시각
-    can_dt   DATE        NOT NULL COMMENT '취소시각', -- 취소시각
+    pay_dt   DATETIME    NOT NULL COMMENT '결제시각', -- 결제시각
+    can_dt   DATETIME    NOT NULL COMMENT '취소시각', -- 취소시각
     cur_cd   VARCHAR(50) NOT NULL COMMENT '통화코드', -- 통화코드
     req_stat VARCHAR(2)  NOT NULL COMMENT '신청상태' -- 신청상태
 )
@@ -182,8 +182,8 @@ ALTER TABLE tour_req
 
 -- 여행가능날짜
 CREATE TABLE tour_avail (
-    tour_dt DATE    NOT NULL COMMENT '여행일자', -- 여행일자
-    tno     INTEGER NOT NULL COMMENT '여행번호' -- 여행번호
+    tour_dt DATETIME NOT NULL COMMENT '여행일자', -- 여행일자
+    tno     INTEGER  NOT NULL COMMENT '여행번호' -- 여행번호
 )
 COMMENT '여행가능날짜';
 
@@ -198,7 +198,7 @@ ALTER TABLE tour_avail
 -- 수익입출금내역
 CREATE TABLE cash_his (
     cno    INTEGER    NOT NULL COMMENT '수익금내역번호', -- 수익금내역번호
-    c_dt   DATE       NOT NULL COMMENT '발생일자', -- 발생일자
+    c_dt   DATETIME   NOT NULL COMMENT '발생일자', -- 발생일자
     c_amt  INTEGER    NOT NULL COMMENT '금액', -- 금액
     c_type VARCHAR(2) NOT NULL COMMENT '입출금유형', -- 입출금유형
     c_stat VARCHAR(2) NOT NULL COMMENT '처리상태', -- 처리상태
@@ -220,10 +220,10 @@ ALTER TABLE cash_his
 CREATE TABLE mpg_phot (
     photno   INTEGER      NOT NULL COMMENT '사진번호', -- 사진번호
     tno      INTEGER      NOT NULL COMMENT '여행번호', -- 여행번호
-    tour_dt  DATE         NOT NULL COMMENT '여행일자', -- 여행일자
+    tour_dt  DATETIME     NOT NULL COMMENT '여행일자', -- 여행일자
     name     VARCHAR(255) NOT NULL COMMENT '이미지명', -- 이미지명
     org_name VARCHAR(255) NOT NULL COMMENT '원본이미지명', -- 원본이미지명
-    up_dt    DATE         NOT NULL COMMENT '업로드일자' -- 업로드일자
+    up_dt    DATETIME     NOT NULL COMMENT '업로드일자' -- 업로드일자
 )
 COMMENT '마이페이지사진첩';
 
@@ -289,7 +289,7 @@ CREATE TABLE comment (
     cont      TEXT         NOT NULL COMMENT '후기', -- 후기
     cont_star DOUBLE       NOT NULL COMMENT '후기별점', -- 후기별점
     cont_phot VARCHAR(255) NOT NULL COMMENT '후기사진', -- 후기사진
-    cont_dt   DATE         NOT NULL COMMENT '후기작성일시', -- 후기작성일시
+    cont_dt   DATETIME     NOT NULL COMMENT '후기작성일시', -- 후기작성일시
     del_yn    char(1)      NOT NULL COMMENT '삭제여부', -- 삭제여부
     up_cmt_no INTEGER      NULL     COMMENT '상위후기번호', -- 상위후기번호
     tno       INTEGER      NOT NULL COMMENT '여행번호' -- 여행번호
@@ -313,7 +313,7 @@ CREATE TABLE ranking (
     rnk_item VARCHAR(50) NOT NULL COMMENT '랭킹항목', -- 랭킹항목
     rnk      INTEGER     NOT NULL COMMENT '랭킹', -- 랭킹
     tno      INTEGER     NOT NULL COMMENT '여행번호', -- 여행번호
-    rnk_dt   DATE        NOT NULL COMMENT '산출일자' -- 산출일자
+    rnk_dt   DATETIME    NOT NULL COMMENT '산출일자' -- 산출일자
 )
 COMMENT '랭킹';
 
@@ -355,10 +355,10 @@ ALTER TABLE t_memb
 
 -- 신청현황
 CREATE TABLE const_stat (
-    tour_dt DATE    NOT NULL COMMENT '여행일자', -- 여행일자
-    tno     INTEGER NOT NULL COMMENT '여행번호', -- 여행번호
-    mx_pn   INTEGER NOT NULL COMMENT '최대인원', -- 최대인원
-    req_pn  INTEGER NOT NULL COMMENT '신청인원' -- 신청인원
+    tour_dt DATETIME NOT NULL COMMENT '여행일자', -- 여행일자
+    tno     INTEGER  NOT NULL COMMENT '여행번호', -- 여행번호
+    mx_pn   INTEGER  NOT NULL COMMENT '최대인원', -- 최대인원
+    req_pn  INTEGER  NOT NULL COMMENT '신청인원' -- 신청인원
 )
 COMMENT '신청현황';
 
@@ -371,7 +371,7 @@ ALTER TABLE const_stat
         );
 
 ALTER TABLE const_stat
-    MODIFY COLUMN tour_dt DATE NOT NULL AUTO_INCREMENT COMMENT '여행일자';
+    MODIFY COLUMN tour_dt DATETIME NOT NULL AUTO_INCREMENT COMMENT '여행일자';
 
 -- 가이드
 ALTER TABLE g_memb
