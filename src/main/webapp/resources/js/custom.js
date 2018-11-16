@@ -1,14 +1,19 @@
 /* header */
 
 var locale;
-$().ready(function(){
-    $.get("http://localhost:8888/app/main/locale", function(data, status){
-        locale = data;
-    });
-});
 
 (function(){
     
+    $().ready(function(){
+        $.get("http://localhost:8888/app/main/locale", function(data, status){
+            locale = data;
+            
+            $('.city-name').each(function(index,value){
+                $(this).text(getLocalName($(value).text())); 
+            });
+        });
+        
+    });
     
     
     
@@ -115,7 +120,7 @@ $().ready(function(){
                        + "</div>"
                        + "</div>"
                        + "<div class='content-box'>"
-                       + "<div class='city-name'>"+data[i].loc+"</div>"
+                       + "<div class='city-name'>"+getLocalName(data[i].loc)+"</div>"
                        + "<div class='name'>"+data[i].titl+"</div>"
                        + "<div class='inner-container'>"
                        + "<div class='review'>"
@@ -214,7 +219,6 @@ $().ready(function(){
 	
 	function getLocalName(localCd){
 	    var name;
-	    
 	    if (locale === 'en'){
 	        switch(localCd){
             case "01":
@@ -275,16 +279,16 @@ $().ready(function(){
                 name = '제주도';
                 break;
             case "02":
-                name = '부산';
+                name = '부산시';
                 break;
             case "03":
-                name = '울산';
+                name = '울산시';
                 break;
             case "04":
                 name = '경상남도';
                 break;
             case "05":
-                name = '광주';
+                name = '광주시';
                 break;
             case "06":
                 name = '전라남도';
@@ -293,16 +297,16 @@ $().ready(function(){
                 name = '전라북도';
                 break;
             case "08":
-                name = '대구';
+                name = '대구시';
                 break;
             case "09":
                 name = '경상북도';
                 break;
             case "10":
-                name = '대전';
+                name = '대전시';
                 break;
             case "11":
-                name = '세종';
+                name = '세종시';
                 break;
             case "12":
                 name = '충청북도';

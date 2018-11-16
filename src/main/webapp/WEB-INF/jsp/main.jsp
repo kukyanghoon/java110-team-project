@@ -534,7 +534,7 @@
   <a class="OfferListCard" href="/offers/30629" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product" data-offer-type="HotDeal" data-offer-id="30629">
 
   <div class="OfferListCard__Thumbnail" style="background-image: url(&quot;/resources/img/${list.pri_phot}&quot;);"></div>
-  <div class="OfferListCard__Content"><div class="OfferListCard__Content__Category"><span>${list.loc}</span><span class="hide-on-mobile"></span></div>
+  <div class="OfferListCard__Content"><div class="OfferListCard__Content__Category"><span class="city-name">${list.loc}</span><span class="hide-on-mobile"></span></div>
   <div class="OfferListCard__Content__Title">
   <div class="LinesEllipsis  ">${list.titl}<wbr></div>
   </div>

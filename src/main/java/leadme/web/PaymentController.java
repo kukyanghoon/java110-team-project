@@ -47,7 +47,7 @@ public class PaymentController {
       System.out.println(localeResolver.resolveLocale(request));
       System.out.println(messageSource.getMessage("site.title", null, "default text", locale));
       */
-      return "/payment/payment";
+      return "payment/payment";
     }
 }
 
