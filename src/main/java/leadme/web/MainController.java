@@ -53,7 +53,7 @@ public class MainController {
       System.out.println(messageSource.getMessage("site.title", null, "default text", locale));
       */
       
-        if(!LANG_EN.equals(locale))
+        if(!LANG_EN.equals(locale.toString()))
           locale = localeResolver.resolveLocale(request);
       
         model.addAttribute("tourList" , mainService.getListTourBest("2018-11-12"));
