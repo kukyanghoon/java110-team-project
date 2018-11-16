@@ -33,6 +33,7 @@ public class AuthController{
       try {
         authService.login(member).loginPass(session);
         System.out.println("session에 아이디값 저장");
+        System.out.println(((Member)session.getAttribute("memberInfo")).toString());
         message.put("message", true);
       } catch (Exception e) {
         System.out.println(e);
@@ -55,7 +56,7 @@ public class AuthController{
           message.put("message", "자동 회원 가입 후 로그인 성공");
           System.out.println("google 아이디 자동 가입 후  로그인 성공");
         }
-        
+        System.out.println(((Member)session.getAttribute("memberInfo")).toString());
         return message;
     }
     
@@ -66,15 +67,14 @@ public class AuthController{
         
       Member loginUser = authService.getFacebookMember(accessToken, "N"); // "N": 일반회원 하드코딩 test
         try {
-          
-          authService.socialLogin(loginUser).loginPass(session);;
-          //return "redirect:../main";
-          return "redirect:login";
+          authService.socialLogin(loginUser).loginPass(session);
+          System.out.println("기존회원");
         } catch (Exception e) {
           loginUser.setPath("facebook");
-          authService.createSocialUser(loginUser).loginPass(session);;
-            return "redirect:login";
+          authService.createSocialUser(loginUser).loginPass(session);
         }
+        System.out.println(((Member)session.getAttribute("memberInfo")).toString());
+        return "redirect:../main";
     }
     
     @RequestMapping(value="signup")
@@ -89,16 +89,17 @@ public class AuthController{
       try {
         authService.createUser(member);
         message.put("message", "true");
+        return message;
       } catch (Exception e) {
         System.out.println("이미 가입 되어있는 회원");
-        message.put("message", "false");
+        return null;
       }
-      return message;
     }
     
     @RequestMapping("logout")
     public String logout(HttpSession session){
+      System.out.println("session 초기화");
         session.invalidate();
-        return "redirect:login";
+        return "redirect:../main";
     }
 }
