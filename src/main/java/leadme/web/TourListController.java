@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import leadme.service.TourService;
 
 @Controller
-@RequestMapping("/list")
+@RequestMapping("/tour")
 public class TourListController{
 
     TourService tourService;
