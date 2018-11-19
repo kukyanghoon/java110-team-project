@@ -50,11 +50,11 @@
    
    <body class="body" data-action="new" data-controller-path="users/sessions" data-controller="sessions">
    
-   <header>
+   
    <jsp:include page="../headerTest.jsp"></jsp:include>
-   </header>
+   
       <!-- 로그인 창 -->
-      <main class='member'>
+      <div class='member'>
          <div class='container-fluid content-wrap'>
             <div class='member-panel'>
                <div class='content-wrapper'  style=" margin-top: 0px; margint-right:130px; margint-bottom:0px; margin-left: 130px;  ">
@@ -86,7 +86,7 @@
                               </div>
                               <div class='row'>
                                  <div class='col-xs-12'>
-                                    <input class='form-control' id="userPassword" name='user[password]' placeholder='비밀번호' title='비밀번호' type='password'>
+                                    <input autocomplete='off' class='form-control' id="userPassword" name='user[password]' placeholder='비밀번호' title='비밀번호' type='password'>
                                  </div>
                               </div>
                            </div>
@@ -118,22 +118,12 @@
                   <div class='panel-button' style="padding: 10px;">
                      <div class='btn-wrap' data-use-continue-as="true" id="btn-wrap-fb">
                      
-                     <!--  <fb:login-button scope="public_profile,email"
-                     onlogin="checkLoginState();" class="fb-login-button"
-                     data-width="100%" data-height="48px"
-                     data-max-rows="1" data-size="large" data-button-type="login_with"
-                     data-show-faces="false" data-auto-logout-link="false"
-                     data-use-continue-as="false"></fb:login-button> -->
                      <div class="fb-login-button" data-max-rows="1" data-size="large" 
-                     data-button-type="login_with" data-show-faces="false"
-                     width="100%"  data-auto-logout-link="false" 
-                     data-use-continue-as="false"></div>
-                        
-                        </a>
-                     </div>
+                     data-button-type="login_with" data-show-faces="false" data-width="100%"
+                     data-auto-logout-link="false" data-use-continue-as="false" style="width: 100%;"></div>
                      
                      <div class='btn-wrap'>
-                       <div id='googleLoginBtn' class="g-signin2"
+                       <div id='googleLoginBtn' class="g-signin2" 
                      data-theme="dark" data-width="standard"
                      data-onsuccess="onSignIn"></div>
                      </div>
@@ -145,9 +135,12 @@
                      </div>
                   </div>
                </div>
+               
+               
             </div>
          </div>
-      </main>
+         </div>         
+      </div>
       <div id="popup-mask"></div>
       <div id="gnb-popup-mask"></div>
     <footer>
@@ -156,9 +149,12 @@
       <script src="../../resources/js/custom.js"></script>
    <script>
         $(document).ready(function(){
+            
+            
            $('#loginBtn').on('click', function(){
+               aaa();
                
-               
+               /*
                var obj = {
                       'email' : $('#userEmail').val(),
                       'password' : $('#userPassword').val()
@@ -180,6 +176,7 @@
                   }
               
               }); 
+              */
               
            });
         });
@@ -217,7 +214,7 @@
          version    : 'v3.2' 
        });
        FB.AppEvents.logPageView();
-       FB.XFBML.parse(document.getElementsByClassName('_5h0c')[0].style.maxWidth="735px");
+       /* FB.XFBML.parse(document.getElementsByClassName('_5h0c')[0].style.maxWidth="735px"); */
      };
      
      
@@ -283,6 +280,11 @@
        document.getElementsByClassName('abcRioButtonIcon')[0].style.position="relative";
        document.getElementsByClassName('abcRioButtonIcon')[0].style.top="2px";
        document.getElementsByClassName('abcRioButtonIcon')[0].style.left="2px";
+       /* document.getElementsByClassName('_5h0d')[0].style.maxWidth="735px"; */
+       /* document.getElementById('u_0_1').children[0].style.maxWidth="735px"; */
+   }
+   
+   function aaa(){
        document.getElementsByClassName('_5h0d')[0].style.maxWidth="735px";
    }
    </script>
