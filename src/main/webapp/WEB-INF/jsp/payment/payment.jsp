@@ -15,7 +15,6 @@
 <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <meta content="yes" name="apple-mobile-web-app-capable">
 <meta content="black" name="apple-mobile-web-app-status-bar-style">
-<meta content="SyCtjRv6wVxDU6a7dWgpsvQNMP38wW6OpOyMFBUkhQ8" name="google-site-verification">
 <meta content="a0a215c577b4fc16a849b8867cd9b68051ed6377" name="naver-site-verification">
 <meta content="all, index, follow" name="robots">
 <meta content="ko" name="locale">
@@ -29,8 +28,6 @@
 <meta content="113823448739791" property="fb:app_id">
 <meta content="122600525" property="fb:admins">
 <meta content="리드미" property="og:site_name">
-<meta content="https://www.myrealtrip.com/offers/2771/reservations/new?authenticity_token=lR%2FUvXcXXEGuDTn6TUp1RkDpaEUAKg%2Fkestj5wqKyDtFSVDh8wzrmPKs8DxJt14bLrF6uXOH2ymJPpL%2BHxyApg%3D%3D&amp;choice_set%5Bbegin_at%5D=2018-11-15&amp;choice_set%5Bchoices%5D%5B%5D%5Bkey%5D=28313&amp;choice_set%5Bchoices%5D%5B%5D%5Btravelers%5D=3" property="og:url">
-<link href="https://www.myrealtrip.com/opensearch.xml" rel="search" title="리드미 검색" type="application/opensearchdescription+xml">
 <meta content="https://d2yoing0loi5gh.cloudfront.net/assets/og-image-35b4b66874396ae2fc8991b926c1f0c09f27f25f9c0a23f15e5e96c73c2c9992.png" property="og:image">
 <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon-precomposed">
 <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon">
@@ -49,24 +46,13 @@
 
 
 
-<script>
-  window.App = App || {};
-</script>
-<style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
-.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#1d3c78;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
-.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}
-.fb_customer_chat_bounce_in_v2{animation-duration:300ms;animation-name:fb_bounce_in_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2{animation-duration:300ms;animation-name:fb_bounce_out_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_in_v2_mobile_chat_started{animation-duration:300ms;animation-name:fb_bounce_in_v2_mobile_chat_started;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2_mobile_chat_started{animation-duration:300ms;animation-name:fb_bounce_out_v2_mobile_chat_started;transition-timing-function:ease-in}.fb_customer_chat_bubble_pop_in{animation-duration:250ms;animation-name:fb_customer_chat_bubble_bounce_in_animation}.fb_customer_chat_bubble_animated_no_badge{box-shadow:0 3px 12px rgba(0, 0, 0, .15);transition:box-shadow 150ms linear}.fb_customer_chat_bubble_animated_no_badge:hover{box-shadow:0 5px 24px rgba(0, 0, 0, .3)}.fb_customer_chat_bubble_animated_with_badge{box-shadow:-5px 4px 14px rgba(0, 0, 0, .15);transition:box-shadow 150ms linear}.fb_customer_chat_bubble_animated_with_badge:hover{box-shadow:-5px 8px 24px rgba(0, 0, 0, .2)}.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}.fb_mobile_overlay_active{background-color:#fff;height:100%;overflow:hidden;position:fixed;visibility:hidden;width:100%}@keyframes fb_bounce_in_v2{0%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}50%{transform:scale(1.03, 1.03);transform-origin:bottom right}100%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}}@keyframes fb_bounce_in_v2_mobile_chat_started{0%{opacity:0;top:20px}100%{opacity:1;top:0}}@keyframes fb_bounce_out_v2{0%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}100%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}}@keyframes fb_bounce_out_v2_mobile_chat_started{0%{opacity:1;top:0}100%{opacity:0;top:20px}}@keyframes fb_customer_chat_bubble_bounce_in_animation{0%{bottom:6pt;opacity:0;transform:scale(0, 0);transform-origin:center}70%{bottom:18pt;opacity:1;transform:scale(1.2, 1.2)}100%{transform:scale(1, 1)}}</style><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/34/16/intl/ko_ALL/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/34/16/intl/ko_ALL/util.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps/api/js/AuthenticationService.Authenticate?1shttps%3A%2F%2Fwww.myrealtrip.com%2Foffers%2F2771%2Freservations%2Fnew%3Fauthenticity_token%3DlR%252FUvXcXXEGuDTn6TUp1RkDpaEUAKg%252Fkestj5wqKyDtFSVDh8wzrmPKs8DxJt14bLrF6uXOH2ymJPpL%252BHxyApg%253D%253D%26choice_set%255Bbegin_at%255D%3D2018-11-15%26choice_set%255Bchoices%255D%255B%255D%255Bkey%255D%3D28313%26choice_set%255Bchoices%255D%255B%255D%255Btravelers%255D%3D3&amp;4sAIzaSyC84fbqS1JuAJ9t24SLY2LEWf2Ud8W8F1E&amp;callback=_xdc_._gd184m&amp;key=AIzaSyC84fbqS1JuAJ9t24SLY2LEWf2Ud8W8F1E&amp;token=52767"></script></head>
+</head>
 <body class="body" data-action="new" data-controller-path="kitty/reservations" data-controller="reservations" data-sign-in="">
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NCVRS4"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 <div class="global-alert-box">
 </div>
 
 <%-- <jsp:include page="../headerTest.jsp"/> --%>
-<link rel="stylesheet" media="screen" href="https://d2yoing0loi5gh.cloudfront.net/webpack/vendor.6823a52822019093f642.css" />
 <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application_template-5da62e3a802820a73815ac9769d004d04db514aa47276f57320c206cc043d2ac.css" />
 <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-4b8ab07154cf2c04a97bb950234f455fe5a721876f501316a714f1a8b65b12ae.css" />
 <link rel="stylesheet" media="screen" href="https://d2yoing0loi5gh.cloudfront.net/webpack/application.6823a52822019093f642.css" />
@@ -98,7 +84,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <section class="body-container clearfix bg-gray" data-request-url="/offers/2771/occupied_dates">
 <div class="twin-container row">
-<form id="reservation_form" data-validation="true" action="/offers/2771/reservations" accept-charset="UTF-8" method="post" novalidate="novalidate" class="fv-form fv-form-bootstrap"><button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="wPC3lRYUsWIR527cikFewJD3Nn/62w4qQYRpQyV5dsAQpjPJkg8Gu01GpxqOvHWd/q8kg4l22ueycZhaMO8+XQ==">
+<form id="reservation_form" onsubmit="return false;" action="payment" method="post" class="fv-form fv-form-bootstrap" name="payForm">
 <div class="reservation-box col-md-6 col-xs-12 reservation-first-box">
 <div class="panel">
 <div class="bg-img" style="background-image:url('https://d2ur7st6jjikze.cloudfront.net/offer_photos/2771/11971_large_1525338802.jpg?1525338802')"></div>
@@ -210,7 +196,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a class="btn-new btn--type-gray btn--width-100" href="/offers/2771"><spring:message code="rsv.can" text="취소하기" /></a>
 </div>
 <div class="btn--width-50">
-<button class="btn-new btn--type-primary btn--width-100" data-disable-with="로딩중.." id="reservation-btn" type="submit"><spring:message code="rsv.title" text="결제하기" /></button>
+<button class="btn-new btn--type-primary btn--width-100" data-disable-with="로딩중.." id="reservation-btn" type="button"><spring:message code="rsv.title" text="결제하기" /></button>
 </div>
 </div>
 <small class="help-block" data-fv-validator="notEmpty" data-fv-for="payment[paytype]" data-fv-result="NOT_VALIDATED" style="display: none;"><spring:message code="rsv.method" text="결제수단을 선택해주세요." /></small></div>
@@ -237,7 +223,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!--  공통 스크립트 -->
 <script src="https://d2yoing0loi5gh.cloudfront.net/assets/adiz_sv120-38fea29758c151518c764b4bc1a0bdd8e78c105c31e114ef16a4fd0b8be47a31.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 
   if(navigator.userAgent.match(/Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
@@ -249,6 +235,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
   }
 </script>
+<script>
+(function(){
+	 $('#reservation-btn').on('click', checkInputs);
+	 
+	 function checkInputs(e){
+	     e.preventDefault();
+	     document.payForm.submit();
+	 }
 
+	 /*
+	 function getAccessToken(){
+		 var settings = {
+	        "async": true,
+	        "crossDomain": true,
+	        "url": "https://api.sandbox.paypal.com/v1/oauth2/token",
+	        "method": "POST",
+	        "headers": {
+	          "Content-Type": "application/x-www-form-urlencoded",
+	          "Authorization": "Basic QVN1NE5ramRZRUs0cVp5U2NPZGRmVkV0dE05QUFkZnljdkdFckFhX1hLRVVuUWM2Q3hNbXgxa0Y2eDgwc3puVS03alU2QzF0eUxqVDY0cXg6RUYtVnpXNVBUUy1udmhHU2pCcnQ5YmRkcUJDYUlKc21hcGdlV0d1NUFldHpUYV9FaHZEd0dqeTY5V3RRbGZ2ZjFoQ2JyMWtrVTFrMWlqd3A=",
+	          "cache-control": "no-cache",
+	          "Postman-Token": "5a0535af-7cbc-4225-97a5-5d9d3418be66"
+	        },
+	        "data": {
+	          "grant_type": "client_credentials"
+	        }
+	      }
+	
+	      $.ajax(settings).done(function (response) {
+	        console.log(response);
+	        console.log(response.access_token);
+	      });
+	 }
+	 */
+	 
+})()
+ 
+</script>
 </body>
 </html>
