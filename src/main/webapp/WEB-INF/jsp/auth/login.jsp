@@ -13,30 +13,38 @@
       
       
       <title>LEADME</title>
-
-       <style>
-        .fb-login-button{
-            margin-left:40px;
-        }
-        
+      <!-- <link rel="shortcut icon" type="image/x-icon" href="https://d2yoing0loi5gh.cloudfront.net/assets/favicon-e7fc64f202376533d86106e6f712ed41eee1e843dbc5de3b2765938656f8eb93.ico">
+      <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application_template-5da62e3a802820a73815ac9769d004d04db514aa47276f57320c206cc043d2ac.css">
+      <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-4b8ab07154cf2c04a97bb950234f455fe5a721876f501316a714f1a8b65b12ae.css" />
+      <link rel="stylesheet" media="screen" href="https://d2yoing0loi5gh.cloudfront.net/webpack/application.6823a52822019093f642.css" />
+      <link rel="stylesheet" media="screen" href="https://d2yoing0loi5gh.cloudfront.net/webpack/application.e01e462572b9064a1cc4.css">
+      <script src="https://d2yoing0loi5gh.cloudfront.net/webpack/application.e01e462572b9064a1cc4.js"></script>
+      <script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-01ea8c7c94c68924dc912350d530fb7e62968738f000a46cec5b9f8c3187e0c5.js"></script>
+      <style type="text/css"></style>
+      Google Tag Manager
+      <script>
+         dataLayer = [];
+         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+         '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+         })(window,document,'script','dataLayer','GTM-NCVRS4');
+      </script>
+      End Google Tag Manager
+      <script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
+      <script type="text/javascript">
+         kakaoPixel('5174958686083042808').pageView();
+      </script>
+      <script>
+         window.App = App || {};
+      </script>
+     
+      <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/34/16/intl/ko_ALL/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/34/16/intl/ko_ALL/util.js"></script>
+      
        
-     	.btn-wrap{
-     		border : 1px solid silver;
-     	}
-       
-       .panel-button
-       {
-     		border : 1px solid silver;
-     	}
-     	.wrap2{
-     		width:100%;
-     		text-align:center;
-     	}
-     	#googleLoginBtn{
-     	width:100%;
-     		text-align:center;
-     	}
-       </style>
+       <link rel="stylesheet" type="text/css" href="css/hyun.css">
+       -->
+      
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    </head>
    
@@ -101,7 +109,7 @@
                            </div>
                         </div>
                         <div class='btn-wrap'>
-                           <button class='btn-new btn--type-primary btn--width-100' id="loginBtn" type='button'>
+                           <button class='btn-new btn--type-primary btn--width-100' style="height:40px" id="loginBtn" type='button'>
                            <span>이메일로 로그인</span>
                            </button>
                         </div>
@@ -109,21 +117,25 @@
                   </form>
                   <div class='panel-button' style="padding: 10px;">
                      <div class='btn-wrap' data-use-continue-as="true" id="btn-wrap-fb">
-                     <div class='wrap2'>
-                      <fb:login-button class='btn-wrap' scope="public_profile,email"
+                     
+                     <!--  <fb:login-button scope="public_profile,email"
                      onlogin="checkLoginState();" class="fb-login-button"
+                     data-width="100%" data-height="48px"
                      data-max-rows="1" data-size="large" data-button-type="login_with"
-                     data-show-faces="false" data-size="standard" data-auto-logout-link="false"
-                     data-use-continue-as="false"></fb:login-button>
-                        </div>
+                     data-show-faces="false" data-auto-logout-link="false"
+                     data-use-continue-as="false"></fb:login-button> -->
+                     <div class="fb-login-button" data-max-rows="1" data-size="large" 
+                     data-button-type="login_with" data-show-faces="false"
+                     width="100%"  data-auto-logout-link="false" 
+                     data-use-continue-as="false"></div>
+                        
+                        </a>
                      </div>
                      
                      <div class='btn-wrap'>
-                     <div class='wrap2'>
                        <div id='googleLoginBtn' class="g-signin2"
-                     data-theme="dark" size="standard" data-longtitle="true"
+                     data-theme="dark" data-width="standard"
                      data-onsuccess="onSignIn"></div>
-                     </div>
                      </div>
                   </div>
                   <div class='panel-footer'>
@@ -165,7 +177,6 @@
                   },
                   error:function(){
                       console.log('실패');
-                      swal("로그인 실패", "아이디 또는 비밀번호가 틀립니다", "error");
                   }
               
               }); 
@@ -174,7 +185,7 @@
         });
     </script>
     
-    <script src="/resources/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
      <script>
      
      function autoServerLogin(accessToken) {
@@ -195,6 +206,8 @@
            statusChangeCallback(response);
          });
      }
+     
+     
      window.fbAsyncInit = function() {
        console.log("window.fbAsyncInit() 호출됨!");
        FB.init({
@@ -204,7 +217,10 @@
          version    : 'v3.2' 
        });
        FB.AppEvents.logPageView();
+       FB.XFBML.parse(document.getElementsByClassName('_5h0c')[0].style.maxWidth="735px");
      };
+     
+     
      (function(d, s, id) {
          var js, fjs = d.getElementsByTagName(s)[0];
          if (d.getElementById(id)) return;
@@ -257,22 +273,20 @@
      
     
    </script>
-
    <script>
    window.onload=function(){
-       document.getElementsByClassName('abcRioButton')[0].style.height="48px";
+       document.getElementsByClassName('abcRioButton')[0].style.height="40px";
        document.getElementsByClassName('abcRioButtonContents')[0].firstElementChild.textContent='Google으로 로그인';
-       document.getElementsByClassName('abcRioButtonContents')[0].style.lineHeight="48px";
+       document.getElementsByClassName('abcRioButtonContents')[0].style.lineHeight="40px";
        document.getElementsByClassName('panel-button')[0].style.paddingLeft=0;
        document.getElementsByClassName('panel-button')[0].style.paddingRight=0;
        document.getElementsByClassName('abcRioButtonIcon')[0].style.position="relative";
-       document.getElementsByClassName('abcRioButtonIcon')[0].style.top="6px";
-       document.getElementsByClassName('abcRioButtonIcon')[0].style.left="5px";
+       document.getElementsByClassName('abcRioButtonIcon')[0].style.top="2px";
+       document.getElementsByClassName('abcRioButtonIcon')[0].style.left="2px";
+       document.getElementsByClassName('_5h0d')[0].style.maxWidth="735px";
    }
    </script>
-
-   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+ 
    </body>
    
 </html>
