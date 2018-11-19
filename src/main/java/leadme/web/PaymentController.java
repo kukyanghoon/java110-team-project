@@ -1,6 +1,8 @@
 package leadme.web;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
@@ -25,12 +27,13 @@ import com.paypal.api.payments.RedirectUrls;
 import com.paypal.api.payments.Transaction;
 import com.paypal.base.rest.APIContext;
 import com.paypal.base.rest.PayPalRESTException;
-import leadme.service.MainService;
+import leadme.domain.TourReq;
+import leadme.service.PaymentService;
 
 @Controller
 public class PaymentController { 
     
-    MainService mainService;
+    PaymentService paymentService;
     ServletContext sc;
     SessionLocaleResolver localeResolver;
     MessageSource messageSource;
@@ -39,11 +42,11 @@ public class PaymentController {
     APIContext context;
 
     public PaymentController(
-            MainService mainService, 
+            PaymentService paymentService, 
             SessionLocaleResolver localeResolver,     
             MessageSource messageSource,
             ServletContext sc) {
-        this.mainService = mainService;
+        this.paymentService = paymentService;
         this.localeResolver = localeResolver;
         this.messageSource = messageSource;
         this.sc = sc;
@@ -68,7 +71,14 @@ public class PaymentController {
     }
     
     @PostMapping("payment")
-    public String payment() {
+    public String payment(
+        int tno,
+        String tour_dt,
+        int mno,
+        int req_cnt,
+        double tot_pay,
+        String pay_type
+        ) {
      
 
       // Define payment
@@ -82,14 +92,16 @@ public class PaymentController {
       // Set payment details
       Details details = new Details();
       details.setShipping("0");
-      details.setSubtotal("5");
-      details.setTax("1");
+      
+      Double tax = (double) (Math.round(tot_pay/100) / 100);
+      
+      details.setSubtotal(String.format("%.2f", tot_pay-tax));
+      details.setTax(String.format("%2.f", tax));
 
       // Payment amount
       Amount amount = new Amount();
       amount.setCurrency("USD");
-      // Total must be equal to sum of shipping, tax and subtotal.
-      amount.setTotal("6");
+      amount.setTotal(String.format("%.2f", tot_pay));
       amount.setDetails(details);
 
 
@@ -97,7 +109,6 @@ public class PaymentController {
       transaction.setAmount(amount);
       transaction
         .setDescription("LEADME :: Real trip with local friends");
-      transaction.setNotifyUrl("http://localhost:8888/app/login");
 
       List<Transaction> transactions = new ArrayList<Transaction>();
       transactions.add(transaction);
@@ -109,14 +120,16 @@ public class PaymentController {
       payment.setTransactions(transactions);
       
       
-      // Create payment
       try {
         Payment createdPayment = payment.create(context);
 
         Iterator<Links> links = createdPayment.getLinks().iterator();
+        
         while (links.hasNext()) {
           Links link = links.next();
           if (link.getRel().equalsIgnoreCase("approval_url")) {
+            paymentService.insert(setTourReq(tno, tour_dt, mno, req_cnt, tot_pay, pay_type));
+            
             return "redirect:"+link.getHref();
           }
         }
@@ -125,6 +138,24 @@ public class PaymentController {
       }
       
       return null;
+    }
+
+
+    private TourReq setTourReq(int tno, String tour_dt, int mno, int req_cnt, double tot_pay,
+        String pay_type) {
+      TourReq req = new TourReq();
+      req.setTno(tno);
+      req.setTour_dt(tour_dt);
+      req.setMno(mno);
+      req.setT_dt(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+      req.setReq_cnt(req_cnt);
+      req.setTot_pay(tot_pay);
+      req.setPay_type(pay_type);
+      req.setPay_stat("REQUEST");
+      req.setCur_cd("USD");
+      req.setReq_stat("PENDING");
+      
+      return req;
     }
     
     
@@ -148,7 +179,7 @@ public class PaymentController {
           if (link.getRel().equalsIgnoreCase("refund")) {
             System.out.println("refund==>"+link.getHref());
           }
-        }
+        }  set refund url or request again and refund?
         */
         
         List<Transaction> transactions = createdPayment.getTransactions();
@@ -175,7 +206,7 @@ public class PaymentController {
       } catch (PayPalRESTException e) {
         System.err.println(e.getDetails());
       }
-      return "payment/payment-complete";
+      return "redirect:payment/payment-complete";
     }
         
 }
