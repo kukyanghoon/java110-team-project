@@ -1,0 +1,10 @@
+.OfferList__Items__Body {
+    float: right;
+}
+.OfferListCard{
+    width: 500px;
+    margin-top: 40px;
+}
+.OfferListCard__Content{
+    width: 285px;
+}
