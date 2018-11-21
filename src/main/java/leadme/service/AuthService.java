@@ -15,4 +15,6 @@ public interface AuthService {
     void createUser(Member member) throws Exception;
     
     Member findUser(Member member) throws Exception;
+    
+    Member updatePw(Member member) throws Exception;
 }
