@@ -116,7 +116,7 @@ public class AuthController{
         message.put("message", "회원확인 성공!");
         
         
-        //authService.updateUser(member);
+        authService.updatePw(member);
         // 이메일 보내는 서비스 메소드 호출 해야함 여기서 ㅇㅇ
         
         
@@ -126,4 +126,6 @@ public class AuthController{
         return null;
       }
     }
+    
+    
 }

@@ -129,6 +129,19 @@ public class AuthServiceImpl implements AuthService {
     return this.member;
   }
   
-  
+  @Override
+  public Member updatePw(Member member) throws Exception{
+    
+    Map<String,Object> map = new HashMap<String,Object>();
+    map.put("member", member);
+    
+    this.member = authDao.updatePw(map);
+    System.out.println(this.member);
+    if(this.member == null) {
+      throw new Exception("일치하는 정보가 없습니다");
+    }
+    
+    return this.member;
+  }
 
 }
