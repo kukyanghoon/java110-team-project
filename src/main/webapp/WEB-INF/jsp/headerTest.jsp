@@ -16,14 +16,13 @@
 <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application_template-5da62e3a802820a73815ac9769d004d04db514aa47276f57320c206cc043d2ac.css" />
 <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-4b8ab07154cf2c04a97bb950234f455fe5a721876f501316a714f1a8b65b12ae.css" />
 <link rel="stylesheet" media="screen" href="https://d2yoing0loi5gh.cloudfront.net/webpack/application.6823a52822019093f642.css" />
-<link rel="stylesheet" media="screen" href="https://d2yoing0loi5gh.cloudfront.net/webpack/application.e01e462572b9064a1cc4.css">
-<link rel="stylesheet" type="text/css" href="../../resources/css/hyun.css">
-<!-- <script src="https://d2yoing0loi5gh.cloudfront.net/webpack/vendor.e01e462572b9064a1cc4.js"></script> -->
+<link rel="stylesheet" type="text/css" href="/resources/css/hyun.css">
+<script src="https://d2yoing0loi5gh.cloudfront.net/webpack/vendor.e01e462572b9064a1cc4.js"></script>
 <script src="https://d2yoing0loi5gh.cloudfront.net/webpack/application.e01e462572b9064a1cc4.js"></script>
 <!--[if lte ie 9]>
 <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/ie-b751bcff1f912d9f2d6eb3f5f25a09494364fee359047b3bcf9e161c4d714527.css" />
 <![endif]-->
-<!-- <script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-ce3fc3507853263820d2d1429b62056a0198477b4727cfb36e1facadea05fbcd.js"></script> -->
+<script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-ce3fc3507853263820d2d1429b62056a0198477b4727cfb36e1facadea05fbcd.js"></script>
 <style>
 .gnb-common-menu__container .gnb-common-menu__list .gnb-common-menu__item .gnb-common-menu__item__link .gnb-common-menu__item--text.transparent{
   color: black;
@@ -60,7 +59,7 @@
          <nav class="mrt-gnb-header transparent">
             <div class="mrt-container gnb-container">
                <div class="mrt-logo-container gtm-gnb-logo">
-                  <a href="/app/main"><img src="../../resources/img/logo.png" alt="리드미 로고"></a>
+                  <a href="/app/main"><img src="/resources/img/logo.png" alt="리드미 로고"></a>
                </div>
                <div class="gnb-menu__container">
                   <a data-turbolinks="false">
@@ -201,7 +200,7 @@
       <ul class="Drawer__section Drawer__section--no-top-spacing">
       <li class="Drawer__logo">
       <div class="Logo mrt-logo-container gtm-gnb-logo">
-      <a class="" href="/" data-turbolinks="false"><img class="mrt-logo-img" src="../../../resources/img/logo.png" alt="logo"></a>
+      <a class="" href="/" data-turbolinks="false"><img class="mrt-logo-img" src="/resources/img/logo.png" alt="logo"></a>
       </div>
       </li>
       
@@ -325,7 +324,7 @@
            }
          }
       </script>
-      <script src="../../resources/js/custom.js"></script>
+      <script src="/resources/js/custom.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
    </body>
 </html></html>

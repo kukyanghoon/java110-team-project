@@ -17,8 +17,11 @@
     <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-152-cc369a832b7a69d0c0b63c3914168b58e732a26729d72e976e7f729b923ee302.png" rel="apple-touch-icon" sizes="152x152">
     <link rel="shortcut icon" type="image/x-icon" href="https://d2yoing0loi5gh.cloudfront.net/assets/favicon-e7fc64f202376533d86106e6f712ed41eee1e843dbc5de3b2765938656f8eb93.ico">
     <script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/ko-7d27ea8334aef60e7e45f2e267dd1aee4667b38dd60ca09967b0a5fc4c5f44bf.js"></script>
+    <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application_template-5da62e3a802820a73815ac9769d004d04db514aa47276f57320c206cc043d2ac.css">
+    <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-7b75ddbcbc29ee6675e55a815248aafac2d3add88bef4eb1270c80bbef92b020.css">
    
 
+    <link rel="stylesheet" media="screen" href="/resources/css/application.89bde0a7d84a7bf87143.css">
     <script src="/resources/js/application.89bde0a7d84a7bf87143.js"></script>
 <!--[if lte ie 9]>
 <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/ie-0d3dd8da661782e0fe69539e0c61b980912a8ee2c42e367b29dde4bcccc9dea6.css" />
@@ -43,6 +46,7 @@ span.local{
 }
 
 #background-image{
+    background-image: url('C:\\Users\\bit\\git\\java110-team-project\\html\\img\\namsantower.jpg');
     background-repeat: no-repeat;
     width: 928px;
     margin: auto;
@@ -82,29 +86,23 @@ span.local{
 
 
 
-   <header>
-    <jsp:include page="../headerTest.jsp"></jsp:include>
-   </header>
+<script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/34/16/intl/ko_ALL/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/34/16/intl/ko_ALL/util.js"></script>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NCVRS4"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="global-alert-box">
+    </div>
+
+    <div id="mrt-header"></div>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"ko","i18nDefaultLocale":"ko","rorVersion":"11.0.9","rorPro":false,"href":"https://www.myrealtrip.com/offers?city=Seoul\u0026country=Korea%2C+Republic+of\u0026group_category=experience","location":"/offers?city=Seoul\u0026country=Korea%2C+Republic+of\u0026group_category=experience","scheme":"https","host":"www.myrealtrip.com","port":null,"pathname":"/offers","search":"city=Seoul\u0026country=Korea%2C+Republic+of\u0026group_category=experience","httpAcceptLanguage":"ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7","serverSide":false}</script>
+    
 
     <div id="background-image">
-    <c:choose>
-        <c:when test="${catNo eq 10}">
-            <img src="/resources/img/food.jpg" width="928px" id="bg-image">
-        </c:when>
-        <c:when test="${catNo eq 20}">
-            <img src="/resources/img/history.jpg" width="928px" id="bg-image">
-        </c:when>
-        <c:when test="${catNo eq 30}">
-            <img src="/resources/img/land.jpg" width="928px" id="bg-image">
-        </c:when>
-        <c:when test="${catNo eq 40}">
-            <img src="/resources/img/acti.jpg" width="928px" id="bg-image">
-        </c:when>
-        <c:when test="${catNo eq 50}">
-            <img src="/resources/img/shopping.png" width="928px" id="bg-image">
-        </c:when>
-    </c:choose>
-        <!-- <img src="/resources/img/namsantower.jpg" width="928px" id="bg-image"> -->
+
+        <img src="C:\\Users\\bit\\git\\java110-team-project\\html\\img\\namsantower.jpg" width="928px" id="bg-image">
     </div>
 
     <script>
@@ -117,86 +115,7 @@ span.local{
     
     
     
-  <div id="OfferList-react-component-e75ec749-a9a2-4944-a6a5-ae8c2ab32e92">
-  <div class="OfferList" data-sticky-container="true">
-  <div class="resp-container" style="top: 0px; bottom: 0px;">
-  <div class="resp-container--row "><div class="OfferList__Header">
-  <div class="breadcrumbs-container">
-   <c:choose>
-        <c:when test="${catNo eq 10}">
-            <div class="breadcrumbs-item">
-              <div class="OfferHeader OfferHeader__City">식도락</div>
-            </div>
-            <img class="OfferHeader__Separator" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjQ0VENERBIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMi41IiBkPSJNMTIgNmwxMCAxMC4wMDZMMTIuMDExIDI2Ii8+Cjwvc3ZnPgo=" alt="img_separator">
-            <div class="breadcrumbs-item">
-              <div class="VerticalList">
-                <div id="midCategoryTitleBox" class="VerticalList__Header" role="button" tabindex="-1">
-                  <span class="VerticalList__Header__Title">전체</span>
-                </div>
-              </div>
-            </div>
-        </c:when>
-        <c:when test="${catNo eq 20}">
-        <div class="breadcrumbs-item">
-              <div class="OfferHeader OfferHeader__City">역사/문화</div>
-              </div>
-              <img class="OfferHeader__Separator" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjQ0VENERBIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMi41IiBkPSJNMTIgNmwxMCAxMC4wMDZMMTIuMDExIDI2Ii8+Cjwvc3ZnPgo=" alt="img_separator">
-              <div class="breadcrumbs-item">
-              <div class="VerticalList">
-              <div id="midCategoryTitleBox" class="VerticalList__Header" role="button" tabindex="-1">
-              <span class="VerticalList__Header__Title">전체</span>
-                </div>
-  </div>
-  </div>
-        </c:when>
-        <c:when test="${catNo eq 30}">
-        <div class="breadcrumbs-item">
-              <div class="OfferHeader OfferHeader__City">명소</div>
-              </div>
-              <img class="OfferHeader__Separator" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjQ0VENERBIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMi41IiBkPSJNMTIgNmwxMCAxMC4wMDZMMTIuMDExIDI2Ii8+Cjwvc3ZnPgo=" alt="img_separator">
-              <div class="breadcrumbs-item">
-              <div class="VerticalList">
-              <div id="midCategoryTitleBox" class="VerticalList__Header" role="button" tabindex="-1">
-              <span class="VerticalList__Header__Title">전체</span>
-                </div>
-                </div>
-                </div>
-        </c:when>
-        <c:when test="${catNo eq 40}">
-        <div class="breadcrumbs-item">
-              <div class="OfferHeader OfferHeader__City">액티비티</div>
-              </div>
-              <img class="OfferHeader__Separator" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjQ0VENERBIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMi41IiBkPSJNMTIgNmwxMCAxMC4wMDZMMTIuMDExIDI2Ii8+Cjwvc3ZnPgo=" alt="img_separator">
-              <div class="breadcrumbs-item">
-              <div class="VerticalList">
-              <div id="midCategoryTitleBox" class="VerticalList__Header" role="button" tabindex="-1">
-              <span class="VerticalList__Header__Title">전체</span>
-                </div>
-  </div>
-  </div>
-        </c:when>
-        <c:when test="${catNo eq 50}">
-        <div class="breadcrumbs-item">
-              <div class="OfferHeader OfferHeader__City">쇼핑</div>
-              </div>
-              <img class="OfferHeader__Separator" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjQ0VENERBIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMi41IiBkPSJNMTIgNmwxMCAxMC4wMDZMMTIuMDExIDI2Ii8+Cjwvc3ZnPgo=" alt="img_separator">
-              <div class="breadcrumbs-item">
-              <div class="VerticalList">
-              <div id="midCategoryTitleBox" class="VerticalList__Header" role="button" tabindex="-1">
-              <span class="VerticalList__Header__Title">전체</span>
-                </div>
-  </div>
-  </div>
-        </c:when>
-   </c:choose>
-  
-
-
-  </div>
-  </div>
-  </div>
-  </div>
-  
+  <div id="OfferList-react-component-e75ec749-a9a2-4944-a6a5-ae8c2ab32e92"><div class="OfferList" data-sticky-container="true"><div class="resp-container" style="top: 0px; bottom: 0px;"><div class="resp-container--row "><div class="OfferList__Header"><a class="OfferHeader OfferHeader__Country" href="https://www.myrealtrip.com/offers?country=Korea, Republic of">대한민국</a><div class="breadcrumbs-container"><div class="breadcrumbs-item"><div class="OfferHeader OfferHeader__City">서울</div></div><img class="OfferHeader__Separator" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjQ0VENERBIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMi41IiBkPSJNMTIgNmwxMCAxMC4wMDZMMTIuMDExIDI2Ii8+Cjwvc3ZnPgo=" alt="img_separator"><div class="breadcrumbs-item"><div class="VerticalList"><div class="VerticalList__Header" role="button" tabindex="-1"><span class="VerticalList__Header__Title">투어&amp;티켓</span><img class="VerticalList__Header__Image " src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IiM0OTUwNTYiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjNDk1MDU2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTYgOWw2IDYgNi02eiIvPgo8L3N2Zz4K" alt="arrow-down"></div></div></div></div></div></div></div>
   <div class="resp-container" style="top: 0px; bottom: 0px;">
       <div class="resp-container--row swiper__row">
           <div class="OfferList__Sidebar ">
@@ -223,23 +142,23 @@ span.local{
                             <span class="offer-category__item__label" id="aaa">지 역</span>
                             <ul class="offer-filter__container border-shadow" id="location">
                             
-                                <li><input type="checkbox" value="15" name="loc" checked ><span class="local">서울</span>
-                                <input type="checkbox" value="17" name="loc" ><span class="local">인천</span>
-                                 <input type="checkbox" value="11" name="loc"><span class="local">세종</span><br></li>
-                                <li><input type="checkbox" value="10" name="loc"><span class="local">대전</span>
-                                <input type="checkbox" value="8" name="loc"><span class="local">대구</span>
-                                <input type="checkbox" value="3" name="loc"><span class="local">울산</span><br></li>
-                                <li><input type="checkbox" value="2" name="loc"><span class="local">부산</span>
-                                <input type="checkbox" value="5" name="loc"><span class="local">광주</span>
-                                <input type="checkbox" value="1" name="loc"><span class="local">제주</span><br></li>
-                                <li><input type="checkbox" value="16" name="loc"><span class="local">경기</span>
-                                <input type="checkbox" value="14" name="loc"><span class="local">강원</span>
-                                <input type="checkbox" value="12" name="loc"><span class="local">충북</span><br></li>
-                                <li><input type="checkbox" value="13" name="loc"><span class="local">충남</span>
-                                <input type="checkbox" value="9" name="loc"><span class="local">경북</span>
-                                <input type="checkbox" value="4" name="loc"><span class="local">경남</span><br></li>
-                                <li><input type="checkbox" value="7" name="loc"><span class="local">전북</span>
-                                <input type="checkbox" value="6" name="loc"><span class="local">전남</span><br></li>
+                                <li><input type="checkbox"  checked ><span class="local">서울</span>
+                                <input type="checkbox"><span class="local">인천</span>
+                                 <input type="checkbox"><span class="local">세종</span><br></li>
+                                <li><input type="checkbox"><span class="local">대전</span>
+                                <input type="checkbox"><span class="local">대구</span>
+                                <input type="checkbox"><span class="local">울산</span><br></li>
+                                <li><input type="checkbox"><span class="local">부산</span>
+                                <input type="checkbox"><span class="local">광주</span>
+                                <input type="checkbox"><span class="local">제주</span><br></li>
+                                <li><input type="checkbox"><span class="local">경기</span>
+                                <input type="checkbox"><span class="local">강원</span>
+                                <input type="checkbox"><span class="local">충북</span><br></li>
+                                <li><input type="checkbox"><span class="local">충남</span>
+                                <input type="checkbox"><span class="local">경북</span>
+                                <input type="checkbox"><span class="local">경남</span><br></li>
+                                <li><input type="checkbox"><span class="local">전북</span>
+                                <input type="checkbox"><span class="local">전남</span><br></li>
 
                         </ul>
                         </div>
@@ -265,7 +184,7 @@ span.local{
                 </div>
                 <div class="OfferList__Items__Body ">
                 <div id='list'>
-                    <div class="OfferList__Cards">
+                                            <div class="OfferList__Cards">
                     <c:forEach items='${tourList}' var="list">
                     
                      
@@ -295,7 +214,7 @@ span.local{
                     </c:forEach>
                                        </div>
                                        
-                 </div>          
+                           </div>          
                                        
                                        
                                        
@@ -320,28 +239,112 @@ span.local{
 
 
 
+                                                                <!--  공통 스크립트 -->
+                                                                <script src="https://d2yoing0loi5gh.cloudfront.net/assets/adiz_sv120-38fea29758c151518c764b4bc1a0bdd8e78c105c31e114ef16a4fd0b8be47a31.js"></script>
+
+                                                                <script type="text/javascript">
+                                                                  window.criteo_q = window.criteo_q || [];
+                                                                  window.userEmail = "";
+                                                                  window.userAgent = "d";
 
 
+                                                                  if(navigator.userAgent.match(/Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
+    //모바일(스마트폰+태블릿)일 때
+    window.userAgent = "t";
+    if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
+      //스마트폰일 때
+      window.userAgent = "m";
+  }
+}
+</script>
+
+
+
+<!—  리스팅페이지 —>
+<script type="text/javascript">
+    var items = [];
+
+    items.push("225");
+    items.push("43365");
+    items.push("25307");
+
+    window.criteo_q.push(
+        { event: "setAccount", account: 17926 },
+        { event: "setHashedEmail", email: window.userEmail },
+        { event: "setSiteType", type: window.userAgent },
+        { event: "viewList", item: items }
+        );
+    </script>
+
+
+    <script>
+
+        var user = '0'
+
+
+        dataLayer.push( {
+            'userID': user
+        });
+        /**** fire remarketingTag ******/
+        dataLayer.push({
+            'event': 'fireRemarketingTag',
+            'google_tag_params': {
+              'ecomm_prodid': '',
+              'ecomm_pagetype': 'searchresults',
+              'ecomm_totalvalue': ''
+          }
+      });
+        /****** fire remarketingTag ******/
+
+        if (window.jQuery) {
+            $(document).ready(function() {
+              $('.offer-item-container li.item').click(function(event){
+                var $offer_item = $(this);
+
+                var offer_id = $offer_item.attr('data-offer-id');
+                var offer_name = $offer_item.find('.name').text();
+                var offer_price = $offer_item.find('.price[data-offer-price]').attr('data-offer-price');
+                var offer_category = $offer_item.attr('data-offer-type');
+
+                var offer_url = $offer_item.find('a.offer-link').attr('href');
+
+                dataLayer.push({
+                  'event': 'productClick',
+                  'ecommerce': {
+                    'click': {
+              'actionField': {'list': offer_category},      // Optional list property.
+              'products': [{
+                'name': offer_name,                      // Name or ID is required.
+                'id': offer_id,
+                'price': offer_price,
+                'category': offer_category
+            }]
+        }
+    }
+});
+            });
+
+
+              $(document).on('wishChecked', function(e) {
+                dataLayer.push({
+                  'event': 'addToWishlist',
+                  'offer_id': e.detail.offerId
+              });
+            });
+          });
+        }
+    </script>
     
     <script>
      $(document).ready(function(){
-         
-         //console.log(${tourList});
-         
-         
        $('.catMid').on('click',function(){
            $('.leademecate').attr('class','leademecate offer-category__item');
            $(this).attr('class','leademecate offer-category__item active');
 
            console.log(Number($(this).attr("value"))+Number(${catNo}));
-           console.log("=========================");
-           console.log($(this));
-           console.log(this);
-           console.log($(this).attr("value"));
            var obj ={
                    'cat_no' : Number($(this).attr("value"))+Number(${catNo})
            }
-           console.log(obj);
            
            $.ajax({
                url:'list.do',
@@ -353,9 +356,6 @@ span.local{
                    console.log($(data));
                    $('#list').empty();
                    $(data).each(function(index, item){
-                       
-                       $('#midCategoryTitleBox').empty().append("<span class='VerticalList__Header__Title'>" + item.mid_category.cat_name + "</span>");
-                       
                        
                        listDiv($('#list') ,item ,starRating(item.star));
                        
@@ -381,13 +381,12 @@ span.local{
            
            $.ajax({
                url:'listAll.do',
-               type:'POST',
+                type:'POST',
                dataType:'JSON',
                data:JSON.stringify(obj),
                contentType:"application/json",
                success:function(data){
                    console.log($(data));
-                   $('#midCategoryTitleBox').empty().append("<span class='VerticalList__Header__Title'>전체</span>");
                    $('#list').empty();
                    $(data).each(function(index, item){
                        listDiv($('#list') ,item ,starRating(item.star));
@@ -460,40 +459,6 @@ span.local{
                    + "</a>"
                    + "</div>");
        }
-       
-       $('input:checkbox[ name="loc"]').on('click', function(){
-           console.log(this);
-          console.log($(this));
-          console.log($('input:checkbox[ name="loc"]'));
-          console.log($('input:checkbox[ name="loc"]').val());
-       });
-       
-      /*  var aaa = {
-               'a':'a',
-               's':'s',
-               'd':'d',
-               'f':'f'
-       }
-       console.log(aaa); */
-       /* $.ajax({
-           url:'test.do',
-            type:'POST',
-           dataType:'JSON',
-           data:JSON.stringify(aaa),
-           contentType:"application/json",
-           success:function(data){
-               console.log($(data));
-               $('#midCategoryTitleBox').empty().append("<span class='VerticalList__Header__Title'>전체</span>");
-               $('#list').empty();
-               $(data).each(function(index, item){
-                   listDiv($('#list') ,item ,starRating(item.star));
-               });
-           },
-           error:function(){
-               console.log("실패");
-           }
-       
-       }); */
        
        
        
