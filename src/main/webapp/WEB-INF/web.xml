@@ -25,10 +25,12 @@
     <!-- <listener>
         <listener-class>bitcamp.java110.cms.listener.ContextLoaderListener</listener-class>
     </listener> -->
+    
+      
     <error-page>
         <location>/WEB-INF/jsp/error.jsp</location>
     </error-page>
-    
+     
     <!-- 필터 배치하기 -->
     <filter>
         <filter-name>CharacterEncodingFilter</filter-name>
