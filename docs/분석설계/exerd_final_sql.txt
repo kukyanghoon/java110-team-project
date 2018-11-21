@@ -40,6 +40,9 @@ DROP TABLE IF EXISTS t_memb RESTRICT;
 -- 신청현황
 DROP TABLE IF EXISTS const_stat RESTRICT;
 
+-- 지역
+DROP TABLE IF EXISTS loc RESTRICT;
+
 -- 회원
 CREATE TABLE memb (
     mno        INTEGER      NOT NULL COMMENT '회원번호', -- 회원번호
@@ -103,7 +106,7 @@ ALTER TABLE g_memb
 CREATE TABLE tour (
     tno        INTEGER      NOT NULL COMMENT '여행번호', -- 여행번호
     titl       VARCHAR(255) NOT NULL COMMENT '타이틀', -- 타이틀
-    loc        VARCHAR(255) NOT NULL COMMENT '지역', -- 지역
+    loc        INTEGER      NULL     COMMENT '지역번호', -- 지역번호
     star       DOUBLE       NOT NULL COMMENT '별점평균', -- 별점평균
     cmt_cnt    INTEGER      NOT NULL COMMENT '후기갯수', -- 후기갯수
     hits       INTEGER      NOT NULL COMMENT '조회수', -- 조회수
@@ -373,6 +376,21 @@ ALTER TABLE const_stat
 ALTER TABLE const_stat
     MODIFY COLUMN tour_dt DATE NOT NULL AUTO_INCREMENT COMMENT '여행일자';
 
+-- 지역
+CREATE TABLE loc (
+    loc     INTEGER      NOT NULL COMMENT '지역번호', -- 지역번호
+    locnm   VARCHAR(255) NOT NULL COMMENT '지역', -- 지역
+    loc_eng VARCHAR(255) NOT NULL COMMENT '영어지역' -- 영어지역
+)
+COMMENT '지역';
+
+-- 지역
+ALTER TABLE loc
+    ADD CONSTRAINT PK_loc -- 지역 기본키
+        PRIMARY KEY (
+            loc -- 지역번호
+        );
+
 -- 가이드
 ALTER TABLE g_memb
     ADD CONSTRAINT FK_memb_TO_g_memb -- 회원 -> 가이드
@@ -401,6 +419,16 @@ ALTER TABLE tour
         )
         REFERENCES g_memb ( -- 가이드
             mno -- 회원번호
+        );
+
+-- 여행
+ALTER TABLE tour
+    ADD CONSTRAINT FK_loc_TO_tour -- 지역 -> 여행
+        FOREIGN KEY (
+            loc -- 지역번호
+        )
+        REFERENCES loc ( -- 지역
+            loc -- 지역번호
         );
 
 -- 카테고리
