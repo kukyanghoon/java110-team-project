@@ -156,7 +156,7 @@ ALTER TABLE category
 CREATE TABLE tour_req (
     reqno    INTEGER     NOT NULL COMMENT '신청번호', -- 신청번호
     tno      INTEGER     NOT NULL COMMENT '여행번호', -- 여행번호
-    tour_dt  DATETIME    NOT NULL COMMENT '여행일자', -- 여행일자
+    tour_dt  DATE        NOT NULL COMMENT '여행일자', -- 여행일자
     mno      INTEGER     NOT NULL COMMENT '회원번호', -- 회원번호
     t_dt     DATETIME    NOT NULL COMMENT '신청일자', -- 신청일자
     req_cnt  INTEGER     NOT NULL COMMENT '신청인원', -- 신청인원
@@ -182,8 +182,8 @@ ALTER TABLE tour_req
 
 -- 여행가능날짜
 CREATE TABLE tour_avail (
-    tour_dt DATETIME NOT NULL COMMENT '여행일자', -- 여행일자
-    tno     INTEGER  NOT NULL COMMENT '여행번호' -- 여행번호
+    tour_dt DATE    NOT NULL COMMENT '여행일자', -- 여행일자
+    tno     INTEGER NOT NULL COMMENT '여행번호' -- 여행번호
 )
 COMMENT '여행가능날짜';
 
@@ -220,7 +220,7 @@ ALTER TABLE cash_his
 CREATE TABLE mpg_phot (
     photno   INTEGER      NOT NULL COMMENT '사진번호', -- 사진번호
     tno      INTEGER      NOT NULL COMMENT '여행번호', -- 여행번호
-    tour_dt  DATETIME     NOT NULL COMMENT '여행일자', -- 여행일자
+    tour_dt  DATE         NOT NULL COMMENT '여행일자', -- 여행일자
     name     VARCHAR(255) NOT NULL COMMENT '이미지명', -- 이미지명
     org_name VARCHAR(255) NOT NULL COMMENT '원본이미지명', -- 원본이미지명
     up_dt    DATETIME     NOT NULL COMMENT '업로드일자' -- 업로드일자
@@ -355,10 +355,10 @@ ALTER TABLE t_memb
 
 -- 신청현황
 CREATE TABLE const_stat (
-    tour_dt DATETIME NOT NULL COMMENT '여행일자', -- 여행일자
-    tno     INTEGER  NOT NULL COMMENT '여행번호', -- 여행번호
-    mx_pn   INTEGER  NOT NULL COMMENT '최대인원', -- 최대인원
-    req_pn  INTEGER  NOT NULL COMMENT '신청인원' -- 신청인원
+    tour_dt DATE    NOT NULL COMMENT '여행일자', -- 여행일자
+    tno     INTEGER NOT NULL COMMENT '여행번호', -- 여행번호
+    mx_pn   INTEGER NOT NULL COMMENT '최대인원', -- 최대인원
+    req_pn  INTEGER NOT NULL COMMENT '신청인원' -- 신청인원
 )
 COMMENT '신청현황';
 
@@ -371,7 +371,7 @@ ALTER TABLE const_stat
         );
 
 ALTER TABLE const_stat
-    MODIFY COLUMN tour_dt DATETIME NOT NULL AUTO_INCREMENT COMMENT '여행일자';
+    MODIFY COLUMN tour_dt DATE NOT NULL AUTO_INCREMENT COMMENT '여행일자';
 
 -- 가이드
 ALTER TABLE g_memb
