@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- MemberDao 클래스가 사용할 SQL이 들어 있는 파일 -->
+
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="leadme.dao.PaymentDao">
-
+<!-- 
     <resultMap type="tourreq" id="reqMap">
         <id column="reqno"          property="reqno"/>
         <result column="tno"        property="tno"/>
@@ -20,15 +20,32 @@
         <result column="cur_cd"     property="cur_cd"/>
         <result column="req_stat"   property="req_stat"/>
     </resultMap>
+ -->
     
-    
-    <insert id="insert" parameterType="reqMap">
-        insert into tour_req(tno,tour_dt,mno,t_dt,req_cnt,tot_pay,pay_type,pay_stat,
-        pay_dt,can_dt,cur_cd,req_stat) 
-        values(#{tno},#{tour_dt),#{mno},now(),#{req_cnt},#{tot_pay},#{pay_type},#{pay_stat},now(),
-        '1111-01-01',#{cur_cd},#{req_stat})
+    <insert id="insert" parameterType="TourReq" useGeneratedKeys="true" 
+    keyColumn="reqno" keyProperty="reqno">
+        insert into tour_req(tno,tour_dt,mno,t_dt,req_cnt,tot_pay,pay_type
+        ,pay_stat,pay_dt,can_dt,cur_cd,req_stat,payment_id) 
+        values(#{tno},#{tour_dt},#{mno},now(),#{req_cnt},#{tot_pay},#{pay_type}
+        ,#{pay_stat},now(),11111111111111,#{cur_cd},#{req_stat},#{payment_id})
     </insert>
-
+    
+    <update id="update" parameterType="map">
+        update tour_req set pay_stat=#{pay_stat}, req_stat=#{req_stat}, payment_id=#{payment_id}, err_txt=#{err_txt} 
+        where reqno=#{reqno}
+    </update>
+    
+    <!-- 
+    <select id="select" resultMap="map" parameterMap="int">
+        select  t.pri_phot, t.titl, m.name,
+				r.tour_dt, r.req_cnt, t.amt, r.tot_pay
+		  from
+				tour t, tour_req r, memb m
+				where r.reqno = #{value}
+				and r.tno = t.tno
+				and m.mno = r.mno
+    </select>
+     -->
 </mapper>
 
 

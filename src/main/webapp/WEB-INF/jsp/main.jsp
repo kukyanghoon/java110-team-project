@@ -584,14 +584,10 @@
 
 <div id='popup-mask'></div>
 <div id='gnb-popup-mask'></div>
-<script>
-  if (typeof OfferWish !== 'undefined') {
-    OfferWish.check([]);
-  }
-</script>
-
 
 <!--  공통 스크립트 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/resources/js/util.js"></script>
 <script src="https://d2yoing0loi5gh.cloudfront.net/assets/adiz_sv120-38fea29758c151518c764b4bc1a0bdd8e78c105c31e114ef16a4fd0b8be47a31.js"></script>
 
 <script type="text/javascript">

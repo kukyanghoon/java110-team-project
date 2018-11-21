@@ -1,5 +1,6 @@
 package leadme.service.impl;
 
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -30,6 +31,12 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     public void insert(TourReq req) {
         paymentDao.insert(req);
+    }
+
+
+    @Override
+    public void update(Map<String,Object> params) {
+        paymentDao.update(params);
     }
 }
 

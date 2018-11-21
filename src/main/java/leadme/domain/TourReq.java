@@ -1,26 +1,29 @@
 package leadme.domain;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 /* 여행신청(결제) */
 public class TourReq implements Serializable {
   private static final long serialVersionUID = 1L;
   
-  private int reqno;        /* 신청번호 */
-  private int tno;          /* 여행번호 */
-  private String tour_dt;   /* 여행일자 */
-  private int mno;          /* 회원번호 */
-  private String t_dt;      /* 신청일자 */
-  private int req_cnt;      /* 신청인원 */
-  private double tot_pay;   /* 총결제금액 */
-  private String pay_type;  /* 결제방법 */
-  private String pay_stat;  /* 결제상태 */
-  private Date pay_dt;      /* 결제시각 */
-  private Date can_dt;      /* 취소시각 */
-  private String cur_cd;    /* 통화코드 */
-  private String req_stat;  /* 신청상태 */
+  private int reqno;          /* 신청번호 */
+  private int tno;            /* 여행번호 */
+  private Date tour_dt;       /* 여행일자 */
+  private int mno;            /* 회원번호 */
+  private Date t_dt;          /* 신청일자 */
+  private int req_cnt;        /* 신청인원 */
+  private double tot_pay;     /* 총결제금액 */
+  private String pay_type;    /* 결제방법 */
+  private String pay_stat;    /* 결제상태 */
+  private Date pay_dt;        /* 결제시각 */
+  private Date can_dt;        /* 취소시각 */
+  private String cur_cd;      /* 통화코드 */
+  private String req_stat;    /* 신청상태 */
+  private String payment_id;  /* 결제ID */
+  private String err_txt;     /* 에러내용 */
   
+ 
   public int getReqno() {
     return reqno;
   }
@@ -33,10 +36,10 @@ public class TourReq implements Serializable {
   public void setTno(int tno) {
     this.tno = tno;
   }
-  public String getTour_dt() {
+  public Date getTour_dt() {
     return tour_dt;
   }
-  public void setTour_dt(String tour_dt) {
+  public void setTour_dt(Date tour_dt) {
     this.tour_dt = tour_dt;
   }
   public int getMno() {
@@ -45,10 +48,10 @@ public class TourReq implements Serializable {
   public void setMno(int mno) {
     this.mno = mno;
   }
-  public String getT_dt() {
+  public Date getT_dt() {
     return t_dt;
   }
-  public void setT_dt(String t_dt) {
+  public void setT_dt(Date t_dt) {
     this.t_dt = t_dt;
   }
   public int getReq_cnt() {
@@ -101,5 +104,17 @@ public class TourReq implements Serializable {
   }
   public static long getSerialversionuid() {
     return serialVersionUID;
+  }
+  public String getPayment_id() {
+    return payment_id;
+  }
+  public void setPayment_id(String payment_id) {
+    this.payment_id = payment_id;
+  }
+  public String getErr_txt() {
+    return err_txt;
+  }
+  public void setErr_txt(String err_txt) {
+    this.err_txt = err_txt;
   }
 }

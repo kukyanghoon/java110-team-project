@@ -5,14 +5,9 @@ var locale;
 (function(){
     
     $().ready(function(){
-        $.get("http://localhost:8888/app/main/locale", function(data, status){
-            locale = data;
-            
-            $('.city-name').each(function(index,value){
-                $(this).text(getLocalName($(value).text())); 
-            });
+        $('.city-name').each(function(index,value){
+            $(this).text(getLocalName($(value).text())); 
         });
-        
     });
     
     
@@ -330,6 +325,7 @@ var locale;
 	    }
 	    return name;
 	}
+	
 })()
 
 

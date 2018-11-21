@@ -105,10 +105,6 @@
 <div class="bg-img" style="background-image:url('https://d2ur7st6jjikze.cloudfront.net/offer_photos/3432/15051_large_1525339408.jpg?1525339408')"></div>
 <div class="panel-body">
 <div class="title">덕수궁도 야간개방을 한다고?!!</div>
-<div class="profile">
-<img class="img-circle" src="https://d2ur7st6jjikze.cloudfront.net/profile_images/19966/19966_original_1519913170.png?1519913170">
-<span>김종일 파트너</span>
-</div>
 </div>
 <div class="panel-body panel-body-border">
 <div class="item">

@@ -44,7 +44,6 @@ public class MainController {
         Locale locale,
         HttpServletRequest request,
         @RequestParam(defaultValue="10")  String rnk_item,
-        HttpSession session,
         Model model) {
 
       /* JAVA locale test
@@ -59,7 +58,7 @@ public class MainController {
         model.addAttribute("tourList" , mainService.getListTourBest("2018-11-12"));
         model.addAttribute("themeList", mainService.getListThemeBest("2018-11-12", rnk_item));
         model.addAttribute("localList", mainService.getListLocalBest("2018-11-12", "01"));
-        session.setAttribute("lang", locale.toString());
+        request.setAttribute("lang", locale.toString());
     }
     
     @RequestMapping(value="theme/{rnk_item}", 
