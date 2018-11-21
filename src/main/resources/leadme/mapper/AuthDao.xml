@@ -46,6 +46,14 @@
             (#{name}, password(#{password}), #{cert_email}, #{email}, #{photo}, #{mtype}, #{path}, #{active});
    
     </insert>
+    
+    <select id="findUser" resultMap="memberMap" parameterType="map">
+    
+        SELECT * FROM memb where email=#{member.email};
+        
+    </select>
+    
+    
 </mapper>
 
 

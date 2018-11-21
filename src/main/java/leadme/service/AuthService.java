@@ -13,4 +13,6 @@ public interface AuthService {
     Member getFacebookMember(String accessToken,String memberType);
     
     void createUser(Member member) throws Exception;
+    
+    Member findUser(Member member) throws Exception;
 }

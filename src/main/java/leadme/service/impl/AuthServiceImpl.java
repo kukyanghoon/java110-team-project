@@ -114,7 +114,20 @@ public class AuthServiceImpl implements AuthService {
     System.out.println("회원 가입 성공 !! : " + authDao.createUser(member));
   }
   
-  
+  @Override
+  public Member findUser(Member member) throws Exception{
+    
+    Map<String,Object> map = new HashMap<String,Object>();
+    map.put("member", member);
+    
+    this.member = authDao.findUser(map);
+    System.out.println(this.member);
+    if(this.member == null) {
+      throw new Exception("일치하는 정보가 없습니다");
+    }
+    
+    return this.member;
+  }
   
   
 
