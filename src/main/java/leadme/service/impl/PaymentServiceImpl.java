@@ -38,6 +38,14 @@ public class PaymentServiceImpl implements PaymentService {
     public void update(Map<String,Object> params) {
         paymentDao.update(params);
     }
+
+
+    @Override
+    public Map<String, Object> select(int reqno) {
+        return paymentDao.select(reqno);
+    }
+
+
 }
 
 

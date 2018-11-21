@@ -45,6 +45,27 @@
 <![endif]-->
 
 
+<style>
+#loading {
+ width: 100%;  
+ height: 100%;  
+ top: 0px;
+ left: 0px;
+ position: fixed;  
+ display: block;  
+ opacity: 0.7;  
+ background-color: #fff;
+ z-index: 99;  
+ text-align: center; } 
+  
+#loading-image {  
+ position: absolute;  
+ top: 50%;  
+ left: 45%; 
+ z-index: 100; }
+</style>
+
+
 
 </head>
 <body class="body" data-action="new" data-controller-path="kitty/reservations" data-controller="reservations" data-sign-in="">
@@ -227,7 +248,6 @@
 <!--  공통 스크립트 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="/resources/js/util.js"></script>
-<script type="text/javascript" src="/resources/js/jquery.oLoader.min.js"></script>
 <script src="https://d2yoing0loi5gh.cloudfront.net/assets/adiz_sv120-38fea29758c151518c764b4bc1a0bdd8e78c105c31e114ef16a4fd0b8be47a31.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.1/dist/sweetalert2.all.min.js"></script>
 <script type="text/javascript">
@@ -242,8 +262,14 @@
   }
 </script>
 <script>
+
+
+
 (function(){
-    
+    window.onload = function(){
+        $('#loading').hide();  
+    }  
+
 	 $('#reservation-btn').on('click', checkInputs);
 	 
 	 function checkInputs(e){
@@ -266,12 +292,17 @@
 	         document.payForm.tot_pay.value = ex_rate * document.payForm.tot_pay.value;
 	         console.log(document.payForm.tot_pay.value);
 	     }
+	     
 	     document.payForm.submit();
+	     
+	     $('#loading').show();
+	     
 	 }
 })()
 
 
  
 </script>
+<div id="loading"><img id="loading-image" src="/resources/img/loader1.gif" alt="Loading..." /></div>
 </body>
 </html>

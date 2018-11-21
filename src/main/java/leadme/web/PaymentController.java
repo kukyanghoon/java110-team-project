@@ -9,12 +9,14 @@ import java.util.Locale;
 import java.util.Map;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import com.paypal.api.payments.Amount;
 import com.paypal.api.payments.Details;
@@ -32,6 +34,7 @@ import leadme.util.Utils;
 
 @RequestMapping("payment")
 @Controller
+@SessionAttributes("resultMap")
 public class PaymentController { 
     
     PaymentService paymentService;
@@ -169,8 +172,12 @@ public class PaymentController {
     
     
     @RequestMapping("process")
-    public String process(HttpServletRequest request, int reqno) {
+    public String process(
+        HttpServletRequest request, 
+        int reqno, 
+        Model model) {
       
+      String redirectUrl="";
       // Execute Payment
       Payment payment = new Payment();
       payment.setId(request.getParameter("paymentId"));
@@ -221,23 +228,34 @@ public class PaymentController {
             && createdPayment.getFailureReason() == null) {
             params.put("pay_stat", STAT_OK);
             params.put("req_stat", STAT_OK);
+            redirectUrl = "redirect:payment-complete";
         } else {
             params.put("pay_stat", STAT_ERR);
             params.put("req_stat", STAT_ERR);
             params.put("err_txt", createdPayment.getFailureReason());
+            redirectUrl = "redirect:payment-fail";
         }
         /* update payment history */
         paymentService.update(params);
         
+        Map<String,Object> resultMap = paymentService.select(reqno);
+        model.addAttribute("resultMap", resultMap);
+        
       } catch (PayPalRESTException e) {
         System.err.println(e.getDetails());
       }
-      return "redirect:payment-complete";
+      
+      return redirectUrl;
     }
     
     @RequestMapping("payment-complete")
-    public String complete() {
+    public String complete(HttpSession session) {
       return "payment/payment-complete";
+    }
+    
+    @RequestMapping("payment-fail")
+    public String err(HttpSession session) {
+      return "payment/payment-fail";
     }
 }
 

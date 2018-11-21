@@ -18,7 +18,7 @@
 <link rel="stylesheet" media="screen" href="https://d2yoing0loi5gh.cloudfront.net/webpack/application.6823a52822019093f642.css" />
 <link rel="stylesheet" media="screen" href="https://d2yoing0loi5gh.cloudfront.net/webpack/application.e01e462572b9064a1cc4.css">
 <link rel="stylesheet" type="text/css" href="../../resources/css/hyun.css">
-<script src="https://d2yoing0loi5gh.cloudfront.net/webpack/vendor.e01e462572b9064a1cc4.js"></script>
+<!-- <script src="https://d2yoing0loi5gh.cloudfront.net/webpack/vendor.e01e462572b9064a1cc4.js"></script> -->
 <script src="https://d2yoing0loi5gh.cloudfront.net/webpack/application.e01e462572b9064a1cc4.js"></script>
 <!--[if lte ie 9]>
 <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/ie-b751bcff1f912d9f2d6eb3f5f25a09494364fee359047b3bcf9e161c4d714527.css" />

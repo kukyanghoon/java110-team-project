@@ -45,7 +45,18 @@
 <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/ie-0d3dd8da661782e0fe69539e0c61b980912a8ee2c42e367b29dde4bcccc9dea6.css" />
 <![endif]-->
 <script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-01ea8c7c94c68924dc912350d530fb7e62968738f000a46cec5b9f8c3187e0c5.js"></script><style type="text/css"></style>
-
+<style>
+dl{
+    text-align: left;
+    padding: 10px 20px;
+    border: 1px solid silver;
+    background: #fff;
+}
+.single-container .help-message-box .help-title{
+    margin-bottom: 30px !important; 
+}
+</style>
+</head>
 
 
 <div class="global-alert-box">
@@ -69,7 +80,7 @@
 <div class="step-number">
 <span class="step-inner-number">2</span>
 </div>
-<span class="step-name">완료</span>
+<span class="step-name">결제실패</span>
 </div>
 </div>
 </div>
@@ -78,14 +89,18 @@
 <section class="body-container clearfix bg-gray">
 <div class="single-container row">
 <div class="help-message-box">
-<div class="help-title">결제가 완료되었습니다.</div>
-예약이 확정되었습니다. 여행에 대한 결제내역 및 상세정보를 메일로 발송하였습니다.
+<div class="help-title" style="color: red;">결제 처리가 실패하였습니다.</div>
+<dl>
+    <dt>거래ID</dt><dd>${resultMap.payment_id}</dd>
+</dl>
+<dl>
+    <dt>오류내용</dt><dd>${resultMap.err_txt}</dd>
+</dl>
 </div>
 <div class="reservation-box col-xs-12">
 <div class="panel">
-<div class="bg-img" style="background-image:url('/resources/img/${resultMap.pri_phot}')"></div>
 <div class="panel-body">
-<div class="title">${resultMap.titl}</div>
+<div class="title"><s>${resultMap.titl}</s></div>
 </div>
 <div class="panel-body panel-body-border">
 <div class="item">

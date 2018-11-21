@@ -35,17 +35,15 @@
         where reqno=#{reqno}
     </update>
     
-    <!-- 
-    <select id="select" resultMap="map" parameterMap="int">
+    <select id="select" resultType="map" parameterType="int">
         select  t.pri_phot, t.titl, m.name,
-				r.tour_dt, r.req_cnt, t.amt, r.tot_pay
+				r.tour_dt, r.req_cnt, t.amt, r.tot_pay, r.payment_id, r.err_txt
 		  from
 				tour t, tour_req r, memb m
 				where r.reqno = #{value}
 				and r.tno = t.tno
 				and m.mno = r.mno
     </select>
-     -->
 </mapper>
 
 

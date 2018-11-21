@@ -27,8 +27,25 @@
 <!--[if lte ie 9]>
 <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/ie-b751bcff1f912d9f2d6eb3f5f25a09494364fee359047b3bcf9e161c4d714527.css" />
 <![endif]-->
-
-
+<style>
+#loading {
+ width: 100%;  
+ height: 100%;  
+ top: 0px;
+ left: 0px;
+ position: fixed;  
+ display: block;  
+ opacity: 0.7;  
+ background-color: #fff;
+ z-index: 99;  
+ text-align: center; } 
+  
+#loading-image {  
+ position: absolute;  
+ top: 50%;  
+ left: 45%; 
+ z-index: 100; }
+</style>
 </head>
 <body class='body' data-action='index' data-controller-path='kitty/experiences/main' data-controller='main'>
 
@@ -610,9 +627,14 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script>
 
+window.onload = function(){
+    $('#loading').hide();  
+}  
+
 function changeLang(lang){
     window.location.href='main?lang='+lang;
 }
 </script>
+<div id="loading"><img id="loading-image" src="/resources/img/loader1.gif" alt="Loading..." /></div>
 </body>
 </html>
