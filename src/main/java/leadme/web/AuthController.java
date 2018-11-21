@@ -102,4 +102,28 @@ public class AuthController{
         session.invalidate();
         return "redirect:../main";
     }
+    
+    @RequestMapping(value = "findPw.do")
+    @ResponseBody
+    public Map<String,Object> find_pw_form(@RequestBody Member member ) {
+      
+      System.out.println(member.getEmail());
+      
+      Map<String,Object> message = new HashMap<>();
+      
+      try {
+        authService.findUser(member);
+        message.put("message", "회원확인 성공!");
+        
+        
+        //authService.updateUser(member);
+        // 이메일 보내는 서비스 메소드 호출 해야함 여기서 ㅇㅇ
+        
+        
+        return message;
+      } catch (Exception e) {
+        System.out.println(e);
+        return null;
+      }
+    }
 }
