@@ -8,9 +8,9 @@
   metadata-complete="false">
 
     <description>
-       미니 프로젝트로 [수업 관리 시스템]을 구현한 웹 애플리케이션이다. 
+     가이드 매칭 시스템
     </description>
-    <display-name>Classroom Management System(CMS)</display-name>
+    <display-name>LEADME</display-name>
 
     <!-- 컨텍스트 초기화 파라미터 설정 -->
 
@@ -25,6 +25,9 @@
     <!-- <listener>
         <listener-class>bitcamp.java110.cms.listener.ContextLoaderListener</listener-class>
     </listener> -->
+    <error-page>
+        <location>/WEB-INF/jsp/error.jsp</location>
+    </error-page>
     
     <!-- 필터 배치하기 -->
     <filter>

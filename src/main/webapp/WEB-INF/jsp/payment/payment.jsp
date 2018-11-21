@@ -13,22 +13,9 @@
 <meta content="Content-type: text/html; charset=UTF-8" name="http-equiv">
 <meta content="IE=Edge,chrome=1" http-equiv="X-UA-Compatible">
 <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-<meta content="yes" name="apple-mobile-web-app-capable">
-<meta content="black" name="apple-mobile-web-app-status-bar-style">
-<meta content="a0a215c577b4fc16a849b8867cd9b68051ed6377" name="naver-site-verification">
-<meta content="all, index, follow" name="robots">
 <meta content="ko" name="locale">
 <meta content="KRW" name="currency">
-<meta content="현지 투어, 여행 가이드, 투어 가이드, 현지 가이드, 가이드 투어, 리드미, 현지정보, 여행정보, 입장권, 교통패스, 액티비티, 여행사, 호텔예약, 해외호텔, 호텔할인, 바로사용, 한인민박, 민박, 와이파이, 유심, 여행자보험, 항공권, 항공권 검색, 최저가 항공권" name="keywords">
-<meta content="여행지에서 즐길 수 있는 가이드 투어, 명소 입장권, 교통패스, 액티비티는 물론 호텔 예약까지 전세계 현지 여행이 준비되어 있습니다.
-" name="description">
 
-<meta name="csrf-param" content="authenticity_token">
-<meta name="csrf-token" content="wPC3lRYUsWIR527cikFewJD3Nn/62w4qQYRpQyV5dsAQpjPJkg8Gu01GpxqOvHWd/q8kg4l22ueycZhaMO8+XQ==">
-<meta content="113823448739791" property="fb:app_id">
-<meta content="122600525" property="fb:admins">
-<meta content="리드미" property="og:site_name">
-<meta content="https://d2yoing0loi5gh.cloudfront.net/assets/og-image-35b4b66874396ae2fc8991b926c1f0c09f27f25f9c0a23f15e5e96c73c2c9992.png" property="og:image">
 <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon-precomposed">
 <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon">
 <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon" sizes="76x76">
@@ -36,8 +23,7 @@
 <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-152-cc369a832b7a69d0c0b63c3914168b58e732a26729d72e976e7f729b923ee302.png" rel="apple-touch-icon" sizes="152x152">
 <title>리드미 :: 현지 친구와 진짜 여행을</title>
 <link rel="shortcut icon" type="image/x-icon" href="https://d2yoing0loi5gh.cloudfront.net/assets/favicon-e7fc64f202376533d86106e6f712ed41eee1e843dbc5de3b2765938656f8eb93.ico">
-<script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/ko-7d27ea8334aef60e7e45f2e267dd1aee4667b38dd60ca09967b0a5fc4c5f44bf.js"></script>
-<link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application_template-5da62e3a802820a73815ac9769d004d04db514aa47276f57320c206cc043d2ac.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" media="screen" href="https://d2yoing0loi5gh.cloudfront.net/webpack/application.4385e182f137c2993c60.css">
 <!-- <link rel="stylesheet" type="text/css" href="css/custom1.css"> -->
 <!--[if lte ie 9]>
@@ -69,18 +55,11 @@
 
 </head>
 <body class="body" data-action="new" data-controller-path="kitty/reservations" data-controller="reservations" data-sign-in="">
-
+<jsp:include page="../headerTest.jsp"></jsp:include>
 <div class="global-alert-box">
 </div>
 
-<link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application_template-5da62e3a802820a73815ac9769d004d04db514aa47276f57320c206cc043d2ac.css" />
-<link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-4b8ab07154cf2c04a97bb950234f455fe5a721876f501316a714f1a8b65b12ae.css" />
-<link rel="stylesheet" media="screen" href="https://d2yoing0loi5gh.cloudfront.net/webpack/application.6823a52822019093f642.css" />
-<link rel="stylesheet" media="screen" href="https://d2yoing0loi5gh.cloudfront.net/webpack/application.e01e462572b9064a1cc4.css">
-
-
-
-<main data-category="tour">
+<div data-category="tour">
 <div class="step-container">
 <div class="step-wrapper">
 <div class="step-title"><spring:message code="rsv.title" text="예약하기" /></div>
@@ -104,7 +83,7 @@
 
 <section class="body-container clearfix bg-gray" data-request-url="/offers/2771/occupied_dates">
 <div class="twin-container row">
-<form id="reservation_form" onsubmit="return false;" action="payment" method="post" class="fv-form fv-form-bootstrap" name="payForm">
+<form id="reservation_form" onsubmit="return false;" action="payment/paypal" method="post" class="fv-form fv-form-bootstrap" name="payForm">
 <div class="reservation-box col-md-6 col-xs-12 reservation-first-box">
 <div class="panel">
 <div class="bg-img" style="background-image:url('https://d2ur7st6jjikze.cloudfront.net/offer_photos/2771/11971_large_1525338802.jpg?1525338802')"></div>
@@ -182,9 +161,6 @@
 </div>
 </div>
 </div>
-<script>
-  
-</script>
 
 <div class="panel">
 <div class="panel-heading">
@@ -228,7 +204,7 @@
 
 </div>
 </section>
-</main>
+</div>
 
 <!-- 푸터 -->
 <c:choose>
@@ -246,7 +222,8 @@
 <div id="gnb-popup-mask"></div>
 
 <!--  공통 스크립트 -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/ko-7d27ea8334aef60e7e45f2e267dd1aee4667b38dd60ca09967b0a5fc4c5f44bf.js"></script>
 <script src="/resources/js/util.js"></script>
 <script src="https://d2yoing0loi5gh.cloudfront.net/assets/adiz_sv120-38fea29758c151518c764b4bc1a0bdd8e78c105c31e114ef16a4fd0b8be47a31.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.1/dist/sweetalert2.all.min.js"></script>

@@ -166,7 +166,10 @@ CREATE TABLE tour_req (
     pay_dt   DATETIME    NOT NULL COMMENT '결제시각', -- 결제시각
     can_dt   DATETIME    NOT NULL COMMENT '취소시각', -- 취소시각
     cur_cd   VARCHAR(50) NOT NULL COMMENT '통화코드', -- 통화코드
-    req_stat VARCHAR(2)  NOT NULL COMMENT '신청상태' -- 신청상태
+    req_stat VARCHAR(2)  NOT NULL COMMENT '신청상태', -- 신청상태
+    transaction_id  VARCHAR(30) NULL     COMMENT '거래ID', -- 거래ID
+    err_txt  VARCHAR(255) NULL    COMMENT '에러내용' -- 에러내용
+    
 )
 COMMENT '여행신청(결제)';
 

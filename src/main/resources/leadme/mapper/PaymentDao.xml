@@ -25,19 +25,20 @@
     <insert id="insert" parameterType="TourReq" useGeneratedKeys="true" 
     keyColumn="reqno" keyProperty="reqno">
         insert into tour_req(tno,tour_dt,mno,t_dt,req_cnt,tot_pay,pay_type
-        ,pay_stat,pay_dt,can_dt,cur_cd,req_stat,payment_id) 
+        ,pay_stat,pay_dt,can_dt,cur_cd,req_stat) 
         values(#{tno},#{tour_dt},#{mno},now(),#{req_cnt},#{tot_pay},#{pay_type}
-        ,#{pay_stat},now(),11111111111111,#{cur_cd},#{req_stat},#{payment_id})
+        ,#{pay_stat},now(),11111111111111,#{cur_cd},#{req_stat})
     </insert>
     
     <update id="update" parameterType="map">
-        update tour_req set pay_stat=#{pay_stat}, req_stat=#{req_stat}, payment_id=#{payment_id}, err_txt=#{err_txt} 
+        update tour_req set pay_stat=#{pay_stat}, req_stat=#{req_stat}, transaction_id=#{transaction_id}, 
+                            err_txt=#{err_txt} 
         where reqno=#{reqno}
     </update>
     
     <select id="select" resultType="map" parameterType="int">
-        select  t.pri_phot, t.titl, m.name,
-				r.tour_dt, r.req_cnt, t.amt, r.tot_pay, r.payment_id, r.err_txt
+        select  t.pri_phot, t.titl, m.name,	r.tour_dt, r.req_cnt, t.amt, r.tot_pay, 
+                r.transaction_id, r.err_txt
 		  from
 				tour t, tour_req r, memb m
 				where r.reqno = #{value}

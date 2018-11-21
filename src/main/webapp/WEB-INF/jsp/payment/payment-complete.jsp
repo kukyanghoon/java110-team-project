@@ -126,8 +126,8 @@
 <div class="help-message-box">
 자세한 내용은 예약내역에서 확인 가능합니다.
 <div class="btn-container">
-<a class="btn btn-gray btn-reserve" href="/">홈</a>
-<a class="btn btn-blue btn-reserve" href="/traveler/reservations/2121109">예약내역</a>
+<a class="btn btn-gray btn-reserve" href="#" onclick="event.preventDefault(); location.href='/app/main'">홈</a>
+<a class="btn btn-gray btn-reserve" href="#" onclick="event.preventDefault(); location.href='/app/main'">예약내역</a>
 </div>
 </div>
 </div>

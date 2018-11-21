@@ -2,14 +2,13 @@ package leadme.web;
 
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletResponse;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +24,8 @@ import com.paypal.api.payments.Payer;
 import com.paypal.api.payments.Payment;
 import com.paypal.api.payments.PaymentExecution;
 import com.paypal.api.payments.RedirectUrls;
+import com.paypal.api.payments.RefundRequest;
+import com.paypal.api.payments.Sale;
 import com.paypal.api.payments.Transaction;
 import com.paypal.base.rest.APIContext;
 import com.paypal.base.rest.PayPalRESTException;
@@ -48,7 +49,7 @@ public class PaymentController {
     final String STAT_CAN = "02";
     final String STAT_ERR = "03";
     public static final String LANG_EN = "en";
-    APIContext context;
+    APIContext apiContext;
 
     public PaymentController(
             PaymentService paymentService, 
@@ -59,12 +60,12 @@ public class PaymentController {
         this.localeResolver = localeResolver;
         this.messageSource = messageSource;
         this.sc = sc;
-        context = new APIContext(clientId, clientSecret, "sandbox");
+        apiContext = new APIContext(clientId, clientSecret, "sandbox");
     }
 
     
-    @GetMapping
-    public String payment(
+    @RequestMapping
+    public String payment( /*todo: get params and set model*/
         Locale locale,
         HttpServletRequest request,
         Model model) {
@@ -80,8 +81,8 @@ public class PaymentController {
       return "payment/payment";
     }
     
-    @PostMapping
-    public String payment(
+    @PostMapping("paypal")
+    public String paypal(
         int tno,
         Date tour_dt,
         int mno,
@@ -92,7 +93,7 @@ public class PaymentController {
 
       
       /* Logging */
-      TourReq tourReq = setTourReq(tno, tour_dt, mno, req_cnt, tot_pay, pay_type, null);
+      TourReq tourReq = setTourReq(tno, tour_dt, mno, req_cnt, tot_pay, pay_type);
       paymentService.insert(tourReq);
       
       // Define payment
@@ -135,7 +136,7 @@ public class PaymentController {
       payment.setTransactions(transactions);
       
       try {
-        Payment createdPayment = payment.create(context);
+        Payment createdPayment = payment.create(apiContext);
 
         Iterator<Links> links = createdPayment.getLinks().iterator();
         
@@ -154,7 +155,7 @@ public class PaymentController {
 
 
     private TourReq setTourReq(int tno, Date tour_dt, int mno, int req_cnt, double tot_pay,
-        String pay_type, String payment_id) {
+        String pay_type) {
       TourReq req = new TourReq();
       req.setTno(tno);
       req.setTour_dt(tour_dt);
@@ -165,7 +166,6 @@ public class PaymentController {
       req.setPay_stat(STAT_PENDING);
       req.setCur_cd("USD");
       req.setReq_stat(STAT_PENDING);
-      req.setPayment_id(payment_id);
       
       return req;
     }
@@ -175,7 +175,8 @@ public class PaymentController {
     public String process(
         HttpServletRequest request, 
         int reqno, 
-        Model model) {
+        Model model,
+        Map<String,Object> params) {
       
       String redirectUrl="";
       // Execute Payment
@@ -185,7 +186,7 @@ public class PaymentController {
       PaymentExecution paymentExecution = new PaymentExecution();
       paymentExecution.setPayerId(request.getParameter("PayerID"));
       try {
-        Payment createdPayment = payment.execute(context, paymentExecution);
+        Payment createdPayment = payment.execute(apiContext, paymentExecution);
         System.out.println(createdPayment);
         
         /*
@@ -200,9 +201,9 @@ public class PaymentController {
         
         List<Transaction> transactions = createdPayment.getTransactions();
         
-        Iterator<Links> links = 
-            transactions.get(0).getRelatedResources().get(0).getSale()
-            .getLinks().iterator();
+        Sale sale = transactions.get(0).getRelatedResources().get(0).getSale();
+        
+        Iterator<Links> links = sale.getLinks().iterator();
         
         while (links.hasNext()) {
           Links link = links.next();
@@ -210,21 +211,21 @@ public class PaymentController {
             System.out.println("refund==>"+link.getHref());
           }
         }
-        System.out.println("tran_id??=>"+transactions.get(0).getPurchaseUnitReferenceId());
-        System.out.println("reqno==>"+reqno);
-        System.out.println("state1==>"+createdPayment.getState());
-        System.out.println("state2==>"+transactions.get(0).getRelatedResources().get(0).getSale().getState());
-        System.out.println("failureReason==>"+createdPayment.getFailureReason());
-        System.out.println("ID==>"+createdPayment.getId());
-        System.out.println("paymentID==>"+request.getParameter("paymentId"));
-        System.out.println("createTime==>"+createdPayment.getCreateTime());
-        System.out.println("updateTime==>"+createdPayment.getUpdateTime());
+//        System.out.println("tran_id??=>"+transactions.get(0).getPurchaseUnitReferenceId());
+//        System.out.println("reqno==>"+reqno);
+//        System.out.println("state1==>"+createdPayment.getState());
+//        System.out.println("state2==>"+sale.getState());
+//        System.out.println("failureReason==>"+createdPayment.getFailureReason());
+//        System.out.println("ID==>"+createdPayment.getId());
+//        System.out.println("paymentID==>"+request.getParameter("paymentId"));
+//        System.out.println("createTime==>"+createdPayment.getCreateTime());
+//        System.out.println("updateTime==>"+createdPayment.getUpdateTime());
         
-        Map<String,Object> params = new HashMap<>();
-        params.put("payment_id", createdPayment.getId());
+        
+        params.put("transaction_id", sale.getId());
         params.put("reqno", reqno);
         
-        if("completed".equals(transactions.get(0).getRelatedResources().get(0).getSale().getState()) 
+        if("completed".equals(sale.getState()) 
             && createdPayment.getFailureReason() == null) {
             params.put("pay_stat", STAT_OK);
             params.put("req_stat", STAT_OK);
@@ -249,19 +250,38 @@ public class PaymentController {
     }
     
     @RequestMapping("payment-complete")
-    public String complete(HttpSession session) {
+    public String complete() {
       return "payment/payment-complete";
     }
     
     @RequestMapping("payment-fail")
-    public String err(HttpSession session) {
+    public String fail() {
       return "payment/payment-fail";
     }
+    
+    @RequestMapping("refund")
+    public String refund(
+        HttpServletRequest request, 
+        HttpServletResponse response,
+        int reqno) throws Exception {
+        
+      Map<String,Object> resultMap = paymentService.select(reqno);
+        
+      Sale sale = new Sale();
+      sale.setId(resultMap.get("transaction_id").toString());
+
+       RefundRequest refund = new RefundRequest();
+      try {
+          sale.refund(apiContext, refund);
+          System.out.println("!!! refund ok!!");
+//          ResultPrinter.addResult(request, response, "Sale Refunded", Sale.getLastRequest(), Sale.getLastResponse(), null);
+      } catch (PayPalRESTException e) {
+            System.out.println(e.getMessage());
+//          ResultPrinter.addResult(request, response, "Sale Refunded", Sale.getLastRequest(), null, e.getMessage());
+      }
+        
+      return "payment/refund";
+    }
+    
 }
-
-
-
-
-
-
 
