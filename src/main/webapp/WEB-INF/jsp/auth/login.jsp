@@ -146,6 +146,13 @@
     <footer>
         <jsp:include page="../footerTest.jsp"></jsp:include>
     </footer>
+    
+    <a href="#" id="find_pw_btn">비밀번호 찾기</a>
+    
+
+    
+    
+    
       <script src="../../resources/js/custom.js"></script>
    <script>
         $(document).ready(function(){
@@ -288,7 +295,56 @@
        document.getElementsByClassName('_5h0d')[0].style.maxWidth="735px";
    }
    </script>
- 
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script>
+    $(function(){
+        $("#find_pw_btn").click(funtion(){
+            location.href='findPw.do';
+        });
+    });
+    </script>
+    
+    <script>
+    
+    $('#find_pw_btn').on('click', function(){
+        swal("이메일을 입력해주세요.", {
+            content: "input",
+          })
+          .then((value) => {
+              
+              
+              console.log(value);
+              var obj = {
+                      email : value
+                      };
+              console.log(obj);
+              $.ajax({
+                  url : "findPw.do",
+                  type : "POST",
+                  dataType:'JSON',
+                  contentType:"application/json",
+                  data : JSON.stringify(obj),
+                  success : function(result) {
+                      swal(`임시 비밀번호를 보냈습니다!`,"", "success");
+                      console.log(result.message);
+                  },
+                  error : function(){
+                      swal("정보가 정확하지 않습니다.", "", "error");
+                  }
+              });
+              
+              
+          });
+    });
+    
+    </script>
+    
+
+    
+    
+    
    </body>
    
 </html>
