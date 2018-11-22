@@ -2,6 +2,7 @@ package leadme.service.impl;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -132,14 +133,22 @@ public class AuthServiceImpl implements AuthService {
   @Override
   public Member updatePw(Member member) throws Exception{
     
-    Map<String,Object> map = new HashMap<String,Object>();
-    map.put("member", member);
+    String tempPw="";
+    String words[] = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","1","2","3","4","5","6","7","8","9","0","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","!","@","#","$","%","^","&","*"};
     
-    this.member = authDao.updatePw(map);
-    System.out.println(this.member);
-    if(this.member == null) {
-      throw new Exception("일치하는 정보가 없습니다");
+    Random random = new Random();
+    for(int i=1; i<=12; i++) {
+         
+        tempPw+=words[random.nextInt(70)];
+         
     }
+    System.out.println(tempPw);
+    
+    Map<String,Object> map = new HashMap<String,Object>();
+    map.put("email", member.getEmail());
+    map.put("password", tempPw);
+    
+    authDao.updatePw(map);
     
     return this.member;
   }

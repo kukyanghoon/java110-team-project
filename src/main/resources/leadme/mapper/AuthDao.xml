@@ -10,7 +10,6 @@
         <result column="name"    property="name"/>
         <result column="photo"    property="photo"/>
         <result column="path"    property="path"/>
-        <result column="pwd"    property="pwd"/>
     </resultMap>
     
     <select id="login" resultMap="memberMap" parameterType="map">
@@ -54,8 +53,8 @@
         
     </select>
     
-    <update id="updatePw" parameterType="member">
-        update memb set pwd = #{pwd} where email = #{email};
+    <update id="updatePw" parameterType="map">
+        update memb set pwd = PASSWORD(#{password}) where email = #{email};
     </update>
     
 </mapper>

@@ -9,5 +9,5 @@ public interface AuthDao {
     Member socialLogin(Map<String,Object> params);
     int createUser(Member member);
     Member findUser(Map<String,Object> params);
-    Member updatePw(Map<String,Object> params);
+    int updatePw(Map<String,Object> params);
 }
