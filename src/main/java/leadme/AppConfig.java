@@ -139,7 +139,7 @@ public class AppConfig {
                 
         
     }*/
-    
+/*    
     private static final String SENDER_EMAIL = "leadme504@gmail.com";//change with your sender email
 
     @Bean
@@ -166,5 +166,5 @@ public class AppConfig {
         smm.setSubject("Default subject");
         smm.setText("Default text");
         return smm;
-    }
+    }*/
 }
