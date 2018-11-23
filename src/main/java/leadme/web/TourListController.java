@@ -1,5 +1,6 @@
 package leadme.web;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import leadme.domain.Tour;
 import leadme.service.TourService;
 
@@ -27,22 +31,24 @@ public class TourListController{
     }
     
     @RequestMapping("list")
-    public String list(@RequestParam(defaultValue="10") String catNo, Model model) {
-      System.out.println(catNo);
-      model.addAttribute("catNo", catNo);
-      model.addAttribute("tourList" , tourService.tourAllList(catNo));
-      model.addAttribute("categoryList" , tourService.categoryList(catNo));
+    public String list(@RequestParam(defaultValue="10") String catNo, Model model) throws Exception {
+      model.addAttribute("catNo", 1);
+      model.addAttribute("tourList" , tourService.tourList(null));
       
       return "/tour/list";
     }
     
     
-    @GetMapping("list2/{catNo}")
-    public String list2(@PathVariable String catNo, Model model) {
+    @GetMapping("list/{catNo}")
+    public String list2(@PathVariable String catNo, Model model){
       System.out.println("list2");
       System.out.println(catNo);
       model.addAttribute("catNo", catNo);
-      model.addAttribute("tourList" , tourService.tourAllList(catNo));
+      try {
+        model.addAttribute("tourList" , tourService.tourList(catNo));
+      } catch (Exception e) {
+        model.addAttribute("tourList" , null);
+      }
       model.addAttribute("categoryList" , tourService.categoryList(catNo));
       
       return "/tour/list";
@@ -53,7 +59,6 @@ public class TourListController{
     @RequestMapping("list.do")
     @ResponseBody
     public List<Tour> printList(@RequestBody String catno){
-      System.out.println("printList");
       ObjectMapper mapper = new ObjectMapper();
       Map<String, Object> map = new HashMap<String, Object>(); 
       try {
@@ -64,53 +69,48 @@ public class TourListController{
       
       System.out.println("printList.catno : " + map.get("cat_no"));
       
-      List<Tour> list = tourService.tourList((map.get("cat_no")).toString());
-      for (Tour tour : list) {
-        System.out.println(tour);
-        System.out.println(tour.getTitl());
-        System.out.println(tour.getLoc());
-        System.out.println(tour.getStar());
-        System.out.println(tour.getCmt_cnt());
-        System.out.println(tour.getAmt());
-        System.out.println(tour.getHits());
-        System.out.println(tour.getMember().getName());
+      List<Tour> list;
+      try {
+        list = tourService.tourList((map.get("cat_no")).toString());
+        for (Tour tour : list) {
+          System.out.println(tour);
+        }
         
-      }
-      
-      return list;
-    }
-    
-    @RequestMapping("listAll.do")
-    @ResponseBody
-    public List<Tour> printAllList(@RequestBody String catno){
-      
-      ObjectMapper mapper = new ObjectMapper();
-      Map<String, Object> map = new HashMap<String, Object>(); 
-      try {
-        map = mapper.readValue(catno, new TypeReference<Map<String, String>>(){});
+        return list;
       } catch (Exception e) {
-        e.printStackTrace();
+        System.out.println(e);
+        return null;
       }
-      
-      System.out.println("printList.catno : " + map.get("cat_no"));
-      
-      List<Tour> list = tourService.tourAllList((map.get("cat_no")).toString());
-      
-      return list;
+     
     }
-    
-    @RequestMapping("test.do")
+
+    @RequestMapping("loclist.do")
     @ResponseBody
-    public List<Tour> test(@RequestBody List<String> a){
+    public List<Tour> test(@RequestBody String a){
       
-      for (String s : a) {
-        System.out.println(s);
+      System.out.println(a);
+      
+      JsonParser jsonParser = new JsonParser();
+      JsonArray jsonArray = (JsonArray) jsonParser.parse(a);
+      
+      List<String> locList = new ArrayList<>();
+      String catNo = "";
+      
+      for (int i = 0; i < jsonArray.size(); i++) {
+        JsonObject object = (JsonObject) jsonArray.get(i);
+        String loc = object.get("loc").getAsString();
+        catNo = object.get("cat_no").getAsString();
+        locList.add(loc);
       }
       
-      return null;
+      try {
+        return tourService.locList(locList, catNo);
+      } catch (Exception e) {
+        System.out.println(e);
+        return null;
+      }
+      
     }
-    
-    
     
     
 }

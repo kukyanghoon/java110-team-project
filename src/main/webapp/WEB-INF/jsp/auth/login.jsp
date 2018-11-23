@@ -120,7 +120,7 @@
                      
                      <div class="fb-login-button" data-max-rows="1" data-size="large" 
                      data-button-type="login_with" data-show-faces="false" data-width="100%"
-                     data-auto-logout-link="false" data-use-continue-as="false" style="width: 100%;"></div>
+                     data-auto-logout-link="false" data-use-continue-as="false" style="width: 100%;" onlogin="checkLoginState();"></div>
                      
                      <div class='btn-wrap'>
                        <div id='googleLoginBtn' class="g-signin2" 
@@ -153,15 +153,13 @@
     
     
     
-      <script src="../../resources/js/custom.js"></script>
+      <script src="/resources/js/custom.js"></script>
    <script>
         $(document).ready(function(){
             
             
            $('#loginBtn').on('click', function(){
-               aaa();
                
-               /*
                var obj = {
                       'email' : $('#userEmail').val(),
                       'password' : $('#userPassword').val()
@@ -183,7 +181,6 @@
                   }
               
               }); 
-              */
               
            });
         });
@@ -298,13 +295,7 @@
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <script>
-    $(function(){
-        $("#find_pw_btn").click(funtion(){
-            location.href='findPw.do';
-        });
-    });
-    </script>
+
     
     <script>
     
