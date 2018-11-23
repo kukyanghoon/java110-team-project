@@ -251,10 +251,10 @@
       <nav class="mrt-container">
           <ul class="lnb-menu">
               <li class="lnb-menu__item gtm-lnb-home">
-                <a href="#" class="lnb-menu__item--link transparent" id="home-link1" data-turbolinks="false"><spring:message code="site.cate0" text="전체" /></a>
+                <a href="/app/tour/list" class="lnb-menu__item--link transparent" id="home-link1" data-turbolinks="false"><spring:message code="site.cate0" text="전체" /></a>
               </li>
               <li class="lnb-menu__item gtm-lnb-home">
-                <a href="#" class="lnb-menu__item--link transparent" id="home-link2" data-turbolinks="false"><spring:message code="site.cate1" text="식도락" /></a>
+                <a href="/app/tour/list/10" class="lnb-menu__item--link transparent" id="home-link2" data-turbolinks="false"><spring:message code="site.cate1" text="식도락" /></a>
                 <ul class="sub-menu__item-contain">
                     <li><a href="#"><spring:message code="site.cate1-1" text="전통음식" /></a></li>
                     <li><a href="#"><spring:message code="site.cate1-2" text="고급식당" /></a></li>
@@ -264,7 +264,7 @@
                 </ul>
               </li>
               <li class="lnb-menu__item gtm-lnb-home">
-                <a href="#" class="lnb-menu__item--link transparent" id="home-link3" data-turbolinks="false"><spring:message code="site.cate2" text="역사/문화" /></a>
+                <a href="/app/tour/list/20" class="lnb-menu__item--link transparent" id="home-link3" data-turbolinks="false"><spring:message code="site.cate2" text="역사/문화" /></a>
                 <ul class="sub-menu__item-contain">
                     <li><a href="#"><spring:message code="site.cate2-1" text="고궁" /></a></li>
                     <li><a href="#"><spring:message code="site.cate2-2" text="박물관" /></a></li>
@@ -273,7 +273,7 @@
                 </ul>                
               </li>
               <li class="lnb-menu__item gtm-lnb-home">
-                <a href="#" class="lnb-menu__item--link transparent" id="home-link4" data-turbolinks="false"><spring:message code="site.cate3" text="명소" /></a>
+                <a href="/app/tour/list/30" class="lnb-menu__item--link transparent" id="home-link4" data-turbolinks="false"><spring:message code="site.cate3" text="명소" /></a>
                 <ul class="sub-menu__item-contain">
                     <li><a href="#"><spring:message code="site.cate3-1" text="랜드마크" /></a></li>
                     <li><a href="#"><spring:message code="site.cate3-2" text="자연" /></a></li>
@@ -281,7 +281,7 @@
                 </ul>                
               </li>
               <li class="lnb-menu__item gtm-lnb-home">
-                <a href="#" class="lnb-menu__item--link transparent" id="home-link5" data-turbolinks="false"><spring:message code="site.cate4" text="액티비티" /></a>
+                <a href="/app/tour/list/40" class="lnb-menu__item--link transparent" id="home-link5" data-turbolinks="false"><spring:message code="site.cate4" text="액티비티" /></a>
                 <ul class="sub-menu__item-contain">
                     <li><a href="#"><spring:message code="site.cate4-1" text="문화체험" /></a></li>
                     <li><a href="#"><spring:message code="site.cate4-2" text="스포츠" /></a></li>
@@ -291,7 +291,7 @@
                 </ul>                
               </li>
               <li class="lnb-menu__item gtm-lnb-home">
-                <a href="#" class="lnb-menu__item--link transparent" id="home-link6" data-turbolinks="false"><spring:message code="site.cate5" text="쇼핑" /></a>
+                <a href="/app/tour/list/50" class="lnb-menu__item--link transparent" id="home-link6" data-turbolinks="false"><spring:message code="site.cate5" text="쇼핑" /></a>
               </li>
           </ul>
       </nav>

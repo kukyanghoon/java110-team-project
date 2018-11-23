@@ -25,7 +25,7 @@
             <id column="cat_no" property="cat_no"/>
             <result column="mid_cat"    property="cat_name"/>
         </association>
-    </resultMap>    
+    </resultMap>
     
     
     <resultMap type="category" id="categoryMap">
@@ -36,7 +36,17 @@
     
     <sql id="selectTour">
     select 
-            t.titl, t.pri_phot, t.star, t.loc, t.amt, t.hits, t.cmt_cnt, m.name, c.cat_name, c2.cat_name as mid_cat, t.tour_intro
+            t.titl
+            ,t.pri_phot
+            ,t.star
+            ,t.loc
+            ,t.amt
+            ,t.hits
+            ,t.cmt_cnt
+            ,m.name
+            ,c.cat_name
+            ,c2.cat_name as mid_cat
+            ,t.tour_intro
     from 
             memb m  
             join g_memb g 
@@ -45,31 +55,54 @@
             right outer join category c2
     on 
             m.mno = g.mno
-    where 
-            t.mno = g.mno
-    and c.cat_no = c2.up_cat_no
-    and t.cat_no = c2.cat_no
+
     </sql>
     
     <select id="tourList" resultMap="tourMap" parameterType="map">
     
-    <include refid="selectTour"></include>
-    and c2.cat_no = #{catNo};
+        <include refid="selectTour"></include>
+        where 
+            t.mno = g.mno
+        and c.cat_no = c2.up_cat_no
+        and t.cat_no = c2.cat_no
+        <choose>
+            <when test="10 > catNo"></when>
+            <when test="catNo == null"></when>
+            <when test="(catNo%10) == 0 ">
+                and c2.up_cat_no = #{catNo};
+            </when>
+            <otherwise>
+               and c2.cat_no = #{catNo};
+            </otherwise>
+        </choose>
     
     </select>
-    
-    <select id="tourAllList" resultMap="tourMap" parameterType="map">
-    
-    <include refid="selectTour"></include>
-    and c2.up_cat_no = #{catNo};
-    
-    </select>
-    
+
     <select id="categoryList" resultMap="categoryMap" parameterType="map">
         select * from category where up_cat_no = #{catNo};
     </select>
     
-    
+    <select id="locList" resultMap="tourMap" parameterType="map">
+        <include refid="selectTour"></include>
+            where 
+                t.mno = g.mno
+            and c.cat_no = c2.up_cat_no
+            and t.cat_no = c2.cat_no
+        <choose>
+            <when test="10 > catNo"></when>
+            <when test="(catNo%10) == 0 ">
+                and c2.up_cat_no = #{catNo}
+            </when>
+            <otherwise>
+                and c2.cat_no = #{catNo}
+            </otherwise>
+        </choose>
+        and
+        <foreach collection="locList" item="loc" 
+                 open="(" separator="or" close=")">
+           loc = #{loc}
+        </foreach>
+    </select>
     
 </mapper>
 

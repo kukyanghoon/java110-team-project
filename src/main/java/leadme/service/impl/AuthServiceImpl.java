@@ -45,7 +45,6 @@ public class AuthServiceImpl implements AuthService {
     param.put("email", member.getEmail());
     
     this.member = authDao.socialLogin(param);
-    
     if(this.member == null) {
       throw new Exception("db안에 일치하는 social회원 정보 없음");
     }
