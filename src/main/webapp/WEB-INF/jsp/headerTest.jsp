@@ -45,6 +45,10 @@
   background-color: #51abf3;
   color: #fff;
 }
+
+.vertical-main{
+    padding-bottom: 0;
+}
 </style>
 </head>
 <body class='body' data-action='index' data-controller-path='kitty/experiences/main' data-controller='main'>

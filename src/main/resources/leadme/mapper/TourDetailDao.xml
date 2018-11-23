@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MemberDao 클래스가 사용할 SQL이 들어 있는 파일 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="leadme.dao.TourDetailDao">
+
+    <sql id="select1">
+        select 
+            t.tno,
+            t.titl,
+            t.loc,
+            t.star,
+            t.cmt_cnt,
+            t.amt,
+            t.pri_phot,
+            t.cat_no
+         from 
+            tour t inner join ranking r on t.tno = r.tno            
+    </sql>
+
+    <select id="getTour" resultType="map" parameterType="int">
+       select t.tno, t.titl,
+              l.locnm as locnm_ko,
+              l.loc_eng as locnm_en,
+              t.star, t.cmt_cnt, t.hits, t.amt, t.tour_intro, t.req_inf,
+              t.reg_dt, t.mod_dt, t.join_plc, t.lat, t.lon, t.join_tm, t.del_yn, 
+              t.pri_phot, t.pri_mv, t.cat_no, t.mno
+         from tour t, loc l
+        where t.tno = #{value}
+          and t.loc = l.loc
+    </select>
+    
+    <select id="getGuide" resultType="map" parameterType="int">
+        select m.name, m.email, m.photo, g.intro
+          from memb m, g_memb g
+         where m.mno = #{value}
+           and m.mno = g.mno
+    </select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
