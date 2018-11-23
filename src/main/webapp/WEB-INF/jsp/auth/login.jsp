@@ -298,13 +298,6 @@
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <script>
-    $(function(){
-        $("#find_pw_btn").click(funtion(){
-            location.href='findPw.do';
-        });
-    });
-    </script>
     
     <script>
     

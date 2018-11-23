@@ -81,7 +81,8 @@ CREATE TABLE g_memb (
     cash   INTEGER     NOT NULL COMMENT '수익금', -- 수익금
     bnk_cd VARCHAR(3)  NOT NULL COMMENT '은행코드', -- 은행코드
     a_acc  VARCHAR(22) NOT NULL COMMENT '계좌번호', -- 계좌번호
-    owner  VARCHAR(50) NOT NULL COMMENT '예금주명' -- 예금주명
+    owner  VARCHAR(50) NOT NULL COMMENT '예금주명', -- 예금주명
+    birth  VARCHAR(13) NOT NULL COMMENT '생년월일' -- 생년월일
 )
 COMMENT '가이드';
 
@@ -106,7 +107,7 @@ ALTER TABLE g_memb
 CREATE TABLE tour (
     tno        INTEGER      NOT NULL COMMENT '여행번호', -- 여행번호
     titl       VARCHAR(255) NOT NULL COMMENT '타이틀', -- 타이틀
-    loc        INTEGER      NULL     COMMENT '지역번호', -- 지역번호
+    loc        VARCHAR(255) NULL     COMMENT '지역번호', -- 지역번호
     star       DOUBLE       NOT NULL COMMENT '별점평균', -- 별점평균
     cmt_cnt    INTEGER      NOT NULL COMMENT '후기갯수', -- 후기갯수
     hits       INTEGER      NOT NULL COMMENT '조회수', -- 조회수
@@ -169,10 +170,7 @@ CREATE TABLE tour_req (
     pay_dt   DATETIME    NOT NULL COMMENT '결제시각', -- 결제시각
     can_dt   DATETIME    NOT NULL COMMENT '취소시각', -- 취소시각
     cur_cd   VARCHAR(50) NOT NULL COMMENT '통화코드', -- 통화코드
-    req_stat VARCHAR(2)  NOT NULL COMMENT '신청상태', -- 신청상태
-    transaction_id  VARCHAR(30) NULL     COMMENT '거래ID', -- 거래ID
-    err_txt  VARCHAR(255) NULL    COMMENT '에러내용' -- 에러내용
-    
+    req_stat VARCHAR(2)  NOT NULL COMMENT '신청상태' -- 신청상태
 )
 COMMENT '여행신청(결제)';
 
@@ -381,7 +379,7 @@ ALTER TABLE const_stat
 
 -- 지역
 CREATE TABLE loc (
-    loc     INTEGER      NOT NULL COMMENT '지역번호', -- 지역번호
+    loc     VARCHAR(255) NOT NULL COMMENT '지역번호', -- 지역번호
     locnm   VARCHAR(255) NOT NULL COMMENT '지역', -- 지역
     loc_eng VARCHAR(255) NOT NULL COMMENT '영어지역' -- 영어지역
 )

@@ -53,6 +53,9 @@
         
     </select>
     
+    <update id="updatePw" parameterType="map">
+        update memb set pwd = PASSWORD(#{password}) where email = #{email};
+    </update>
     
 </mapper>
 

@@ -28,6 +28,7 @@ public class Tour implements Serializable {
     private int mno;            /* 여행등록회원번호 */
     private Member member;      /* 회원 정보*/
     private Category category;  /*카테고리 정보*/
+    private Category mid_category;  /*중간 카테고리 정보*/
     
     
     public Category getCategory() {
@@ -35,6 +36,12 @@ public class Tour implements Serializable {
     }
     public void setCategory(Category category) {
       this.category = category;
+    }
+    public Category getMid_category() {
+      return mid_category;
+    }
+    public void setMid_category(Category mid_category) {
+      this.mid_category = mid_category;
     }
     public Member getMember() {
       return member;

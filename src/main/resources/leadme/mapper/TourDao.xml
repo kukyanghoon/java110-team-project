@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- MemberDao 클래스가 사용할 SQL이 들어 있는 파일 -->
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -11,30 +10,65 @@
         <result column="star"    property="star"/>
         <result column="loc"    property="loc"/>
         <result column="amt"    property="amt"/>
-        <result column="hit"    property="hit"/>
+        <result column="hits"    property="hits"/>
+        <result column="pri_phot"    property="pri_phot"/>
         <result column="cmt_cnt"    property="cmt_cnt"/>
         <association property="member" javaType="member">
+            <id column="mno" property="no"/>
             <result column="name"    property="name"/>
         </association>
         <association property="category" javaType="category">
+            <id column="cat_no" property="cat_no"/>
             <result column="cat_name"    property="cat_name"/>
+        </association>
+        <association property="mid_category" javaType="category">
+            <id column="cat_no" property="cat_no"/>
+            <result column="mid_cat"    property="cat_name"/>
         </association>
     </resultMap>    
     
-    <select id="tourList" resultMap="tourMap" parameterType="map">
     
+    <resultMap type="category" id="categoryMap">
+        <id column="cat_no"  property="cat_no"/>
+        <result column="cat_name"    property="cat_name"/>
+        <result column="up_cat_no"    property="up_cat_no"/>
+    </resultMap>
+    
+    <sql id="selectTour">
     select 
-            t.titl, t.star, t.loc, t.amt, t.hits, t.cmt_cnt, m.name, c2.cat_name, t.tour_intro
+            t.titl, t.pri_phot, t.star, t.loc, t.amt, t.hits, t.cmt_cnt, m.name, c.cat_name, c2.cat_name as mid_cat, t.tour_intro
     from 
-            memb m  join g_memb g join tour t join category c right outer join category c2
+            memb m  
+            join g_memb g 
+            join tour t 
+            join category c 
+            right outer join category c2
     on 
             m.mno = g.mno
     where 
             t.mno = g.mno
-    and c.cat_no = t.cat_no
-    and t.cat_no = c2.cat_no;
+    and c.cat_no = c2.up_cat_no
+    and t.cat_no = c2.cat_no
+    </sql>
+    
+    <select id="tourList" resultMap="tourMap" parameterType="map">
+    
+    <include refid="selectTour"></include>
+    and c2.cat_no = #{catNo};
     
     </select>
+    
+    <select id="tourAllList" resultMap="tourMap" parameterType="map">
+    
+    <include refid="selectTour"></include>
+    and c2.up_cat_no = #{catNo};
+    
+    </select>
+    
+    <select id="categoryList" resultMap="categoryMap" parameterType="map">
+        select * from category where up_cat_no = #{catNo};
+    </select>
+    
     
     
 </mapper>

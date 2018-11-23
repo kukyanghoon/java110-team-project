@@ -1,7 +1,7 @@
 package leadme;
 
+import java.util.Properties;
 import javax.sql.DataSource;
-
 import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -13,6 +13,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -135,5 +138,33 @@ public class AppConfig {
         Set<Entry<String,String>> entrySet = props.entrySet();
                 
         
+    }*/
+/*    
+    private static final String SENDER_EMAIL = "leadme504@gmail.com";//change with your sender email
+
+    @Bean
+    public MailSender mailSender() {
+        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");//Outgoing server requires authentication
+        props.put("mail.smtp.starttls.enable", "true");//TLS must be activated
+        mailSender.setJavaMailProperties(props);
+
+        mailSender.setUsername(SENDER_EMAIL);
+        mailSender.setPassword("flemal123");//change with your sender email password
+        mailSender.setHost("smtp.1and1.com"); //Outgoing smtp server - change it to your SMTP server
+        mailSender.setPort(587);//Outgoing port
+        return mailSender;
+    }
+
+    @Bean
+    public SimpleMailMessage defaultMessage() {
+        SimpleMailMessage smm = new SimpleMailMessage();
+        smm.setTo("default@example.com");
+        smm.setFrom(SENDER_EMAIL);
+        smm.setSubject("Default subject");
+        smm.setText("Default text");
+        return smm;
     }*/
 }
