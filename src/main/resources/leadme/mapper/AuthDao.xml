@@ -7,6 +7,7 @@
 
     <resultMap type="member" id="memberMap">
         <id column="email"  property="email"/>
+        <result column="mno" property="no" />
         <result column="name"    property="name"/>
         <result column="photo"    property="photo"/>
         <result column="path"    property="path"/>

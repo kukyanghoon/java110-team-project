@@ -64,7 +64,7 @@ public class PaymentController {
     }
 
     
-    @RequestMapping
+    @PostMapping
     public String payment( /*todo: get params and set model*/
         Locale locale,
         HttpServletRequest request,
@@ -75,8 +75,26 @@ public class PaymentController {
       
       request.setAttribute("lang", locale.toString());
       
-      /* todo : locale en 일시 USD 금액 추가하여 넘길것! */
-      System.out.println(Utils.getExchangeRate());
+      Double exRate = Utils.getExchangeRate();
+      Double usd_price = Double.valueOf(request.getParameter("price")) * exRate;
+      Double usd_tot_price = Double.valueOf(request.getParameter("tot_price")) * exRate;
+      
+      
+      
+      model.addAttribute("tno", request.getParameter("tno"));
+      model.addAttribute("tour_date", request.getParameter("tour_date"));
+      model.addAttribute("person_num", request.getParameter("person_num"));
+      model.addAttribute("pri_phot", request.getParameter("pri_phot"));
+      model.addAttribute("title", request.getParameter("title"));
+      model.addAttribute("guide_name", request.getParameter("guide_name"));
+      model.addAttribute("guide_photo", request.getParameter("guide_photo"));
+      model.addAttribute("price", request.getParameter("price"));
+      model.addAttribute("tot_price", request.getParameter("tot_price"));
+      model.addAttribute("usd_price", String.format("%.2f", usd_price));
+      model.addAttribute("usd_tot_price", String.format("%.2f", usd_tot_price));
+      model.addAttribute("mno", request.getParameter("mno"));
+      model.addAttribute("name", request.getParameter("name"));
+      
       
       return "payment/payment";
     }
@@ -87,13 +105,13 @@ public class PaymentController {
         Date tour_dt,
         int mno,
         int req_cnt,
-        double tot_pay,
+        double usd_tot_price,
         String pay_type
         ) {
 
       
       /* Logging */
-      TourReq tourReq = setTourReq(tno, tour_dt, mno, req_cnt, tot_pay, pay_type);
+      TourReq tourReq = setTourReq(tno, tour_dt, mno, req_cnt, usd_tot_price, pay_type);
       paymentService.insert(tourReq);
       
       // Define payment
@@ -108,16 +126,16 @@ public class PaymentController {
       Details details = new Details();
       details.setShipping("0");
       
-      Double tax = (double) (Math.round(tot_pay/100) / 100);
+      Double tax = usd_tot_price / 100;
       
-      details.setSubtotal(String.format("%.2f", tot_pay-tax));
+      details.setSubtotal(String.format("%.2f", usd_tot_price-tax));
       System.out.println(details.getSubtotal());
-      details.setTax(String.valueOf(tax));
+      details.setTax(String.format("%.2f",tax));
       
       // Payment amount
       Amount amount = new Amount();
       amount.setCurrency("USD");
-      amount.setTotal(String.format("%.2f", tot_pay));
+      amount.setTotal(String.valueOf(usd_tot_price));
       amount.setDetails(details);
 
 
@@ -208,7 +226,7 @@ public class PaymentController {
         while (links.hasNext()) {
           Links link = links.next();
           if (link.getRel().equalsIgnoreCase("refund")) {
-            System.out.println("refund==>"+link.getHref());
+//            System.out.println("refund==>"+link.getHref());
           }
         }
 //        System.out.println("tran_id??=>"+transactions.get(0).getPurchaseUnitReferenceId());
@@ -239,8 +257,7 @@ public class PaymentController {
         /* update payment history */
         paymentService.update(params);
         
-        Map<String,Object> resultMap = paymentService.select(reqno);
-        model.addAttribute("resultMap", resultMap);
+        model.addAttribute("resultMap", paymentService.select(reqno));
         
       } catch (PayPalRESTException e) {
         System.err.println(e.getDetails());

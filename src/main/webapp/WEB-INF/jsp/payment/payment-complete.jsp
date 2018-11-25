@@ -103,17 +103,33 @@
 <div class="panel-body panel-body-border">
 <div class="item item-padding-b-20 item-border">
 <span>1인당 가격</span>
-<span class="pull-right">₩ <fmt:formatNumber value='${resultMap.amt}' groupingUsed='true'/></span>
+<span class="pull-right"><fmt:formatNumber value='${resultMap.amt}' groupingUsed='true'/> 원</span>
 </div>
 <div class="item item-bold">
 <span>여행금액</span>
-<span class="pull-right text-price">₩ <fmt:formatNumber value='${resultMap.tot_pay}' groupingUsed='true'/></span>
+<span class="pull-right text-price">
+<c:choose>
+<c:when test="${lang == 'en'}">
+<fmt:formatNumber  pattern="$ #,###,###.##;" value="${resultMap.tot_pay}" type="currency" currencySymbol="$"/>
+</c:when>
+<c:otherwise>
+<fmt:formatNumber value='${resultMap.amt * resultMap.req_cnt}' groupingUsed='true'/> 원  
+</c:otherwise>
+</c:choose>
+</span>
 </div>
 </div>
 <div class="panel-body blue" id="final-price">
 <span class="item-bold">최종결제금액</span>
 <div class="pull-right price-container">
-₩ <fmt:formatNumber value='${resultMap.tot_pay}' groupingUsed='true'/>
+<c:choose>
+<c:when test="${lang == 'en'}">
+<fmt:formatNumber  pattern="$ #,###,###.##;" value="${resultMap.tot_pay}" type="currency" currencySymbol="$"/>
+</c:when>
+<c:otherwise>
+<fmt:formatNumber value='${resultMap.amt * resultMap.req_cnt}' groupingUsed='true'/> 원  
+</c:otherwise>
+</c:choose>
 </div>
 </div>
 </div>

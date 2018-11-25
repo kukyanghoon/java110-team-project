@@ -320,7 +320,7 @@
 <c:forEach items="${tourList}" var="list">
 <li class='card-type-a item swiper-slide' data-gtm-action='인기 가이드투어 ' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='42416' data-offer-id='42416' data-offer-type='Tour'>
 <div class='card-cover'>
-<a class='offer-link' href='/offers/42416'>
+<a class='offer-link' href='tour/detail/${list.tno}'>
 <div class='img-container'>
 <div class='img-placeholder'>
 <img class='img-small' src='/resources/img/${list.pri_phot}'>
@@ -381,7 +381,7 @@
 <c:forEach items="${themeList}" var="list">
 	<li class='card-type-a item swiper-slide' data-gtm-action='인기 티켓/교통패스' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='5683' data-offer-id='5683' data-offer-type='ETicket'>
 	<div class='card-cover'>
-	<a class='offer-link' href='/offers/5683'>
+	<a class='offer-link' href='tour/detail/${list.tno}'>
 	<div class='img-container'>
 	<div class='img-placeholder'>
 	<img class='img-small' src='/resources/img/${list.pri_phot}'>
@@ -529,7 +529,7 @@
   <div class="OfferList__Cards">
   
   <c:forEach items="${localList}" var="list">
-  <a class="OfferListCard" href="/offers/30629" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product" data-offer-type="HotDeal" data-offer-id="30629">
+  <a class="OfferListCard" href="tour/detail/${list.tno}" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product" data-offer-type="HotDeal" data-offer-id="30629">
 
   <div class="OfferListCard__Thumbnail" style="background-image: url(&quot;/resources/img/${list.pri_phot}&quot;);"></div>
   <div class="OfferListCard__Content"><div class="OfferListCard__Content__Category"><span class="city-name">${list.loc}</span><span class="hide-on-mobile"></span></div>

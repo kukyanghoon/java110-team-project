@@ -15,11 +15,9 @@ public class AuthInterCepter implements HandlerInterceptor{
             Object handler)
             throws Exception {
         
-        System.out.println("AuthInterCepter.preHandler()....");
-        
         HttpSession session = request.getSession();
-        if(session.getAttribute("loginUser") == null) {
-            response.sendRedirect("/app/auth/form"); // 결로를 브라우저에게 전달
+        if(session.getAttribute("memberInfo") == null) {
+            response.sendRedirect("/app/auth/login"); // 결로를 브라우저에게 전달
             return false; // 페이지 컨트롤러의 request handler를 실행하지 말라
         }
         return true;

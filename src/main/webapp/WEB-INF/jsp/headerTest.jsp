@@ -82,7 +82,7 @@
                                 </a>
                             </li>
                             <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
-                                <a href="#" class="gnb-common-menu__item__link">
+                                <a href="/app/auth/login" class="gnb-common-menu__item__link">
                                     <span class="gnb-common-menu__item--text transparent"><spring:message code="site.signup" text="로그인" /></span>
                                 </a>
                             </li>
@@ -93,7 +93,7 @@
                         </c:when>
                         <c:otherwise>
                             <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
-                                <a href="logout" class="gnb-common-menu__item__link">
+                                <a href="/app/auth/logout" class="gnb-common-menu__item__link">
                                     <span class="gnb-common-menu__item--text transparent"><spring:message code="site.signout" text="로그아웃" /></span>
                                 </a>
                             </li>   

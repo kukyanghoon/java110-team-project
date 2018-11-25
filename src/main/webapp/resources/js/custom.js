@@ -25,9 +25,7 @@ var locale;
 		$('.Drawer.Drawer--appear').css('visibility','visible');
 	}
 	
-	function numberWithCommas(x) {
-	    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-	}
+
 	
 	var r_itm = 10; /* start val */
 	
@@ -106,7 +104,7 @@ var locale;
                 
             innerHtml += "<li class='card-type-a item swiper-slide' data-gtm-action='인기 티켓/교통패스' data-gtm-category='투어&amp;티켓_홈' data-gtm-label='5683' data-offer-id='5683' data-offer-type='ETicket' style='margin-right: 20px;'>"
                        + "<div class='card-cover'>"
-                       + "<a class='offer-link' href='/offers/5683'>"
+                       + "<a class='offer-link' href='tour/detail/"+data[i].tno+"'>"
                        + "<div class='img-container'>"
                        + "<div class='img-placeholder'>"
                        + "<img class='img-small' src='/resources/img/"+data[i].pri_phot+"'>"
@@ -171,7 +169,7 @@ var locale;
                 
                 for(var i=0; i<data.length; i++){
                 innerHtml = "";
-                innerHtml += "<a class='OfferListCard' href='/offers/30629' itemprop='itemListElement' itemscope='' itemtype='http://schema.org/Product' data-offer-type='HotDeal' data-offer-id='30629'>"
+                innerHtml += "<a class='OfferListCard' href='tour/detail/"+data[i].tno+"' itemprop='itemListElement' itemscope='' itemtype='http://schema.org/Product' data-offer-type='HotDeal' data-offer-id='30629'>"
 
                 + "<div class='OfferListCard__Thumbnail' style='background-image: url(&quot;/resources/img/"+ data[i].pri_phot+"&quot;);'></div>"
                 + "<div class='OfferListCard__Content'><div class='OfferListCard__Content__Category'><span>"+ loc +"</span><span class='hide-on-mobile'></span></div>"

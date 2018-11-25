@@ -2,8 +2,9 @@
     contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     trimDirectiveWhitespaces="true"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
 <html>
@@ -37,6 +38,15 @@
 <link rel="stylesheet" media="screen" href="/resources/css/datepicker.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2&appId=341620679957072&autoLogAppEvents=1';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
 <style>
 .sidebar-container {
     padding-top: 0 !important;
@@ -113,7 +123,7 @@
 <meta content='https://d2ur7st6jjikze.cloudfront.net/offer_photos/36522/226809_large_1527833351.jpg?1527833351' itemprop='image'>
 <meta content=' 오키도키 그레이트베리어리프-리프 매직 크루즈 (다이빙/헬기/씨워커/수중스쿠터옵션)' itemprop='name'>
 <div class='header-container'>
-<div class='bg-img' style='background-image:url(&#39;https://d2ur7st6jjikze.cloudfront.net/offer_photos/36522/226809_large_1527833351.jpg?1527833351&#39;)'></div>
+<div class='bg-img' style="background-image:url('/resources/img/${tour.pri_phot}')"></div>
 <div class='dark-cover'></div>
 <div class='offer-inner-container clearfix'>
 
@@ -154,13 +164,13 @@
 </div>
 <div class='tooltip-box'>
 <img class='border-icon' height='6px' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/detail/triangle@2x-5d15d11d2d20682092f48faf2cdb50d3b51bf325ffdea2ce2cf2a5dfc38097ef.png' width='9px'>
-<a class='sns-icon gtm-offer-share-email' href='mailto:?subject=마이리얼트립 이 상품 어때? 공유!&amp;body=[투어] 오키도키 그레이트베리어리프-리프 매직 크루즈 (다이빙/헬기/씨워커/수중스쿠터옵션)%0D%0Ahttps://www.myrealtrip.com/offers/36522'>
+<a class='sns-icon gtm-offer-share-email' href='mailto:?subject=리드미 이 상품 어때?!&amp;body=${tour.titl }%0D%0Ahttp://localhost:8888/app/tour/detail/${tour.tno}'>
 <img alt='이메일' height='14px' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/detail/ic_mail@2x-cc60d6ea168fb03a60557d275890fd11249491594aaea5bda70ed5c04468b331.png' width='19px'>
 </a>
-<a class='sns-icon gtm-offer-share-tw' href='https://twitter.com/share?text=[투어] 오키도키 그레이트베리어리프-리프 매직 크루즈 (다이빙/헬기/씨워커/수중스쿠터옵션)&amp;via=myrealtrip' target='_blank'>
+<a class='sns-icon gtm-offer-share-tw' href='https://twitter.com/share?text=${tour.titl }&amp;via=leadme' target='_blank'>
 <img alt='트위터' height='15px' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/detail/ic_twitter@2x-777763aa796e4bd82a6d2e882d2019a3b79fd561f06c40d553bf14cfd406473f.png' width='18px'>
 </a>
-<a class='sns-icon facebook-share gtm-offer-share-fb' data-turbolinks='false' href='#' onclick='return false'>
+<a class='sns-icon' href='#' onclick='event.preventDefault(); fb_share();'>
 <img alt='페이스북' height='15px' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/detail/ic_facebook@2x-46f61b9ea59b8cc370e9ab110fd3d52ff41abf7dcc420764ab24c42b976be171.png' width='15px'>
 </a>
 </div>
@@ -172,7 +182,9 @@
 <div class='offer-inner-container clearfix'>
 <div class='content-center-narrow right-content-container'>
 <div class='common-info-container' id='commonInfo'>
-<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/9Une3JGFXNk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+<c:if test="${tour.pri_mv != null}">
+<iframe width="560" height="315" src="${tour.pri_mv }" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</c:if>
 <div class='offer-title'> ${tour.titl }</div>
 <div class='inner-container'>
 <a class='location-container gtm-offer-city' href='/offers?city=Cairns&amp;country=Australia'>
@@ -197,7 +209,7 @@
 <div class='border-b guide-container'>
 <div class='profile-image'>
 <a class='gtm-offer-guide-profile' href='/guides/9074'>
-<img class='img-profile img-circle' src='/resources/img/face-a.png'>
+<img class='img-profile img-circle' src='/resources/img/${guide.photo}'>
 </a>
 </div>
 <div class='profile-detail'>
@@ -212,7 +224,7 @@
 ${guide.intro}
 </p>
 </div>
-<a class='btn-guide-message btn-gray-lg gtm-offer-guide-message' href='mailto:${guide.email}'>
+<a class='btn-guide-message btn-gray-lg gtm-offer-guide-message' href='mailto:${guide.email}?subject=[리드미] ${tour.titl} - 문의 드립니다'>
 <img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/detail/ic-messagetoguide@2x-b43b95e397a37d9272ebccf7d6df740b0957f5cb22ef9f4dedd5d3289dfce7fc.png' width='23px'>
 <span class='text'>문의하기</span>
 </a>
@@ -248,9 +260,9 @@ ${guide.intro}
 <ul class='item-container'>
 <li class='big-item item' data-index='0'>
 <div class='img-placeholder img-placeholder--offer-photo'>
-<img class='img-small landscape' src='https://d2ur7st6jjikze.cloudfront.net/offer_photos/36522/226809_tiny_1527833351.jpg?1527833351'>
+<img class='img-small landscape' src='/resources/img/${tour.pri_phot }'>
 <div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_photos/36522/226809_large_1527833351.jpg?1527833351'>
+<img class='img' data-echo='/resources/img/${tour.pri_phot}'>
 </div>
 </li>
 </ul>
@@ -266,9 +278,13 @@ ${tour.tour_intro}
 </div>
 
 </div>
+
+<form action="/app/payment" method="post" id="detailForm" name="detailForm">
 <div class='sidebar-container2' >
 <div class="date-container">
-<input type="hidden"
+<input type="hidden" 
+	   id="dateInput" 
+	   name="tour_date" 
        class="datepicker-here"
        data-language='ko'
        />
@@ -276,9 +292,10 @@ ${tour.tour_intro}
 </div>
 <div class='sidebar-container3' >
 <div class='reservation-container' id='showPrice'>
-<span>₩ </span><span id="person-price">${tour.amt }</span>
+<span>₩ </span><span><fmt:formatNumber value='${tour.amt }' groupingUsed='true'/></span>
+<input id="person-price" type="hidden" value="${tour.amt }"/>
 <span class='unit'>/ 1인</span>
-    <select class="form-control" id="person-picker" onchange="priceUpdate();">
+    <select class="form-control" id="person-picker" onchange="priceUpdate();" form="detailForm" name="person_num">
       <option value="" selected disabled>인원 선택</option>
       <option value="1">1명</option>
       <option value="2">2명</option>
@@ -289,17 +306,32 @@ ${tour.tour_intro}
 
 <div class="price-info">
     <div class="price-text">총 여행금액</div><br>
-    <div class="price-text" style="color: #51abf3;"><span>\</span> <span id="total-price"> ${tour.amt }</span></div>
+    <div class="price-text" style="color: #51abf3;"><span>\</span> <span id="total-price"> <fmt:formatNumber value='${tour.amt }' groupingUsed='true'/></span></div>
+    <input id="tot-amt" type="hidden" value=${tour.amt}/>
 </div>
 </div>
 </div>
+
+<input type="hidden" name="tno" value="${tour.tno}"/>
+<input type="hidden" name="pri_phot" value="${tour.pri_phot}"/>
+<input type="hidden" name="title" value="${tour.titl}"/>
+<input type="hidden" name="guide_name" value="${guide.name}"/>
+<input type="hidden" name="guide_photo" value="${guide.photo}"/>
+<input type="hidden" name="price" value="${tour.amt}"/>
+<input type="hidden" name="tot_price" value="" id="tot_price" />
+<input type="hidden" name="mno" value="${memberInfo.no}"/>
+<input type="hidden" name="name" value="${memberInfo.name}"/>
+
+</form>
+
+
 <div class='sidebar-container' >
 
 
 <div class='sidebar-inner-box gray-box' data-reservation-box >
 
 
-<button type="button" class="btn btn-info btn-primary btn-lg" style="width: 100%">구매하기</button>   
+<button type="button" class="btn btn-info btn-primary btn-lg" style="width: 100%" id="go-payment">구매하기</button>   
 
 </div>
 </div>
@@ -315,8 +347,8 @@ ${tour.tour_intro}
 <div class='info-title'>만나는 장소</div>
 <div class='info-description'>${tour.join_plc }</div>
 <div class='map-container'>
-<a href='https://www.google.com/maps/search/?api=1&amp;query=-16.9213019698353,145.780644775146' onclick='window.open(this.href); return false'>
-<img class='map-wrapper' src='https://maps.googleapis.com/maps/api/staticmap?center=-16.9213019698353,145.780644775146&amp;markers=size:mid%7Ccolor:red%7Clabel:E%7C-16.9213019698353,145.780644775146&amp;zoom=18&amp;scale=4&amp;size=344x218&amp;key=AIzaSyC84fbqS1JuAJ9t24SLY2LEWf2Ud8W8F1E'>
+<a href='https://www.google.com/maps/search/?api=1&amp;query=${tour.lat},${tour.lon}' onclick='window.open(this.href); return false'>
+<img class='map-wrapper' src='https://maps.googleapis.com/maps/api/staticmap?center=${tour.lat},${tour.lon}&amp;markers=size:mid%7Ccolor:red%7Clabel:E%7C37.564988487427,126.976766154245&amp;zoom=18&amp;scale=4&amp;size=344x218&amp;key=AIzaSyBgateWzuSDzB4eXge3FbM9uGq13JearvI'>
 </a>
 </div>
 </div>
@@ -329,180 +361,57 @@ ${tour.tour_intro}
 <div class='info-photo-container map-container'>
 <picture>
 <!--[if IE 9]><video style="display: none;"><![endif]-->
-<source media='(max-width: 1339px)' srcset='https://d2ur7st6jjikze.cloudfront.net/meeting_point/36522_medium_1528938977.jpg?1528938977'>
+<source media='(max-width: 1339px)' srcset='/resources/img/point.jpg'>
 <!--[if IE 9]></video><![endif]-->
-<img alt='meeting point photo' class='img landscape' srcset='https://d2ur7st6jjikze.cloudfront.net/meeting_point/36522_medium_1528938977.jpg?1528938977'>
+<img alt='meeting point photo' class='img landscape' srcset='/resources/img/point.jpg'>
 </picture>
 </div>
 </div>
 </div>
 </div>
-<div class='box'>
+<!-- non hidden single -->
+<c:forEach items="${courseList}" var="list" varStatus="status">
+
+<c:choose>
+   <c:when test="${status.count gt 3}">
+		<div class='box hidden'>
+	</c:when>
+	<c:otherwise>
+		<div class='box'>
+	</c:otherwise>
+</c:choose>
 <img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/detail/new/course-type-place@2x-495761b7c0fcfc70bbc31f41eba69c90573e5058f37d7e3c7616e1f344009781.png' width='13px'>
 <div class='box-wrapper clearfix'>
 <div class='description-container'>
-<div class='info-title'>스노클링</div>
+<div class='info-title'>${list.cr_name }</div>
 <div class='info-description'>
-<p>멋진 산호초 군락과 수중 동물들을 가장 편하게 접할 수 있는 액티비티이며, 수영에 자신이 없는 분들도 무료로 제공되는 웻 슈트, 라이프 자켓, 누들 (가벼운 스티로폼으로 만들어진 부력 기구) 등을 이용하여 안심하고 즐기실 수 있습니다. 또한, 99% 이상의 확률로 월리와의 만남도 가능합니다.</p>
+<p>${list.cr_intro}</p>
 </div>
 </div>
 <div class='info-photo-container'>
+<a href="https://jinhoan.smugmug.com" target="_blank">
 <div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_courses/36522/86466_thumb_1527833359.jpg?1527833359'>
+<img class='img-small' src='/resources/img/${list.cr_phot_name}'>
 <div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_courses/36522/86466_medium_1527833359.jpg?1527833359'>
+<img class='img' data-echo='/resources/img/${list.cr_phot_name}'>
+</div>
+</a>
+
+
 </div>
 </div>
 </div>
-</div>
-<div class='box'>
-<img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/detail/new/course-type-place@2x-495761b7c0fcfc70bbc31f41eba69c90573e5058f37d7e3c7616e1f344009781.png' width='13px'>
-<div class='box-wrapper clearfix'>
-<div class='description-container'>
-<div class='info-title'>반 잠수정</div>
-<div class='info-description'>
-<p>반은 물위, 반은 물밑으로 되어있는 선박을 이용하여 유리를 통해 수중 동물들과 멋진 산호초를 물에 젖지 않고도 약 30분 가까이 즐기실 수 있는 코스입니다. 운이 좋으면 바다 거북이나 상어도 보실 수 있으니 기대하시길 바랄게요.</p>
-</div>
-</div>
-<div class='info-photo-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_courses/36522/86467_thumb_1527833360.jpg?1527833360'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_courses/36522/86467_medium_1527833360.jpg?1527833360'>
-</div>
-</div>
-</div>
-</div>
-<div class='box'>
-<img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/detail/new/course-type-place@2x-495761b7c0fcfc70bbc31f41eba69c90573e5058f37d7e3c7616e1f344009781.png' width='13px'>
-<div class='box-wrapper clearfix'>
-<div class='description-container'>
-<div class='info-title'>유리 바닥 보트</div>
-<div class='info-description'>
-<p>Glass Bottom Boat 라고 불리며, 단어 그대로 바닥이 유리로 되어 있으며 반 잠수정과 마찬가지로 유리를 통하여 물 속 경치를 즐기실 수 있는 코스입니다. 수영에 자신이 없는 어린이와 노약자 분들도 편안하게 참여하실 수 있습니다.</p>
-</div>
-</div>
-<div class='info-photo-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_courses/36522/86468_thumb_1527833360.jpg?1527833360'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_courses/36522/86468_medium_1527833360.jpg?1527833360'>
-</div>
-</div>
-</div>
-</div>
-<div class='box hidden'>
-<img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/detail/new/course-type-place@2x-495761b7c0fcfc70bbc31f41eba69c90573e5058f37d7e3c7616e1f344009781.png' width='13px'>
-<div class='box-wrapper clearfix'>
-<div class='description-container'>
-<div class='info-title'>체험 스쿠버 다이빙</div>
-<div class='info-description'>
-<p>스쿠버 다이빙의 자격증이 없는 분들도 한국인 강사 분의 친절하며 자세한 설명으로 즐기실 수 있으며, 안전을 위해 체험 다이빙 의료 체크 리스트 항목의 자가 진단이 필요하니 필수 항목에서 확인하여 주시기 바랍니다. (만 12세부터 가능, 추가 요금 발생)</p>
-</div>
-</div>
-<div class='info-photo-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_courses/36522/86469_thumb_1527833360.jpg?1527833360'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_courses/36522/86469_medium_1527833360.jpg?1527833360'>
-</div>
-</div>
-</div>
-</div>
-<div class='box hidden'>
-<img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/detail/new/course-type-place@2x-495761b7c0fcfc70bbc31f41eba69c90573e5058f37d7e3c7616e1f344009781.png' width='13px'>
-<div class='box-wrapper clearfix'>
-<div class='description-container'>
-<div class='info-title'>헬멧 다이빙</div>
-<div class='info-description'>
-<p>씨워커라고 불리는 헬멧을 이용하여 물속을 산책하면서 월리를 비롯한 다양한 물고기들과 함께할 수 있는 코스이며, 스쿠버 다이빙과는 달리 물에 관해 두려움을 가진 분들도 편안하고 안전하게 즐기실 수 있습니다. 스쿠버 다이빙과 마찬가지로 안전을 위해 체험 다이빙 의료 체크 리스트 항목의 자가 진단이 필요합니다. (만 12세부터 가능, 추가 요금 발생)</p>
-</div>
-</div>
-<div class='info-photo-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_courses/36522/86470_thumb_1527833361.jpg?1527833361'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_courses/36522/86470_medium_1527833361.jpg?1527833361'>
-</div>
-</div>
-</div>
-</div>
-<div class='box hidden'>
-<img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/detail/new/course-type-place@2x-495761b7c0fcfc70bbc31f41eba69c90573e5058f37d7e3c7616e1f344009781.png' width='13px'>
-<div class='box-wrapper clearfix'>
-<div class='description-container'>
-<div class='info-title'>씨봅</div>
-<div class='info-description'>
-<p>수중 스쿠터라 불리는 씨봅. 멋진 산호초 군락과 다양한 수중 동물들을 풍부한 경험의 전문 강사님과 함께 하므로 초보자도 금방 익숙하게 즐기실 수 있습니다. (만 10세부터 가능, 추가 요금 발생)</p>
-</div>
-</div>
-<div class='info-photo-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_courses/36522/86471_thumb_1527833361.jpg?1527833361'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_courses/36522/86471_medium_1527833361.jpg?1527833361'>
-</div>
-</div>
-</div>
-</div>
-<div class='box hidden'>
-<img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/detail/new/course-type-place@2x-495761b7c0fcfc70bbc31f41eba69c90573e5058f37d7e3c7616e1f344009781.png' width='13px'>
-<div class='box-wrapper clearfix'>
-<div class='description-container'>
-<div class='info-title'>펀 다이빙</div>
-<div class='info-description'>
-<p>스쿠버 다이빙의 자격증이 있는 분들이 가능하며, 모든 다이빙 장비가 포함되어 있으며 경력 많은 강사 분이 안내해 드리므로 편안하게 즐기실 수 있습니다. (반드시 다이빙 카드 필요, 추가 요금 발생)</p>
-</div>
-</div>
-<div class='info-photo-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_courses/36522/86472_thumb_1527833362.jpg?1527833362'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_courses/36522/86472_medium_1527833362.jpg?1527833362'>
-</div>
-</div>
-</div>
-</div>
-<div class='box hidden'>
-<img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/detail/new/course-type-place@2x-495761b7c0fcfc70bbc31f41eba69c90573e5058f37d7e3c7616e1f344009781.png' width='13px'>
-<div class='box-wrapper clearfix'>
-<div class='description-container'>
-<div class='info-title'>헬기 투어</div>
-<div class='info-description'>
-<p>약 150미터의 저공 비행으로 헬기를 이용하여 하늘에서 산호초 군락을 만끽하실 수 있는 5분 혹은 10분 헬기 투어입니다. 운이 좋으면 상어, 바다 거북, Manta Ray, 듀공 등도 보실 수 있으며 시기에 따라서는 혹등 고래와 만날 수도 있습니다. (추가 요금 발생)</p>
-</div>
-</div>
-<div class='info-photo-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_courses/36522/86473_thumb_1527833361.jpg?1527833361'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_courses/36522/86473_medium_1527833361.jpg?1527833361'>
-</div>
-</div>
-</div>
-</div>
-<div class='box hidden'>
-<img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/detail/new/course-type-place@2x-495761b7c0fcfc70bbc31f41eba69c90573e5058f37d7e3c7616e1f344009781.png' width='13px'>
-<div class='box-wrapper clearfix'>
-<div class='description-container'>
-<div class='info-title'>뷔페 중식</div>
-<div class='info-description'>
-<p>씨푸드를 포함한 다양한 종류의 음식들과 내용으로 준비되어 있으며, 뷔페 스타일이므로 마음껏 드실 수 있습니다. 뷔페 중식의 분위기의 일부는 다음 사진을 참고하여 주시기 바랍니다.</p>
-</div>
-</div>
-<div class='info-photo-container'>
-<div class='img-placeholder'>
-<img class='img-small' src='https://d2ur7st6jjikze.cloudfront.net/offer_courses/36522/86474_thumb_1528172982.jpg?1528172982'>
-<div class='img-padding'></div>
-<img class='img' data-echo='https://d2ur7st6jjikze.cloudfront.net/offer_courses/36522/86474_medium_1528172982.jpg?1528172982'>
-</div>
-</div>
-</div>
-</div>
+</c:forEach>
+<!-- end -->
+
+
+<c:if test="${fn:length(courseList) gt 3 }">
 <div class='btn-white btn-more'>
 <img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/button/ic_arrow_more@2x-58031ef3a523ee43aa15c91fcb46284b98ab157a159dfcdf810264fc3f71ac99.png' width='12px'>
 <span>코스 더 보기</span>
 </div>
+</c:if>
+
 </div>
 </div>
 </div>
@@ -547,7 +456,7 @@ ${tour.req_inf}
 <div class='content-center-narrow'>
 <div class='title'>
 후기
-<div class='count'>2</div>
+<div class='count'>${tour.cmt_cnt }</div>
 </div>
 <div class='review-wrapper'>
 <div class='review-stats-container'>
@@ -577,15 +486,12 @@ ${tour.req_inf}
 <div class='name'>안**</div>
 </div>
 <div class='review-row review-info'>
-<span>10 대</span>
-<span>&nbsp;•&nbsp;</span>
-<span>부모님과 떠나는 여행</span>
-<span>&nbsp;•&nbsp;</span>
 <time class='time' data-timestamp='1533983109.9552078' data-type='date'></time>
 </div>
 <div class='review-row'>
 <p class='review-message'>힐튼 호텔에 묵었는데 배타는 곳까지 걸어서 5분 걸렸어요. 가까워서 좋았고 그래이트 베리어리프는 산호가 많이 죽어서 아쉬웠구요. 체험다이빙 했는데 무지 재미있고 신기했어요</p>
 </div>
+<!-- reply -->
 <div class='reply-box'>
 <img alt='reply' class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/detail/new/ic_reply@2x-32fb2336958b86fe4e23a067a426cc781b4bac2ecfac4467b565de3578b5f890.png' width='10px'>
 <div class='review-row'>
@@ -603,42 +509,9 @@ ${tour.req_inf}
 <br />오키도키 케언즈 여행사 드림</p>
 </div>
 </div>
+<!-- reply end -->
 </div>
-</div>
-<div class='review-box'>
-<div class='review-inner-container'>
-<div class='review-row'>
-<div class="rating-box"><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span></div>
-<div class='name'>김**</div>
-</div>
-<div class='review-row review-info'>
-<span>20 대</span>
-<span>&nbsp;•&nbsp;</span>
-<span>배우자와 단 둘이 떠나는 여행</span>
-<span>&nbsp;•&nbsp;</span>
-<time class='time' data-timestamp='1533038394.791571' data-type='date'></time>
-</div>
-<div class='review-row'>
-<p class='review-message'>좋아요</p>
-</div>
-<div class='reply-box'>
-<img alt='reply' class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/detail/new/ic_reply@2x-32fb2336958b86fe4e23a067a426cc781b4bac2ecfac4467b565de3578b5f890.png' width='10px'>
-<div class='review-row'>
-<div class='name'>오키도키 케언즈 여행사</div>
-</div>
-<div class='review-row'>
-<p class='review-message'>안녕하세요 ^^ 
-<br />
-<br />오키도키 케언즈 여행사 입니다!
-<br />케언즈에서 즐거운 여행 되셨길 바라며, 소중한 후기 감사드립니다 ^^ 
-<br />
-<br />오늘도 좋은 하루 보내세요!
-<br />
-<br />오키도키 케언즈 여행사 드림</p>
-</div>
-</div>
-</div>
-</div>
+</div> <!-- review box end -->
 
 
 </div>
@@ -995,23 +868,66 @@ ${tour.req_inf}
 <script src="/resources/js/i18n/datepicker.en.js"></script>
 <script src="/resources/js/i18n/datepicker.ko.js"></script>
 <script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-ce3fc3507853263820d2d1429b62056a0198477b4727cfb36e1facadea05fbcd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.1/dist/sweetalert2.all.min.js"></script>
+<script src="/resources/js/util.js"></script>
 <script>
 var disabledDays = [0, 6];
 
     
     function priceUpdate(){
         /* console.log($("#person-picker option:selected").val()); */
-        $('#total-price').text($("#person-picker option:selected").val() * $('#person-price').text() );
-        
-        
-
+        $('#total-price').text(numberWithCommas($("#person-picker option:selected").val() * $('#person-price').val()) );
+        $('#tot-amt').val($("#person-picker option:selected").val() * $('#person-price').val());
     }
+    
+    
+    $('#go-payment').on("click",goPayment);
+    
+    function goPayment(){
+    	console.log('aaa');
+    	
+    	if ( $('#dateInput').val() == ''){
+    		swal({
+    			  type: 'warning',
+    			  title: '여행 날짜를 선택해 주세요',
+    			  text: '입력 항목 누락'
+    		})
+    		$('#dateInput').focus();
+    		return;
+    	}
+    	
+    	if($('#person-picker option:selected').val() == ''){
+    		swal({
+    			  type: 'warning',
+    			  title: '인원을 선택해 주세요.',
+    			  text: '입력 항목 누락'
+    		})
+    		$('#person-picker').focus();
+    		return;
+    	}
+    	
+    	document.detailForm.tot_price.value = $('#tot-amt').val();
+    	document.detailForm.submit();
+    }
+    
+    
 </script>
+<script>
+/* 
 
+ */
+function fb_share() {
+	console.log('aaa');
+  FB.ui({
+    method: 'share',
+    display: 'popup',
+    href: 'https://jinhoan.smugmug.com',
+  }, function(response){});
+}
+</script>
 
 <!--  공통 스크립트 -->
 <script src="https://d2yoing0loi5gh.cloudfront.net/assets/adiz_sv120-38fea29758c151518c764b4bc1a0bdd8e78c105c31e114ef16a4fd0b8be47a31.js"></script>
-
 <script type="text/javascript">
   window.criteo_q = window.criteo_q || [];
   window.userEmail = "";

@@ -86,32 +86,38 @@
 <form id="reservation_form" onsubmit="return false;" action="payment/paypal" method="post" class="fv-form fv-form-bootstrap" name="payForm">
 <div class="reservation-box col-md-6 col-xs-12 reservation-first-box">
 <div class="panel">
-<div class="bg-img" style="background-image:url('https://d2ur7st6jjikze.cloudfront.net/offer_photos/2771/11971_large_1525338802.jpg?1525338802')"></div>
+<div class="bg-img" style="background-image:url('/resources/img/${pri_phot}')"></div>
 <div class="panel-body">
-<div class="title">다시보자. 궁궐 그리고 경복궁</div>
+<div class="title">${title}</div>
 <div class="profile">
-<img class="img-circle" src="https://d2ur7st6jjikze.cloudfront.net/profile_images/19966/19966_original_1519913170.png?1519913170">
-<span>김종일 파트너</span>
+<img class="img-circle" src="/resources/img/${guide_photo}">
+<span>${guide_name} 가이드</span>
 </div>
 </div>
 <div class="panel-body panel-body-border">
 <div class="item">
 <span><spring:message code="rsv.day" text="여행일" /></span>
-<span class="pull-right">2018-11-20</span>
-<input name="tour_dt" type="hidden" value="2018-11-20">
+<span class="pull-right">${tour_date}</span>
+<input name="tour_dt" type="hidden" value="${tour_date}">
 </div>
 <div class="item">
 <span><spring:message code="rsv.parti" text="여행 인원" /></span>
-
-<span class="pull-right long-text">홍길동 포함 2 명</span>
-<input name="req_cnt" type="hidden" value="3">
-<input name="tno" type="hidden" value="1">
+<span class="pull-right long-text">${name} 포함 ${person_num} 명</span>
+<input name="req_cnt" type="hidden" value="${person_num}">
+<input name="tno" type="hidden" value="${tno}">
 </div>
 </div>
 <div class="panel-body panel-body-border" data-amount="54000.0" data-currency="KRW" data-price="₩ 54,000">
 <div class="item item-padding-b-20 item-border">
 <span><spring:message code="rsv.price" text="1인당 가격" /></span>
-<span class="pull-right">₩ 4,500</span>
+<c:choose>
+<c:when test="${lang == 'en'}">
+<span class="pull-right"><fmt:formatNumber  pattern="$ #,###,###.##;" value="${usd_price}" type="currency" currencySymbol="$"/></span>
+</c:when>
+<c:otherwise>
+<span class="pull-right"><fmt:formatNumber value='${price}' groupingUsed='true'/>원</span>
+</c:otherwise>
+</c:choose>
 </div>
 </div>
 <div class="panel-body blue" id="final-price">
@@ -119,15 +125,15 @@
 <div class="pull-right price-container">
 <c:choose>
 <c:when test="${lang == 'en'}">
-<fmt:formatNumber  pattern="$ #,###,###.##;" value="9000" type="currency" currencySymbol="$"/>
+<fmt:formatNumber  pattern="$ #,###,###.##;" value="${usd_tot_price}" type="currency" currencySymbol="$"/>
 </c:when>
 <c:otherwise>
-<fmt:formatNumber value='9000' groupingUsed='true'/>원
+<fmt:formatNumber value='${tot_price}' groupingUsed='true'/>원
 </c:otherwise>
 </c:choose>
 <input name="tot_pay" type="hidden" value="54000">
 </div>
-<input name="mno" type="hidden" value="1">
+<input name="mno" type="hidden" value="${mno}">
 </div>
 </div>
 
@@ -200,6 +206,7 @@
 </div>
 </div>
 <small class="help-block" data-fv-validator="notEmpty" data-fv-for="payment[paytype]" data-fv-result="NOT_VALIDATED" style="display: none;"><spring:message code="rsv.method" text="결제수단을 선택해주세요." /></small></div>
+<input type="hidden" name="usd_tot_price" value="${usd_tot_price }" />
 </form>
 
 </div>
@@ -263,12 +270,12 @@
 	         return false;
 	     }
 	     
-	     if(!(locale === 'en')){
+	     /* if(!(locale === 'en')){
 	         console.log(ex_rate);
 	         console.log(document.payForm.tot_pay.value);
 	         document.payForm.tot_pay.value = ex_rate * document.payForm.tot_pay.value;
 	         console.log(document.payForm.tot_pay.value);
-	     }
+	     } */
 	     
 	     document.payForm.submit();
 	     

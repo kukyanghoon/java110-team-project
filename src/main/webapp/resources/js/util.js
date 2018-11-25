@@ -7,7 +7,7 @@ var ex_rate;
             locale = data;
         });
         
-        getExchangeRate();
+//        getExchangeRate();
     });
     
     function convertToCorsUrl(url){
@@ -29,4 +29,10 @@ var ex_rate;
                }
            }) 
     }
+    
+	
 })()
+
+function numberWithCommas(x) {
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}

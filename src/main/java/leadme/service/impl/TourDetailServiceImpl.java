@@ -1,5 +1,6 @@
 package leadme.service.impl;
 
+import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,6 +38,18 @@ public class TourDetailServiceImpl implements TourDetailService {
     public Map<String,Object> getGuide(int mno) {
       return tourDetailDao.getGuide(mno);
     }
+
+
+	@Override
+	public List<Map<String, Object>> getCourse(int tno) {
+		return tourDetailDao.getCourse(tno);
+	}
+
+
+	@Override
+	public List<Map<String, Object>> getComments(int tno) {
+		return tourDetailDao.getComments(tno);
+	}
     
 }
 

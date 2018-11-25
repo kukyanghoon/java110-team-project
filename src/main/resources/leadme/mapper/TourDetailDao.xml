@@ -37,6 +37,23 @@
          where m.mno = #{value}
            and m.mno = g.mno
     </select>
+    
+    <select id="getCourse" resultType="map" parameterType="int">
+        select c.cr_name, c.cr_intro, p.cr_phot_name
+    	from course c, course_phot p
+		where c.tno = #{value}
+		and c.cr_no = p.cr_no
+		order by cr_idx asc
+    </select>
+
+    <select id="getComments" resultType="map" parameterType="int">
+        select m.name, c.cont, c.cont_star, c.cont_phot, c.cont_dt
+		from comment c, memb m
+		where tno = #{value}
+		and c.mno = m.mno
+		and c.del_yn = 'N'
+		order by cont_dt desc
+    </select>
 
 </mapper>
 
