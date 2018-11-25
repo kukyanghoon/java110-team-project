@@ -276,9 +276,10 @@ span.local{
                 <div class="OfferList__Items__Body ">
                 <div id='list'>
                     <div class="OfferList__Cards">
-                    <c:forEach items='${tourList}' var="list">
-                    
-                     
+                    <c:forEach items='${tourList}' var="list" varStatus="status">
+                    <c:choose>
+                        <c:when test="${status.index < 1}">
+                              
                                        <a class="OfferListCard" href="/offers/31644" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product" data-offer-type="IstanbulTicket" data-offer-id="31644"><div class="OfferListCard__Thumbnail" style="background-image: url( /resources/img/${list.pri_phot});"></div><div class="OfferListCard__Content"><div class="OfferListCard__Content__Category"><span>${list.category.cat_name}</span><span class="hide-on-mobile"><div class="Dot" style="display: inline-block; vertical-align: middle; background-color: rgb(132, 140, 148); border-radius: 2px; width: 2px; height: 2px; margin: 0px 4px;"></div><span>${list.mid_category.cat_name}</span></span></div><div class="OfferListCard__Content__Title"><div class="LinesEllipsis  ">${ list.titl}<wbr></div></div><div class="OfferListCard__Content__Guide"><span class="name">${list.member.name}</span></div><div class="OfferListCard__Content__Review">
                                        <div class='starRating starRating--m starRating--blue'>
                                        <c:forEach var="i" begin="1" end="5">
@@ -302,13 +303,43 @@ span.local{
                                        
                                        
                     
+                        </c:when>
+                        <c:otherwise>
+                        
+                        
+                                       <a class="OfferListCard" style='display: none;' href="/offers/31644" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product" data-offer-type="IstanbulTicket" data-offer-id="31644"><div class="OfferListCard__Thumbnail" style="background-image: url( /resources/img/${list.pri_phot});"></div><div class="OfferListCard__Content"><div class="OfferListCard__Content__Category"><span>${list.category.cat_name}</span><span class="hide-on-mobile"><div class="Dot" style="display: inline-block; vertical-align: middle; background-color: rgb(132, 140, 148); border-radius: 2px; width: 2px; height: 2px; margin: 0px 4px;"></div><span>${list.mid_category.cat_name}</span></span></div><div class="OfferListCard__Content__Title"><div class="LinesEllipsis  ">${ list.titl}<wbr></div></div><div class="OfferListCard__Content__Guide"><span class="name">${list.member.name}</span></div><div class="OfferListCard__Content__Review">
+                                       <div class='starRating starRating--m starRating--blue'>
+                                       <c:forEach var="i" begin="1" end="5">
+        <c:choose>
+            <c:when test="${i <= list.star}">
+                <svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'>
+                   <path class='starColor' fill='#51ABF3' fill-rule='evenodd' d='M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z'>
+                   </path>
+                </svg>
+            </c:when>
+            <c:otherwise>
+                <svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'>
+                   <path fill='#DEE2E6' fill-rule='evenodd' d='M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z'>
+                   </path>
+                </svg>
+            </c:otherwise>
+        </c:choose>
+    </c:forEach>
+    </div>
+                                       <span class="count">후기 ${list.hits} 개</span><div class="Duration hide-on-mobile"></div></div><div class="OfferListCard__Content__Price"><span class="SalePrice">${list.amt}원</span></div><div class="OfferListCard__Content__Wishlist"></div></div></a>
+                                       
+                              
+                        
+                        </c:otherwise>
+                    </c:choose>
+                   
                     </c:forEach>
                                        </div>
                                        
                  </div>          
                                        
                                        
-                                       <div class="OfferList__Pagination">
+                                     <!--   <div class="OfferList__Pagination">
                                             <div class="Pagination align-center">
                                                 <a class="Pagination__Item Pagination__Item--prev disabled" role="button" tabindex="-1">
                                                     <span>이전</span>
@@ -321,9 +352,34 @@ span.local{
                                                     <span>다음</span>
                                                 </a>
                                             </div>
-                                        </div>
+                                        </div> -->
 
-                                                                    <div class="OfferList__Loading "></div></div></div><div class="OfferList__float-menu show-on-tablet  "><ul class="segment__container"><li class="segment__item" role="button" tabindex="-1"><img class="float-menu__item__image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIj4KICAgIDxwYXRoIGZpbGw9IiM0OTUwNTYiIGZpbGwtcnVsZT0ibm9uemVybyIgZD0iTTAgMS42aDEuNTcxVi44YzAtLjQ0Mi4zNTItLjguNzg2LS44LjQzNCAwIC43ODYuMzU4Ljc4Ni44di44aDQuNzE0Vi44YzAtLjQ0Mi4zNTItLjguNzg2LS44LjQzNCAwIC43ODYuMzU4Ljc4Ni44di44SDExVjRIMG0wIDFoMTF2N0gwIi8+Cjwvc3ZnPgo=" alt="Calendar"><span class="float-menu__item__label Calendar ">날짜</span></li><li class="segment__item" role="button" tabindex="-1"><img class="float-menu__item__image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIj4KICAgIDxwYXRoIGZpbGw9IiM0OTUwNTYiIGZpbGwtcnVsZT0ibm9uemVybyIgZD0iTTExLjk0OSAxLjMzMmMuMDk2LjIzMy4wNTYuNDMxLS4xMi41OTZMNy42MzUgNi4xMjN2NS4zMTVjMCAuMjM4LS4xMS40MDYtLjMzMi41MDJhLjU5Mi41OTIgMCAwIDEtLjIxMy4wNDMuNTA2LjUwNiAwIDAgMS0uMzgzLS4xNjJMNC41MjggOS42NDJhLjUyMy41MjMgMCAwIDEtLjE2Mi0uMzgzVjYuMTIzTC4xNyAxLjkyOGMtLjE3NS0uMTY1LS4yMTUtLjM2My0uMTE5LS41OTZBLjUwOS41MDkgMCAwIDEgLjU1MyAxaDEwLjg5NGMuMjM4IDAgLjQwNS4xMS41MDIuMzMyeiIvPgo8L3N2Zz4K" alt="Filter"><span class="float-menu__item__label Filter ">필터</span></li><li class="segment__item" role="button" tabindex="-1"><img class="float-menu__item__image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIj4KICAgIDxwYXRoIGZpbGw9IiM0OTUwNTYiIGZpbGwtcnVsZT0ibm9uemVybyIgZD0iTTAgMTFoNlY5SDB2MnpNMCAxdjJoMTJWMUgwem0wIDZoOVY1SDB2MnoiLz4KPC9zdmc+Cg==" alt="Sorting"><span class="float-menu__item__label Sorting ">인기순</span></li></ul></div></div></div></div></div>
+                                                                    <!-- <div class="OfferList__Loading ">
+                                                                    </div> -->
+                                                                    </div>
+                                                                    </div>
+                                                                    <!-- <div class="OfferList__float-menu show-on-tablet  ">
+                                                                    <ul class="segment__container">
+                                                                    <li class="segment__item" role="button" tabindex="-1">
+                                                                    <img class="float-menu__item__image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIj4KICAgIDxwYXRoIGZpbGw9IiM0OTUwNTYiIGZpbGwtcnVsZT0ibm9uemVybyIgZD0iTTAgMS42aDEuNTcxVi44YzAtLjQ0Mi4zNTItLjguNzg2LS44LjQzNCAwIC43ODYuMzU4Ljc4Ni44di44aDQuNzE0Vi44YzAtLjQ0Mi4zNTItLjguNzg2LS44LjQzNCAwIC43ODYuMzU4Ljc4Ni44di44SDExVjRIMG0wIDFoMTF2N0gwIi8+Cjwvc3ZnPgo=" alt="Calendar">
+                                                                    <span class="float-menu__item__label Calendar ">날짜</span>
+                                                                    </li>
+                                                                    <li class="segment__item" role="button" tabindex="-1">
+                                                                    <img class="float-menu__item__image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIj4KICAgIDxwYXRoIGZpbGw9IiM0OTUwNTYiIGZpbGwtcnVsZT0ibm9uemVybyIgZD0iTTExLjk0OSAxLjMzMmMuMDk2LjIzMy4wNTYuNDMxLS4xMi41OTZMNy42MzUgNi4xMjN2NS4zMTVjMCAuMjM4LS4xMS40MDYtLjMzMi41MDJhLjU5Mi41OTIgMCAwIDEtLjIxMy4wNDMuNTA2LjUwNiAwIDAgMS0uMzgzLS4xNjJMNC41MjggOS42NDJhLjUyMy41MjMgMCAwIDEtLjE2Mi0uMzgzVjYuMTIzTC4xNyAxLjkyOGMtLjE3NS0uMTY1LS4yMTUtLjM2My0uMTE5LS41OTZBLjUwOS41MDkgMCAwIDEgLjU1MyAxaDEwLjg5NGMuMjM4IDAgLjQwNS4xMS41MDIuMzMyeiIvPgo8L3N2Zz4K" alt="Filter">
+                                                                    <span class="float-menu__item__label Filter ">필터</span>
+                                                                    </li>
+                                                                    <li class="segment__item" role="button" tabindex="-1">
+                                                                    <img class="float-menu__item__image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIj4KICAgIDxwYXRoIGZpbGw9IiM0OTUwNTYiIGZpbGwtcnVsZT0ibm9uemVybyIgZD0iTTAgMTFoNlY5SDB2MnpNMCAxdjJoMTJWMUgwem0wIDZoOVY1SDB2MnoiLz4KPC9zdmc+Cg==" alt="Sorting">
+                                                                    <span class="float-menu__item__label Sorting ">인기순</span>
+                                                                    </li>
+                                                                    </ul>
+                                                                    </div> -->
+                                                                    
+                                                                    </div>
+                                                                    </div>
+                                                                    </div>
+                                                                    </div>
+                                                                    
                                                                     <script type="application/json" class="js-react-on-rails-component" data-component-name="OfferList" data-dom-id="OfferList-react-component-e75ec749-a9a2-4944-a6a5-ae8c2ab32e92"></script>
 
 
@@ -332,7 +388,9 @@ span.local{
 
                                                                     <script type="application/json" class="js-react-on-rails-component" data-component-name="Footer" data-dom-id="Footer-react-component-d9e4d63b-5414-4186-84d3-188fe29c373f">{"b2b":{"status":false,"b2bCompany":null}}</script>
 
-
+<footer>
+        <jsp:include page="../footerTest.jsp"></jsp:include>
+    </footer>
                                                                     <div id="popup-mask"></div>
                                                                     <div id="gnb-popup-mask"></div>
                                                                     <script>
@@ -352,6 +410,19 @@ span.local{
          //console.log(${tourList});
          var catNo = ${catNo};
          console.log(catNo);
+         var pageNum=1;
+         
+         $(window).scroll(function() {
+        	    var scrollHeight = $(document).height();
+        	    var scrollPosition = $(window).height() + $(window).scrollTop();
+        	    if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
+        	        //$("body").css("background","red");
+        	        pageNum++;
+        	        pagingBase(pageNum);
+        	    } else {
+        	        //$("body").css("background","white");
+        	    }
+        	});
          
        $('.catMid').on('click',function(){
            $('.leademecate').attr('class','catMid leademecate offer-category__item');
@@ -391,6 +462,7 @@ span.local{
                    $(data).each(function(index, item){
                        listDiv($('#list') ,item ,starRating(item.star));
                    });
+                   pagingBase(1);
                },
                error:function(){
                    console.log("실패");
@@ -429,6 +501,7 @@ span.local{
                   $(data).each(function(index, item){
                       listDiv($('#list') ,item ,starRating(item.star));
                   });
+                  pagingBase(1);
               },
               error:function(){
                   console.log("실패");
@@ -454,6 +527,15 @@ span.local{
            
        });
        
+       function pagingBase(count){
+    	   pageNum=count;
+           $('.OfferListCard').each(function(index,item){
+               $(item).css('display','none');
+               if(index < pageNum){
+               $(item).css('display','block');
+               }
+           });
+       }
        
        function starRating(star){
            var starDiv = "";
@@ -529,6 +611,7 @@ span.local{
                        $('#midCategoryTitleBox').empty().append("<span class='VerticalList__Header__Title'>" + item.mid_category.cat_name + "</span>");
                        listDiv($('#list') ,item ,starRating(item.star));
                    });
+                   pagingBase(1);
                },
                error:function(){
                    console.log("실패");
