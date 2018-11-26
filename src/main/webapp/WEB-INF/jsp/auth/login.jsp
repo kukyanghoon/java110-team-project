@@ -148,8 +148,8 @@
     
     <a href="#" id="find_pw_btn">비밀번호 찾기</a>
     
-      <script src="/resources/js/custom.js"></script>
-      
+<!--       <script src="/resources/js/custom.js"></script>
+ -->      
       <script>
         $(document).ready(function(){
             $('#userEmail').keydown(function(key){
