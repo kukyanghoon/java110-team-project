@@ -465,6 +465,7 @@ ${tour.req_inf}
 </div>
 
 <!--  -->
+
 <c:forEach items="${commentList}" var="list" varStatus="status">
 
 
@@ -546,15 +547,16 @@ ${list.cont_dt }
 </c:if>
 </c:forEach>
 
-<!-- 
-<a class="btn-white btn-more ladda-button" id="review-more" data-ladda="true" data-remote="true" href="/offers/25307/reviews?page=2" data-style="zoom-out" data-spinner-color="#2196f3">
+
+<c:if test="${fn:length(commentList) gt 3 }">
+<a class="btn-white btn-more ladda-button" id="review-more" data-ladda="true" data-remote="true" href="detail/${tour.tno}/reviews?page=2" data-style="zoom-out" data-spinner-color="#2196f3">
 <span class="ladda-label">
 <img class="icon" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/button/ic_arrow_more@2x-58031ef3a523ee43aa15c91fcb46284b98ab157a159dfcdf810264fc3f71ac99.png" width="12px">
 <span>후기 더보기</span>
 </span>
 <span class="ladda-spinner"></span>
 </a>
- -->
+ </c:if>
 </div>
 </div>
 </div>
