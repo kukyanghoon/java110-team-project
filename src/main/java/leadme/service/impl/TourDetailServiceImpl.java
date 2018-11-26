@@ -50,7 +50,7 @@ public class TourDetailServiceImpl implements TourDetailService {
 	public List<Map<String, Object>> getComments(int tno) {
 		return tourDetailDao.getComments(tno);
 	}
-    
+
 }
 
 

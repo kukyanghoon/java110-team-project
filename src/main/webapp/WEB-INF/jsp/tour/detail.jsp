@@ -209,7 +209,7 @@
 <div class='border-b guide-container'>
 <div class='profile-image'>
 <a class='gtm-offer-guide-profile' href='/guides/9074'>
-<img class='img-profile img-circle' src='/resources/img/${guide.photo}'>
+<img class='img-profile img-circle' id="guide-profile" src='/resources/img/${guide.photo}' onerror="showDefaultImg();">
 </a>
 </div>
 <div class='profile-detail'>
@@ -297,11 +297,9 @@ ${tour.tour_intro}
 <span class='unit'>/ 1인</span>
     <select class="form-control" id="person-picker" onchange="priceUpdate();" form="detailForm" name="person_num">
       <option value="" selected disabled>인원 선택</option>
-      <option value="1">1명</option>
-      <option value="2">2명</option>
-      <option value="3">3명</option>
-      <option value="4">4명</option>
-      <option value="5">5명</option>
+      <c:forEach begin="1" end="${tour.mx_pn}" var="i">
+        <option value="${i}">${i}명</option>
+      </c:forEach>
     </select>
 
 <div class="price-info">
@@ -363,7 +361,7 @@ ${tour.tour_intro}
 <!--[if IE 9]><video style="display: none;"><![endif]-->
 <source media='(max-width: 1339px)' srcset='/resources/img/point.jpg'>
 <!--[if IE 9]></video><![endif]-->
-<img alt='meeting point photo' class='img landscape' srcset='/resources/img/point.jpg'>
+<img alt='meeting point photo' class='img landscape' srcset='/resources/img/${tour.join_phot}'>
 </picture>
 </div>
 </div>
@@ -389,7 +387,7 @@ ${tour.tour_intro}
 </div>
 </div>
 <div class='info-photo-container'>
-<a href="https://jinhoan.smugmug.com" target="_blank">
+<a href="${tour.albm_link}" target="_blank">
 <div class='img-placeholder'>
 <img class='img-small' src='/resources/img/${list.cr_phot_name}'>
 <div class='img-padding'></div>
@@ -461,59 +459,102 @@ ${tour.req_inf}
 <div class='review-wrapper'>
 <div class='review-stats-container'>
 <div class='stats-content-container'>
-<div class='stats-content-wrapper'><div class='stars-container'><div class='star'></div><div class='star'></div><div class='star'></div><div class='star'></div><div class='star'></div></div><div class='bar-container'>
-<div class='bar' style='width:100.0%'></div>
-</div><div class='stats-count'>2</div></div>
-<div class='stats-content-wrapper'><div class='stars-container'><div class='star'></div><div class='star'></div><div class='star'></div><div class='star'></div></div><div class='bar-container'>
-<div class='bar' style='width:0.0%'></div>
-</div><div class='stats-count'>0</div></div>
-<div class='stats-content-wrapper'><div class='stars-container'><div class='star'></div><div class='star'></div><div class='star'></div></div><div class='bar-container'>
-<div class='bar' style='width:0.0%'></div>
-</div><div class='stats-count'>0</div></div>
-<div class='stats-content-wrapper'><div class='stars-container'><div class='star'></div><div class='star'></div></div><div class='bar-container'>
-<div class='bar' style='width:0.0%'></div>
-</div><div class='stats-count'>0</div></div>
-<div class='stats-content-wrapper'><div class='stars-container'><div class='star'></div></div><div class='bar-container'>
-<div class='bar' style='width:0.0%'></div>
-</div><div class='stats-count'>0</div></div>
+
+
 </div>
 </div>
 
+<!--  -->
+<c:forEach items="${commentList}" var="list" varStatus="status">
+
+
+
+<c:if test="${list.type eq 'C' && list.cnt > 0}">
 <div class='review-box'>
 <div class='review-inner-container'>
 <div class='review-row'>
-<div class="rating-box"><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span><span class="icon active"></span></div>
-<div class='name'>안**</div>
+
+<div class="rating-box">
+<c:forEach var="i" begin="1" end="5">
+    <c:choose>
+        <c:when test="${i <= list.cont_star}"><span class="icon active"></span></c:when>
+        <c:otherwise><span class="icon"></span></c:otherwise>
+    </c:choose>
+</c:forEach>
+</div>
+<div class='name'>${list.mark_name}</div>
 </div>
 <div class='review-row review-info'>
-<time class='time' data-timestamp='1533983109.9552078' data-type='date'></time>
+<!-- <time class='time' data-timestamp='1533983109.9552078' data-type='date'></time> -->
+${list.cont_dt }
 </div>
 <div class='review-row'>
-<p class='review-message'>힐튼 호텔에 묵었는데 배타는 곳까지 걸어서 5분 걸렸어요. 가까워서 좋았고 그래이트 베리어리프는 산호가 많이 죽어서 아쉬웠구요. 체험다이빙 했는데 무지 재미있고 신기했어요</p>
+<p class='review-message'>${list.cont}</p>
+<c:if test="${list.cont_phot != null && list.cont_phot != ''}">
+<div class="img-container">
+<img alt="${tour.titl}" class="review-img" src="/resources/img/${list.cont_phot}">
 </div>
+</c:if>
+</div>
+</c:if>
+
+<c:if test="${list.type eq 'C' && list.cnt == 0}">
+<div class='review-box'>
+<div class='review-inner-container'>
+<div class='review-row'>
+<div class="rating-box">
+<c:forEach var="i" begin="1" end="5">
+    <c:choose>
+        <c:when test="${i <= list.cont_star}"><span class="icon active"></span></c:when>
+        <c:otherwise><span class="icon"></span></c:otherwise>
+    </c:choose>
+</c:forEach>
+</div>
+<div class='name'>${list.mark_name}</div>
+</div>
+<div class='review-row review-info'>
+<!-- <time class='time' data-timestamp='1533983109.9552078' data-type='date'></time> -->
+${list.cont_dt }
+</div>
+<div class='review-row'>
+<p class='review-message'>${list.cont}</p>
+<c:if test="${list.cont_phot != null && list.cont_phot != ''}">
+<div class="img-container">
+<img alt="${tour.titl}" class="review-img" src="/resources/img/${list.cont_phot}">
+</div>
+</c:if>
+
+</div>
+</div>
+</div>
+</c:if>
+<!--  -->
+<c:if test="${list.type eq 'R'}">
 <!-- reply -->
 <div class='reply-box'>
 <img alt='reply' class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/detail/new/ic_reply@2x-32fb2336958b86fe4e23a067a426cc781b4bac2ecfac4467b565de3578b5f890.png' width='10px'>
 <div class='review-row'>
-<div class='name'>오키도키 케언즈 여행사</div>
+<div class='name'>${list.name}</div>
 </div>
 <div class='review-row'>
-<p class='review-message'>안녕하세요 안병주님 ^^ 
-<br />
-<br />소중한 후기 남겨 주셔서 감사드립니다!
-<br />아름다운 호주 케언즈에서 즐거운 추억 많이 만드셨기를 바랄게요 ^^ 
-<br />
-<br />좋은 하루 보내세요!
-<br />
-<br />감사합니다.
-<br />오키도키 케언즈 여행사 드림</p>
+<p class='review-message'>${list.cont}</p>
 </div>
 </div>
 <!-- reply end -->
 </div>
 </div> <!-- review box end -->
+</c:if>
+</c:forEach>
 
-
+<!-- 
+<a class="btn-white btn-more ladda-button" id="review-more" data-ladda="true" data-remote="true" href="/offers/25307/reviews?page=2" data-style="zoom-out" data-spinner-color="#2196f3">
+<span class="ladda-label">
+<img class="icon" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/button/ic_arrow_more@2x-58031ef3a523ee43aa15c91fcb46284b98ab157a159dfcdf810264fc3f71ac99.png" width="12px">
+<span>후기 더보기</span>
+</span>
+<span class="ladda-spinner"></span>
+</a>
+ -->
 </div>
 </div>
 </div>
@@ -923,6 +964,10 @@ function fb_share() {
     display: 'popup',
     href: 'https://jinhoan.smugmug.com',
   }, function(response){});
+}
+
+function showDefaultImg(){
+    $('#guide-profile').attr("src","/resources/img/guide_default.png");
 }
 </script>
 

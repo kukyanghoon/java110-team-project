@@ -25,7 +25,7 @@
               l.loc_eng as locnm_en,
               t.star, t.cmt_cnt, t.hits, t.amt, t.tour_intro, t.req_inf,
               t.reg_dt, t.mod_dt, t.join_plc, t.lat, t.lon, t.join_tm, t.del_yn, 
-              t.pri_phot, t.pri_mv, t.cat_no, t.mno
+              t.pri_phot, t.pri_mv, t.cat_no, t.mno, mx_pn, join_phot, albm_link
          from tour t, loc l
         where t.tno = #{value}
           and t.loc = l.loc
@@ -40,19 +40,31 @@
     
     <select id="getCourse" resultType="map" parameterType="int">
         select c.cr_name, c.cr_intro, p.cr_phot_name
-    	from course c, course_phot p
-		where c.tno = #{value}
-		and c.cr_no = p.cr_no
-		order by cr_idx asc
+        from course c, course_phot p
+        where c.tno = #{value}
+        and c.cr_no = p.cr_no
+        order by cr_idx asc
     </select>
 
     <select id="getComments" resultType="map" parameterType="int">
-        select m.name, c.cont, c.cont_star, c.cont_phot, c.cont_dt
+		select 
+		case when c.cmt_no = c.up_cmt_no
+		then 'C'
+		else 'R'
+		end type,
+		c.mno, c.cont, c.cont_star, c.cont_phot, DATE_FORMAT(c.cont_dt, '%Y-%m-%d') cont_dt, m.name,
+		
+		(select count(*) from comment where up_cmt_no = c.cmt_no and cmt_no != up_cmt_no) as cnt, 
+		case when char_length(m.name) &lt; 5  
+		     then rpad(left(m.name,2),char_length(m.name),'*') 
+		     else rpad(left(m.name,3),char_length(m.name),'*') 
+		end mark_name
+		
 		from comment c, memb m
-		where tno = #{value}
+		where c.tno = #{value}
 		and c.mno = m.mno
-		and c.del_yn = 'N'
-		order by cont_dt desc
+		and c.del_yn ='N'
+		order by c.up_cmt_no, c.cmt_no asc
     </select>
 
 </mapper>

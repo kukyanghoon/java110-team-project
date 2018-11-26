@@ -54,7 +54,6 @@ public class TourDetailController {
         model.addAttribute("courseList" , tourDetailService.getCourse(tno));
         model.addAttribute("commentList" , tourDetailService.getComments(tno));
         
-        
         return "tour/detail";
     }
 }
