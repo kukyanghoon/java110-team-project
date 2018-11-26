@@ -126,7 +126,88 @@ input:checked + .slider:before {
             <input id='imgBtn' type="file" name='file1' multiple accept="image/*" style ="display : none">
             <img src="${sessionScope.memberInfo.photo }" class="img-circle" alt="Bird" width="150" height="150" 
             onclick='document.all.file1.click();'>
-          <div class="form-group">
+          
+
+           <c:choose>
+            <c:when test="${sessionScope.memberInfo.path eq 'google'}">
+            
+            <div class="form-group">
+            <label class="control-label col-sm-3" for="name">이름:</label>
+            <div class="col-sm-8">
+              <input type="name" class="form-control" id="name" value='${sessionScope.memberInfo.name }' readonly="readonly">
+            </div>
+          </div> 
+            
+            <div class="form-group">
+                    <label class="control-label col-sm-3" for="email">이메일:</label>
+                        <div class="col-sm-8">
+                            <input type="email" class="form-control" id="email" value='${sessionScope.memberInfo.email}' readonly="readonly">
+                        </div>
+                    </div>
+            
+            
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="email">SNS 연동:</label>
+                    <div class="col-sm-8">
+                        <label class="control-label col-sm-3" for="email">Facebook</label>
+                        <label class="switch col-sm-3">
+                        <input type="checkbox" disabled='true'>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div> 
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="email"></label>
+                    <div class="col-sm-8">
+                        <label class="control-label col-sm-3" for="email">Google</label>
+                        <label class="switch col-sm-3">
+                        <input type="checkbox" disabled='true' checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div> 
+            </c:when>
+            <c:when test="${sessionScope.memberInfo.path eq 'facebook'}">
+            
+            <div class="form-group">
+            <label class="control-label col-sm-3" for="name">이름:</label>
+            <div class="col-sm-8">
+              <input type="name" class="form-control" id="name" value='${sessionScope.memberInfo.name }' readonly="readonly">
+            </div>
+          </div> 
+            
+            <div class="form-group">
+                    <label class="control-label col-sm-3" for="email">이메일:</label>
+                        <div class="col-sm-8">
+                            <input type="email" class="form-control" id="email" value='${sessionScope.memberInfo.email}' readonly="readonly">
+                        </div>
+                    </div>
+            
+            
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="email">SNS 연동:</label>
+                    <div class="col-sm-8">
+                        <label class="control-label col-sm-3" for="email">Facebook</label>
+                        <label class="switch col-sm-3">
+                        <input type="checkbox" disabled='true' checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div> 
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="email"></label>
+                    <div class="col-sm-8">
+                        <label class="control-label col-sm-3" for="email">Google</label>
+                        <label class="switch col-sm-3">
+                        <input type="checkbox" disabled='true'>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div> 
+            </c:when>
+            <c:otherwise>
+            
+            <div class="form-group">
             <label class="control-label col-sm-3" for="name">이름:</label>
             <div class="col-sm-8">
               <input type="name" class="form-control" id="name" value='${sessionScope.memberInfo.name }'>
@@ -153,53 +234,8 @@ input:checked + .slider:before {
                     </div>  
             </c:otherwise>
           </c:choose>
-
-           <c:choose>
-            <c:when test="${sessionScope.memberInfo.path eq 'google'}">
-                <div class="form-group">
-                    <label class="control-label col-sm-3" for="email">SNS 연동:</label>
-                    <div class="col-sm-8">
-                        <label class="control-label col-sm-3" for="email">Facebook</label>
-                        <label class="switch col-sm-3">
-                        <input type="checkbox" disabled='true'>
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                </div> 
-                <div class="form-group">
-                    <label class="control-label col-sm-3" for="email"></label>
-                    <div class="col-sm-8">
-                        <label class="control-label col-sm-3" for="email">Google</label>
-                        <label class="switch col-sm-3">
-                        <input type="checkbox" disabled='true' checked>
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                </div> 
-            </c:when>
-            <c:when test="${sessionScope.memberInfo.path eq 'facebook'}">
-                <div class="form-group">
-                    <label class="control-label col-sm-3" for="email">SNS 연동:</label>
-                    <div class="col-sm-8">
-                        <label class="control-label col-sm-3" for="email">Facebook</label>
-                        <label class="switch col-sm-3">
-                        <input type="checkbox" disabled='true' checked>
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                </div> 
-                <div class="form-group">
-                    <label class="control-label col-sm-3" for="email"></label>
-                    <div class="col-sm-8">
-                        <label class="control-label col-sm-3" for="email">Google</label>
-                        <label class="switch col-sm-3">
-                        <input type="checkbox" disabled='true'>
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                </div> 
-            </c:when>
-            <c:otherwise>
+            
+            
                 <div class="form-group">
                     <label class="control-label col-sm-3" for="email">SNS 연동:</label>
                     <div class="col-sm-8">
@@ -239,6 +275,7 @@ input:checked + .slider:before {
            <div class="form-group">
              <div class="col-sm-11">
                   <button id='modifyBtn' type="button" class="btn btn-info" style="float: right; margin-top: 30px;">저장하기</button>
+                  <button id='PhotoModifyBtn' type="button" class="btn btn-info" style="float: right; margin-top: 30px;">사진</button>
               </div>
               
             </div>
@@ -262,10 +299,12 @@ $(document).ready(function(){
        
         if(!validCheck(nameValid,name)){
            console.log("name");
+           $('#name').focus();
            return;
        }
        if(!validCheck(emailValid,email)){
            console.log("email");
+           $('#email').focus();
            return;
        }
        
@@ -274,14 +313,30 @@ $(document).ready(function(){
        console.log($('#email').val());
        console.log($('#lang').val()); 
        
+       var userInfo = {
+               'name': $('#name').val(),
+               'email': $('#email').val(),
+               'lang': $('#lang').val()
+       }
        
+       $.ajax({
+           url:'userProfileModify.do',
+           type:'POST',
+           dataType:'JSON',
+           data:JSON.stringify(userInfo),
+           contentType:"application/json",
+           success:function(data){
+               console.log(data);
+               //location.href = "../main";
+           }
        
-       //fileSubmit();
-       
+       });
        
     });
     
-    
+    $('#PhotoModifyBtn').on('click', function(){
+       console.log('된다된다'); 
+    });
     
     function validCheck(valid,value){
         if(valid.test(value.val())){

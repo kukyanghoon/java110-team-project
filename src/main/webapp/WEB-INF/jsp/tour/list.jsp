@@ -280,7 +280,7 @@ span.local{
                     <c:choose>
                         <c:when test="${status.index < 1}">
                               
-                                       <a class="OfferListCard" href="/offers/31644" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product" data-offer-type="IstanbulTicket" data-offer-id="31644"><div class="OfferListCard__Thumbnail" style="background-image: url( /resources/img/${list.pri_phot});"></div><div class="OfferListCard__Content"><div class="OfferListCard__Content__Category"><span>${list.category.cat_name}</span><span class="hide-on-mobile"><div class="Dot" style="display: inline-block; vertical-align: middle; background-color: rgb(132, 140, 148); border-radius: 2px; width: 2px; height: 2px; margin: 0px 4px;"></div><span>${list.mid_category.cat_name}</span></span></div><div class="OfferListCard__Content__Title"><div class="LinesEllipsis  ">${ list.titl}<wbr></div></div><div class="OfferListCard__Content__Guide"><span class="name">${list.member.name}</span></div><div class="OfferListCard__Content__Review">
+                                       <a class="OfferListCard" href="/app/tour/detail/${list.tno}"  itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product" data-offer-type="IstanbulTicket" data-offer-id="31644"><div class="OfferListCard__Thumbnail" style="background-image: url( /resources/img/${list.pri_phot});"></div><div class="OfferListCard__Content"><div class="OfferListCard__Content__Category"><span>${list.category.cat_name}</span><span class="hide-on-mobile"><div class="Dot" style="display: inline-block; vertical-align: middle; background-color: rgb(132, 140, 148); border-radius: 2px; width: 2px; height: 2px; margin: 0px 4px;"></div><span>${list.mid_category.cat_name}</span></span></div><div class="OfferListCard__Content__Title"><div class="LinesEllipsis  ">${ list.titl}<wbr></div></div><div class="OfferListCard__Content__Guide"><span class="name">${list.member.name}</span></div><div class="OfferListCard__Content__Review">
                                        <div class='starRating starRating--m starRating--blue'>
                                        <c:forEach var="i" begin="1" end="5">
         <c:choose>
@@ -307,7 +307,7 @@ span.local{
                         <c:otherwise>
                         
                         
-                                       <a class="OfferListCard" style='display: none;' href="/offers/31644" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product" data-offer-type="IstanbulTicket" data-offer-id="31644"><div class="OfferListCard__Thumbnail" style="background-image: url( /resources/img/${list.pri_phot});"></div><div class="OfferListCard__Content"><div class="OfferListCard__Content__Category"><span>${list.category.cat_name}</span><span class="hide-on-mobile"><div class="Dot" style="display: inline-block; vertical-align: middle; background-color: rgb(132, 140, 148); border-radius: 2px; width: 2px; height: 2px; margin: 0px 4px;"></div><span>${list.mid_category.cat_name}</span></span></div><div class="OfferListCard__Content__Title"><div class="LinesEllipsis  ">${ list.titl}<wbr></div></div><div class="OfferListCard__Content__Guide"><span class="name">${list.member.name}</span></div><div class="OfferListCard__Content__Review">
+                                       <a class="OfferListCard" style='display: none;' href="#" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product" data-offer-type="IstanbulTicket" data-offer-id="31644"><div class="OfferListCard__Thumbnail" style="background-image: url( /resources/img/${list.pri_phot});"></div><div class="OfferListCard__Content"><div class="OfferListCard__Content__Category"><span>${list.category.cat_name}</span><span class="hide-on-mobile"><div class="Dot" style="display: inline-block; vertical-align: middle; background-color: rgb(132, 140, 148); border-radius: 2px; width: 2px; height: 2px; margin: 0px 4px;"></div><span>${list.mid_category.cat_name}</span></span></div><div class="OfferListCard__Content__Title"><div class="LinesEllipsis  ">${ list.titl}<wbr></div></div><div class="OfferListCard__Content__Guide"><span class="name">${list.member.name}</span></div><div class="OfferListCard__Content__Review">
                                        <div class='starRating starRating--m starRating--blue'>
                                        <c:forEach var="i" begin="1" end="5">
         <c:choose>
@@ -558,7 +558,7 @@ span.local{
            console.log(item);
            area.append(
                    "<div class='OfferList__Cards'>"
-                   +"<a class='OfferListCard' href='#' itemprop='itemListElement' itemscope='' itemtype='http://schema.org/Product' data-offer-type='IstanbulTicket' data-offer-id='31644'>"
+                   +"<a class='OfferListCard' href='/app/tour/detail/" + item.tno + "' itemprop='itemListElement' itemscope='' itemtype='http://schema.org/Product' data-offer-type='IstanbulTicket' data-offer-id='31644'>"
                    + "<div class='OfferListCard__Thumbnail' style='background-image: url(/resources/img/" + item.pri_phot + ");'>"
                    + "</div>"
                    + "<div class='OfferListCard__Content'>"

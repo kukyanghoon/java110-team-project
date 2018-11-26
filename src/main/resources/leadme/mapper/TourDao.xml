@@ -36,7 +36,8 @@
     
     <sql id="selectTour">
     select 
-            t.titl
+            t.tno
+            ,t.titl
             ,t.pri_phot
             ,t.star
             ,t.loc
