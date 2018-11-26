@@ -119,12 +119,15 @@ CREATE TABLE tour (
     join_plc   VARCHAR(50)  NOT NULL COMMENT '만나는장소', -- 만나는장소
     lat        DOUBLE       NOT NULL COMMENT '위도값', -- 위도값
     lon        DOUBLE       NOT NULL COMMENT '경도값', -- 경도값
-    join_tm    DATETIME     NOT NULL COMMENT '만나는시간', -- 만나는시간
+    join_tm    VARCHAR(50)  NOT NULL COMMENT '만나는시간', -- 만나는시간
     del_yn     char(1)      NOT NULL COMMENT '삭제여부', -- 삭제여부
     pri_phot   VARCHAR(255) NOT NULL COMMENT '대표사진', -- 대표사진
     pri_mv     VARCHAR(255) NULL     COMMENT '대표영상', -- 대표영상
     cat_no     INTEGER      NOT NULL COMMENT '카테고리번호', -- 카테고리번호
-    mno        INTEGER      NOT NULL COMMENT '여행등록자' -- 여행등록자
+    mno        INTEGER      NOT NULL COMMENT '여행등록자', -- 여행등록자
+    mx_pn      INTEGER      NOT NULL COMMENT '최대인원', -- 최대인원
+    join_phot  VARCHAR(255) NOT NULL COMMENT '만나는장소사진', -- 만나는장소사진
+    albm_link  VARCHAR(255) NOT NULL COMMENT '앨범주소' -- 앨범주소
 )
 COMMENT '여행';
 
@@ -361,7 +364,6 @@ ALTER TABLE t_memb
 CREATE TABLE const_stat (
     tour_dt DATE    NOT NULL COMMENT '여행일자', -- 여행일자
     tno     INTEGER NOT NULL COMMENT '여행번호', -- 여행번호
-    mx_pn   INTEGER NOT NULL COMMENT '최대인원', -- 최대인원
     req_pn  INTEGER NOT NULL COMMENT '신청인원' -- 신청인원
 )
 COMMENT '신청현황';

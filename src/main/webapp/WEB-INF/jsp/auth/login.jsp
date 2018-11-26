@@ -117,7 +117,6 @@
                   </form>
                   <div class='panel-button' style="padding: 10px;">
                      <div class='btn-wrap' data-use-continue-as="true" id="btn-wrap-fb">
-                     
                      <div class="fb-login-button" data-max-rows="1" data-size="large" 
                      data-button-type="login_with" data-show-faces="false" data-width="100%"
                      data-auto-logout-link="false" data-use-continue-as="false" style="width: 100%;" onlogin="checkLoginState();"></div>
@@ -131,7 +130,7 @@
                   <div class='panel-footer'>
                      <div class='footer-title'>
                         아직 Lead Me! 회원이 아니신가요?
-                        <a href='https://www.myrealtrip.com/users/sign_up'>회원가입</a>
+                        <a href='/app/auth/signup'>회원가입</a>
                      </div>
                   </div>
                </div>
@@ -149,11 +148,25 @@
     
     <a href="#" id="find_pw_btn">비밀번호 찾기</a>
     
-
-    
-    
-    
       <script src="/resources/js/custom.js"></script>
+      
+      <script>
+        $(document).ready(function(){
+            $('#userEmail').keydown(function(key){
+                keyDown(key,13);
+            });
+            $('#userPassword').keydown(function(key){
+                keyDown(key,13);
+           });
+            function keyDown(key,button){
+                if (key.keyCode == button){
+                    $("#loginBtn").click();
+               };
+            }
+        });
+    </script>
+      
+      
    <script>
         $(document).ready(function(){
             
@@ -288,9 +301,7 @@
        /* document.getElementById('u_0_1').children[0].style.maxWidth="735px"; */
    }
    
-   function aaa(){
-       document.getElementsByClassName('_5h0d')[0].style.maxWidth="735px";
-   }
+   
    </script>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -300,7 +311,7 @@
     <script>
     
     $('#find_pw_btn').on('click', function(){
-        swal("이메일을 입력해주세요.", {
+        swal("가입 시 입력한 이메일을 입력해주세요.", {
             content: "input",
           })
           .then((value) => {

@@ -1,5 +1,7 @@
 package leadme.service;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
 import javax.servlet.http.HttpSession;
 import leadme.domain.Member;
 import leadme.service.impl.AuthServiceImpl;
@@ -17,4 +19,6 @@ public interface AuthService {
     Member findUser(Member member) throws Exception;
     
     Member updatePw(Member member) throws Exception;
+    
+    void mailSender() throws AddressException, MessagingException;
 }
