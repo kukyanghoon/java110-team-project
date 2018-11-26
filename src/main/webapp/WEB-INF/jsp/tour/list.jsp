@@ -278,7 +278,7 @@ span.local{
                     <div class="OfferList__Cards">
                     <c:forEach items='${tourList}' var="list" varStatus="status">
                     <c:choose>
-                        <c:when test="${status.index < 1}">
+                        <c:when test="${status.index < 5}">
                               
                                        <a class="OfferListCard" href="/app/tour/detail/${list.tno}"  itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product" data-offer-type="IstanbulTicket" data-offer-id="31644"><div class="OfferListCard__Thumbnail" style="background-image: url( /resources/img/${list.pri_phot});"></div><div class="OfferListCard__Content"><div class="OfferListCard__Content__Category"><span>${list.category.cat_name}</span><span class="hide-on-mobile"><div class="Dot" style="display: inline-block; vertical-align: middle; background-color: rgb(132, 140, 148); border-radius: 2px; width: 2px; height: 2px; margin: 0px 4px;"></div><span>${list.mid_category.cat_name}</span></span></div><div class="OfferListCard__Content__Title"><div class="LinesEllipsis  ">${ list.titl}<wbr></div></div><div class="OfferListCard__Content__Guide"><span class="name">${list.member.name}</span></div><div class="OfferListCard__Content__Review">
                                        <div class='starRating starRating--m starRating--blue'>
@@ -410,14 +410,14 @@ span.local{
          //console.log(${tourList});
          var catNo = ${catNo};
          console.log(catNo);
-         var pageNum=1;
+         var pageNum=5;
          
          $(window).scroll(function() {
         	    var scrollHeight = $(document).height();
         	    var scrollPosition = $(window).height() + $(window).scrollTop();
         	    if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
         	        //$("body").css("background","red");
-        	        pageNum++;
+        	        pageNum += 5;
         	        pagingBase(pageNum);
         	    } else {
         	        //$("body").css("background","white");
@@ -462,7 +462,7 @@ span.local{
                    $(data).each(function(index, item){
                        listDiv($('#list') ,item ,starRating(item.star));
                    });
-                   pagingBase(1);
+                   pagingBase(5);
                },
                error:function(){
                    console.log("실패");
@@ -501,7 +501,7 @@ span.local{
                   $(data).each(function(index, item){
                       listDiv($('#list') ,item ,starRating(item.star));
                   });
-                  pagingBase(1);
+                  pagingBase(5);
               },
               error:function(){
                   console.log("실패");
@@ -611,7 +611,7 @@ span.local{
                        $('#midCategoryTitleBox').empty().append("<span class='VerticalList__Header__Title'>" + item.mid_category.cat_name + "</span>");
                        listDiv($('#list') ,item ,starRating(item.star));
                    });
-                   pagingBase(1);
+                   pagingBase(5);
                },
                error:function(){
                    console.log("실패");
