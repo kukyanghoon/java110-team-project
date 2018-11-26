@@ -130,7 +130,7 @@
                   <div class='panel-footer'>
                      <div class='footer-title'>
                         아직 Lead Me! 회원이 아니신가요?
-                        <a href='https://www.myrealtrip.com/users/sign_up'>회원가입</a>
+                        <a href='/app/auth/signup'>회원가입</a>
                      </div>
                   </div>
                </div>
@@ -148,11 +148,25 @@
     
     <a href="#" id="find_pw_btn">비밀번호 찾기</a>
     
-
-    
-    
-    
       <script src="/resources/js/custom.js"></script>
+      
+      <script>
+        $(document).ready(function(){
+            $('#userEmail').keydown(function(key){
+                keyDown(key,13);
+            });
+            $('#userPassword').keydown(function(key){
+                keyDown(key,13);
+           });
+            function keyDown(key,button){
+                if (key.keyCode == button){
+                    $("#loginBtn").click();
+               };
+            }
+        });
+    </script>
+      
+      
    <script>
         $(document).ready(function(){
             
