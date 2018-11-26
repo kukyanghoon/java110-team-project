@@ -1,63 +1,50 @@
 package leadme.web;
 
-import java.io.File;
-import java.util.Iterator;
+import java.util.HashMap;
+import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import leadme.service.UserService;
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
   
+  @Autowired UserService userService;
+
   @RequestMapping(value="profile")
   public String login() {
     return "/user/profile";
   }
-  
-  @RequestMapping(value = "/userProfileModify.do")
-  public void fileUp(MultipartHttpServletRequest multi) {
-       
-      // 저장 경로 설정
-      String root = multi.getSession().getServletContext().getRealPath("/");
-      String path = root+"resources/upload/";
-       
-      String newFileName = ""; // 업로드 되는 파일명
-      
-      System.out.println(root);
-      System.out.println(path);
-      
-      /*File dir = new File(path);
-      if(!dir.isDirectory()){
-          dir.mkdir();
-      }
-       
-      Iterator<String> files = multi.getFileNames();
-      while(files.hasNext()){
-          String uploadFile = files.next();
-                       
-          MultipartFile mFile = multi.getFile(uploadFile);
-          String fileName = mFile.getOriginalFilename();
-          System.out.println("실제 파일 이름 : " +fileName);
-          newFileName = System.currentTimeMillis()+"."
-                  +fileName.substring(fileName.lastIndexOf(".")+1);
-           
-          try {
-              mFile.transferTo(new File(path+newFileName));
-          } catch (Exception e) {
-              e.printStackTrace();
-          }
-      }
-       
-      System.out.println("id : " + multi.getParameter("id"));
-      System.out.println("pw : " + multi.getParameter("pw"));
-       
-      return "ajaxUpload";*/
+
+  @RequestMapping(value = "/userProfileModify.do",method=RequestMethod.POST)
+  @ResponseBody
+  public void userProfileModify(@RequestBody String userInfo) {
+
+    System.out.println(userInfo);
+
+    ObjectMapper mapper = new ObjectMapper();
+    Map<String, Object> map = new HashMap<String, Object>(); 
+
+    try {
+      map = mapper.readValue(userInfo, new TypeReference<Map<String, String>>(){});
+    } catch (Exception e) {
+      System.out.println(e);
+    } 
+
+    userService.userProfileModify(map);
+
+
   }
 
 
-  
-  
-  
+
+
+
 }
