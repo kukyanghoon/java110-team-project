@@ -117,7 +117,6 @@
                   </form>
                   <div class='panel-button' style="padding: 10px;">
                      <div class='btn-wrap' data-use-continue-as="true" id="btn-wrap-fb">
-                     
                      <div class="fb-login-button" data-max-rows="1" data-size="large" 
                      data-button-type="login_with" data-show-faces="false" data-width="100%"
                      data-auto-logout-link="false" data-use-continue-as="false" style="width: 100%;" onlogin="checkLoginState();"></div>
@@ -288,9 +287,7 @@
        /* document.getElementById('u_0_1').children[0].style.maxWidth="735px"; */
    }
    
-   function aaa(){
-       document.getElementsByClassName('_5h0d')[0].style.maxWidth="735px";
-   }
+   
    </script>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -300,7 +297,7 @@
     <script>
     
     $('#find_pw_btn').on('click', function(){
-        swal("이메일을 입력해주세요.", {
+        swal("가입 시 입력한 이메일을 입력해주세요.", {
             content: "input",
           })
           .then((value) => {

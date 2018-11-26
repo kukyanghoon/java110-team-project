@@ -119,7 +119,7 @@ CREATE TABLE tour (
     join_plc   VARCHAR(50)  NOT NULL COMMENT '만나는장소', -- 만나는장소
     lat        DOUBLE       NOT NULL COMMENT '위도값', -- 위도값
     lon        DOUBLE       NOT NULL COMMENT '경도값', -- 경도값
-    join_tm    DATETIME     NOT NULL COMMENT '만나는시간', -- 만나는시간
+    join_tm    VARCHAR(50)  NOT NULL COMMENT '만나는시간', -- 만나는시간
     del_yn     char(1)      NOT NULL COMMENT '삭제여부', -- 삭제여부
     pri_phot   VARCHAR(255) NOT NULL COMMENT '대표사진', -- 대표사진
     pri_mv     VARCHAR(255) NULL     COMMENT '대표영상', -- 대표영상

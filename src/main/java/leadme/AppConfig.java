@@ -9,6 +9,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
@@ -139,7 +140,7 @@ public class AppConfig {
                 
         
     }*/
-/*    
+/*
     private static final String SENDER_EMAIL = "leadme504@gmail.com";//change with your sender email
 
     @Bean
