@@ -4,7 +4,8 @@
 <html>
    <head>
       <meta charset='UTF-8'>
-      
+       <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="639731399858-ahjc3pap9isuk2c10qp6h3i3icu37vsc.apps.googleusercontent.com">
       <link href='https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png' rel='apple-touch-icon-precomposed'>
       <link href='https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png' rel='apple-touch-icon'>
       <link href='https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png' rel='apple-touch-icon' sizes='76x76'>
@@ -20,7 +21,6 @@
       <script src="https://d2yoing0loi5gh.cloudfront.net/webpack/vendor.4385e182f137c2993c60.js"></script>
       <script src="https://d2yoing0loi5gh.cloudfront.net/webpack/application.4385e182f137c2993c60.js"></script>
       <script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-01ea8c7c94c68924dc912350d530fb7e62968738f000a46cec5b9f8c3187e0c5.js"></script>
-      <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyC84fbqS1JuAJ9t24SLY2LEWf2Ud8W8F1E&amp;libraries=places&amp;language=ko" async="async" defer="defer"></script>
       <script src="//cdn.ravenjs.com/3.24.2/raven.min.js" async="async" defer="defer" onload="initRaven()"></script>
       
    </head>
@@ -38,19 +38,20 @@
                <!-- 로그인 -->
                <div class='member-panel'>
                   <div class='panel-button'>
+                     
+                     <div class='btn-wrap'>
                      <!-- 페이스북 로그인 -->
-                     <div class='btn-wrap'>
-                        <a class='btn-new btn--type-outline btn--width-100 btn-sns' data-gtm-action='페이스북으로 회원가입' data-gtm-category='회원가입' href='https://www.myrealtrip.com/users/auth/facebook'>
-                        <img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/fb-logo@2x-2a65bc6ab97a894a1baeca5b714f4201eb991cfc6d955ef657f86de8e56f89d5.png' width='18'>
-                        <span>페이스북으로 로그인</span>
-                        </a>
+                        <div class="fb-login-button" data-max-rows="1" data-size="large" 
+                     data-button-type="login_with" data-show-faces="false" data-width="100%"
+                     data-auto-logout-link="false" data-use-continue-as="false" style="width: 100%;">
                      </div>
-                     <!-- 네이버 로그인 -->
+                     </div>
+                     
                      <div class='btn-wrap'>
-                        <a class='btn-new btn--type-outline btn--width-100 btn-sns' data-gtm-action='구글로 회원가입' data-gtm-category='회원가입' href='https://www.myrealtrip.com/users/auth/naver'>
-                        <img class='icon' src='img/GoogleLogo.png' width='18'>
-                        <span>구글로 로그인</span>
-                        </a>
+                        <!-- gogole login -->
+                       <div id='googleLoginBtn' class="g-signin2" 
+                     data-theme="dark" data-width="standard"
+                     data-onsuccess="onSignIn"></div>
                      </div>
                   </div>
                   <div class='panel-line clearfix'>
@@ -167,6 +168,12 @@
         <jsp:include page="../footerTest.jsp"></jsp:include>
     </footer>
 
+
+
+
+
+
+
     
     <script>
                   $(document).ready(function(){
@@ -256,7 +263,106 @@
                   });
                   </script>
                   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-                  
+                  <script src="https://apis.google.com/js/platform.js" async defer></script>
+     <script>
+     
+     function autoServerLogin(accessToken) {
+         location.href = "fblogin?&accessToken="+accessToken;
+     }
+     function statusChangeCallback(response) {
+       console.log(response);
+       if (response.status === 'connected') { // 로그인이 정상적으로 되었을 때,
+           autoServerLogin(response.authResponse.accessToken);
+           //location.href = '../main';
+       } else { // 로그인이 되지 않았을 때,
+           console.log("로그인 되지 않았음");
+       }
+     }
+       
+     function checkLoginState() {
+         FB.getLoginStatus(function(response) { 
+           statusChangeCallback(response);
+         });
+     }
+     
+     
+     window.fbAsyncInit = function() {
+       console.log("window.fbAsyncInit() 호출됨!");
+       FB.init({
+         appId      : '341620679957072', // 개발자가 등록한 앱 ID
+         cookie     : true,  
+         xfbml      : true,  
+         version    : 'v3.2' 
+       });
+       FB.AppEvents.logPageView();
+       /* FB.XFBML.parse(document.getElementsByClassName('_5h0c')[0].style.maxWidth="735px"); */
+     };
+     
+     
+     (function(d, s, id) {
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) return;
+         js = d.createElement(s); js.id = id;
+         js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2&appId=1941679139472866&autoLogAppEvents=1';
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+   </script>
+   <script>
+   function onSignIn(googleUser) {
+       // Useful data for your client-side scripts:
+       var profile = googleUser.getBasicProfile();
+       console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+       console.log('Full Name: ' + profile.getName());
+       console.log('Given Name: ' + profile.getGivenName());
+       console.log('Family Name: ' + profile.getFamilyName());
+       console.log("Image URL: " + profile.getImageUrl());
+       console.log("Email: " + profile.getEmail());
+       
+          console.log("aaa"); 
+          $(document).ready(function(){
+          $.ajax({
+              url:'googleLoginCheck.do',
+              type:'POST',
+              dataType:'JSON',
+              data:JSON.stringify(makeObj(profile)),
+              contentType:"application/json",
+              success:function(data){
+                  console.log(data);
+                  location.href = "../main";
+              }
+          
+          });
+          
+       });
+       // The ID token you need to pass to your backend:
+       var id_token = googleUser.getAuthResponse().id_token;
+       console.log("ID Token: " + id_token);
+     };
+
+     function makeObj(profile){
+         var obj ={
+                 'name': profile.getGivenName() + profile.getFamilyName(),
+                 'email' : profile.getEmail(),
+                 'photo' : profile.getImageUrl()
+         }
+         console.log(obj);
+         return obj;
+     }
+     </script>
+     <script>
+   window.onload=function(){
+       document.getElementsByClassName('abcRioButton')[0].style.height="40px";
+       document.getElementsByClassName('abcRioButtonContents')[0].firstElementChild.textContent='Google으로 로그인';
+       document.getElementsByClassName('abcRioButtonContents')[0].style.lineHeight="40px";
+       document.getElementsByClassName('panel-button')[0].style.paddingLeft=0;
+       document.getElementsByClassName('panel-button')[0].style.paddingRight=0;
+       document.getElementsByClassName('abcRioButtonIcon')[0].style.position="relative";
+       document.getElementsByClassName('abcRioButtonIcon')[0].style.top="2px";
+       document.getElementsByClassName('abcRioButtonIcon')[0].style.left="2px";
+       /* document.getElementsByClassName('_5h0d')[0].style.maxWidth="735px"; */
+       /* document.getElementById('u_0_1').children[0].style.maxWidth="735px"; */
+   }
+   </script>
    </body>
    
 </html>
