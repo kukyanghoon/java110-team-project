@@ -121,16 +121,16 @@ public class PaymentController {
       RedirectUrls redirectUrls = new RedirectUrls();
       redirectUrls.setCancelUrl("http://localhost:8888/app/main");
       redirectUrls.setReturnUrl("http://localhost:8888/app/payment/process?reqno="+String.valueOf(tourReq.getReqno()));
-
+      System.out.println("!!!!reqno==>"+tourReq.getReqno());
       // Set payment details
       Details details = new Details();
       details.setShipping("0");
       
-      Double tax = usd_tot_price / 100;
+//      Double tax = usd_tot_price / 100;
       
-      details.setSubtotal(String.format("%.2f", usd_tot_price-tax));
+      details.setSubtotal(String.format("%.2f", usd_tot_price));
       System.out.println(details.getSubtotal());
-      details.setTax(String.format("%.2f",tax));
+      details.setTax("0");
       
       // Payment amount
       Amount amount = new Amount();

@@ -63,7 +63,7 @@
          <nav class="mrt-gnb-header transparent">
             <div class="mrt-container gnb-container">
                <div class="mrt-logo-container gtm-gnb-logo">
-                  <a href="/app/main"><img src="/resources/img/logo.png" alt="리드미 로고"></a>
+                  <a href="#" onclick="event.preventDefault(); location.href='/app/main'"><img src="/resources/img/logo.png" alt="리드미 로고"></a>
                </div>
                <div class="gnb-menu__container">
                   <a data-turbolinks="false">

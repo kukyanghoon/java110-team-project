@@ -304,7 +304,7 @@ ${tour.tour_intro}
 
 <div class="price-info">
     <div class="price-text">총 여행금액</div><br>
-    <div class="price-text" style="color: #51abf3;"><span>\</span> <span id="total-price"> <fmt:formatNumber value='${tour.amt }' groupingUsed='true'/></span></div>
+    <div class="price-text" style="color: #51abf3;"><span>₩</span> <span id="total-price"> <fmt:formatNumber value='${tour.amt }' groupingUsed='true'/></span></div>
     <input id="tot-amt" type="hidden" value=${tour.amt}/>
 </div>
 </div>
