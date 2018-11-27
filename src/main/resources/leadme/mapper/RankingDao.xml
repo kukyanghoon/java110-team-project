@@ -29,6 +29,20 @@
          from 
             tour t inner join ranking r on t.tno = r.tno            
     </sql>
+    
+   
+    <sql id="select2">
+       select
+           c.tno,
+           c.loc,
+           c.cat_no,
+           c.star,
+           c.cmt_cnt,
+           c.hits,
+          star_pnt + cmt_pnt +  hits_pnt as pnt
+         
+    </sql>
+    
 
     <select id="getListTourBest" resultMap="tourMap" parameterType="map">
         <include refid="select1"></include>
@@ -56,13 +70,114 @@
             r.rnk asc
     </select>
 
+  
+     
+     
+    
+    <select id="getExecutorTourBest" resultMap="tourMap"  >
+     <include refid="select2"></include>
+     from (      
+                    select
+                     case when star>=10 then 50
+                     else star*5
+                     end star_pnt
+                    ,case when cmt_cnt >=10 then 30
+                     else cmt_cnt*3
+                     end cmt_pnt
+                    ,case when hits >=10 then 20
+                     else hits*2
+                     end hits_pnt
+                    
+                    ,star
+                    ,cmt_cnt
+                    ,hits
+                    ,loc
+                    ,cat_no     
+                    ,tno            
+                                    
+                    from tour t     
+                  ) c               
+                     order by pnt desc, loc desc
+                     limit  10
+     </select>
+    
+     
+
+       
+     
+      <select id="getExecutorThemeBest" resultMap="tourMap"  >
+                <include refid="select2"></include>
+            from (      
+                    select
+                     case when star>=10 then 50
+                     else star*5
+                     end star_pnt
+                    ,case when cmt_cnt >=10 then 30
+                     else cmt_cnt*3
+                     end cmt_pnt
+                    ,case when hits >=10 then 20
+                     else hits*2
+                     end hits_pnt
+                    
+                    ,star
+                    ,cmt_cnt
+                    ,hits
+                    ,loc
+                    ,cat_no
+                    ,tno    
+                            
+                    from tour t
+                  group by cat_no, tno
+                  ) c     
+                     order by pnt desc, loc desc
+                     limit  4
+    </select>
+   
+    <select id="getExecutorLocalBest" resultMap="tourMap"  >
+    <include refid="select2"></include>
+     from (      
+                    select
+                     case when star>=10 then 50
+                     else star*5
+                     end star_pnt
+                    ,case when cmt_cnt >=10 then 30
+                     else cmt_cnt*3
+                     end cmt_pnt
+                    ,case when hits >=10 then 20
+                     else hits*2
+                     end hits_pnt
+                    
+                    ,star
+                    ,cmt_cnt
+                    ,hits
+                    ,loc
+                    ,cat_no
+                    ,tno    
+                            
+                  from tour t
+                  group by loc, tno
+                  ) c
+                     order by pnt desc, loc desc
+                     limit  3
+    </select>
+    
+    
+    
+    <insert id="insert" parameterType="java.util.List">
+    insert into ranking(rnk_type,rnk_item,rnk,tno,rnk_dt) 
+    values
+    <foreach collection="list" item="item" separator=" , " >
+        ( "${item.rnk_type}", "${item.rnk_item}", 
+            "${item.rnk}", "${item.tno}", "${item.rnk_dt}")
+    </foreach>
+    </insert>
+     
+     
+     
+      
+    <delete id="delete" parameterType="int">
+    delete from ranking
+    where tno=#{value}
+    </delete>    
+        
 </mapper>
-
-
-
-
-
-
-
-
-

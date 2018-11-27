@@ -2,17 +2,15 @@ package leadme.web;
 
 import java.util.Locale;
 import java.util.Map;
-
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
-
 import leadme.service.TourDetailService;
 
 
@@ -53,9 +51,16 @@ public class TourDetailController {
         model.addAttribute("guide" , tourDetailService.getGuide((int)tourMap.get("mno")));
         model.addAttribute("courseList" , tourDetailService.getCourse(tno));
         model.addAttribute("commentList" , tourDetailService.getComments(tno));
-        
         return "tour/detail";
     }
+    
+    @GetMapping("/tour/detail/{tno}/rewviews")
+    @ResponseBody
+    public String reviews(int page) {
+      
+      return null;
+    }
+    
 }
 
 

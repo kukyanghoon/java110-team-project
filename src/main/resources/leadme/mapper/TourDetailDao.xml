@@ -47,6 +47,7 @@
     </select>
 
     <select id="getComments" resultType="map" parameterType="int">
+    <!-- 
 		select 
 		case when c.cmt_no = c.up_cmt_no
 		then 'C'
@@ -64,7 +65,35 @@
 		where c.tno = #{value}
 		and c.mno = m.mno
 		and c.del_yn ='N'
-		order by c.up_cmt_no, c.cmt_no asc
+		order by c.up_cmt_no, c.cmt_no asc 
+    -->
+select B.type, B.mno, B.cont, B.cont_star, B.cont_phot, B.cont_dt, B.name, B.cnt, B.mark_name
+from(
+select @rownum:=@rownum+1 as rnum, A.type, A.mno, A.cont, A.cont_star, A.cont_phot, A.cont_dt, A.name, A.cnt, A.mark_name
+from (
+ 
+select 
+   case when c.cmt_no = c.up_cmt_no
+        then 'C'
+        else 'R'
+    end type,
+   c.mno, c.cont, c.cont_star, c.cont_phot, DATE_FORMAT(c.cont_dt, '%Y-%m-%d') cont_dt, m.name,
+   (select count(*) from comment where up_cmt_no = c.cmt_no and cmt_no != up_cmt_no) as cnt, 
+   case when char_length(m.name) &lt; 5  
+        then rpad(left(m.name,2),char_length(m.name),'*') 
+        else rpad(left(m.name,3),char_length(m.name),'*') 
+    end mark_name
+ from comment c, memb m
+where (@rownum:=0)=0
+and c.tno = #{value}
+and c.mno = m.mno
+and c.del_yn ='N'
+order by c.up_cmt_no, c.cmt_no asc
+ 
+) A
+where @rownum &lt; 5
+) B
+where B.rnum &gt; 0
     </select>
 
 </mapper>
