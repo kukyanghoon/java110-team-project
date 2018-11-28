@@ -5,4 +5,5 @@ import leadme.domain.Tour;
 
 public interface TourService {
   List<Tour> tourList();
+
 }

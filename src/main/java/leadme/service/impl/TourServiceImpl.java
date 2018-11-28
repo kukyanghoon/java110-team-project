@@ -16,12 +16,8 @@ public class TourServiceImpl implements TourService {
   public List<Tour> tourList() {
     
     List<Tour> tourList = tourDao.tourList();
-
-    
     return tourList;
   }
 
-  
-  
 
 }

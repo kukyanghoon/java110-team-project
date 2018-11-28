@@ -5,7 +5,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="leadme.dao.PaymentDao">
 
-    <resultMap type="tourreq" id="reqMap">
+  <!--   <resultMap type="tourreq" id="reqMap">
         <id column="reqno"          property="reqno"/>
         <result column="tno"        property="tno"/>
         <result column="tour_dt"    property="tour_dt"/>
@@ -27,7 +27,7 @@
         pay_dt,can_dt,cur_cd,req_stat) 
         values(#{tno},#{tour_dt),#{mno},now(),#{req_cnt},#{tot_pay},#{pay_type},#{pay_stat},now(),
         '1111-01-01',#{cur_cd},#{req_stat})
-    </insert>
+    </insert> -->
 
 </mapper>
 

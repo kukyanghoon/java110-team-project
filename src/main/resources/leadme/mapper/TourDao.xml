@@ -13,6 +13,7 @@
         <result column="amt"    property="amt"/>
         <result column="hit"    property="hit"/>
         <result column="cmt_cnt"    property="cmt_cnt"/>
+        <result column="tour_intro" property="tour_intro"/>
         <association property="member" javaType="member">
             <result column="name"    property="name"/>
         </association>
@@ -35,6 +36,7 @@
     and t.cat_no = c2.cat_no;
     
     </select>
+    
     
     
 </mapper>

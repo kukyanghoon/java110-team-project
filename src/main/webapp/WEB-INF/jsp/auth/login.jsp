@@ -152,9 +152,9 @@
             
             
            $('#loginBtn').on('click', function(){
-               aaa();
                
-               /*
+               
+        
                var obj = {
                       'email' : $('#userEmail').val(),
                       'password' : $('#userPassword').val()
@@ -176,7 +176,7 @@
                   }
               
               }); 
-              */
+             
               
            });
         });

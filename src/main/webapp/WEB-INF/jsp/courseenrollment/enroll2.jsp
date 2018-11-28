@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html class='no-js css-menubar' lang='en'>
 
@@ -43,10 +46,9 @@
     <link href='https://d2yoing0loi5gh.cloudfront.net/assets/logo/icon-120-0de06603ad3e4427cb29b5e4ef6833021cc52ea642ee76e843ed997209049bf5.png' rel='apple-touch-icon' sizes='120x120'>
     <link href='https://d2yoing0loi5gh.cloudfront.net/assets/logo/icon-152-cc369a832b7a69d0c0b63c3914168b58e732a26729d72e976e7f729b923ee302.png' rel='apple-touch-icon' sizes='152x152'>
 
-    <script src="C:\\Users\\bit\\git\\java110-team-project\\html\\js\\ko-9d53604fb5c8a610df23b77f7135903c1affe982fa1d15f3354fdc521e10862a.js"></script>
-    <script src="https://d2yoing0loi5gh.cloudfront.net/assets/partner/application-0a1f0d84b41d048d5930089311ad8e11e301bd606ee17fa9b2c5b3d74f7bec4a.js"></script>
+    <script src="/resources/js/ko-9d53604fb5c8a610df23b77f7135903c1affe982fa1d15f3354fdc521e10862a.js"></script>
+    <script src="/resources/js/application-0a1f0d84b41d048d5930089311ad8e11e301bd606ee17fa9b2c5b3d74f7bec4a.js"></script>
 
-    
 </head>
 
 <body class='site-menubar-unfold' data-action='edit' data-controller-path='partner/offers' data-controller='offers' data-sign-in>
@@ -62,7 +64,7 @@
                     여행 등록
                 </div>
             </div>
-            <div class='panel-body'>
+            <div class='panel-body' style="background-color: saddlebrown;">
                 <div class='pearls row' data-by-row='true' data-plugin='matchHeight' role='tablist'>
                     <div class='col-xs-4 current pearl' data-target='#step1' role='tab'>
                         <a class="pearl-number" href="/partner/offers/46144/edit?step=1">1</a>
@@ -114,37 +116,37 @@
                                             <input checked id='meeting_time_a' name='meeting_time_check' type='radio' value='time'>
                                             <label class='col-xs-12' for='meeting_time_a'>
                                                 <div class='col-xs-6'>
-                                                    <select class='form-control ignore' name='offer[meeting_time][hour]'>
+                                                    <select class='form-control ignore' id='meeting_time'name='offer[meeting_time][hour]'>
                                                         <option disabled selected value=''>시간 선택</option>
                                                         <option value='0'>
-                                                            오전 0
+                                                            오전 00
                                                         </option>
                                                         <option value='1'>
-                                                            오전 1
+                                                            오전 01
                                                         </option>
                                                         <option value='2'>
-                                                            오전 2
+                                                            오전 02
                                                         </option>
                                                         <option value='3'>
-                                                            오전 3
+                                                            오전 03
                                                         </option>
                                                         <option value='4'>
-                                                            오전 4
+                                                            오전 04
                                                         </option>
                                                         <option value='5'>
-                                                            오전 5
+                                                            오전 05
                                                         </option>
                                                         <option value='6'>
-                                                            오전 6
+                                                            오전 06
                                                         </option>
                                                         <option value='7'>
-                                                            오전 7
+                                                            오전 07
                                                         </option>
                                                         <option value='8'>
-                                                            오전 8
+                                                            오전 08
                                                         </option>
                                                         <option value='9'>
-                                                            오전 9
+                                                            오전 09
                                                         </option>
                                                         <option value='10'>
                                                             오전 10
@@ -153,7 +155,7 @@
                                                             오전 11
                                                         </option>
                                                         <option value='12'>
-                                                            정오 12
+                                                            오후 12
                                                         </option>
                                                         <option value='13'>
                                                             오후 1
@@ -191,9 +193,9 @@
                                                     </select>
                                                 </div>
                                                 <div class='col-xs-6'>
-                                                    <select class='form-control' name='offer[meeting_time][min]'>
-                                                        <option>분 선택</option>
-                                                        <option selected value='0'>00</option>
+                                                    <select class='form-control' id='meeting_timet'name='offer[meeting_time][min]'>
+                                                        <option disabled selected value=''>분 선택</option>
+                                                        <option value='0'>00</option>
                                                         <option value='10'>10</option>
                                                         <option value='20'>20</option>
                                                         <option value='30'>30</option>
@@ -271,11 +273,12 @@
                                     
                                 </tr>
                             </table>
+                              <hr class='divider'>
                         </div>
 
                     </div>
 
-                    <hr class='divider'>
+                  
                     <div class='form-group clearfix'>
                         <label class='control-label col-lg-12 font-weight-600'>
                             투어 코스
@@ -296,7 +299,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class='widget-body'>
+                                        <div class='widget-body' style="background-color:saddlebrown;">
                                             <input name='offer[courses_attributes][][id]' type='hidden'>
                                             <input name='offer[courses_attributes][][position]' type='hidden' value='1'>
                                             <input name='offer[courses_attributes][][_destroy]' type='hidden' value='0'>
@@ -313,81 +316,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class='row'>
-                                                <div class='col-lg-6 col-sm-6'>
-                                                    <div class='form-group clearfix' data-desc='• 각 코스에서 여행자들이 어떤 경험을 할 수 있는지 종류를 선택해주세요.<br/>'>
-                                                        <label class='control-label col-xs-12'>
-                                                            카테고리
-                                                        </label>
-                                                        <div class='col-xs-12'>
-                                                            <select class='form-control' name='offer[courses_attributes][][category]'>
-                                                                <option selected value='default'>투어</option>
-                                                                <option value='transfer'>
-                                                                    차량이동
-                                                                </option>
-                                                                <option value='eat'>
-                                                                    식사
-                                                                </option>
-                                                                <option value='photo'>
-                                                                    포토존
-                                                                </option>
-                                                                <option value='sleep'>
-                                                                    숙박
-                                                                </option>
-                                                                <option value='show'>
-                                                                    쇼/관람
-                                                                </option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class='col-lg-6 col-sm-6'>
-                                                    <div class='form-group clearfix' data-desc='• 이 코스에서 소요될 시간을 선택해주세요.<br/>'>
-                                                        <label class='control-label col-xs-12'>
-                                                            소요시간
-                                                        </label>
-                                                        <div class='col-xs-6'>
-                                                            <select class='form-control' name='offer[courses_attributes][][duration_size_hour]'>
-                                                                <option selected value='0'>0 시간</option>
-                                                                <option value='1'>한 시간</option>
-                                                                <option value='2'>2 시간</option>
-                                                                <option value='3'>3 시간</option>
-                                                                <option value='4'>4 시간</option>
-                                                                <option value='5'>5 시간</option>
-                                                                <option value='6'>6 시간</option>
-                                                                <option value='7'>7 시간</option>
-                                                                <option value='8'>8 시간</option>
-                                                                <option value='9'>9 시간</option>
-                                                                <option value='10'>10 시간</option>
-                                                                <option value='11'>11 시간</option>
-                                                                <option value='12'>12 시간</option>
-                                                                <option value='13'>13 시간</option>
-                                                                <option value='14'>14 시간</option>
-                                                                <option value='15'>15 시간</option>
-                                                                <option value='16'>16 시간</option>
-                                                                <option value='17'>17 시간</option>
-                                                                <option value='18'>18 시간</option>
-                                                                <option value='19'>19 시간</option>
-                                                                <option value='20'>20 시간</option>
-                                                                <option value='21'>21 시간</option>
-                                                                <option value='22'>22 시간</option>
-                                                                <option value='23'>23 시간</option>
-                                                                <option value='24'>24 시간</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class='col-xs-6'>
-                                                            <select class='form-control' name='offer[courses_attributes][][duration_size_minute]'>
-                                                                <option selected value='0'>00 분</option>
-                                                                <option value='10'>10 분</option>
-                                                                <option value='20'>20 분</option>
-                                                                <option value='30'>30 분</option>
-                                                                <option value='40'>40 분</option>
-                                                                <option value='50'>50 분</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            
                                             <div class='row'>
                                                 <div class='col-xs-12'>
                                                     <div class='form-group clearfix' data-desc='<span class="font-weight-600">코스 설명 예시</span><br/><br/>"아치 모양이 아름다운 베네치아의 첫 번째 다리, 리알토 다리위에서 베네치아 운하를 감상하고 다리 위에 모여 있는 점포들을 구경합니다."<br/>'>
@@ -395,7 +324,7 @@
                                                             코스 내용
                                                         </label>
                                                         <div class='col-xs-12'>
-                                                            <textarea class='form-control' name='offer[courses_attributes][][description]' placeholder='여행자들이 어떤 것을 기대할 수 있는지 사전에 머릿속에 그려볼 수 있도록 무엇을 하는 코스인지 자세하게 적어주세요.' rows='4'></textarea>
+                                                            <textarea class='form-control' id='offerCourseIntro'name='offer[courses_attributes][][description]' placeholder='여행자들이 어떤 것을 기대할 수 있는지 사전에 머릿속에 그려볼 수 있도록 무엇을 하는 코스인지 자세하게 적어주세요.' rows='4'></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -442,36 +371,12 @@
                         </div>
                     </div>
                     <hr class='divider'>
-
-                    <hr class='divider'>
-                    <div class='form-group clearfix' data-desc='• 여행자분들이 상품을 선택할때 가격과 시간을 비교하여 가성비를 계산합니다.<br/>• 총 소요시간을 꼭 작성해주세요.<br/>'>
-                        <label class='control-label col-xs-2'>
-                            총 소요시간
-                            <span>*</span>
-                        </label>
-                        <div class='col-xs-4'>
-                            <input class='form-control' name='offer[duration_size]' type='number' value='0'>
-                        </div>
-                        <div class='col-xs-4'>
-                            <select class='form-control' name='offer[duration_unit]'>
-                                <option selected value='hour'>시간</option>
-                                <option value='day'>일</option>
-                                <option value='flexible'>미정</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class='form-group clearfix'>
-                        <div class='col-xs-12'>
-                            <p class='help-block'>• 여행자분들이 일정 계획에 참고할 수 있도록 투어 총 소요시간을 기입해주세요.
-                                <br/>
-                            </p>
-                        </div>
-                    </div>
-
+                  
                 </div>
                 <div class='wizard-buttons'>
                     <a class='btn btn-default btn-outline' href='/partner/offers/46144/edit?step=1' role='button'>이전 단계로</a>
-                    <input class='btn btn-primary btn-outline pull-right' formnovalidate='0' name='save' role='button' type='submit' value='저장후 다음으로'>
+                    <input class='btn btn-primary btn-outline pull-right' id='save' formnovalidate='0' 
+                    name='save' role='button' type='button' value='저장후 다음으로'>
                 </div>
             </div>
 
@@ -481,6 +386,8 @@
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js">
     </script>
+    <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false">
     </script>
     <script type="text/javascript">
@@ -531,9 +438,16 @@
                 map.setCenter(location);
             });
 
+            function init() {
+                var input = document.getElementById('address');
+                var autocomplete = new google.maps.places.Autocomplete(input);
+            }
+ 
+            google.maps.event.addDomListener(window, 'load', init);
+            
+            
             $("#search_submit").click(function() {
                 var address = $('#address').val();
-                /*if (key.keyCode == 13) {*/
                 if (address != '') {
                     geocoder.geocode({
                         'address': address
@@ -558,15 +472,58 @@
                         } else {
                             alert("Geocoder failed due to: " + status);
                         }
-
                     });
                 }
-                /*}*/
             });
         };
     </script>
+    <script>
+    $(document).ready(function(){
+        $('#save').on('click',function() {
+          	console.log("ddddddddddddddd");
+          	console.log( $('#meeting_time').val()+":"+$('#meeting_timet').val());
+          	if($('#meeting_time').val() == null){
+          		swal("실패", "필수 정보가 누락되었습니다.", "error");
+          		return;
+          	}
+          	var aaa ={
+          			'join_tm' : $('#meeting_time').val()+":"+$('#meeting_timet').val(),
+          			'join_plc' : $('#offerMeetingPoint').val(),
+          			'lat' : $('#lat').text(),
+          			'lon' : $('#lng').text(),
+          			'cr_name' : $('#offerCourseTitle').val(),
+          			'cr_intro' : $('#offerCourseIntro').val()
+          	} 
+          	//console.log(($('#meeting_time').val()+":"+$('#meeting_timet').val().toString()));
+  			console.log($('#offerMeetingPoint').val());
+  			console.log($('#lat').text());
+  			console.log($('#lng').text());
+  			console.log($('#offerCourseTitle').val());
+  			console.log($('#offerCourseIntro').val());
+  			
+          	 $.ajax({
+                url: '/app/enroll/page2.do',
+                type: 'POST',
+                dataType: 'JSON',
+                data: JSON.stringify(aaa),
+                contentType: "application/json",
+                success: function(data) {
+                    console.log($(data));
+                    location.href = "/app/enroll/page3";
+                },
+                error: function() {
+                    console.log("실패");
+                    swal("실패", "필수 정보가 누락되었습니다.", "error");
+                }
+            });
+        });
+	});
+    </script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgateWzuSDzB4eXge3FbM9uGq13JearvI&callback=initMap" async defer></script>
+     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgateWzuSDzB4eXge3FbM9uGq13JearvI&libraries=places&callback=initMap"
+  type="text/javascript"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <div class='global-alert-box'>
     </div>
 
