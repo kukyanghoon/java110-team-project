@@ -23,7 +23,6 @@
 <link rel="stylesheet" media="screen" href="https://d2yoing0loi5gh.cloudfront.net/webpack/application.6823a52822019093f642.css" />
 <link rel="stylesheet" media="screen" href="https://d2yoing0loi5gh.cloudfront.net/webpack/application.e01e462572b9064a1cc4.css"/>
 <link rel="stylesheet" type="text/css" href="/resources/css/custom1.css">
-<script src="https://d2yoing0loi5gh.cloudfront.net/webpack/vendor.e01e462572b9064a1cc4.js"></script>
 <!--[if lte ie 9]>
 <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/ie-b751bcff1f912d9f2d6eb3f5f25a09494364fee359047b3bcf9e161c4d714527.css" />
 <![endif]-->
@@ -603,9 +602,11 @@
     }
   }
 </script>
-<script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-ce3fc3507853263820d2d1429b62056a0198477b4727cfb36e1facadea05fbcd.js"></script>
 <script src="/resources/js/custom.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-86de1be31d401529a297febaf961a82ebf2ba60f6dd1f2b9c4b833b5753dcb7f.js"></script>
+
 <script>
 
 
