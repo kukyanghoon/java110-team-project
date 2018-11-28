@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="leadme.dao.UserDao">
+    
+    <resultMap type="member" id="memberMap">
+        <id column="email"  property="email"/>
+        <result column="mno" property="no" />
+        <result column="name"    property="name"/>
+        <result column="photo"    property="photo"/>
+        <result column="path"    property="path"/>
+    </resultMap>
+    
+    <update id="photoModify" parameterType="map">
+        UPDATE memb
+        SET photo = #{photo}
+        WHERE mno = #{no};
+    </update>
+    
+    <select id="callBackUser" resultMap="memberMap" parameterType="int">
+        
+        select * 
+        from memb
+        where mno = #{no}
+    
+    </select>
+    
+    
+</mapper>
+
+
+
+
+
+
+
+
+

@@ -17,6 +17,7 @@ public class AuthController{
 
     AuthService authService;
     
+    
     public AuthController(AuthService authService) {
         this.authService = authService;
     }
@@ -112,13 +113,8 @@ public class AuthController{
       Map<String,Object> message = new HashMap<>();
       
       try {
-        authService.findUser(member);
+        authService.findUser(member).updatePw(member).mailSender();
         message.put("message", "회원확인 성공!");
-        
-        
-        //authService.updatePw(member);
-        // 이메일 보내는 서비스 메소드 호출 해야함 여기서 ㅇㅇ
-        authService.mailSender();
         
         return message;
       } catch (Exception e) {

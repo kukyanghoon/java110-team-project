@@ -102,7 +102,7 @@
                                  </div>
                                  <div class='col-xs-6'>
                                     <div class='find-password'>
-                                       <a data-turbolinks='false' href='#'>비밀번호 찾기</a>
+                                       <a data-turbolinks='false' href='#' id="findPwBtn">비밀번호 찾기</a>
                                     </div>
                                  </div>
                               </div>
@@ -145,8 +145,6 @@
     <footer>
         <jsp:include page="../footerTest.jsp"></jsp:include>
     </footer>
-    
-    <a href="#" id="find_pw_btn">비밀번호 찾기</a>
     
       <script src="/resources/js/custom.js"></script>
       
@@ -310,7 +308,7 @@
     
     <script>
     
-    $('#find_pw_btn').on('click', function(){
+    $('#findPwBtn').on('click', function(){
         swal("가입 시 입력한 이메일을 입력해주세요.", {
             content: "input",
           })

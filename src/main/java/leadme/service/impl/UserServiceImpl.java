@@ -1,49 +1,106 @@
 package leadme.service.impl;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.UUID;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import leadme.dao.ManagerDao;
-import leadme.dao.StudentDao;
-import leadme.dao.TeacherDao;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import leadme.dao.UserDao;
 import leadme.domain.Member;
-import leadme.service.AuthService2;
+import leadme.service.UserService;
 
 @Service
-public class UserServiceImpl implements AuthService2 {
+public class UserServiceImpl implements UserService {
 
-    @Autowired ManagerDao managerDao;
-    @Autowired TeacherDao teacherDao;
-    @Autowired StudentDao studentDao;
+  @Autowired UserDao userDao;
+  HttpSession session;
+  Member loginMember;
+
+  @Override
+  public void userProfileModify(Map<String, Object> map) {
+
+  }
+
+  @Override
+  public UserServiceImpl makePhotoFile(MultipartHttpServletRequest multi, HttpSession session) 
+      throws IllegalStateException, IOException {
     
-    @Override
-    public Member getMember(
-            String email, String password, String memberType) {
-        
-        HashMap<String,Object> params = new HashMap<>();
-        params.put("email", email);
-        params.put("password", password);
-        
-        if (memberType.equals("manager")) {
-            return managerDao.findByEmailPassword(params);
-            
-        } else if (memberType.equals("student")) {
-            return studentDao.findByEmailPassword(params);
-            
-        } else if (memberType.equals("teacher")) {
-            return teacherDao.findByEmailPassword(params);
-            //프록시 => 인터페이스구현을 대신해주는 
-        } else {
-            return null;
-        }
+    this.session = session;
+    
+    String root = multi.getSession().getServletContext().getRealPath("/");
+    String path = root+"resources/img/";
+
+    String newFileName = "";
+
+    File dir = new File(path);
+    if(!dir.isDirectory()){
+      dir.mkdir();
+    }
+
+    Iterator<String> files = multi.getFileNames();
+
+    while(files.hasNext()){
+      String uploadFile = files.next();
+
+      MultipartFile mFile = multi.getFile(uploadFile);
+      String fileName = mFile.getOriginalFilename();
+      if(fileName.isEmpty()) {
+        fileName = "default.png";
+
+      }
+
+      System.out.println("실제 파일 이름 : " +fileName);
+      if(fileName.equals("default.png")) {
+        newFileName = fileName;
+      }else {
+        newFileName = UUID.randomUUID().toString();
+      }
+
+      System.out.println("저장될 파일 이름 : " +newFileName);
+
+        mFile.transferTo(new File(path+newFileName));
+        userPhotoModify(newFileName);
+
     }
     
+    return this;
+  }
+  
+  @Override
+  public Member callBackUser() {
+    Member user = userDao.callBackUser(this.loginMember.getNo());
+    System.out.println(user);
+    this.session.setAttribute("memberInfo", user);
+    System.out.println("바뀐 session : " + this.session.getAttribute("memberInfo"));
+    return user;
+  }
+  
+  
+  
+
+  private void userPhotoModify(String photoName) {
+
+    System.out.println(photoName);
+    System.out.println(this.session.getAttribute("memberInfo"));
+    this.loginMember = (Member) this.session.getAttribute("memberInfo");
     
-    
-    
-    
-    
-    
+    Map<String,Object> param = new HashMap<String, Object>();
+    param.put("no", loginMember.getNo());
+    param.put("photo", photoName);
+
+    userDao.photoModify(param);
+  }
+
+
+
+
+
 }
 
 
