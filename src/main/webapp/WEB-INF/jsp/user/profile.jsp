@@ -120,11 +120,13 @@ input:checked + .slider:before {
       
       <div class="bg-1">
           <div class="container text-center">
-          <form id="fileForm" action="fileUpload" method="post"
-        enctype="multipart/form-data">
-
-            <input id='imgBtn' type="file" name='file1' multiple accept="image/*" style ="display : none">
-            <img src="${sessionScope.memberInfo.photo }" class="img-circle" alt="Bird" width="150" height="150" 
+          <form  id="uploadForm" method="post" enctype="multipart/form-data">
+                <input id='imgBtn' type="file" name='file1' multiple accept="image/*" style ="display : none">
+            </form>
+          <form>
+    
+            
+            <img src="/resources/img/${sessionScope.memberInfo.photo}" id="userImage" class="img-circle" alt="userImage" width="150" height="150" 
             onclick='document.all.file1.click();'>
           
 
@@ -336,6 +338,7 @@ $(document).ready(function(){
     
     $('#PhotoModifyBtn').on('click', function(){
        console.log('된다된다'); 
+       fileSubmit();
     });
     
     function validCheck(valid,value){
@@ -347,28 +350,58 @@ $(document).ready(function(){
 
     $('#imgBtn').on('click', function(){
        console.log("111"); 
+       
+       
     });
     
     function fileSubmit() {
-        var formData = new FormData($('form')[0]);
-        console.log(formData);
+        var formData = new FormData($('#uploadForm')[0]);
+        console.log($('#uploadForm'));
+        console.log($('#uploadForm')[0]);
+        console.log(formData.get('file1').name);
         console.log("33333");
-         /* $.ajax({
+           $.ajax({
             type : 'post',
-            url : 'userProfileModify.do',
+            url : 'userFile.do',
             data : formData,
             processData : false,
             contentType : false,
-            success : function(html) {
+            success : function(data) {
                 alert("파일 업로드하였습니다.");
+                console.log(data);
+                console.log(data.image);
+                var a = ("/resources/img/" + data.image);
+                $('#userImage').attr('src',a);
             },
             error : function(error) {
                 alert("파일 업로드에 실패하였습니다.");
                 console.log(error);
                 console.log(error.status);
             }
-        });  */
+        });
     }
+    
+    
+    function uploadFile() {
+        var form = new FormData(document.getElementById('uploadForm'));
+        console.log(form);
+        /* $.ajax({
+          url: "uploadgo", //컨트롤러 URL
+        data: form,
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        type: 'POST',
+        success: function (response) {
+          alert("success");
+          console.log(response);
+        },error: function (jqXHR) {
+          alert(jqXHR.responseText);
+        }
+         
+       }); */
+       }
+    
     
 });
 

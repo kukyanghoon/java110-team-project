@@ -53,6 +53,7 @@
     <property name="cacheSeconds" value="60" /> </bean> <!-- 언어 정보를 세션에 저장하여 사용합니다. --> 
     <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver" />
     
+    
     <mvc:interceptors> 
         <bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"> 
             <property name="paramName" value="lang" /> 

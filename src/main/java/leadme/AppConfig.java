@@ -44,6 +44,7 @@ public class AppConfig {
     @Autowired
     Environment env;
     
+    
     public AppConfig() {
         System.out.println("AppConfig() 호출됨!");
     }
