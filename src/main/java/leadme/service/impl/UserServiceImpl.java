@@ -9,6 +9,8 @@ import java.util.UUID;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import leadme.dao.UserDao;
@@ -22,11 +24,35 @@ public class UserServiceImpl implements UserService {
   HttpSession session;
   Member loginMember;
 
+  @Transactional(
+      transactionManager="transactionManager",
+      propagation=Propagation.REQUIRED,
+      rollbackFor=Exception.class)
   @Override
-  public void userProfileModify(Map<String, Object> map) {
-
+  public UserServiceImpl userProfileModify(Map<String, Object> map, HttpSession session) {
+    
+    System.out.println(map.get("no"));
+    System.out.println(map.get("name"));
+    System.out.println(map.get("email"));
+    System.out.println(map.get("lang"));
+    
+    this.session = session;
+    this.loginMember = (Member) this.session.getAttribute("memberInfo");
+    
+    userDao.userProfileModify(map);
+    userDao.userLangModify(map);
+    
+    return this;
   }
-
+  
+/*  private void changeSession(Map<String, Object> map) {
+    this.loginMember = (Member) this.session.getAttribute("memberInfo");
+    this.loginMember.setName((String)map.get("name"));
+    this.loginMember.setEmail((String)map.get("email"));
+    this.session.setAttribute("memberInfo", loginMember);
+    System.out.println("바뀐 session : " + this.session.getAttribute("memberInfo"));
+  }*/
+  
   @Override
   public UserServiceImpl makePhotoFile(MultipartHttpServletRequest multi, HttpSession session) 
       throws IllegalStateException, IOException {

@@ -7,7 +7,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import leadme.domain.Member;
 
 public interface UserService {
-  void userProfileModify(Map<String, Object> map);
+  UserService userProfileModify(Map<String, Object> map, HttpSession session);
   UserService makePhotoFile(MultipartHttpServletRequest multi, HttpSession session) 
       throws IllegalStateException, IOException ;
   Member callBackUser();

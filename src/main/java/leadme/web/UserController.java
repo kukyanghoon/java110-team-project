@@ -1,5 +1,6 @@
 package leadme.web;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpSession;
@@ -10,8 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import leadme.domain.Member;
 import leadme.service.UserService;
 
 @Controller
@@ -25,9 +29,14 @@ public class UserController {
     return "/user/profile";
   }
 
+  @RequestMapping(value="changepw")
+  public String changePw() {
+    return "/user/changePw";
+  }
+  
   @RequestMapping(value = "/userProfileModify.do",method=RequestMethod.POST)
   @ResponseBody
-  public void userProfileModify(@RequestBody String userInfo) {
+  public Map<String, Object> userProfileModify(@RequestBody String userInfo, HttpSession session) {
 
     System.out.println(userInfo);
 
@@ -36,12 +45,12 @@ public class UserController {
 
     try {
       map = mapper.readValue(userInfo, new TypeReference<Map<String, String>>(){});
+      userService.userProfileModify(map, session).callBackUser();
+      return map;
     } catch (Exception e) {
       System.out.println(e);
+      return null;
     } 
-
-    userService.userProfileModify(map);
-
   }
 
   @RequestMapping(value = "/userFile.do")
@@ -61,5 +70,22 @@ public class UserController {
       return null;
     }
 
+  }
+  
+  @RequestMapping(value = "/pwChange.do", method=RequestMethod.POST)
+  @ResponseBody
+  public Map<String, Object> pwChange(@RequestBody String pw) {
+    
+    ObjectMapper mapper = new ObjectMapper();
+    Map<String, Object> map = new HashMap<String, Object>(); 
+    try {
+      map = mapper.readValue(pw, new TypeReference<Map<String, String>>(){});
+      System.out.println(map.get("oldPw"));
+      System.out.println(map.get("newPw"));
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    
+    return null;
   }
 }

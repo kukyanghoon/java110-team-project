@@ -14,6 +14,7 @@ public class Member implements Serializable {
     protected String mtype;
     protected String path;
     protected String active;
+    protected Guide guide;
     public int getNo() {
       return no;
     }
@@ -68,11 +69,17 @@ public class Member implements Serializable {
     public void setActive(String active) {
       this.active = active;
     }
+    public Guide getGuide() {
+      return guide;
+    }
+    public void setGuide(Guide guide) {
+      this.guide = guide;
+    }
     @Override
     public String toString() {
       return "Member [no=" + no + ", name=" + name + ", password=" + password + ", cert_email="
           + cert_email + ", email=" + email + ", photo=" + photo + ", mtype=" + mtype + ", path="
-          + path + ", active=" + active + "]";
+          + path + ", active=" + active + ", guide=" + guide + "]";
     }
     
     
