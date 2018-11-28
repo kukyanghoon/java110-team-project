@@ -7,7 +7,7 @@ public class Tour implements Serializable {
   private static final long serialVersionUID = 1L;
   
     private int tno;            /* 여행번호 */
-    private String titl;        /* 타이틀  */
+    private String titl;        /* 타이틀 /여행제목 */
     private String loc;         /* 지역 */
     private double star;        /* 별점평균 */
     private int cmt_cnt;        /* 후기수 */

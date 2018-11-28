@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="utf-8">
+     <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    #a{
+        border:1px solid red;
+        width: 500px;
+        height: 500px;
+    }
+    div{
+        border:1px soild black;
+        width: 100px;
+        height: 100px;
+    }
+</style>
+    </head>
+<body>
+    <!-- <input name="file" id="btn" type="file" multiple accept="image/*">등록 -->
+    <button id="btn">등록</button>
+    <div id="a"></div>
+    <script>
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                $("#a").append("<div>ddd</div>");
+            });
+        });
+    </script>
+</body>
+</html>

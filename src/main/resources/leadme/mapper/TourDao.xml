@@ -13,6 +13,7 @@
         <result column="hits"    property="hits"/>
         <result column="pri_phot"    property="pri_phot"/>
         <result column="cmt_cnt"    property="cmt_cnt"/>
+        <result column="tour_intro" property="tour_intro"/>
         <association property="member" javaType="member">
             <id column="mno" property="no"/>
             <result column="name"    property="name"/>
@@ -104,6 +105,7 @@
            loc = #{loc}
         </foreach>
     </select>
+    
     
 </mapper>
 
