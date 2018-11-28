@@ -314,8 +314,10 @@ $(document).ready(function(){
        console.log($('#name').val());
        console.log($('#email').val());
        console.log($('#lang').val()); 
+       console.log(${sessionScope.memberInfo.no});
        
        var userInfo = {
+               'no': ${sessionScope.memberInfo.no},
                'name': $('#name').val(),
                'email': $('#email').val(),
                'lang': $('#lang').val()
@@ -328,6 +330,7 @@ $(document).ready(function(){
            data:JSON.stringify(userInfo),
            contentType:"application/json",
            success:function(data){
+               console.log("바바밤");
                console.log(data);
                //location.href = "../main";
            }
@@ -380,27 +383,7 @@ $(document).ready(function(){
             }
         });
     }
-    
-    
-    function uploadFile() {
-        var form = new FormData(document.getElementById('uploadForm'));
-        console.log(form);
-        /* $.ajax({
-          url: "uploadgo", //컨트롤러 URL
-        data: form,
-        dataType: 'json',
-        processData: false,
-        contentType: false,
-        type: 'POST',
-        success: function (response) {
-          alert("success");
-          console.log(response);
-        },error: function (jqXHR) {
-          alert(jqXHR.responseText);
-        }
-         
-       }); */
-       }
+
     
     
 });

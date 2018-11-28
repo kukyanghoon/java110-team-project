@@ -11,7 +11,22 @@
         <result column="photo"    property="photo"/>
         <result column="path"    property="path"/>
     </resultMap>
+
+    <update id="userProfileModify" parameterType="map">
+        UPDATE memb
+        SET name = #{name}
+        ,email = #{email}
+        ,cert_email = 'N'
+        WHERE mno = #{no};
+    </update>
     
+    <update id="userLangModify" parameterType="map">
+        UPDATE t_memb
+        SET lang = #{lang} 
+        WHERE mno = #{no};
+    </update>
+
+
     <update id="photoModify" parameterType="map">
         UPDATE memb
         SET photo = #{photo}
