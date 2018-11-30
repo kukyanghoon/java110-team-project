@@ -6,9 +6,9 @@
 <head>
 <title>파트너 페이지 | LEADME 리드미</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -27,42 +27,45 @@
 	src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/ko-9d53604fb5c8a610df23b77f7135903c1affe982fa1d15f3354fdc521e10862a.js"></script>
 <script
 	src="/resources/js/application-0a1f0d84b41d048d5930089311ad8e11e301bd606ee17fa9b2c5b3d74f7bec4a.js"></script>
-	<script
-    src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <style type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style type="text/css">
+input[type=file] {
+	display: none;
+}
 
-        input[type=file] {
-        
-            display: none;
-        }
+.my_button {
+	display: inline-block;
+	width: 200px;
+	text-align: center;
+	padding: 10px;
+	background-color: #006BCC;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 5px;
+}
 
-        .my_button {
-            display: inline-block;
-            width: 200px;
-            text-align: center;
-            padding: 10px;
-            background-color: #006BCC;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .imgs_wrap {
+.imgs_wrap {
+	border: 1px solid #A8A8A8;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
 
-            border: 1px solid #A8A8A8;
-            margin-top: 30px;
-            margin-bottom: 30px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
-        .imgs_wrap img {
-            max-width: 150px;
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-        div.col-md-9{
-        	vertical-align : middel;
-        }
-    </style>
+.imgs_wrap img {
+	max-width: 150px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+div.col-md-9 {
+	vertical-align: middel;
+}
+
+#PhotoModifyBtn {
+	background-color: #006BCC;
+}
+</style>
 </head>
 <body>
 	<div class='page-content container-fluid'>
@@ -71,9 +74,10 @@
 				<div class='widget'></div>
 				<form data-validation="false" data-istour="true"
 					data-isticket="false" data-ishotdeal="false" data-islodging="false"
-					data-offer-status="temp" id="offerForm"
-					class="panel panel-bordered" action="/partner/offers/46144"
-					accept-charset="UTF-8" method="post">
+					data-offer-status="temp" class="panel panel-bordered"
+					 accept-charset="UTF-8"
+					id="fileForm" action="fileUpload" method="post"
+					enctype="multipart/form-data">
 					<input name="utf8" type="hidden" value="&#x2713;" /><input
 						type="hidden" name="_method" value="put" /><input type="hidden"
 						name="authenticity_token"
@@ -285,25 +289,30 @@
 							<hr class='divider'>
 
 							<div>
-										<label class='control-label col-xs-12' for='offerTitle'>
+								<label class='control-label col-xs-12' for='offerTitle'>
 									여행 제목 <span>*</span>
 								</label>
+								</div>
+								
 								<div class="input_wrap">
-									<a href="javascript:" onclick="fileUploadAction();"
-										class="my_button">파일 업로드</a> <input type="file"
-										id="input_imgs" multiple accept="image/*" />
+            <a href="javascript:" onclick="fileUploadAction();" class="my_button">파일 업로드</a>
+            <input type="file" id="input_imgs" accept="image/*" name='upload'>
+        </div>
+								
+								
+								
+								
+								<div class="imgs_wrap"> 
+								<img src=""/>
 								</div>
-							</div>
-
-							<div>
-								<div class="imgs_wrap">
-									<img id="img" />
-								</div>
-							</div>
+						
+							<input type="button" value="저장" 
+								class="btn btn-info" style="float: right; margin-top: 30px;" />
 							<div class="form-group clearfix">
 								<div class="col-lg-12">
 									<p class="help-block">
 										• 대표사진을 등록해 주세요.<br>
+										• 저장버튼을 꼭 눌러주세요!<br>
 									</p>
 								</div>
 								<div class="col-xs-12">
@@ -318,8 +327,7 @@
 												<div
 													class="widget-body text-center bg-blue-grey-100 blue-grey-700">
 													<div class="file-upload-btn">
-														<input name="file" id="offerPhotoFileBtnBottom"
-															type="file" multiple>
+														
 														<div
 															class="btn btn-default btn-picture-add btn-picture-add-bottom btn-block ladda-button"
 															id="btnOfferPhotoBottom" data-style="zoom-out"
@@ -342,7 +350,7 @@
 						<div class='wizard-buttons'>
 							<a class='btn btn-default btn-outline' href='/auth/login'
 								role='button'>취소하기</a> <input
-								class='btn btn-primary btn-outline pull-right' id='save'
+								class='btn btn-primary btn-outline pull-right' onClick="fileSubmit();" id='save'
 								formnovalidate='0' name='save' role='button' type='button'
 								value='저장후 다음으로'>
 						</div>
@@ -400,29 +408,11 @@
 				}
 			});
 		});
-		$(document).ready(function() {
+		/* $(document).ready(function() {
 			$('#save').on('click', function() {
-				var aaa = {
-						'titl' : $('#offerTitle_title').val(),
-						'tour_intro' : $('#offerIntroduction').val(),
-						'cat_no' : $('input[name="offer[language_list][]"]:checked').val()
-						}
-				$.ajax({
-					url : '/app/enroll/page1.do',
-					type : 'POST',
-					dataType : 'JSON',
-					data : JSON.stringify(aaa),
-					contentType : "application/json",
-					success : function(data) {
-						console.log($(data));
-						location.href = "/app/enroll/page2";
-						},error : function() {
-							console.log("실패");
-							swal("실패", "필수 정보가 누락되었습니다.", "error");
-							}
-						});
+				
 				});
-			});
+			}); */
 	</script>
 	<script type="text/javascript">
 
@@ -514,6 +504,48 @@
         }
 
     </script>
+	<script>
+    function fileSubmit() {
+        var formData = new FormData($("#fileForm")[0]);
+        console.log(formData.get('upload').name);
+        $.ajax({
+            type : 'POST',
+            url : 'upload.do',
+            data : formData,
+            processData : false,
+            contentType : false,
+            success : function(data) {
+            	console.log(data);
+            	var a = (data);
+            	var aaa = {
+						'titl' : $('#offerTitle_title').val(),
+						'tour_intro' : $('#offerIntroduction').val(),
+						'cat_no' : $('input[name="offer[language_list][]"]:checked').val(),
+						'pri_phot' : a
+						}
+				$.ajax({
+					url : '/app/enroll/page1.do',
+					type : 'POST',
+					dataType : 'JSON',
+					data : JSON.stringify(aaa),
+					contentType : "application/json",
+					success : function(data) {
+						console.log($(data));
+						location.href = "/app/enroll/page2";
+						},error : function() {
+							console.log("실패");
+							swal("실패", "필수 정보가 누락되었습니다.", "error");
+							}
+						});
+                
+            },
+            error : function(data) {
+            	alert("파일 업로드에 실패하였습니다.");
+            	console.log(data);
+            }
+        });
+    }
+</script>
 
 
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
