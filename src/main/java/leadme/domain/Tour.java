@@ -29,26 +29,6 @@ public class Tour implements Serializable {
     private Member member;      /* 회원 정보*/
     private Category category;  /*카테고리 정보*/
     private Category mid_category;  /*중간 카테고리 정보*/
-    
-    
-    public Category getCategory() {
-      return category;
-    }
-    public void setCategory(Category category) {
-      this.category = category;
-    }
-    public Category getMid_category() {
-      return mid_category;
-    }
-    public void setMid_category(Category mid_category) {
-      this.mid_category = mid_category;
-    }
-    public Member getMember() {
-      return member;
-    }
-    public void setMember(Member member) {
-      this.member = member;
-    }
     public int getTno() {
       return tno;
     }
@@ -169,6 +149,24 @@ public class Tour implements Serializable {
     public void setMno(int mno) {
       this.mno = mno;
     }
+    public Member getMember() {
+      return member;
+    }
+    public void setMember(Member member) {
+      this.member = member;
+    }
+    public Category getCategory() {
+      return category;
+    }
+    public void setCategory(Category category) {
+      this.category = category;
+    }
+    public Category getMid_category() {
+      return mid_category;
+    }
+    public void setMid_category(Category mid_category) {
+      this.mid_category = mid_category;
+    }
     @Override
     public String toString() {
       return "Tour [tno=" + tno + ", titl=" + titl + ", loc=" + loc + ", star=" + star
@@ -176,11 +174,11 @@ public class Tour implements Serializable {
           + tour_intro + ", req_inf=" + req_inf + ", req_dt=" + req_dt + ", mod_dt=" + mod_dt
           + ", join_plc=" + join_plc + ", lat=" + lat + ", lon=" + lon + ", join_tm=" + join_tm
           + ", del_yn=" + del_yn + ", pri_phot=" + pri_phot + ", pri_mv=" + pri_mv + ", cat_no="
-          + cat_no + ", mno=" + mno + ", member=" + member + ", category=" + category + "]";
+          + cat_no + ", mno=" + mno + ", member=" + member + ", category=" + category
+          + ", mid_category=" + mid_category + "]";
     }
     
-    
-    
+   
     
     
 }

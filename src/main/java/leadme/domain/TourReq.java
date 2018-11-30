@@ -22,8 +22,9 @@ public class TourReq implements Serializable {
   private String req_stat;    /* 신청상태 */
   private String payment_id;  /* 결제ID */
   private String err_txt;     /* 에러내용 */
-  
- 
+  private String dDay;
+  private String tDay;
+  private Tour tour;
   public int getReqno() {
     return reqno;
   }
@@ -102,9 +103,6 @@ public class TourReq implements Serializable {
   public void setReq_stat(String req_stat) {
     this.req_stat = req_stat;
   }
-  public static long getSerialversionuid() {
-    return serialVersionUID;
-  }
   public String getPayment_id() {
     return payment_id;
   }
@@ -117,4 +115,33 @@ public class TourReq implements Serializable {
   public void setErr_txt(String err_txt) {
     this.err_txt = err_txt;
   }
+  public String getdDay() {
+    return dDay;
+  }
+  public void setdDay(String dDay) {
+    this.dDay = dDay;
+  }
+  public String getTday() {
+    return tDay;
+  }
+  public void setTday(String tday) {
+    this.tDay = tday;
+  }
+  public Tour getTour() {
+    return tour;
+  }
+  public void setTour(Tour tour) {
+    this.tour = tour;
+  }
+  @Override
+  public String toString() {
+    return "TourReq [reqno=" + reqno + ", tno=" + tno + ", tour_dt=" + tour_dt + ", mno=" + mno
+        + ", t_dt=" + t_dt + ", req_cnt=" + req_cnt + ", tot_pay=" + tot_pay + ", pay_type="
+        + pay_type + ", pay_stat=" + pay_stat + ", pay_dt=" + pay_dt + ", can_dt=" + can_dt
+        + ", cur_cd=" + cur_cd + ", req_stat=" + req_stat + ", payment_id=" + payment_id
+        + ", err_txt=" + err_txt + ", dDay=" + dDay + ", tday=" + tDay + ", tour=" + tour + "]";
+  }
+  
+  
+  
 }
