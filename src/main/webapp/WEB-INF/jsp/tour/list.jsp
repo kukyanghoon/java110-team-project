@@ -407,7 +407,7 @@ span.local{
     <script>
      $(document).ready(function(){
          
-         //console.log(${tourList});
+         //console.log();
          var catNo = ${catNo};
          console.log(catNo);
          var pageNum=5;
