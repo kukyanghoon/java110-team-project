@@ -8,4 +8,5 @@ public interface UserDao {
   int userLangModify(Map<String,Object> param);
   int photoModify(Map<String,Object> param);
   Member callBackUser(int no);
+  Member pwCheck(Map<String,Object> param);
 }

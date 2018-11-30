@@ -41,6 +41,11 @@
     
     </select>
     
+    <select id="pwCheck" resultMap="memberMap" parameterType="map">
+        select *
+        from memb
+        where mno = #{no} and pwd = password(#{pwd});
+    </select>
     
 </mapper>
 

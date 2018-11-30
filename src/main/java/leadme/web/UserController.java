@@ -1,6 +1,5 @@
 package leadme.web;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpSession;
@@ -11,11 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import leadme.domain.Member;
 import leadme.service.UserService;
 
 @Controller
@@ -74,7 +70,7 @@ public class UserController {
   
   @RequestMapping(value = "/pwChange.do", method=RequestMethod.POST)
   @ResponseBody
-  public Map<String, Object> pwChange(@RequestBody String pw) {
+  public Map<String, Object> pwChange(@RequestBody String pw, HttpSession session) {
     
     ObjectMapper mapper = new ObjectMapper();
     Map<String, Object> map = new HashMap<String, Object>(); 

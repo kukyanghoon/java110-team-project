@@ -114,7 +114,7 @@ public class UserServiceImpl implements UserService {
 
     System.out.println(photoName);
     System.out.println(this.session.getAttribute("memberInfo"));
-    this.loginMember = (Member) this.session.getAttribute("memberInfo");
+    this.loginMember = (Member)this.session.getAttribute("memberInfo");
     
     Map<String,Object> param = new HashMap<String, Object>();
     param.put("no", loginMember.getNo());
@@ -122,10 +122,25 @@ public class UserServiceImpl implements UserService {
 
     userDao.photoModify(param);
   }
+  
+  @Override
+  public void pwCheck(Map<String, Object> param, HttpSession session) {
+    
+    Member member = (Member)session.getAttribute("memberInfo");
+    
+    Map<String, Object> map = new HashMap<String, Object>();
+    map.put("no", member.getNo());
+    map.put("pwd", param.get("oldPw"));
+    Member checkMember = userDao.pwCheck(map);
+    System.out.println(checkMember);
+    if(checkMember == null) {
+      
+    }
+  }
 
-
-
-
+  public void pwChange() {
+    
+  }
 
 }
 

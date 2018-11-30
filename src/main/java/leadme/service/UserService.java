@@ -11,5 +11,5 @@ public interface UserService {
   UserService makePhotoFile(MultipartHttpServletRequest multi, HttpSession session) 
       throws IllegalStateException, IOException ;
   Member callBackUser();
-  
+  void pwCheck(Map<String, Object> param, HttpSession session);
 }
