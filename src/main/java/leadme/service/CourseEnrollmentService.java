@@ -12,4 +12,6 @@ public interface CourseEnrollmentService {
 	void saveSession(Tour tour, HttpSession session);
 	void saveSession1(CourseEnrollment courseenrollment, HttpSession session);
 	void saveSession2(Tour tour, HttpSession session);
+	void checkphot(Tour tour) throws Exception;
+	
 }

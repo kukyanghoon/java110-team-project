@@ -26,7 +26,13 @@ public class CourseEnrollmentServiceImpl implements CourseEnrollmentService{
 			throw new Exception("cat_no");
 		}
 	}
-
+	
+	@Override
+	public void checkphot(Tour tour) throws Exception{
+		if(tour.getPri_phot()==null) {
+			throw new Exception("pri_phot");
+		}
+	}
 	
 	@Override
 	public void saveSession(Tour tour, HttpSession session) {
