@@ -1,16 +1,24 @@
 package leadme.web;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.client.RestTemplate;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+
 import leadme.domain.TourReq;
+import leadme.service.KftcService;
 import leadme.service.UserTourService;
 
 @Controller
@@ -18,6 +26,7 @@ import leadme.service.UserTourService;
 public class UserTourController {
 
   @Autowired UserTourService userTourService;
+  @Autowired KftcService kftcService;
 
   @RequestMapping("/coming")
   public String coming() {
@@ -53,7 +62,10 @@ public class UserTourController {
   @RequestMapping("requestToken.do")
   @ResponseBody
   public void requestToken(@RequestBody String obj){
- 
+ /*
+  * 
+  * json 으로 요청 할 수는 없을까...?????
+  * 
     System.out.println(obj);
     
     Gson gson = new Gson();
@@ -66,25 +78,41 @@ public class UserTourController {
     
     String data = gson.toJson(jsonObject);
     System.out.println(data);
+  */  
+    System.out.println();
     
-    RestTemplate restTemplate = new RestTemplate();
     
-    Map returnData = restTemplate.postForObject("https://openapi.open-platform.or.kr/oauth/2.0/token", data, Map.class);
-    
-    /*https://testapi.open-platform.or.kr/oauth/2.0/token*/    
-    
-    /*https://openapi.open-platform.or.kr/oauth/2.0/token*/    
-    
-    /*ObjectMapper mapper = new ObjectMapper();
+    ObjectMapper mapper = new ObjectMapper();
     Map<String, Object> map = new HashMap<String, Object>(); 
     
-    map = mapper.readValue(data, new TypeReference<Map<String, String>>(){});*/
+    try {
+        map = mapper.readValue(kftcService.requestToken(), new TypeReference<Map<String, String>>(){});
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
     
-    System.out.println(returnData);
-    System.out.println(returnData.get("access_token"));
-    System.out.println(returnData.get("token_type"));
+    String token = (String) map.get("access_token");
+    System.out.println("token : " + token);
     
+    SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
+    String tran_dtime = format.format(new Date());
     
+    Gson gson = new Gson();
+    JsonObject jsonObject = new JsonObject();
+    
+    /*
+     *  테스트 데이터로만 조회 가능
+    */
+    jsonObject.addProperty("bank_code_std", "002");
+    jsonObject.addProperty("account_num", "1234567890123456");
+    jsonObject.addProperty("account_holder_info_type", " ");
+    jsonObject.addProperty("account_holder_info", "880101");
+    jsonObject.addProperty("tran_dtime", tran_dtime);
+
+    String data = gson.toJson(jsonObject);
+    System.out.println("data : " + data);
+    
+    kftcService.realName(token, data);
   
   }
   
