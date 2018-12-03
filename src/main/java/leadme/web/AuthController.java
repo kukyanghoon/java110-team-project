@@ -22,6 +22,32 @@ public class AuthController{
         this.authService = authService;
     }
     
+    @RequestMapping(value="guideSignup")
+    public String guideSignup() {
+      return "/auth/guideSignup";
+    }
+    
+    @RequestMapping(value="guideSignup.do", method=RequestMethod.POST)
+    @ResponseBody
+    public Map<String ,Object> guideSignup(@RequestBody String guideInfo) {
+      
+      System.out.println(guideInfo);
+      
+      Map<String ,Object> message = new HashMap<String, Object>();
+      
+      try {
+        authService.createGuide(guideInfo);
+        message.put("message", true);
+      } catch (Exception e) {
+        System.out.println(e);
+        return null;
+      }
+      return message;
+      
+    }
+    
+    
+    
     @RequestMapping(value="login")
     public String login() {
       return "/auth/login";
@@ -92,6 +118,7 @@ public class AuthController{
         message.put("message", "true");
         return message;
       } catch (Exception e) {
+        System.out.println(e);
         System.out.println("이미 가입 되어있는 회원");
         return null;
       }

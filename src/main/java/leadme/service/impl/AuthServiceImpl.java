@@ -10,8 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import leadme.dao.AuthDao;
+import leadme.domain.Guide;
 import leadme.domain.Member;
 import leadme.service.AuthService;
 
@@ -24,6 +29,7 @@ public class AuthServiceImpl implements AuthService {
 
   
   private Member member;
+  private Guide guide;
 
   @Override
   public AuthServiceImpl login(Member member) throws Exception {
@@ -121,7 +127,7 @@ public class AuthServiceImpl implements AuthService {
     member.setActive("N");
     member.setPath("leadme");
     
-    System.out.println("회원 가입 성공 !! : " + authDao.createUser(member));
+    System.out.println(authDao.createUser(member));
   }
   
   @Override
@@ -190,8 +196,69 @@ public class AuthServiceImpl implements AuthService {
   }
   
 
+  @Transactional(
+      transactionManager="transactionManager",
+      propagation=Propagation.REQUIRED,
+      rollbackFor=Exception.class)
+  @Override
+  public void createGuide(String guideInfo) {
+    
+    Map<String, Object> data = parseJsonData(guideInfo);
+    
+    System.out.println("넘어 옵니까??");
+    
+    Member member = new Member();
+    Guide guide = new Guide();
+    
+    System.out.println((String)data.get("name"));
+    
+    member.setName((String)data.get("name"));
+    member.setEmail((String)data.get("email"));
+    member.setPassword((String)data.get("password"));
+    member.setCert_email("N");
+    member.setPhoto("default.jpg");
+    member.setMtype("G");
+    member.setActive("N");
+    member.setPath("leadme");
+    
+    int mno = authDao.createUser(member);
+    
+    System.out.println("회원 번호 : " + mno);
+    System.out.println("제발제발");
+    System.out.println("member 끝");
+    
+    guide.setMno(member.getNo());
+    guide.setA_acc((String)data.get("a_aac"));
+    guide.setTel((String)data.get("tel"));
+    guide.setBirth((String)data.get("birth"));
+    guide.setBnk_cd((String)data.get("bnk_cd"));
+    guide.setOwner(member.getName());
+    
+    guide.setIntro("잘 부탁 드립니다");
+    guide.setCash(0);
+    
+    int aaa =  authDao.createGuideUser(guide);
+    
+    System.out.println(aaa);
+    System.out.println("생성된 member : " + this.member);
+    System.out.println("생성된 guide : " +this.guide);
+    
+    
+    
+  }
   
-  
-  
+  private Map<String, Object> parseJsonData(String jsonData) {
+    
+    ObjectMapper mapper = new ObjectMapper();
+    Map<String, Object> map = new HashMap<String, Object>(); 
+    
+    try {
+        map = mapper.readValue(jsonData, new TypeReference<Map<String, String>>(){});
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    
+    return map;
+  }
 
 }

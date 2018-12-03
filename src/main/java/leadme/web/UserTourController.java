@@ -1,22 +1,14 @@
 package leadme.web;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-
+import leadme.domain.RealName;
 import leadme.domain.TourReq;
 import leadme.service.KftcService;
 import leadme.service.UserTourService;
@@ -61,7 +53,7 @@ public class UserTourController {
   
   @RequestMapping("requestToken.do")
   @ResponseBody
-  public void requestToken(@RequestBody String obj){
+  public Map<String, Object> requestToken(@RequestBody RealName realName){
  /*
   * 
   * json 으로 요청 할 수는 없을까...?????
@@ -79,41 +71,19 @@ public class UserTourController {
     String data = gson.toJson(jsonObject);
     System.out.println(data);
   */  
-    System.out.println();
     
+    Map<String, Object> message = new HashMap<String, Object>();
     
-    ObjectMapper mapper = new ObjectMapper();
-    Map<String, Object> map = new HashMap<String, Object>(); 
-    
+    System.out.println("realName 받아온거 : " +  realName);
     try {
-        map = mapper.readValue(kftcService.requestToken(), new TypeReference<Map<String, String>>(){});
+      kftcService.requestToken().realName(realName);
+      message.put("message", "성공");
+      return message;
     } catch (Exception e) {
-        e.printStackTrace();
+      System.out.println(e);
+      return null;
     }
     
-    String token = (String) map.get("access_token");
-    System.out.println("token : " + token);
-    
-    SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
-    String tran_dtime = format.format(new Date());
-    
-    Gson gson = new Gson();
-    JsonObject jsonObject = new JsonObject();
-    
-    /*
-     *  테스트 데이터로만 조회 가능
-    */
-    jsonObject.addProperty("bank_code_std", "002");
-    jsonObject.addProperty("account_num", "1234567890123456");
-    jsonObject.addProperty("account_holder_info_type", " ");
-    jsonObject.addProperty("account_holder_info", "880101");
-    jsonObject.addProperty("tran_dtime", tran_dtime);
-
-    String data = gson.toJson(jsonObject);
-    System.out.println("data : " + data);
-    
-    kftcService.realName(token, data);
-  
   }
   
   

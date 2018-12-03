@@ -12,6 +12,7 @@ public class Guide implements Serializable {
   private String bnk_cd;
   private String a_acc;
   private String owner;
+  private String birth;
   public int getMno() {
     return mno;
   }
@@ -54,13 +55,18 @@ public class Guide implements Serializable {
   public void setOwner(String owner) {
     this.owner = owner;
   }
+  public String getBirth() {
+    return birth;
+  }
+  public void setBirth(String birth) {
+    this.birth = birth;
+  }
   @Override
   public String toString() {
     return "Guide [mno=" + mno + ", tel=" + tel + ", intro=" + intro + ", cash=" + cash
-        + ", bnk_cd=" + bnk_cd + ", a_acc=" + a_acc + ", owner=" + owner + "]";
+        + ", bnk_cd=" + bnk_cd + ", a_acc=" + a_acc + ", owner=" + owner + ", birth=" + birth + "]";
   }
-  
-  
+   
   
   
 }
