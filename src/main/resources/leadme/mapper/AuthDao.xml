@@ -45,7 +45,10 @@
    
     insert into memb(name,pwd,cert_email,email,photo,mtype,path,active) values
             (#{name}, password(#{password}), #{cert_email}, #{email}, #{photo}, #{mtype}, #{path}, #{active});
-   
+            
+    <selectKey resultType="Integer" keyProperty="no" order="AFTER">
+        SELECT LAST_INSERT_ID()
+    </selectKey> 
     </insert>
     
     <select id="findUser" resultMap="memberMap" parameterType="map">
@@ -57,6 +60,14 @@
     <update id="updatePw" parameterType="map">
         update memb set pwd = PASSWORD(#{password}) where email = #{email};
     </update>
+    
+    <insert id="createGuideUser" parameterType="guide">
+   
+    INSERT INTO g_memb(mno, tel, intro, cash, bnk_cd, a_acc, owner, birth) 
+        VALUES (#{mno},#{tel},#{intro},#{cash},#{bnk_cd},#{a_acc},#{owner},#{birth});
+   
+    </insert>
+    
     
 </mapper>
 

@@ -20,4 +20,6 @@ public interface AuthService {
     AuthService updatePw(Member member) throws Exception;
     
     AuthService mailSender() throws MessagingException;
+    
+    void createGuide(String guideInfo);
 }

@@ -1,7 +1,9 @@
 package leadme.service;
 
+import leadme.domain.RealName;
+
 public interface KftcService {
 
-    String requestToken();
-    void realName(String token, String data);
+    KftcService requestToken();
+    void realName(RealName realName) throws Exception;
 }
