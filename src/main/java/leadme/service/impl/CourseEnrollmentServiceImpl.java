@@ -62,6 +62,9 @@ public class CourseEnrollmentServiceImpl implements CourseEnrollmentService{
 		if(courseenrollment.getJoin_tm()==null ) {
 			throw new Exception("join_tm");
 		}
+		if(courseenrollment.getCr_phot()==null) {
+			throw new Exception("cr_phot");
+		}
 		
 		
 		

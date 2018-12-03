@@ -53,13 +53,21 @@ input#address {
 	width: 90%;
 }
 .input_wrap{
-background-color:#76838f;
+background-color:white;
 }
 img{
     max-width: 706px;
     max-height:290px;
     object-fit: contain;
 }
+a.my_button{
+	background-color:white;
+}
+
+.photo-btn-add-container{
+	text-align : center;
+}
+
 </style>
 
 <link
@@ -330,11 +338,10 @@ img{
 														data-desc='• 직접 촬영하셨거나 상업적 이용이 허용된 선명한 사진을 사용하셔야 합니다.<br/>• 코스 내용에 가장 적합한 사진 사이즈는 815*460 입니다.<br/>• 브라우저에 따라 사진의 위, 아래가 잘려서 노출될 수 있습니다.<br/>• 7mb 이하의 사진을 올려주세요.<br/>'>
 														<div class='col-xs-12 course-photo-container'>
 															<div class='widget margin-5 photo-btn-add-container'>
-																<div
-																	class='widget-body text-center bg-blue-grey-100 blue-grey-700'>
+																<div class='widget-body text-center bg-blue-grey-100 blue-grey-700 offerCoursePhoto'>
 																	<div class="input_wrap">
 																		<a href="javascript:" onclick="fileUploadAction();"
-																			class="my_button">파일 업로드</a> <input type="file"
+																			class="my_button">사진 업로드</a> <input type="file"
 																			id="input_imgs" accept="image/*" name='upload'>
 																	</div>
 
@@ -363,6 +370,7 @@ img{
 										class='widget-body text-center bg-blue-grey-100 blue-grey-700'>
 										<i class='fa fa-plus padding-right-5'></i> 코스 추가
 									</div>
+									
 								</div>
 							</div>
 						</div>
@@ -377,6 +385,9 @@ img{
 						formnovalidate='0' name='save' role='button' type='button'
 						value='저장후 다음으로'>
 				</div>
+				<div>
+										<div onclick="ajaxTest();">Ajax배열데이터전송_테스트</div>
+									</div>
 			</div>
 
 		</form>
@@ -488,20 +499,25 @@ img{
                 swal("실패", "필수 정보가 누락되었습니다.", "error");
                 return;
             }
-            var arr=[];
+            var fileValue = $("#input_imgs").val().split("\\");
+    		var fileName = fileValue[fileValue.length-1];
+            var arr={};
             var aaa ={
                     'join_tm' : $('#meeting_time').val()+":"+$('#meeting_timet').val(),
                     'join_plc' : $('#offerMeetingPoint').val(),
                     'lat' : $('#lat').text(),
                     'lon' : $('#lng').text(),
                     'cr_name' : $('.offerCourseTitle').val(), 
-                    'cr_intro' : $('.offerCourseIntro').val()
+                    'cr_intro' : $('.offerCourseIntro').val(),
+                    'cr_phot' : fileName
             } 
             console.log($('#offerMeetingPoint').val());
             console.log($('#lat').text());
             console.log($('#lng').text());
             console.log($('.offerCourseTitle').val());
             console.log($('.offerCourseIntro').val());
+            console.log(fileValue);
+            console.log(fileName);
             
              $.ajax({
                 url: '/app/enroll/page2.do',
@@ -524,7 +540,7 @@ img{
 	<script>
         $(document).ready(function(){
             $('#courseplus').on('click',function(){
-                 $('#coursedetail').append("<div class='widget widget-shadow widget-border'><div class='widget-header'><div class='cover'><div class='close' data-plugin='alertify'><i class='icon wb-close-mini'></i></div></div></div><div class='widget-body' style='background-color:saddlebrown;'><input name='offer[courses_attributes][][id]' type='hidden'><input name='offer[courses_attributes][][position]' type='hidden' value='1'><input name='offer[courses_attributes][][_destroy]' type='hidden' value='0'><div class='row'><div class='col-xs-12'><div class='form-group clearfix'><label class='control-label col-xs-12' for='offerCourseTitle'>코스 제목<span>*</span></label><div class='col-xs-12'><input class='form-control offerCourseTitle' name='offer[courses_attributes][][title]' type='text'></div></div></div></div><div class='row'><div class='col-xs-12'><div class='form-group clearfix'><label class='control-label col-xs-12'>코스 내용</label><div class='col-xs-12'><textarea class='form-control offerCourseIntro' name='offer[courses_attributes][][description]' placeholder='여행자들이 어떤 것을 기대할 수 있는지 사전에 머릿속에 그려볼 수 있도록 무엇을 하는 코스인지 자세하게 적어주세요.' rows='4'></textarea></div></div></div></div><div class='row'><div class='col-xs-12'><div class='form-group clearfix' ><div class='col-xs-12 course-photo-container'><div class='widget margin-5 photo-btn-add-container'><div class='widget-body text-center bg-blue-grey-100 blue-grey-700'><div class='img-container'><img class='img'></div><div class='file-upload-btn'><input class='course-photo-btn' name='file' type='file'><div class='btn btn-default btn-picture-add btn-block ladda-button' data-spinner-color='DarkGrey' data-style='zoom-out'><span class='ladda-label'><i class='icon fa-camera'></i>사진등록</span> </div><input name='offer[courses_attributes][][photo_temp_url]' type='hidden' value=''></div></div></div></div></div></div></div></div></div>");
+            	$('#coursedetail').append("<div class='widget widget-shadow widget-border'><div class='widget-header'><div class='cover'><div class='close' data-plugin='alertify'><i class='icon wb-close-mini'></i></div></div></div><div class='widget-body'style='background-color: saddlebrown;'><input name='offer[courses_attributes][][id]' type='hidden'><input name='offer[courses_attributes][][position]'type='hidden' value='1'> <inputname='offer[courses_attributes][][_destroy]' type='hidden'value='0'><div class='row'><div class='col-xs-12'><div class='form-group clearfix'><label class='control-label col-xs-12'for='offerCourseTitle'> 코스 제목 <span>*</span></label><div class='col-xs-12'><input class='form-control offerCourseTitle'name='offer[courses_attributes][][title]' type='text'></div></div></div></div<div class='row'><div class='col-xs-12'><div class='form-group clearfix'><label class='control-label col-xs-12'> 코스 내용 </label><div class='col-xs-12'><textarea class='form-control offerCourseIntro'name='offer[courses_attributes][][description]'placeholder='여행자들이 어떤 것을 기대할 수 있는지 사전에 머릿속에 그려볼 수 있도록 무엇을 하는 코스인지 자세하게 적어주세요.'rows='4'></textarea></div></div></div></div><div class='row'><div class='col-xs-12'><div class='form-group clearfix'><div class='col-xs-12 course-photo-container'><div class='widget margin-5 photo-btn-add-container'><divclass='widget-body text-center bg-blue-grey-100 blue-grey-700'><div class='input_wrap'><a href='javascript:' onclick='fileUploadAction();'class='my_button'>파일 업로드</a> <input type='file'id='input_imgs' accept='image/*' name='upload'></div><div class='imgs_wrap'><img src='' /></div></div></div></div></div></div></div></div></div>");
             });
         });
     </script>
@@ -535,16 +551,13 @@ img{
         var sel_files = [];
 
 
-        $(document).ready(function() {
+        $(document).ready(function(e) {
+        	
             $("#input_imgs").on("change", handleImgFileSelect);
         }); 
 
-        function fileUploadAction() {
-            console.log("fileUploadAction");
-            $("#input_imgs").trigger('click');
-        }
-
         function handleImgFileSelect(e) {
+        	
 
             // 이미지 정보들을 초기화
             sel_files = [];
@@ -564,14 +577,17 @@ img{
 
                 var reader = new FileReader();
                 reader.onload = function(e) {
+                	
                     var html = "<a href=\"javascript:void(0);\" onclick=\"deleteImageAction("+index+")\" id=\"img_id_"+index+"\"><img src=\"" + e.target.result + "\" data-file='"+f.name+"' class='selProductFile' title='Click to remove'></a>";
                     $(".imgs_wrap").append(html);
                     index++;
+                    
 
                 }
                 reader.readAsDataURL(f);
                 
             });
+            e.stopImmediatePropagation();
         }
 
 
@@ -584,11 +600,6 @@ img{
 
             var img_id = "#img_id_"+index;
             $(img_id).remove(); 
-        }
-
-        function fileUploadAction() {
-            console.log("fileUploadAction");
-            $("#input_imgs").trigger('click');
         }
 
         function submitAction() {
@@ -619,7 +630,47 @@ img{
         }
 
     </script>
+	
+	
+	<script type="text/javascript">
+    function ajaxTest(){
+         
+       var arr = new Array(); //Object를 배열로 저장할 Array
+       var obj = new Object(); //key, value형태로 저장할 Object
+       var fileValue = $("#input_imgs").val().split("\\");
+		var fileName = fileValue[fileValue.length-1];
+        
+       obj.cr_name = $('.offerCourseTitle').val();
+       obj.cr_intro =  $('.offerCourseIntro').val();
+       obj.cr_phot = fileName;
+       arr.push(obj);
+        
+      
+       
+       
+       obj = new Object();
+       obj.cr_name = $('.offerCourseTitle').val();
+       obj.cr_intro =  $('.offerCourseIntro').val();
+       obj.cr_phot = fileName;
+       arr.push(obj);
+ 
+        $.ajax({
+            url: "ajaxJsonTest.do",
+            type: "POST",
+            data: JSON.stringify(arr), //Array를 JSON string형태로 변환
+            dataType: "json",
+            contentType: "application/json",
+            success: function(data) {
+            	alert("success");
+            },
+            error:function(data){
+            	alert("fail");
+            }
+        });
+    }
+</script>
 
+	
 
 	<script async defer
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgateWzuSDzB4eXge3FbM9uGq13JearvI&libraries=places&callback=initMap"

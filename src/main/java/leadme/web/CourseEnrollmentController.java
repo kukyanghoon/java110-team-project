@@ -2,17 +2,21 @@ package leadme.web;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -21,7 +25,7 @@ import leadme.domain.CourseEnrollment;
 import leadme.domain.Tour;
 import leadme.service.CourseEnrollmentService;
 import leadme.service.TourService;
-import leadme.service.impl.CourseEnrollmentServiceImpl;
+import net.sf.json.JSONArray;
 
 @Controller
 @RequestMapping("/enroll")
@@ -76,6 +80,7 @@ public class CourseEnrollmentController {
 		System.out.println(courseenrollment.getLon());
 		System.out.println(courseenrollment.getCr_name());
 		System.out.println(courseenrollment.getCr_intro());
+		System.out.println(courseenrollment.getCr_phot());
 
 		Map<String,Object> map = new HashMap<String, Object>();
 		try {
@@ -169,5 +174,22 @@ public class CourseEnrollmentController {
 		return newFileName;
 	}
 
+	
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = "ajaxJsonTest.do", method = { RequestMethod.POST })
+	@ResponseBody
+	public void ajaxJsonTest(HttpServletRequest request, @RequestBody String paramData) {
+	    /*JSONArray jsonArray = JSONArray.fromObject(paramData);*/
+	 
+	    List<Map<String,Object>> resultMap = new ArrayList<Map<String,Object>>();
+	    resultMap = JSONArray.fromObject(paramData);
+	         
+	    for (Map<String, Object> map : resultMap) {
+	        System.out.println(map.get("cr_name") + " , " + map.get("cr_intro") + " , " + map.get("cr_phot"));
+	        //관리자 : 1111
+	        //직원 : 2222
+	    }
+	}
+	  
 }
 
