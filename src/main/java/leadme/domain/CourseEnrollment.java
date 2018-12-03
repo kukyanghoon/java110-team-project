@@ -16,7 +16,14 @@ public class CourseEnrollment implements Serializable{
 	private Double lat;         /* 위도값 */
 	private Double lon;         /* 경도값 */ 
 	private String join_tm;       /* 만나는시각 */
+	private String cr_phot;		/*코스사진*/
 
+	public String getCr_phot() {
+		return cr_phot;
+	}
+	public void setCr_phot(String cr_phot) {
+		this.cr_phot = cr_phot;
+	}
 	public String getJoin_plc() {
 		return join_plc;
 	}
@@ -74,6 +81,9 @@ public class CourseEnrollment implements Serializable{
 	@Override
 	public String toString() {
 		return "CourseEnrollment [cr_no=" + cr_no + ", tno=" + tno + ", cr_idx=" + cr_idx + ", cr_name=" + cr_name
-				+ ", cr_intro=" + cr_intro + "]";
+				+ ", cr_intro=" + cr_intro + ", join_plc=" + join_plc + ", lat=" + lat + ", lon=" + lon + ", join_tm="
+				+ join_tm + ", cr_phot=" + cr_phot + "]";
 	}
+	
+	
 }
