@@ -185,7 +185,10 @@
                   data:JSON.stringify(obj),
                   contentType:"application/json",
                   success:function(data){
-                      location.href = '../main';
+                      console.log("aaaaaaaaaaa");
+                      console.log(data);
+                      console.log(document.referrer);
+                      //location.href = '../main';
                   },
                   error:function(){
                       console.log('실패');
