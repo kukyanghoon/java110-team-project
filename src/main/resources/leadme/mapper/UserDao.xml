@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="leadme.dao.UserDao">
+    
+    <resultMap type="member" id="memberMap">
+        <id column="email"  property="email"/>
+        <result column="mno" property="no" />
+        <result column="name"    property="name"/>
+        <result column="photo"    property="photo"/>
+        <result column="path"    property="path"/>
+    </resultMap>
+
+    <update id="userProfileModify" parameterType="map">
+        UPDATE memb
+        SET name = #{name}
+        ,email = #{email}
+        ,cert_email = 'N'
+        WHERE mno = #{no};
+    </update>
+    
+    <update id="userLangModify" parameterType="map">
+        UPDATE t_memb
+        SET lang = #{lang} 
+        WHERE mno = #{no};
+    </update>
+
+
+    <update id="photoModify" parameterType="map">
+        UPDATE memb
+        SET photo = #{photo}
+        WHERE mno = #{no};
+    </update>
+    
+    <select id="callBackUser" resultMap="memberMap" parameterType="int">
+        
+        select * 
+        from memb
+        where mno = #{no}
+    
+    </select>
+    
+    <select id="pwCheck" resultMap="memberMap" parameterType="map">
+        select *
+        from memb
+        where mno = #{no} and pwd = password(#{pwd});
+    </select>
+    
+    <update id="pwModify" parameterType="map">
+        update memb
+        set pwd = password(#{newPw})
+        where mno = #{mno};
+    </update>
+    
+</mapper>

@@ -124,7 +124,7 @@ public class UserServiceImpl implements UserService {
   }
   
   @Override
-  public void pwCheck(Map<String, Object> param, HttpSession session) {
+  public void pwCheck(Map<String, Object> param, HttpSession session) throws Exception {
     
     Member member = (Member)session.getAttribute("memberInfo");
     
@@ -134,11 +134,19 @@ public class UserServiceImpl implements UserService {
     Member checkMember = userDao.pwCheck(map);
     System.out.println(checkMember);
     if(checkMember == null) {
-      
+      throw new Exception();
     }
   }
 
-  public void pwChange() {
+  @Override
+  public void pwModify(Map<String, Object> param) throws Exception {
+    
+    int num = userDao.pwModify(param);
+    
+    if(num <= 0) {
+      throw new Exception();
+    }
+    
     
   }
 

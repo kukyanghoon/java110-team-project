@@ -76,12 +76,27 @@ public class UserController {
     Map<String, Object> map = new HashMap<String, Object>(); 
     try {
       map = mapper.readValue(pw, new TypeReference<Map<String, String>>(){});
+      System.out.println(map.get("mno"));
       System.out.println(map.get("oldPw"));
       System.out.println(map.get("newPw"));
     } catch (Exception e) {
       e.printStackTrace();
     }
     
-    return null;
+    Map<String, Object> map2 = new HashMap<String, Object>(); 
+    try {
+      userService.pwCheck(map, session);
+      userService.pwModify(map);
+      map2.put("aaa", "권형은");
+      return map2;
+    } catch (Exception e) {
+      System.out.println(e);
+      return null;
+    }
+    
+    
+    
+    
+    
   }
 }

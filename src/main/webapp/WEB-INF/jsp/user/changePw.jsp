@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bootstrap Example</title>
+  <title>LEADME || 비밀번호 변경</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -84,6 +84,7 @@ $(document).ready(function(){
        }
        
        var pwInfo = {
+               'mno' : ${memberInfo.no},
                'oldPw': $('#nowPw').val(),
                'newPw': $('#newPw').val()
        }
@@ -98,8 +99,14 @@ $(document).ready(function(){
            contentType:"application/json",
            success:function(data){
                
-               
-               
+               console.log(data);
+               console.log(data.aaa);
+               console.log("비밀번호 변경 성공ㅋ");
+               swal("비밀번호 변경 완료", "", "success");
+           },
+           error:function(){
+               console.log("비변실 ㅎ");
+               swal("비밀번호 변경 실패", "정보를 확인해 주세요.", "error");
            }
        
        }); 
@@ -163,6 +170,7 @@ $(document).ready(function(){
 });
 
 </script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </body>
 </html>
