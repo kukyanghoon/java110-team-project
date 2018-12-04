@@ -2,6 +2,7 @@ package leadme.web;
 
 import java.util.HashMap;
 import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -49,19 +50,20 @@ public class AuthController{
     
     
     @RequestMapping(value="login")
-    public String login() {
+    public String login(HttpSession session, HttpServletRequest request) {
       return "/auth/login";
     }
     
     @RequestMapping(value="loginCheck.do", method=RequestMethod.POST)
     @ResponseBody
-    public Map<String ,Object> loginCheck(@RequestBody Member member, HttpSession session) {
+    public Map<String ,Object> loginCheck(@RequestBody Member member, HttpSession session, HttpServletRequest request) {
       Map<String ,Object> message = new HashMap<String, Object>();
       try {
         authService.login(member).loginPass(session);
         System.out.println("session에 아이디값 저장");
         System.out.println(((Member)session.getAttribute("memberInfo")).toString());
         message.put("message", true);
+        message.put("url", request.getHeader("referer"));
       } catch (Exception e) {
         System.out.println(e);
         return null;

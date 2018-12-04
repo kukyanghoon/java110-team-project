@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MemberDao 클래스가 사용할 SQL이 들어 있는 파일 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="leadme.dao.SearchDao">
+
+    <resultMap type="tour" id="tourMap">
+        <id column="tno"  property="tno"/>
+        <result column="titl"    property="titl"/>
+        <result column="star"    property="star"/>
+        <result column="loc"    property="loc"/>
+        <result column="amt"    property="amt"/>
+        <result column="hits"    property="hits"/>
+        <result column="pri_phot"    property="pri_phot"/>
+        <result column="cmt_cnt"    property="cmt_cnt"/>
+        <result column="tour_intro" property="tour_intro"/>
+    </resultMap>
+    
+    
+    <select id="search" resultMap="tourMap" parameterType="map">
+    
+    SELECT 
+            * 
+    FROM 
+            tour
+    where
+        <foreach collection="word" item="item" separator="or">
+            titl LIKE #{item}
+        </foreach>
+    
+    
+    </select>
+    
+    
+    
+    
+</mapper>
+
+
+
+
+
+
+
+
+

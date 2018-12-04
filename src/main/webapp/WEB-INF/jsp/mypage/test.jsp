@@ -557,7 +557,7 @@ $(document).ready(function(){
        }
        
        $.ajax({
-           url:'userProfileModify.do',
+           url:'/app/user/userProfileModify.do',
            type:'POST',
            dataType:'JSON',
            data:JSON.stringify(userInfo),

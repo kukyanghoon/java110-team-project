@@ -46,5 +46,23 @@ public class GuideController {
     }
 
   }
+  
+  
+  @RequestMapping(value="profileModify")
+  public String profileModify() {
+
+    return "/guide/profileModify";
+  }
+  
+  @RequestMapping(value="profileModify.do", method=RequestMethod.POST)
+  @ResponseBody
+  public Map<String ,Object> profileModify(@RequestBody Guide guide) {
+    
+    System.out.println(guide);
+    
+    
+    return null;
+  }
+  
 
 }
