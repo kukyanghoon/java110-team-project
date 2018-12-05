@@ -31,7 +31,25 @@ public class GuideServiceImpl implements GuideService {
     return findGuide;
   }
   
+  @Override
+  public void profileModify(Map<String, Object> param) throws Exception {
+    
+    int num = guideDao.profileModify(param);
+    if(num <= 0) {
+      throw new Exception();
+    }
+    
+  }
   
+  @Override
+  public void profileModify2(Map<String, Object> param) throws Exception {
+    
+    int num = guideDao.profileModify2(param);
+    if(num <= 0) {
+      throw new Exception();
+    }
+    
+  }
   
 }
 

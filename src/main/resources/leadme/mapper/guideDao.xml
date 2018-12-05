@@ -32,7 +32,19 @@
         
     </select>
     
+    <update id="profileModify" parameterType="map">
+        update memb
+        set name = #{name},
+        email = #{email}
+        where mno = #{mno};
+    </update>
     
+    <update id="profileModify2" parameterType="map">
+        update g_memb
+        set tel = #{tel},
+        intro = #{intro}
+        where mno = #{mno};
+    </update>
     
 </mapper>
 
