@@ -68,6 +68,14 @@
    
     </insert>
     
+    <update id="certificateEmail" parameterType="map">
+        
+        UPDATE memb
+        SET cert_email= 'Y'
+        WHERE mno = #{mno}
+        
+    </update>
+    
     
 </mapper>
 

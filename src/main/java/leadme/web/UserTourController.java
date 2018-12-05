@@ -161,7 +161,10 @@ public class UserTourController {
   
   }
   
-  
+  @RequestMapping("/guideMyTour")
+  public String guideMyTour() {
+    return "/mypage/guideMyTour";
+  }
   
   
 }

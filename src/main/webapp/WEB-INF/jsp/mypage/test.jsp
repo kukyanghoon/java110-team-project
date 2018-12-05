@@ -429,7 +429,7 @@ input:checked + .slider:before {
               <label class="control-label col-sm-3" for="email">이메일:</label>
               <div class="col-sm-9">
                 <input type="email" class="form-control emailAuthUse" id="email" value='${sessionScope.memberInfo.email }' style="width: 70%">
-                <button type="button" class="btn btn-info emailAuthUse">이메일 연동하기</button>
+                <button id="emailAuthBtn" type="button" class="btn btn-info emailAuthUse">이메일 연동하기</button>
               </div>
             </div> 
             </c:when>
@@ -617,6 +617,31 @@ $(document).ready(function(){
         });
     }
 
+
+    $('#emailAuthBtn').on('click', function(){
+       console.log("aaaa"); 
+       
+       var obj = {
+               'no' : ${memberInfo.no},
+               'email' : '${memberInfo.email}'
+       }
+       
+       $.ajax({
+           url:'/app/auth/emailAuth.do',
+           type:'POST',
+           dataType:'JSON',
+           data:JSON.stringify(obj),
+           contentType:"application/json",
+           success:function(data){
+               
+           },
+           error:function(){
+               
+           }
+       
+       }); 
+       
+    });
     
     
 });

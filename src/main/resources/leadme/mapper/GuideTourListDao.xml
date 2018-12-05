@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="leadme.dao.GuideTourListDao">
+    
+    <resultMap type="tourReq" id="tourMap">
+        <id column="reqno" property="reqno"/>
+        <result column="tour_dt"    property="tour_dt"/>
+        <result column="tno"    property="tno"/>
+        <result column="can_dt"    property="can_dt"/>
+        
+        <association property="tour" javaType="tour">
+            <id column="tno"  property="tno"/>
+            <result column="titl"    property="titl"/>
+            <result column="star"    property="star"/>
+            <result column="loc"    property="loc"/>
+            <result column="amt"    property="amt"/>
+            <result column="hits"    property="hits"/>
+            <result column="pri_phot"    property="pri_phot"/>
+            <result column="cmt_cnt"    property="cmt_cnt"/>
+            <result column="tour_intro" property="tour_intro"/>
+        </association>
+        
+    </resultMap>
+    
+    
+    <resultMap type="tourReq" id="comingTourMap">
+        <id column="reqno" property="reqno"/>
+        <result column="tour_dt"    property="tour_dt"/>
+        <result column="tot_pay"    property="tot_pay"/>
+        
+        <association property="tour" javaType="tour">
+            <id column="tno"  property="tno"/>
+            <result column="titl"    property="titl"/>
+            <result column="star"    property="star"/>
+            <result column="loc"    property="loc"/>
+            <result column="amt"    property="amt"/>
+            <result column="hits"    property="hits"/>
+            <result column="pri_phot"    property="pri_phot"/>
+            <result column="cmt_cnt"    property="cmt_cnt"/>
+            <result column="tour_intro" property="tour_intro"/>
+            <association property="member" javaType="member">
+                <id column="mno" property="no"/>
+                <result column="name"    property="name"/>
+            </association>
+            <association property="category" javaType="category">
+                <id column="cat_no" property="cat_no"/>
+                <result column="cat_name"    property="cat_name"/>
+            </association>
+            <association property="mid_category" javaType="category">
+                <id column="cat_no" property="cat_no"/>
+                <result column="mid_cat"    property="cat_name"/>
+            </association>
+        </association>
+        
+    </resultMap>
+    
+    
+    
+    
+    <select id="myTravelStatus" resultMap="comingTourMap" parameterType="map">
+    
+   select 
+            g.mno, m.mno, m.name,t.tno
+            ,t.titl
+            ,t.pri_phot
+            ,t.star
+            ,t.loc
+            ,t.amt
+            ,t.hits
+            ,t.cmt_cnt
+            ,m.name
+            ,c.cat_name
+            ,c2.cat_name as mid_cat
+            ,t.tour_intro
+            ,r.tour_dt,
+            r.tot_pay
+    from 
+            memb m  
+            join g_memb g 
+            join tour t 
+            join tour_req r
+            join category c 
+            right outer join category c2
+    on 
+            t.tno = r.tno
+        where 
+            t.mno = g.mno
+        and r.mno = m.mno
+        and c.cat_no = c2.up_cat_no
+        and t.cat_no = c2.cat_no
+        and g.mno = 6
+        and r.tour_dt > now()
+    
+    </select>
+    
+    <select id="cancelTravelStatus" resultMap="tourMap" parameterType="map">
+    
+    select 
+            t.tno
+            ,t.titl
+            ,t.amt
+            ,t.cmt_cnt
+            ,m.name
+            ,r.tour_dt
+            ,r.tot_pay
+            ,r.can_dt
+    from 
+            memb m  
+            join g_memb g 
+            join tour t 
+            join tour_req r
+
+    on 
+            t.mno = g.mno     
+        where 
+            m.mno = r.mno
+        and t.tno = r.tno
+        and t.tno = r.tno
+        and g.mno = 6
+        and now() > r.can_dt
+    
+    </select>
+    
+    <select id="goneTravelStatus" resultMap="tourMap" parameterType="map">
+    
+    select 
+        *
+    from 
+        tour t 
+        join tour_req r
+    on
+        t.tno = r.tno
+    where 
+        t.mno = 6
+    and now() > r.tour_dt
+    
+    </select>
+    
+    
+    
+</mapper>
+
+
+
+
+
+
+
+
+
