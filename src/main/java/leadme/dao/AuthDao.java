@@ -12,5 +12,6 @@ public interface AuthDao {
     Member findUser(Map<String,Object> params);
     int updatePw(Map<String,Object> params);
     int createGuideUser(Guide guide);
+    int certificateEmail(Map<String,Object> params);
     
 }

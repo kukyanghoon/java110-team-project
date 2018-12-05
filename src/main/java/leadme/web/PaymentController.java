@@ -76,9 +76,9 @@ public class PaymentController {
       request.setAttribute("lang", locale.toString());
       
       Double exRate = Utils.getExchangeRate();
+      //Double exRate = (double) 100;
       Double usd_price = Double.valueOf(request.getParameter("price")) * exRate;
       Double usd_tot_price = Double.valueOf(request.getParameter("tot_price")) * exRate;
-      
       
       
       model.addAttribute("tno", request.getParameter("tno"));

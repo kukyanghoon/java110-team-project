@@ -64,5 +64,34 @@ public class GuideController {
     return null;
   }
   
+  
+  @RequestMapping(value="myTravelStatus.do", method=RequestMethod.POST)
+  @ResponseBody
+  public Map<String ,Object> myTravelStatus(@RequestBody Guide guide) {
+    
+    guideService.myTravelStatus();
+    
+    return null;
 
+  }
+  
+  @RequestMapping(value="cancelTravelStatus.do", method=RequestMethod.POST)
+  @ResponseBody
+  public Map<String ,Object> cancelTravelStatus(@RequestBody Guide guide) {
+    
+    guideService.cancelTravelStatus();
+    
+    return null;
+
+  }
+  
+  @RequestMapping(value="goneTravelStatus.do", method=RequestMethod.POST)
+  @ResponseBody
+  public Map<String ,Object> goneTravelStatus(@RequestBody Guide guide) {
+    
+    guideService.goneTravelStatus();
+    
+    return null;
+
+  }
 }

@@ -22,4 +22,6 @@ public interface AuthService {
     AuthService mailSender() throws MessagingException;
     
     void createGuide(String guideInfo);
+    
+    void certificateEmail(String mno) throws Exception;
 }

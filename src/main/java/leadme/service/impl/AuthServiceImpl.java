@@ -247,6 +247,17 @@ public class AuthServiceImpl implements AuthService {
     
   }
   
+  @Override
+  public void certificateEmail(String mno) throws Exception {
+    Map<String,Object> params = new HashMap<>();
+    params.put("mno", mno);
+    int ok = authDao.certificateEmail(params);
+    if(ok <= 0) {
+      throw new Exception("해당하는 회원이 없습니다!!");
+    }
+  }
+  
+  
   private Map<String, Object> parseJsonData(String jsonData) {
     
     ObjectMapper mapper = new ObjectMapper();
