@@ -56,12 +56,30 @@ public class GuideController {
   
   @RequestMapping(value="profileModify.do", method=RequestMethod.POST)
   @ResponseBody
-  public Map<String ,Object> profileModify(@RequestBody Guide guide) {
+  public Map<String ,Object> profileModify(@RequestBody String jsonData) {
     
-    System.out.println(guide);
+    Map<String ,Object> message = new HashMap<>();
+    
+    try {
+      guideService.profileModify(jsonData);
+      message.put("message", "성공");
+      return message;
+    } catch (Exception e) {
+      e.printStackTrace();
+      return null;
+    }
     
     
-    return null;
+    
+    //Map<String, Object> map = new HashMap<String, Object>();
+    /*try {
+      System.out.println("여기는 컨트롤러입니다");
+      guideService.profileModify(map);
+      
+    } catch (Exception e) {
+      System.out.println(e);
+      return null;
+    }*/
   }
   
   

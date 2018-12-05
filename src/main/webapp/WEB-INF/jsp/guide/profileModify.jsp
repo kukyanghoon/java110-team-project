@@ -242,10 +242,10 @@ $(document).ready(function(){
            data:JSON.stringify(obj),
            contentType:"application/json",
            success:function(data){
-               
+               console.log("jsp석세스")
            },
            error:function(){
-               
+               console.log("jsp에러")
            }
        });   
        
