@@ -69,17 +69,6 @@ public class GuideController {
       return null;
     }
     
-    
-    
-    //Map<String, Object> map = new HashMap<String, Object>();
-    /*try {
-      System.out.println("여기는 컨트롤러입니다");
-      guideService.profileModify(map);
-      
-    } catch (Exception e) {
-      System.out.println(e);
-      return null;
-    }*/
   }
   
   

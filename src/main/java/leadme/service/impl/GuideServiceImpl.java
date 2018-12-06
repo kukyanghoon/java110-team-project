@@ -53,33 +53,11 @@ public class GuideServiceImpl implements GuideService {
 
     Map<String, Object> param =  jsonDataParse(jsonData);
     
-    int memberNum = guideDao.profileModify(param);
-    System.out.println(memberNum);
-    if(memberNum <= 0) {
-      System.out.println("서비스 첫이프");
+    if(guideDao.profileModify(param) <= 0 || guideDao.profileModify2(param) <= 0) {
       throw new Exception();
     }
     
-    int guideNum = guideDao.profileModify2(param);
-    System.out.println(guideNum);
-    if(guideNum <= 0) {
-      System.out.println("서비스 두이프");
-      throw new Exception();
-    }
     
-    /*int num = guideDao.profileModify(aaaaaaaaaaa);
-    System.out.println("서비스임");
-    System.out.println(num);
-    if(num <= 0) {
-      System.out.println("서비스 첫이프");
-      throw new Exception();
-    }
-    
-    int num2 = guideDao.profileModify2(aaaaaaaaaaa);
-    if(num2 <= 0) {
-      System.out.println("서비스 두번째 이프");
-      throw new Exception();
-    }*/
   }
   public void myTravelStatus() {
     Map<String,Object> params = new HashMap<>();
