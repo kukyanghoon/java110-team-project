@@ -178,23 +178,24 @@
               
               console.log(obj);
               
-              $.ajax({
-                  url:'loginCheck.do',
-                  type:'POST',
-                  dataType:'JSON',
-                  data:JSON.stringify(obj),
-                  contentType:"application/json",
-                  success:function(data){
-                      console.log("aaaaaaaaaaa");
-                      console.log(data);
-                      console.log(document.referrer);
-                      //location.href = '../main';
-                  },
-                  error:function(){
-                      console.log('실패');
-                  }
-              
-              }); 
+               $.ajax({
+                   url:'loginCheck.do',
+                   type:'POST',
+                   dataType:'JSON',
+                   data:JSON.stringify(obj),
+                   contentType:"application/json",
+                   success:function(data){
+                       console.log("aaaaaaaaaaa");
+                       console.log(data);
+                       console.log(document.referrer);
+                       //location.href = '../main';
+                   },
+                   error:function(){
+                       console.log('실패');
+                   }
+               
+               }); 
+               
               
            });
         });

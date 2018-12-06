@@ -35,6 +35,31 @@
         <result column="up_cat_no"    property="up_cat_no"/>
     </resultMap>
     
+    
+    <resultMap type="tour" id="puretour">
+        <id column="tno"  property="tno"/>
+        <result column="titl"    property="titl"/>
+        <result column="star"    property="star"/>
+        <result column="loc"    property="loc"/>
+        <result column="amt"    property="amt"/>
+        <result column="hits"    property="hits"/>
+        <result column="pri_phot"    property="pri_phot"/>
+        <result column="cmt_cnt"    property="cmt_cnt"/>
+        <result column="tour_intro" property="tour_intro"/>
+    </resultMap>
+    
+    <resultMap type="comment" id="comment">
+        <id column="cmt_no"  property="cmt_no"/>
+        <result column="mno"    property="mno"/>
+        <result column="cont"    property="cont"/>
+        <result column="cont_star"    property="cont_star"/>
+        <result column="cont_phot"    property="cont_phot"/>
+        <result column="cont_dt"    property="cont_dt"/>
+        <result column="del_yn"    property="del_yn"/>
+        <result column="up_cmt_no"    property="up_cmt_no"/>
+        <result column="tno" property="tno"/>
+    </resultMap>
+    
     <sql id="selectTour">
     select 
             t.tno
@@ -106,6 +131,29 @@
         </foreach>
     </select>
     
+    
+    <select id="tourSelect" resultMap="puretour" parameterType="map">
+    
+        select *
+        from tour
+        where tno =#{tno}
+    
+    </select>
+    
+    <insert id="enrollmentComment" parameterType="comment"
+            useGeneratedKeys="true" keyColumn="cmt_no" keyProperty="cmt_no">
+   
+    INSERT INTO comment(mno, cont, cont_star, cont_phot, cont_dt, del_yn, up_cmt_no, tno) 
+    VALUES (#{mno},#{cont},#{cont_star},#{cont_phot},#{cont_dt},#{del_yn},#{up_cmt_no},#{tno})
+   
+    </insert>
+    
+    <select id="commentCheck" resultMap="comment" parameterType="comment">
+        SELECT * 
+        FROM comment 
+        WHERE mno = #{mno}
+        and tno = #{tno}
+    </select>
     
 </mapper>
 
