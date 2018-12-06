@@ -180,7 +180,17 @@ public class AuthServiceImpl implements AuthService {
     
     System.out.println(this.member);
     
-    String msg = "<div><h1>"+ this.member.getPassword() +"</h1><p>끝이없는 인생의 긴긴다리...</p></div>";
+    String msg = 
+        "    <img src=\"https://d2ur7st6jjikze.cloudfront.net/themes/413_mobile_medium_1531300354.jpg?1531300354\" alt=\"logo\"/>\r\n" + 
+        "    <div style=\"width: 540px; height: 100px; padding: 30px;\">\r\n" + 
+        //"    <img src=\"127.0.0.1:8888/resources/img/logo.png\" alt=\"logo\"/>\r\n" + 
+        "    <h1 style>요청하신 임시 비밀번호입니다.</h1>\r\n" + 
+        "    <p>\r\n" + 
+        "    안녕하세요. " + this.member.getName() + " 회원님!<br>\r\n" + 
+        "    아래의 임시 비밀번호를 입력하여 로그인해주세요.\r\n" + 
+        "    </p>\r\n" + 
+        "    <h2>" + this.member.getPassword() + "</h2>\r\n" + 
+        "    </div>\r\n";
     
     
     
