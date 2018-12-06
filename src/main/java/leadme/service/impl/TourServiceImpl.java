@@ -1,11 +1,14 @@
 package leadme.service.impl;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import leadme.dao.TourDao;
+import leadme.domain.Comment;
 import leadme.domain.Tour;
 import leadme.service.TourService;
 
@@ -40,7 +43,7 @@ public class TourServiceImpl implements TourService {
     return categoryList;
   }
   
-  
+  @Override
   public List<Tour> locList(List<String> locList, String catNo) throws Exception {
     
     for (String s : locList) {
@@ -64,9 +67,32 @@ public class TourServiceImpl implements TourService {
     
   }
   
+  @Override
+  public Tour tourSelect(String tno) {
+    Map<String, Object> map = new HashMap<>();
+    map.put("tno", tno);
+    System.out.println(tno);
+    
+    return tourDao.tourSelect(map);
+    
+  }
   
-  
-  
-
+  @Override
+  public void enrollmentComment(Comment comment) throws Exception  {
+    
+    Comment check = tourDao.commentCheck(comment);
+    if(check != null) {
+      throw new Exception("이미 작성하신 후기가 있습니다! 욕심쟁이!!!");
+    }
+    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+    Date nowDate = new Date();
+    comment.setDel_yn("N");
+    comment.setCont_dt(format.format(nowDate));
+    comment.setUp_cmt_no(1);
+    System.out.println(comment);
+    
+    int num = tourDao.enrollmentComment(comment);
+    System.out.println(num);
+  }
 
 }

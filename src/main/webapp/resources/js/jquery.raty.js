@@ -440,7 +440,7 @@
 		hintList:		['bad', 'poor', 'regular', 'good', 'gorgeous'],
 		noRatedMsg:		'not rated yet',
 		number:			5,
-		path:			'img/',
+		path:			'/resources/img',
 		iconRange:		[],
 		readOnly:		false,
 		scoreName:		'score',
