@@ -49,8 +49,14 @@ public class Ranking implements Serializable {
   public void setRnk_dt(Date rnk_dt) {
     this.rnk_dt = rnk_dt;
   }
+  
   public static long getSerialversionuid() {
     return serialVersionUID;
+  }
+  @Override
+  public String toString() {
+    return "Ranking [rnk_no=" + rnk_no + ", rnk_type=" + rnk_type + ", rnk_item=" + rnk_item
+        + ", rnk=" + rnk + ", tno=" + tno + ", rnk_dt=" + rnk_dt + "]";
   }
   
   

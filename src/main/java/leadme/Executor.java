@@ -1,7 +1,5 @@
 package leadme;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -13,7 +11,8 @@ import leadme.service.RankingService;
 public class Executor {
    
   @Autowired RankingService rankingService; //rankingService 와 연동
-   
+  
+  
 /*사용 예
 
 0 0 12 * * *           ==> 매일 12시에 실행
@@ -31,8 +30,8 @@ public class Executor {
 */
    
   
-
- @Scheduled(cron="0 0/1 9 * * *")
+/*
+ @Scheduled(cron="0 0/5 10 * * *")
  public void executor() {
    Calendar calendar = Calendar.getInstance();
    Date date = calendar.getTime();
@@ -43,15 +42,14 @@ public class Executor {
    
    // 클래스.메소드 박아주기?
  }
- 
- 
- /*
- @Scheduled(fixedDelay = 1000)
- public void simplePrintln(){
-     System.out.println(new Date());
-     
- }
  */
  
+
+ @Scheduled(fixedDelay = 5000)
+ public void executor2 (){
+     System.out.println(new Date());
+     rankingService.add(null);
+     rankingService.delete();
+ }
 
 }

@@ -10,9 +10,8 @@ public interface RankingService {
   List<Tour> getExecutorThemeBest();
   List<Tour> getExecutorLocalBest();
  
-  void executor();
-  
-  void delete(int no);
+  void delete();
   void add(Ranking ranking);
+  //void add(Ranking ranking);    임시저장
 
 }
