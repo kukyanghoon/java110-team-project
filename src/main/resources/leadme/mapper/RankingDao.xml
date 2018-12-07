@@ -40,7 +40,6 @@
            c.cmt_cnt,
            c.hits,
           star_pnt + cmt_pnt +  hits_pnt as pnt
-         
     </sql>
     
 
@@ -70,10 +69,6 @@
             r.rnk asc
     </select>
 
-  
-     
-     
-    
     <select id="getExecutorTourBest" resultMap="tourMap"  >
      <include refid="select2"></include>
      from (      
@@ -101,13 +96,9 @@
                      limit  10
      </select>
     
-     
-
-       
-     
       <select id="getExecutorThemeBest" resultMap="tourMap"  >
                 <include refid="select2"></include>
-            from (      
+            from (
                     select
                      case when star>=10 then 50
                      else star*5
@@ -160,24 +151,30 @@
                      order by pnt desc, loc desc
                      limit  3
     </select>
-    
-    
-    
-    <insert id="insert" parameterType="java.util.List">
+     
+     
+    <insert id="insert" parameterType="map" >
     insert into ranking(rnk_type,rnk_item,rnk,tno,rnk_dt) 
     values
-    <foreach collection="list" item="item" separator=" , " >
-        ( "${item.rnk_type}", "${item.rnk_item}", 
-            "${item.rnk}", "${item.tno}", "${item.rnk_dt}")
+    <foreach collection="data" item="item" separator=",">
+        (   #{item.rnk_type}, 
+            #{item.rnk_item}, 
+            #{item.rnk}, 
+            #{item.tno}, 
+            now()
+         )
     </foreach>
     </insert>
-     
-     
-     
-      
+    
+    <!-- 
     <delete id="delete" parameterType="int">
     delete from ranking
-    where tno=#{value}
+    where tno=#{tno}
+    </delete>    
+         -->
+        
+     <delete id="delete">
+    delete * from ranking
     </delete>    
         
 </mapper>
