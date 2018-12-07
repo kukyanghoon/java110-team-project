@@ -108,6 +108,7 @@
         and t.cat_no = c2.cat_no
         and r.mno = #{mno}
         and r.tour_dt > now()
+        and r.can_dt > now()
     
     </select>
     
@@ -135,7 +136,7 @@
         and t.tno = r.tno
         and t.tno = r.tno
         and r.mno = #{mno}
-        and r.tour_dt > now()
+        and now() > r.can_dt
     
     </select>
     

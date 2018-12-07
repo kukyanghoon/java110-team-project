@@ -76,6 +76,19 @@
         
     </update>
     
+    <update id="goodbye" parameterType="map">
+    
+    UPDATE memb
+    SET active = 'Y' 
+    WHERE mno = #{mno}
+    and pwd =  password(#{pwd})
+    
+    </update>
+    
+    
+    
+    
+    
     
 </mapper>
 

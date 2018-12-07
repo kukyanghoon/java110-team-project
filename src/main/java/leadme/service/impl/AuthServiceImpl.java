@@ -281,5 +281,26 @@ public class AuthServiceImpl implements AuthService {
     
     return map;
   }
+  
+  
+  
+  @Override
+  public void goodbye(Member member) throws Exception {
+    
+    Map<String, Object> param = new HashMap<>();
+    param.put("mno", member.getNo());
+    param.put("pwd", member.getPassword());
+    
+    int a = authDao.goodbye(param);
+    System.out.println(a);
+    
+    if(a <= 0) {
+      throw new Exception("회원 정보 ");
+    }
+    
+    
+  }
+  
+  
 
 }
