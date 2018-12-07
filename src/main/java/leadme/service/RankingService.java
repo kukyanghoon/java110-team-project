@@ -11,7 +11,7 @@ public interface RankingService {
   List<Tour> getExecutorLocalBest();
  
   void delete();
-  void add(Ranking ranking);
+  void add();
   //void add(Ranking ranking);    임시저장
 
 }
