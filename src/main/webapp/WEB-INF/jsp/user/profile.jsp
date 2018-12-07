@@ -129,11 +129,17 @@ input:checked + .slider:before {
             <img src="/resources/img/${sessionScope.memberInfo.photo}" id="userImage" class="img-circle" alt="userImage" width="150" height="150" 
             onclick='document.all.file1.click();'>
           
+            
 
+            <div class="col-sm-11" style="height: 50px; padding-right: 40px;">
+              <button id='PhotoModifyBtn' type="button" class="btn btn-info" style="float: right;">사진저장</button>
+            </div>
+            
            <c:choose>
             <c:when test="${sessionScope.memberInfo.path eq 'google'}">
             
             <div class="form-group">
+            
             <label class="control-label col-sm-3" for="name">이름:</label>
             <div class="col-sm-8">
               <input type="name" class="form-control" id="name" value='${sessionScope.memberInfo.name }' readonly="readonly">
@@ -277,7 +283,6 @@ input:checked + .slider:before {
            <div class="form-group">
              <div class="col-sm-11">
                   <button id='modifyBtn' type="button" class="btn btn-info" style="float: right; margin-top: 30px;">저장하기</button>
-                  <button id='PhotoModifyBtn' type="button" class="btn btn-info" style="float: right; margin-top: 30px;">사진</button>
               </div>
               
             </div>
@@ -289,6 +294,7 @@ input:checked + .slider:before {
     </div>
   </div>
 </div>
+
 <script>
 $(document).ready(function(){
    

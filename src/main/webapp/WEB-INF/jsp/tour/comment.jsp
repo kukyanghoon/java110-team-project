@@ -517,7 +517,7 @@
     <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps/api/js/AuthenticationService.Authenticate?1shttps%3A%2F%2Fwww.myrealtrip.com%2Ftraveler%2Freservations%2Ffinish&amp;4sAIzaSyC84fbqS1JuAJ9t24SLY2LEWf2Ud8W8F1E&amp;callback=_xdc_._7n0qdj&amp;key=AIzaSyC84fbqS1JuAJ9t24SLY2LEWf2Ud8W8F1E&amp;token=102752"></script>
     <meta charset="UTF-8">
     
-    <title>권형은 짱짱맨</title>
+    <title>LEADME || 후기</title>
     
 </head>
 
@@ -628,7 +628,7 @@
                                         chkImg !="gif" && chkImg !="png" && chkImg !="bmp"){
                                     chkFile1=0;
                                     //$(".signupbtn").prop("disabled", true);
-                                    alert("이미지 파일만 올려주세요");
+                                    swal("이미지 파일만 올려주세요", "", "error");
                                     $('#img-preview').attr('src', "/recources/img/default_image.png");}
                                 else if (input.files && input.files[0]){
                                     console.log("aaaa");
@@ -684,7 +684,7 @@
                 processData : false,
                 contentType : false,
                 success : function(data) {
-                    alert("파일 업로드하였습니다.");
+                    swal("파일 업로드하였습니다.", "", "success");
                     var photcomment = {
                             'mno' : ${sessionScope.memberInfo.no},
                             'cont_star' : $('#ratingContainer2').attr('value'),
@@ -698,7 +698,7 @@
                     commentAjax(photcomment);
                 },
                 error : function(error) {
-                    alert("파일 업로드에 실패하였습니다.");
+                    swal("파일 업로드에 실패하였습니다.", "", "error");
                     console.log(error);
                     console.log(error.status);
                 }
@@ -716,13 +716,13 @@
                 data:JSON.stringify(comment),
                 contentType:"application/json",
                 success:function(data){
-                    console.log("aaaaaaaaaaa");
-                    console.log(data);
+                    swal("후기 작성이 완료되었습니다.", "", "success");
                     
                 },
                 error:function(){
                     console.log('실패');
                     console.log("욕심부리지 마세연");
+                    swal("이미 후기를 작성하셨습니다!", "", "error");
                 }
             
             }); 
@@ -753,6 +753,7 @@
             }
         }
     </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     
 </body>
