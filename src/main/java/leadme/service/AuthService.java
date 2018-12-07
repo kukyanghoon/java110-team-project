@@ -24,4 +24,6 @@ public interface AuthService {
     void createGuide(String guideInfo);
     
     void certificateEmail(String mno) throws Exception;
+    
+    void goodbye(Member member) throws Exception;
 }

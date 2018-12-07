@@ -27,7 +27,7 @@
         insert into tour_req(tno,tour_dt,mno,t_dt,req_cnt,tot_pay,pay_type
         ,pay_stat,pay_dt,can_dt,cur_cd,req_stat) 
         values(#{tno},#{tour_dt},#{mno},now(),#{req_cnt},#{tot_pay},#{pay_type}
-        ,#{pay_stat},now(),11111111111111,#{cur_cd},#{req_stat})
+        ,#{pay_stat},now(),30001111111111,#{cur_cd},#{req_stat})
     </insert>
     
     <update id="update" parameterType="map">

@@ -278,6 +278,7 @@ input:checked + .slider:before {
              <div class="col-sm-11">
                   <button id='modifyBtn' type="button" class="btn btn-info" style="float: right; margin-top: 30px;">저장하기</button>
                   <button id='PhotoModifyBtn' type="button" class="btn btn-info" style="float: right; margin-top: 30px;">사진</button>
+                  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">회원 탈퇴</button>
               </div>
               
             </div>
