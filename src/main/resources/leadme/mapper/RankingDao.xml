@@ -173,8 +173,8 @@
     </delete>    
          -->
         
-     <delete id="delete">
-    delete * from ranking
+    <delete id="delete" >
+     delete from ranking
     </delete>    
         
 </mapper>

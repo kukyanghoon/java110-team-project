@@ -33,6 +33,8 @@ public class RankingServiceImpl implements RankingService {
       // 기본값
       rollbackFor=Exception.class)
 
+  
+
 
   @Override
   public List<Tour> getExecutorTourBest() {
@@ -51,7 +53,7 @@ public class RankingServiceImpl implements RankingService {
 
 
   @Override
-  public void add(Ranking ranking) {
+  public void add() {
 
     //로직 구성
     List<Tour> executor1 = rankingService.getExecutorTourBest(); 
@@ -62,53 +64,52 @@ public class RankingServiceImpl implements RankingService {
     System.out.println("------executor1----------");
     List<Ranking> rank = new ArrayList<>();
 //    Ranking r = new Ranking();
+    
     int rankNum=1;
-    for (int i=0;i<executor1.size();i++) {
+    for (Tour t : executor1) {
       Ranking r = new Ranking();
-      for (Tour t : executor1) {
-        r.setRnk_type("01");
-        r.setRnk_item("00");
-        r.setTno(t.getTno());
-        r.setRnk(rankNum);
-      }
+      r.setRnk_type("01");
+      r.setRnk_item("00");
+      r.setTno(t.getTno());
+      r.setRnk(rankNum);
+      
       rank.add(r);
       rankNum++;
     }
     
     rankNum=1;
-    for (int i=0;i<executor2.size();i++) {
-      Ranking r = new Ranking();
-      for (Tour t : executor2) {
+    for (Tour t : executor2) {
+        Ranking r = new Ranking();
         r.setRnk_type("02");
         r.setRnk_item(Integer.toString(t.getCat_no()));
         r.setTno(t.getTno());
         r.setRnk(rankNum);
-      }
+      
       rank.add(r);
       rankNum++;
     }
     
     rankNum=1;
-    for (int i=0;i<executor3.size();i++) {
-      Ranking r = new Ranking();
-      for (Tour t : executor3) {
+    for (Tour t : executor3) {
+        Ranking r = new Ranking();
         r.setRnk_type("03");
         r.setRnk_item(t.getLoc());
         r.setTno(t.getTno());
         r.setRnk(rankNum);
-      }
+     
       rank.add(r);
       rankNum++;
     }
     
+    
     HashMap<String,Object> params = new HashMap<>();
     params.put("data", rank);
     
-    System.err.println("전이다");
+    System.err.println("insert전");
     System.out.println(params.get("data").toString());
     rankingDao.insert(params);
     
-    System.out.println("삽입후");
+    System.out.println("insert후");
     
   }
 
