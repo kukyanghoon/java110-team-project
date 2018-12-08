@@ -1,7 +1,7 @@
 package leadme.domain;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 /* 여행신청(결제) */
 public class TourReq implements Serializable {
@@ -25,6 +25,16 @@ public class TourReq implements Serializable {
   private String dDay;
   private String tDay;
   private Tour tour;
+  private String formatToutdt;  /*중간 카테고리 정보*/
+  
+  
+  public String getformatToutdt() {
+    return formatToutdt;
+  }
+  public void setformatToutdt(String formatToutdt) {
+    this.formatToutdt = formatToutdt;
+  }
+  
   public int getReqno() {
     return reqno;
   }

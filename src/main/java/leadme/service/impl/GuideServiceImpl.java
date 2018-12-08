@@ -1,6 +1,7 @@
 package leadme.service.impl;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -69,24 +70,40 @@ public class GuideServiceImpl implements GuideService {
     
   }
   
-  public void cancelTravelStatus() {
+  public List<TourReq> cancelTravelStatus() {
     Map<String,Object> params = new HashMap<>();
     params.put("mno", "6");
     List<TourReq> list = guideTourListDao.cancelTravelStatus(params);
     for (TourReq tourReq : list) {
       System.out.println(tourReq);
     }
-    
+    return list;
   }
   
   @Override
-  public void goneTravelStatus() {
+  public List<TourReq> goneTravelStatus() throws Exception {
     Map<String,Object> params = new HashMap<>();
     params.put("mno", "6");
     List<TourReq> list = guideTourListDao.goneTravelStatus(params);
+    String formatDate = "";
+    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
     for (TourReq tourReq : list) {
-      System.out.println(tourReq);
+      
+      formatDate =  format.format(tourReq.getTour_dt());
+      System.out.println(formatDate);
+      /*tourReq.setTour_dt(format.parse(formatDate));
+      System.out.println("tour_dt 포맷 됐다!!!! : " + tourReq.getTour_dt());*/
+      
+      //System.out.println(tourReq);
+      
+      tourReq.setformatToutdt(formatDate);
+      
+      System.out.println(tourReq.getformatToutdt());
+      
+      
     }
+    
+    return list;
     
   }
   

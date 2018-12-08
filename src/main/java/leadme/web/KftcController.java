@@ -8,6 +8,7 @@ import java.util.Locale;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -40,12 +41,19 @@ public class KftcController {
     public static final String RETURN_URL = "http://localhost:8888/app/kftc/authorize_res";
     public static final String ACCESS_TOKEN = "d810b708-68a7-4c81-893e-a9a038fdc929";
     public static final String LANG_EN = "en";
-    MainService mainService;
+    /*MainService mainService;
     ServletContext sc;
     SessionLocaleResolver localeResolver;
     MessageSource messageSource;
-
-    public KftcController(
+*/
+    
+    @Autowired MainService mainService;
+    @Autowired SessionLocaleResolver localeResolver;
+    @Autowired MessageSource messageSource;
+    @Autowired ServletContext sc;
+    
+    
+    /*public KftcController(
             MainService mainService, 
             SessionLocaleResolver localeResolver,     
             MessageSource messageSource,
@@ -54,7 +62,7 @@ public class KftcController {
         this.localeResolver = localeResolver;
         this.messageSource = messageSource;
         this.sc = sc;
-    }
+    }*/
 
     
     @GetMapping("authorize")

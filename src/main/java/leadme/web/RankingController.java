@@ -3,6 +3,7 @@ package leadme.web;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,11 +17,11 @@ import leadme.service.RankingService;
 @Controller
 public class RankingController {
   
-  RankingService rankingService;
-  
+  @Autowired RankingService rankingService;
+  /*
   public RankingController(RankingService rankingService) {
     this.rankingService=rankingService;
-  }
+  }*/
   
   @GetMapping("/ex")
   public String executor (@RequestParam(defaultValue="kor") String lang, Model model ) {

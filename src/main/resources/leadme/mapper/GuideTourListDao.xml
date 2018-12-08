@@ -9,6 +9,9 @@
         <result column="tour_dt"    property="tour_dt"/>
         <result column="tno"    property="tno"/>
         <result column="can_dt"    property="can_dt"/>
+        <result column="tot_pay"    property="tot_pay"/>
+        
+        
         
         <association property="tour" javaType="tour">
             <id column="tno"  property="tno"/>

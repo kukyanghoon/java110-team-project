@@ -17,7 +17,7 @@ import leadme.service.TourService;
 
 @Controller
 @RequestMapping("/tour")
-public class TourCommentControllerController{
+public class TourCommentController{
   
   @Autowired TourService tourService;
   @Autowired FileService fileService;
