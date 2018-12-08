@@ -670,6 +670,7 @@
             <button type="button" id="ssss">ssss</button>
             <button type="button" id="dddd">ssss</button>
             <div class="traveler-body" id="traveler-body">
+            <!-- <div>내가정령!!!!!</div>
                 <div class="planned-container">
                     <div class="planned-country-container">
                         <div class="planned-background" style="background: url('https://d2ur7st6jjikze.cloudfront.net/landscapes/4745_original_1535962527.jpg?1535962527') no-repeat center center; background-size:cover;"></div>
@@ -806,7 +807,7 @@
                         <img alt="예약내역" class="icon item-inline" height="21px" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/traveler/reservation/ic_arrow@2x-36047570d74d5ea07df4eb4b2d4febc6a8aba4244e06c4b84f13654b8b6dc1dd.png" width="12px">
                     </a>
                 </div>
-
+ -->
 
             </div>
         </div>
@@ -935,7 +936,7 @@
             var obj ={
                     'mno': '11'
             }
-            
+            console.log("지나간여정? 버튼");
             $.ajax({
                 url:'/app/guide/goneTravelStatus.do',
                 type:'POST',
@@ -943,9 +944,9 @@
                 data:JSON.stringify(obj),
                 contentType:"application/json",
                 success:function(data){
-                   /* console.log(data);
+                    console.log(data);
                    $('#traveler-body').empty();
-                   $(data).each(function(index, item){
+                    $(data).each(function(index, item){
                        $('#traveler-body').append(
                                "<div class='traveler-finished-reservation box clearfix'>"+
                                "<div class='box-header clearfix'>"+
@@ -963,7 +964,7 @@
                            item.tour.titl +
                            "</a>"+
                            "<div class='detail text-md'>이용일 : "+
-                               item.tday +
+                               item.formatToutdt +
                            "</div>"+
                        "</div>"+
                    "</div>"+
@@ -978,8 +979,8 @@
                        "<a class='btn btn-blue show-on-mobile' href='#'>후기 작성</a>"+
                    "</div>"+
                "</div>");
-                   });
-                    */
+                   }); 
+                    
                 },
                 error:function(){
                     console.log("실패");
@@ -1001,7 +1002,8 @@
                 data:JSON.stringify(obj),
                 contentType:"application/json",
                 success:function(data){
-                    /* console.log(data);
+                     console.log(data);
+                     console.log("취소된 여정");
                     $('#traveler-body').empty();
                     $(data).each(function(index, item){
                         $('#traveler-body').append(
@@ -1021,12 +1023,12 @@
                                         item.tday +
                                     "</div>" +
                                 "</div>" +
-                                "<div class='row'>" +
+                               /*  "<div class='row'>" +
                                     "<div class='col-xs-3 name'>여행자</div>" +
                                     "<div class='col-xs-9 value'>" +
                                         item.tour.member.name +
                                     "</div>" +
-                                "</div>" +
+                                "</div>" + */
                                 "<div class='row'>" +
                                     "<div class='col-xs-3 name'>결제금액</div>" +
                                     "<div class='col-xs-9 value'>$ " +
@@ -1051,8 +1053,6 @@
                                 );
                     });
                     
-                    
-                     */
                 },
                 error:function(){
                     console.log("실패");

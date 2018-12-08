@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,11 +25,11 @@ import leadme.service.TourService;
 @RequestMapping("/tour")
 public class TourListController{
 
-    TourService tourService;
-    
+  @Autowired TourService tourService;
+    /*
     public TourListController(TourService tourService) {
         this.tourService = tourService;
-    }
+    }*/
     
     @RequestMapping("list")
     public String list(@RequestParam(defaultValue="10") String catNo, Model model) throws Exception {

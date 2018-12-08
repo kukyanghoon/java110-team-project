@@ -9,6 +9,7 @@ import java.util.Map;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,10 +39,10 @@ import leadme.util.Utils;
 @SessionAttributes("resultMap")
 public class PaymentController { 
     
-    PaymentService paymentService;
+   /* PaymentService paymentService;
     ServletContext sc;
     SessionLocaleResolver localeResolver;
-    MessageSource messageSource;
+    MessageSource messageSource;*/
     final String clientId = "ASu4NkjdYEK4qZyScOddfVEttM9AAdfycvGErAa_XKEUnQc6CxMmx1kF6x80sznU-7jU6C1tyLjT64qx";
     final String clientSecret = "EF-VzW5PTS-nvhGSjBrt9bddqBCaIJsmapgeWGu5AetzTa_EhvDwGjy69WtQlfvf1hCbr1kkU1k1ijwp";
     final String STAT_PENDING = "00";
@@ -51,6 +52,15 @@ public class PaymentController {
     public static final String LANG_EN = "en";
     APIContext apiContext;
 
+    
+    @Autowired PaymentService paymentService;
+    @Autowired SessionLocaleResolver localeResolver;
+    @Autowired MessageSource messageSource;
+    @Autowired ServletContext sc;
+    
+    
+    
+    /*
     public PaymentController(
             PaymentService paymentService, 
             SessionLocaleResolver localeResolver,     
@@ -62,7 +72,7 @@ public class PaymentController {
         this.sc = sc;
         apiContext = new APIContext(clientId, clientSecret, "sandbox");
     }
-
+*/
     
     @PostMapping
     public String payment( /*todo: get params and set model*/

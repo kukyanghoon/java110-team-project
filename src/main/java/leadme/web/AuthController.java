@@ -22,12 +22,8 @@ import leadme.service.EmailService;
 @RequestMapping("/auth")
 public class AuthController{
 
-  AuthService authService;
+  @Autowired AuthService authService;
   @Autowired EmailService emailService;
-
-  public AuthController(AuthService authService) {
-    this.authService = authService;
-  }
 
   @RequestMapping(value="guideSignup")
   public String guideSignup() {

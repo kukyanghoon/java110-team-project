@@ -1,6 +1,7 @@
 package leadme.web;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import leadme.domain.Guide;
+import leadme.domain.TourReq;
 import leadme.service.GuideService;
 
 @Controller
@@ -84,21 +86,27 @@ public class GuideController {
   
   @RequestMapping(value="cancelTravelStatus.do", method=RequestMethod.POST)
   @ResponseBody
-  public Map<String ,Object> cancelTravelStatus(@RequestBody Guide guide) {
+  public List<TourReq> cancelTravelStatus(@RequestBody Guide guide) {
     
-    guideService.cancelTravelStatus();
-    
-    return null;
+    return guideService.cancelTravelStatus();
 
   }
   
   @RequestMapping(value="goneTravelStatus.do", method=RequestMethod.POST)
   @ResponseBody
-  public Map<String ,Object> goneTravelStatus(@RequestBody Guide guide) {
+  public List<TourReq> goneTravelStatus(@RequestBody Guide guide) {
     
-    guideService.goneTravelStatus();
+    try {
+      List<TourReq> list = guideService.goneTravelStatus();
+      return list;
+    } catch (Exception e) {
+      
+      e.printStackTrace();
+      return null;
+    }
     
-    return null;
+    
+    
 
   }
 }

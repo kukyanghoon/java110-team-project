@@ -3,10 +3,8 @@ package leadme.web;
 import java.io.File;
 import java.util.List;
 import java.util.UUID;
-
 import javax.servlet.ServletContext;
-
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,16 +18,17 @@ import leadme.service.StudentService;
 //@RequestMapping("/student")
 public class StudentController{
     
-    StudentService studentService;
-    ServletContext sc;
-    
+  @Autowired StudentService studentService;
+  @Autowired ServletContext sc;
+  
+   /* 
     public StudentController(
             StudentService studentService, 
             ServletContext sc) {
         this.studentService = studentService;
         this.sc = sc;
     }
-
+*/
     @GetMapping("list")
     public void list(
             @RequestParam(defaultValue="1") int pageNo,
