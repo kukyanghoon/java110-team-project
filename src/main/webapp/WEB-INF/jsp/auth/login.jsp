@@ -188,7 +188,7 @@
                        console.log("aaaaaaaaaaa");
                        console.log(data);
                        console.log(document.referrer);
-                       //location.href = '../main';
+                       location.href = '../main';
                    },
                    error:function(){
                        console.log('실패');

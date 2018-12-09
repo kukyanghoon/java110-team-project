@@ -195,22 +195,13 @@ span.local{
               <div class="OfferList__Sidebar__Item">
                 <div class="offer-category__container border-shadow">
                 
-                <div class="catMid leademecate offer-category__item active" role="button" tabindex="-1" value="2">
-                        <span class="offer-category__item__label" value ='2'>프로필 관리</span>
-                </div>
-                <div class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
-                        <span class="offer-category__item__label" value ='2'>비밀번호 변경</span>
-                </div>
-                <div class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
-                        <span class="offer-category__item__label" value ='2'>내 활동</span>
-                </div>
-                <div id="aa" class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
+                <div id="goneBtn" class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
                         <span class="offer-category__item__label" value ='2'>지나간 여정</span>
                 </div>
-                <div id="ssss" class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
+                <div id="commingBtn" class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
                         <span class="offer-category__item__label" value ='2'>다가올 여정</span>
                 </div>
-                <div id="dddd" class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
+                <div id="cancelBtn" class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
                         <span class="offer-category__item__label" value ='2'>취소된 여정</span>
                 </div>
                 
@@ -254,8 +245,12 @@ span.local{
     <script>
     
     $(document).ready(function(){
-        $('#aa').on('click', function(){
+        $('#commingBtn').on('click', function(){
            console.log("aaaaa"); 
+           
+           $('.catMid').attr('class','catMid leademecate offer-category__item');
+           $(this).attr('class','catMid leademecate offer-category__item active');
+           
            
            var obj ={
                    'mno': '11'
@@ -367,8 +362,14 @@ span.local{
         
         
         
-        $('#ssss').on('click', function(){
+        $('#goneBtn').on('click', function(){
             console.log("sss");
+            
+
+            $('.catMid').attr('class','catMid leademecate offer-category__item');
+            $(this).attr('class','catMid leademecate offer-category__item active');
+            
+            
             var obj ={
                     'mno': '11'
             }
@@ -411,8 +412,8 @@ span.local{
                        "<a class='btn btn-blue btn-outline show-on-mobile' href=/app/tour/detail/"+
                        item.tno + 
                        ">예약 상세</a>"+
-                       "<a class='btn btn-blue hide-on-mobile' href='#'>후기 작성하기</a>"+
-                       "<a class='btn btn-blue show-on-mobile' href='#'>후기 작성</a>"+
+                       "<a class='btn btn-blue hide-on-mobile' href='/app/tour/comment/mno=" + ${memberInfo.no} + ";tno=" + item.tno + "'>후기 작성하기</a>"+
+                       "<a class='btn btn-blue show-on-mobile' href='/app/tour/comment/mno=" + ${memberInfo.no} + ";tno=" + item.tno + "'>후기 작성</a>"+
                    "</div>"+
                "</div>");
                    });
@@ -425,8 +426,14 @@ span.local{
         
         });
         
-        $('#dddd').on('click', function(){
+        $('#cancelBtn').on('click', function(){
             console.log("sss");
+            
+
+            $('.catMid').attr('class','catMid leademecate offer-category__item');
+            $(this).attr('class','catMid leademecate offer-category__item active');
+            
+            
             var obj ={
                     'mno': '11'
             }

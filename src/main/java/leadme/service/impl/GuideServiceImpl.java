@@ -2,6 +2,7 @@ package leadme.service.impl;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -60,16 +61,25 @@ public class GuideServiceImpl implements GuideService {
     
     
   }
-  public void myTravelStatus() {
+  @Override
+  public List<TourReq> myTravelStatus() {
     Map<String,Object> params = new HashMap<>();
     params.put("mno", "6");
     List<TourReq> list = guideTourListDao.myTravelStatus(params);
+    
+    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+    Date nowDate = new Date();
+    
     for (TourReq tourReq : list) {
       System.out.println(tourReq);
+      tourReq.setTday(format.format(tourReq.getTour_dt()));
+      tourReq.setdDay(String.valueOf((tourReq.getTour_dt().getTime() - nowDate.getTime())/ (24 * 60 * 60 * 1000)));
     }
-    
+    formatToutdt(list);
+    return list;
   }
   
+  @Override
   public List<TourReq> cancelTravelStatus() {
     Map<String,Object> params = new HashMap<>();
     params.put("mno", "6");
@@ -77,6 +87,7 @@ public class GuideServiceImpl implements GuideService {
     for (TourReq tourReq : list) {
       System.out.println(tourReq);
     }
+    formatToutdt(list);
     return list;
   }
   
@@ -107,6 +118,22 @@ public class GuideServiceImpl implements GuideService {
     
   }
   
+  
+  private List<TourReq> formatToutdt(List<TourReq> list){
+      
+      String formatDate = "";
+      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+      for (TourReq tourReq : list) {
+        
+        formatDate =  format.format(tourReq.getTour_dt());
+        System.out.println(formatDate);
+        tourReq.setformatToutdt(formatDate);
+        
+      }
+      
+      return list;
+      
+  }
   
   private Map<String, Object> jsonDataParse(String data) throws JsonParseException, JsonMappingException, IOException{
     

@@ -8,7 +8,7 @@ import leadme.domain.TourReq;
 public interface GuideService {
   Member guideFindByGno(Guide guide) throws Exception;
   void profileModify(String jsonData) throws Exception;
-  void myTravelStatus();
+  List<TourReq> myTravelStatus();
   List<TourReq> cancelTravelStatus();
   List<TourReq> goneTravelStatus()  throws Exception;
 }

@@ -208,13 +208,13 @@
 
 <div class='border-b guide-container'>
 <div class='profile-image'>
-<a class='gtm-offer-guide-profile' href='/guides/9074'>
+<a class='gtm-offer-guide-profile' href='/app/guide/profile/${tour.mno}'>
 <img class='img-profile img-circle' id="guide-profile" src='/resources/img/${guide.photo}' onerror="showDefaultImg();">
 </a>
 </div>
 <div class='profile-detail'>
 <div class='guide-name'>
-<a class='gtm-offer-guide-profile' href='/guides/9074'>
+<a class='gtm-offer-guide-profile' href='/app/guide/profile/${tour.mno}'>
 <span>${guide.name}</span>
 </a>
 </div>

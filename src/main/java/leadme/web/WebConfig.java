@@ -7,6 +7,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import leadme.web.intercepter.AuthInterCepter;
+import leadme.web.intercepter.GuideInterCepter;
 
 // 이 클래스가 IoC컨테이너가 사용해야할 설정 정보를 담고있는 클래스임을
 // 프론트 컨트롤러에게 알려주기위해서는 다음 애노테이션을 반드시 붙여야 한다
@@ -36,7 +37,8 @@ public class WebConfig
         registry.addInterceptor(new AuthInterCepter())
                 .addPathPatterns("/**/payment","/**/delete");
         
-        
+        registry.addInterceptor(new GuideInterCepter())
+                .addPathPatterns("/**/myInfo");
     }
     
 }

@@ -60,8 +60,7 @@
     </section>
     </main>
 
-
-
+    
     <div id='popup-mask'></div>
     <div id='gnb-popup-mask'></div>
 

@@ -76,11 +76,9 @@ public class GuideController {
   
   @RequestMapping(value="myTravelStatus.do", method=RequestMethod.POST)
   @ResponseBody
-  public Map<String ,Object> myTravelStatus(@RequestBody Guide guide) {
+  public List<TourReq> myTravelStatus(@RequestBody Guide guide) {
     
-    guideService.myTravelStatus();
-    
-    return null;
+    return guideService.myTravelStatus();
 
   }
   
@@ -104,9 +102,8 @@ public class GuideController {
       e.printStackTrace();
       return null;
     }
-    
-    
-    
-
   }
+  
+  
+  
 }

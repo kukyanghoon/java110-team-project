@@ -45,7 +45,7 @@ public class Executor {
  }
  */
  
-
+/*
  @Scheduled(fixedDelay = 5000)
  public void executor2 (){
    
@@ -59,5 +59,5 @@ public class Executor {
      System.out.println(new Date());
      rankingService.delete();
  }
-
+*/
 }

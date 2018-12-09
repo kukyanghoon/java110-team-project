@@ -34,13 +34,13 @@ public class UserTourController {
     return "/mypage/coming";
   }
   
-  @RequestMapping("/test")
+  @RequestMapping("/myInfo")
   public String test() {
-    return "/mypage/test";
+    return "/mypage/myInfo";
   }
-  @RequestMapping("/test2")
+  @RequestMapping("/myTour")
   public String test2() {
-    return "/mypage/test2";
+    return "/mypage/myTour";
   }
   
   

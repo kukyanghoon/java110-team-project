@@ -367,21 +367,13 @@ input:checked + .slider:before {
                 <div class="catMid leademecate offer-category__item active" role="button" tabindex="-1" value="2">
                         <span class="offer-category__item__label" value ='2'>프로필 관리</span>
                 </div>
-                <div class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
+                <div id='changePwBtn' class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
                         <span class="offer-category__item__label" value ='2'>비밀번호 변경</span>
                 </div>
-                <div class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
+                <div id="myTourBtn" class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
                         <span class="offer-category__item__label" value ='2'>내 활동</span>
                 </div>
-                <div class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
-                        <span class="offer-category__item__label" value ='2'>지나간 여정</span>
-                </div>
-                <div class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
-                        <span class="offer-category__item__label" value ='2'>다가올 여정</span>
-                </div>
-                <div class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
-                        <span class="offer-category__item__label" value ='2'>취소된 여정</span>
-                </div>
+                
                 
                     </div>
                      
@@ -865,6 +857,27 @@ $(document).ready(function(){
  
 //]]>
 </script>
+    
+    <script>
+    
+    $(document).ready(function(){
+    	$('#myTourBtn').on('click', function(){
+    		location.href = '/app/mypage/myTour';
+    	});
+    	
+    	
+    	
+    	$('#changePwBtn').on('click', function(){
+    		location.href = '/app/user/changepw';
+    	});
+    	
+    	
+    });
+    
+    
+    </script>
+    
+    
     
 </body>
 </html>
