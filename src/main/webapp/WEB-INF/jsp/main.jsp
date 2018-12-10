@@ -624,19 +624,22 @@ $(document).ready(function(){
           'searchWord' : $('#searchWord').val()
         }
         
-        $.ajax({
+        location.href = '/app/search/'+$('#searchWord').val();
+        
+        /* $.ajax({
             url:'/app/search/search.do',
             type:'POST',
             dataType:'JSON',
             data:JSON.stringify(word),
             contentType:"application/json",
             success:function(data){
+                console.log(word);
             },
             error:function(){
                 console.log('실패');
             }
         
-        }); 
+        });  */
         
     });
 });
