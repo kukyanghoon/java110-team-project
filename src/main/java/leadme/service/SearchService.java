@@ -1,7 +1,10 @@
 package leadme.service;
 
+import java.util.List;
+import leadme.domain.Tour;
+
 public interface SearchService {
 
-  void searchData(String searchWord);
+  List<Tour> searchData(String searchWord);
 
 }

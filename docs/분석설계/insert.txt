@@ -164,3 +164,32 @@ INSERT INTO `ranking` (`rnk_no`, `rnk_type`, `rnk_item`, `rnk`, `tno`, `rnk_dt`)
 (2238, '01', '00', 1, 6, '2018-12-06 12:14:09'),
 (2239, '01', '00', 2, 6, '2018-12-06 12:14:09'),
 (2240, '01', '00', 3, 6, '2018-12-06 12:14:09');
+
+
+
+
+INSERT INTO `tour` (`tno`, `titl`, `loc`, `star`, `cmt_cnt`, `hits`, `amt`, `tour_intro`, `req_inf`, `reg_dt`, `mod_dt`, `join_plc`, `lat`, `lon`, `join_tm`, `del_yn`, `pri_phot`, `pri_mv`, `cat_no`, `mno`, `mx_pn`, `join_phot`, `albm_link`) VALUES
+(18, '[동부산 푸디투어] 부산 트레킹 + 맛집탐방 + 출사를 한번에', '02', 3.2, 6, 17, 20000, '해안의 기암절벽과 해안선이 아름다운 동부산을 느끼며 부산의 맛을 느낄 수 있는 코스
+[코스소개] 
+
+트레킹 + 맛집탐방 + 출사를 한번에 
+
+1. 해안의 기암절벽과 해안선이 아름다운 동부산을 느끼며 부산의 맛을 느낄 수 있는 코스 
+2. 대표 맛집음식: 대변멸치회, 연화리 해산물모듬, 전복죽 
+3. 트레킹 코스를 돌며 부산을 맛보고 눈으로 즐길 수 있는 코스 (총 7.6km, 소요시간 약 5시간)
+
+', '포함사항
+최대정원 4명으로 진행합니다. 4인 이상시 별도로 연락주시기 바랍니다.
+
+불포함사항
+식대는 불포함입니다', '2018-12-10 12:04:34', '2018-12-10 12:04:35', '부산 시립미술관 로비', 36.564988487427, 126.176766154245, '예약 확정 후 만나는 시간을 조율합니다.', 'N', 'busantrack.jpg', '', 43, 6, 10, 'busantrackjoin.jpeg', 'album.com')
+
+
+
+
+
+INSERT INTO `tour` (`titl`, `loc`, `star`, `cmt_cnt`, `hits`, `amt`, `tour_intro`, `req_inf`, `reg_dt`, `mod_dt`, `join_plc`, `lat`, `lon`, `join_tm`, `del_yn`, `pri_phot`, `pri_mv`, `cat_no`, `mno`, `mx_pn`, `join_phot`, `albm_link`) VALUES
+('살면서 문득 문득 그리워질 리얼 부산 Trip-Two', '02', 3.5, 27, 117, 40000, '.', '.', '2018-12-11 12:04:34', '2018-12-11 12:04:35', '.', 1.1, 1.1, '.', 'N', 'busantrack.jpg', '', 43, 6, 10, 'busantrackjoin.jpeg', 'album.com')
+
+
+

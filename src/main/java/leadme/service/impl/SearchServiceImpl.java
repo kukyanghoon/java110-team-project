@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import leadme.dao.SearchDao;
 import leadme.domain.Tour;
 import leadme.service.SearchService;
@@ -19,16 +17,13 @@ public class SearchServiceImpl implements SearchService {
   @Autowired SearchDao searchDao;
 
   @Override
-  public void searchData(String searchWord) {
-    
-    String word = (String) parseJsonData(searchWord, "searchWord");
-    System.out.println(word);
+  public List<Tour> searchData(String searchWord) {
     
     
     
     List<String> wordList = new ArrayList<>();
     
-    String[] list = word.split(" ");
+    String[] list = searchWord.split(" ");
     for (String s : list) {
       s = "%"+s+"%";
       System.out.println(s);
@@ -41,11 +36,15 @@ public class SearchServiceImpl implements SearchService {
     
     List<Tour> searchList = searchDao.search(params);
     for (Tour tour : searchList) {
-      System.out.println(tour.getTitl()); 
+      System.out.println(tour); 
+      
     }
+    
+    return searchList;
+    
   }
 
-
+/*
   private Object parseJsonData(String jsonData, String key) {
     
     ObjectMapper mapper = new ObjectMapper();
@@ -59,5 +58,5 @@ public class SearchServiceImpl implements SearchService {
     
     return map.get(key);
   }
-
+*/
 }
