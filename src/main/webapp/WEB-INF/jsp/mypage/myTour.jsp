@@ -381,9 +381,20 @@ span.local{
                 data:JSON.stringify(obj),
                 contentType:"application/json",
                 success:function(data){
+                    var link = "";
                    console.log(data);
                    $('#OfferList__Items').empty();
                    $(data).each(function(index, item){
+                        link = " ";
+                        if(item.tourAvail != null){
+                           link = "<a class='btn btn-blue btn-outline hide-on-mobile' href="+
+                           item.tourAvail.tour_albm + 
+                           ">사진첩</a>"+
+                           "<a class='btn btn-blue btn-outline show-on-mobile' href="+
+                           item.tourAvail.tour_albm + 
+                           ">사진첩</a>";
+                       }
+                       
                        $('#OfferList__Items').append(
                                "<div class='traveler-finished-reservation box clearfix'>"+
                                "<div class='box-header clearfix'>"+
@@ -395,8 +406,8 @@ span.local{
                            "</div>"+
                        "</div>"+
                        "<div class='info'>"+
-                          "<a class='text-lg title' href=/resources/img/"+
-                          item.tour.pri_phot+
+                          "<a class='text-lg title' href=/app/tour/detail/"+
+                          item.tno +
                            ">"+
                            item.tour.titl +
                            "</a>"+
@@ -406,12 +417,7 @@ span.local{
                        "</div>"+
                    "</div>"+
                    "<div class='box-btns'>"+
-                       "<a class='btn btn-blue btn-outline hide-on-mobile' href=/app/tour/detail/"+
-                       item.tno + 
-                       ">예약 상세 보기</a>"+
-                       "<a class='btn btn-blue btn-outline show-on-mobile' href=/app/tour/detail/"+
-                       item.tno + 
-                       ">예약 상세</a>"+
+                       link+
                        "<a class='btn btn-blue hide-on-mobile' href='/app/tour/comment/mno=" + ${memberInfo.no} + ";tno=" + item.tno + "'>후기 작성하기</a>"+
                        "<a class='btn btn-blue show-on-mobile' href='/app/tour/comment/mno=" + ${memberInfo.no} + ";tno=" + item.tno + "'>후기 작성</a>"+
                    "</div>"+

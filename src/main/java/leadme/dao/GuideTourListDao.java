@@ -9,4 +9,5 @@ public interface GuideTourListDao {
   List<TourReq> myTravelStatus(Map<String,Object> params);
   List<TourReq> cancelTravelStatus(Map<String,Object> params);
   List<TourReq> goneTravelStatus(Map<String,Object> params);
+  int addLink(Map<String, Object> params);
 }

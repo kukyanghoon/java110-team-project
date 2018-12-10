@@ -11,4 +11,5 @@ public interface GuideService {
   List<TourReq> myTravelStatus();
   List<TourReq> cancelTravelStatus();
   List<TourReq> goneTravelStatus()  throws Exception;
+  int addLink(String linkInfo) throws Exception;
 }

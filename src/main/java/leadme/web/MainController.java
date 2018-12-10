@@ -1,10 +1,11 @@
 package leadme.web;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +20,7 @@ import leadme.service.MainService;
 
 @RequestMapping("/main")
 @Controller
-public class MainController { 
+public class MainController {
 
     public static final String LANG_EN = "en";
     MainService mainService;
@@ -55,24 +56,38 @@ public class MainController {
         if(!LANG_EN.equals(locale.toString()))
           locale = localeResolver.resolveLocale(request);
       
-        model.addAttribute("tourList" , mainService.getListTourBest("2018-11-12"));
-        model.addAttribute("themeList", mainService.getListThemeBest("2018-11-12", rnk_item));
-        model.addAttribute("localList", mainService.getListLocalBest("2018-11-12", "01"));
+        String sdf = nowDateFormatData(rnk_item);
+        
+        model.addAttribute("tourList" , mainService.getListTourBest(sdf));
+        model.addAttribute("themeList", mainService.getListThemeBest(sdf, rnk_item));
+        model.addAttribute("localList", mainService.getListLocalBest(sdf, "01"));
         request.setAttribute("lang", locale.toString());
+    }
+
+
+    private String nowDateFormatData(String rnk_item) {
+      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+      Date today = new Date();
+      String sdf = format.format(today);
+      System.out.println(sdf);
+      System.out.println(rnk_item);
+      return sdf;
     }
     
     @RequestMapping(value="theme/{rnk_item}", 
         produces="application/json;charset=UTF-8")
     @ResponseBody
     public List<Tour> theme(@PathVariable String rnk_item) {
-      return mainService.getListThemeBest("2018-11-12", rnk_item);
+      String sdf = nowDateFormatData(rnk_item);
+      return mainService.getListThemeBest(sdf, rnk_item);
     }
     
     @RequestMapping(value="local/{rnk_item}", 
         produces="application/json;charset=UTF-8")
     @ResponseBody
     public List<Tour> local(@PathVariable String rnk_item) {
-      return mainService.getListLocalBest("2018-11-12", rnk_item);
+      String sdf = nowDateFormatData(rnk_item);
+      return mainService.getListLocalBest(sdf, rnk_item);
     }
     
     @RequestMapping(value="locale", 
@@ -81,6 +96,12 @@ public class MainController {
     public Object locale(Locale locale) {
       return locale;
     }
+    
+    
+    
+    
+    
+    
 }
 
 

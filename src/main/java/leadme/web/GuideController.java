@@ -104,6 +104,22 @@ public class GuideController {
     }
   }
   
-  
+  @RequestMapping(value="addLink.do", method=RequestMethod.POST)
+  @ResponseBody
+  public Map<String ,Object> addLink(@RequestBody String linkInfo){
+    
+    System.out.println(linkInfo);
+    Map<String ,Object> message = new HashMap<>();
+    try {
+      System.out.println("guideService.addLink(linkInfo) : " + guideService.addLink(linkInfo) );
+      message.put("message", "성공");
+      return message;
+      
+    } catch (Exception e) {
+      e.printStackTrace();
+      return null;
+    }
+    
+  }
   
 }

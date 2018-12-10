@@ -141,7 +141,14 @@
     
     </select>
     
+    <update id="addLink" parameterType="map">
     
+    UPDATE tour_avail
+SET tour_albm = #{link} 
+WHERE tno = #{tno}
+and tour_dt = #{date}
+    
+    </update>
     
 </mapper>
 

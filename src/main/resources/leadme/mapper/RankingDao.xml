@@ -35,7 +35,7 @@
        select
            c.tno,
            c.loc,
-           c.cat_no,
+           TRUNCATE(c.cat_no,-1) as cat_no,
            c.star,
            c.cmt_cnt,
            c.hits,
@@ -121,7 +121,7 @@
                   group by cat_no, tno
                   ) c     
                      order by pnt desc, loc desc
-                     limit  4
+                     
     </select>
    
     <select id="getExecutorLocalBest" resultMap="tourMap"  >

@@ -29,6 +29,7 @@ public class Tour implements Serializable {
     private Member member;      /* 회원 정보*/
     private Category category;  /*카테고리 정보*/
     private Category mid_category;  /*중간 카테고리 정보*/
+    
     public int getTno() {
       return tno;
     }

@@ -47,6 +47,14 @@ public class AuthServiceImpl implements AuthService {
   
   @Override
   public void loginPass(HttpSession session) {
+    
+    if(this.member.getMtype().equals("G")) {
+      System.out.println("가이드닷!!");
+      System.out.println("가이드 확인용 : " + authDao.findGuide(this.member));
+      session.setAttribute("guideInfo", authDao.findGuide(this.member));
+    }
+    
+    
     session.setAttribute("memberInfo", this.member);
     
     System.out.println("session에 회원 정보 저장");

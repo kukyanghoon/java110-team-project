@@ -98,6 +98,7 @@ public class GuideServiceImpl implements GuideService {
     List<TourReq> list = guideTourListDao.goneTravelStatus(params);
     String formatDate = "";
     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+    
     for (TourReq tourReq : list) {
       
       formatDate =  format.format(tourReq.getTour_dt());
@@ -110,11 +111,29 @@ public class GuideServiceImpl implements GuideService {
       tourReq.setformatToutdt(formatDate);
       
       System.out.println(tourReq.getformatToutdt());
-      
+
       
     }
     
     return list;
+    
+  }
+  
+  
+  @Override
+  public int addLink(String linkInfo) throws Exception {
+    HashMap<String,Object> params = (HashMap<String, Object>) jsonDataParse(linkInfo);
+    System.out.println(params.get("date"));
+    System.out.println(params.get("tno"));
+    System.out.println(params.get("link"));
+    
+    int num = guideTourListDao.addLink(params);
+    
+    if(num <= 0) {
+      throw new Exception("업데이트 실패!");
+    }
+    
+    return num;
     
   }
   

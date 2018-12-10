@@ -13,6 +13,14 @@
         <result column="path"    property="path"/>
     </resultMap>
     
+    <resultMap type="guide" id="guideMap">
+        <id column="mno"  property="mno"/>
+        <result column="tel" property="tel" />
+        <result column="intro"    property="intro"/>
+        <result column="birth"    property="birth"/>
+    </resultMap>
+    
+    
     <select id="login" resultMap="memberMap" parameterType="map">
         
         select * 
@@ -85,7 +93,13 @@
     
     </update>
     
+    <select id="findGuide" resultMap="guideMap" parameterType="member">
+        
+        select * 
+        from g_memb
+        where mno = #{no};
     
+    </select>
     
     
     

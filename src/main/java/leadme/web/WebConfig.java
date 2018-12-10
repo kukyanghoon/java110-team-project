@@ -17,7 +17,7 @@ import leadme.web.intercepter.GuideInterCepter;
 @EnableWebMvc
 public class WebConfig 
     // 만약 MVC설정을 좀더 세밀하게 제어하고 싶다면 다음 인터페이스를 구현하라
-    implements WebMvcConfigurer{
+    implements WebMvcConfigurer {
     
     public WebConfig() {
         System.out.println("WebConfig 호출됨");
@@ -33,9 +33,9 @@ public class WebConfig
     
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+      System.out.println("addInterceptors()");
         // 추가하고픈 인터셉터를 등록기(registry)에 추가하라
-        registry.addInterceptor(new AuthInterCepter())
-                .addPathPatterns("/**/payment","/**/delete");
+        registry.addInterceptor(new AuthInterCepter()).addPathPatterns("/**/payment");
         
         registry.addInterceptor(new GuideInterCepter())
                 .addPathPatterns("/**/myInfo");

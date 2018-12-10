@@ -20,6 +20,9 @@
             <result column="cmt_cnt"    property="cmt_cnt"/>
             <result column="tour_intro" property="tour_intro"/>
         </association>
+            <association property="tourAvail" javaType="tourAvail">
+                <result column="tour_albm"    property="tour_albm"/>
+            </association> 
         
     </resultMap>
     
@@ -65,12 +68,14 @@
     from 
         tour t 
         join tour_req r
+        join tour_avail a
     on
         t.tno = r.tno
     where 
-        r.mno = #{mno}
+        t.tno = a.tno
+    and r.tour_dt = a.tour_dt
+    and r.mno = #{mno}
     and now() > r.tour_dt
-    
     
     </select>
     

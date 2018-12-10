@@ -423,20 +423,21 @@ input:checked + .slider:before {
               <label class="control-label col-sm-3" for="tel">연락처:</label>
               <div class="col-sm-8">
                
-                <input type="tel" class="form-control" id="tel" name="tel" placeholder="010-manda-manda(번호 형식 제어필요)">
+                <input type="tel" class="form-control" id="tel" name="tel" value='${sessionScope.guideInfo.tel}'>
               </div>
           </div> 
 
            <div class="form-group">
               <label class="control-label col-sm-3" for="comment">자기소개:</label>
               <div class="col-sm-8">
-                  <textarea class="form-control" rows="5" id="comment" name="comment" style="resize: none"></textarea>
+                  <textarea class="form-control" rows="5" id="comment" name="comment" style="resize: none" >${sessionScope.guideInfo.intro}</textarea>
               </div>
             </div>
 
            <div class="form-group">
              <div class="col-sm-11">
                   <button type="button" id="saveBtn" class="btn btn-info" style="float: right; margin-top: 30px;">저장하기</button>
+                  <button id='PhotoModifyBtn' type="button" class="btn btn-info" style="float: right; margin-top: 30px;">사진</button>
               </div>
               
             </div>
@@ -582,6 +583,39 @@ $(document).ready(function(){
         location.href = '/app/user/changepw';
     });
     
+    
+    $('#PhotoModifyBtn').on('click', function(){
+        console.log('된다된다'); 
+        fileSubmit();
+     });
+    
+    
+    function fileSubmit() {
+        var formData = new FormData($('#uploadForm')[0]);
+        console.log($('#uploadForm'));
+        console.log($('#uploadForm')[0]);
+        console.log(formData.get('file1').name);
+        console.log("33333");
+           $.ajax({
+            type : 'post',
+            url : '/app/user/userFile.do',
+            data : formData,
+            processData : false,
+            contentType : false,
+            success : function(data) {
+                alert("파일 업로드하였습니다.");
+                console.log(data);
+                console.log(data.image);
+                var a = ("/resources/img/" + data.image);
+                $('#userImage').attr('src',a);
+            },
+            error : function(error) {
+                alert("파일 업로드에 실패하였습니다.");
+                console.log(error);
+                console.log(error.status);
+            }
+        });
+    }
     
     
 });

@@ -10,6 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon-precomposed">
     <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon">
     <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon" sizes="76x76">
@@ -241,7 +242,7 @@ span.local{
 
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
     <script>
     
     $(document).ready(function(){
@@ -301,10 +302,10 @@ span.local{
                                                         item.formatToutdt +
                                                    "</div>"+
                                                "</div>"+
-                                               "<div class='row'>"+
+                                               /* "<div class='row'>"+
                                                    "<div class='col-xs-3 name'>여행자</div>"+
                                                    "<div class='col-xs-9 value'>안진호 포함 2 명</div>"+
-                                               "</div>"+
+                                               "</div>"+ */
                                                "<div class='row'>"+
                                                    "<div class='col-xs-3 name'> 결제금액</div>"+
                                                    "<div class='col-xs-9 value'>$ "+
@@ -387,21 +388,16 @@ span.local{
                           item.tour.pri_phot+
                            ">"+
                            item.tour.titl +
-                           "</a>"+
-                           "<div class='detail text-md'>이용일 : "+
+                           "</a>"+//test
+                           "<div class='detail text-md " + index + "' id='d"+index +"' value='"+item.formatToutdt+"'>이용일 : "+
                                item.formatToutdt +
                            "</div>"+
                        "</div>"+
                    "</div>"+
                    "<div class='box-btns'>"+
-                       "<a class='btn btn-blue btn-outline hide-on-mobile' href=/app/tour/detail/"+
-                       item.tno + 
-                       ">예약 상세 보기</a>"+
-                       "<a class='btn btn-blue btn-outline show-on-mobile' href=/app/tour/detail/"+
-                       item.tno + 
-                       ">예약 상세</a>"+
-                       "<a class='btn btn-blue hide-on-mobile' href='#'>후기 작성하기</a>"+
-                       "<a class='btn btn-blue show-on-mobile' href='#'>후기 작성</a>"+
+                       "<input type='link' class='form-control' id='link"+index+"' >" +
+                       "<a id='linkBtn' class='btn btn-blue hide-on-mobile' value=" + index + " onclick='aaa(" + item.tour_dt + "," + item.tour.tno + "," + index + ")'>사진첩 링크 올리기</a>"+
+                       "<a class='btn btn-blue show-on-mobile' >사진첩 링크</a>"+
                    "</div>"+
                "</div>");
                    }); 
@@ -464,9 +460,9 @@ span.local{
                         "</div>" +
                     "</div>" +
                     "<div class='cancel-wrapper traveler-message-container'>" +
-                        "<div class='text-md item-inline title'>취소사유</div>" +
+                        "<div class='text-md item-inline title'></div>" +
                         "<div class='text-md item-inline message'>" +
-                            "<div class='message-inner'>투어일 기준 3일 이전 취소 요청으로 전액 환불 처리됩니다.</div>" +
+                            "<div class='message-inner'>취소된 여정 확인 부탁 드리겠습니다</div>" +
                         "</div>" +
                     "</div>" +
                     "<a class='arrow-link' href=/app/tour/detail" +
@@ -487,9 +483,66 @@ span.local{
         });
         
         
+        
+        $('.btn.btn-blue.hide-on-mobile').on('click', function(){
+            console.log("aaaa");
+            /* console.log($(this).val());
+            console.log($('.$(this).val()'));
+            console.log($('.'+$(this).val())); */
+            
+        });
+        
+        
+        
     });
     
+    var urlValid = /^(((http(s?))\:\/\/)?)([0-9a-zA-Z\-]+\.)+[a-zA-Z]{2,6}(\:[0-9]+)?(\/\S*)?$/;
     
+        function aaa(date, tno, index){
+            console.log("aaa");
+            console.log(date);
+            console.log(tno);
+            console.log($('#d'+index).attr('value'));
+            var getDate=$('#d'+index).attr('value');
+            
+            console.log($('#link'+index).val());
+            
+            if(!validCheck(urlValid,$('#link'+index))){
+                console.log("잘못된 url 패턴");
+                return;
+            }
+            console.log('통과!');
+            
+            var obj = {
+                    'date' : $('#d'+index).attr('value'),
+                    'tno' : tno,
+                    'link' : $('#link'+index).val()
+            }
+            
+            $.ajax({
+                url:'/app/guide/addLink.do',
+                type:'POST',
+                dataType:'JSON',
+                data:JSON.stringify(obj),
+                contentType:"application/json",
+                success:function(data){
+                    console.log('스왈 띄워 주세연');
+                },error:function(){
+                    console.log('에러스왈');
+                }
+            
+            });
+            
+            
+            
+        }
+        
+        function validCheck(valid,value){
+            if(valid.test(value.val())){
+                return true;
+            }
+            return false;
+        }
     </script>
     
    

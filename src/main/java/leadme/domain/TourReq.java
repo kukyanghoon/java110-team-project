@@ -26,7 +26,14 @@ public class TourReq implements Serializable {
   private String tDay;
   private Tour tour;
   private String formatToutdt;  /*중간 카테고리 정보*/
+  private TourAvail tourAvail;
   
+  public TourAvail gettourAvail() {
+    return tourAvail;
+  }
+  public void settourAvail(TourAvail tourAvail) {
+    this.tourAvail = tourAvail;
+  }
   
   public String getformatToutdt() {
     return formatToutdt;
