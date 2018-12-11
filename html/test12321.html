@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" media="all" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="C:\\Users\\bit\\Desktop\\html\\css\\datepicker.css">
+
+<script src="C:\\Users\\bit\\Desktop\\html\\js\\datepicker.js" type="text/javascript"></script>
+<script src="C:\\Users\\bit\\Desktop\\html\\js\\i18n\\datepicker.ko.js" type="text/javascript"></script>
+<script src="C:\\Users\\bit\\Desktop\\html\\js\\i18n\\datepicker.en.js" type="text/javascript"></script>
+<script>
+var disabledDays = [0, 6];
+
+    
+    function priceUpdate(){
+        /* console.log($("#person-picker option:selected").val()); */
+        $('#total-price').text(numberWithCommas($("#person-picker option:selected").val() * $('#person-price').val()) );
+        $('#tot-amt').val($("#person-picker option:selected").val() * $('#person-price').val());
+    }
+    
+    
+    $('#go-payment').on("click",goPayment);
+    
+    function goPayment(){
+      console.log('aaa');
+      
+      if ( $('#dateInput').val() == ''){
+        swal({
+            type: 'warning',
+            title: '여행 날짜를 선택해 주세요',
+            text: '입력 항목 누락'
+        })
+        $('#dateInput').focus();
+        return;
+      }
+      
+      if($('#person-picker option:selected').val() == ''){
+        swal({
+            type: 'warning',
+            title: '인원을 선택해 주세요.',
+            text: '입력 항목 누락'
+        })
+        $('#person-picker').focus();
+        return;
+      }
+      
+      document.detailForm.tot_price.value = $('#tot-amt').val();
+      document.detailForm.submit();
+    }
+    
+    
+</script>
+
+</script>
+<style>
+.date-container{
+    padding: 16px;
+    border: solid 1px #dee2e6;
+}
+</style>
+</head>
+<body>
+<div class="date-container">
+<input type="hidden" 
+     id="dateInput" 
+     name="tour_date" 
+       class="datepicker-here"
+       data-language='ko'
+       multiple
+       />
+</div>
+</body>
+</html>

@@ -17,7 +17,7 @@ public class Utils {
     HttpEntity<String> entity = new HttpEntity<>(headers);
     
     @SuppressWarnings("rawtypes")
-    ResponseEntity<Map> response = restTemplate.exchange("http://earthquake.kr:23490/query/KRWUSD", HttpMethod.GET, entity, Map.class);
+    ResponseEntity<Map> response = restTemplate.exchange("https://earthquake.kr:23490/query/KRWUSD", HttpMethod.GET, entity, Map.class);
     
     
     String[] values = response.getBody().get("KRWUSD").toString().split(",");

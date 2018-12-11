@@ -16,7 +16,7 @@ var ex_rate;
     }
     
     function getExchangeRate(){
-        $.ajax(convertToCorsUrl("http://earthquake.kr:23490/query/KRWUSD"),{
+        $.ajax(convertToCorsUrl("https://earthquake.kr:23490/query/KRWUSD"),{
                headers: {
                    'Content-Type': "application/json"
                },

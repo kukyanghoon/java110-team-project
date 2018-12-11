@@ -12,41 +12,11 @@ public class CourseEnrollment implements Serializable{
 	private int cr_idx; /*순서*/
 	private String cr_name; /*코스소개제목*/
 	private String cr_intro; /*코스소개*/
-	private String join_plc;    /* 만나는장소 */
-	private Double lat;         /* 위도값 */
-	private Double lon;         /* 경도값 */ 
-	private String join_tm;       /* 만나는시각 */
-	private String cr_phot;		/*코스사진*/
-
-	public String getCr_phot() {
-		return cr_phot;
-	}
-	public void setCr_phot(String cr_phot) {
-		this.cr_phot = cr_phot;
-	}
-	public String getJoin_plc() {
-		return join_plc;
-	}
-	public void setJoin_plc(String join_plc) {
-		this.join_plc = join_plc;
-	}
-	public Double getLat() {
-		return lat;
-	}
-	public void setLat(Double lat) {
-		this.lat = lat;
-	}
-	public Double getLon() {
-		return lon;
-	}
-	public void setLon(Double lon) {
-		this.lon = lon;
-	}
-	public String getJoin_tm() {
-		return join_tm;
-	}
-	public void setJoin_tm(String join_tm) {
-		this.join_tm = join_tm;
+	private String cr_phot;    /* 코스사진 */
+	@Override
+	public String toString() {
+		return "CourseEnrollment [cr_no=" + cr_no + ", tno=" + tno + ", cr_idx=" + cr_idx + ", cr_name=" + cr_name
+				+ ", cr_intro=" + cr_intro + ", cr_phot=" + cr_phot + "]";
 	}
 	public int getCr_no() {
 		return cr_no;
@@ -78,12 +48,13 @@ public class CourseEnrollment implements Serializable{
 	public void setCr_intro(String cr_intro) {
 		this.cr_intro = cr_intro;
 	}
-	@Override
-	public String toString() {
-		return "CourseEnrollment [cr_no=" + cr_no + ", tno=" + tno + ", cr_idx=" + cr_idx + ", cr_name=" + cr_name
-				+ ", cr_intro=" + cr_intro + ", join_plc=" + join_plc + ", lat=" + lat + ", lon=" + lon + ", join_tm="
-				+ join_tm + ", cr_phot=" + cr_phot + "]";
+	public String getCr_phot() {
+		return cr_phot;
 	}
+	public void setCr_phot(String cr_phot) {
+		this.cr_phot = cr_phot;
+	}
+	
 	
 	
 }

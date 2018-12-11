@@ -1,10 +1,16 @@
 package leadme.service.impl;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import leadme.dao.CourseEnrollmentDao;
 import leadme.dao.TourDao;
 import leadme.domain.CourseEnrollment;
 import leadme.domain.Tour;
@@ -13,6 +19,8 @@ import leadme.service.CourseEnrollmentService;
 @Service
 public class CourseEnrollmentServiceImpl implements CourseEnrollmentService{
 	@Autowired TourDao tourDao;
+	@Autowired CourseEnrollmentDao courseEnrollmentdao;
+	
 	
 	@Override
 	public void checkpage1(Tour tour) throws Exception{
@@ -43,31 +51,19 @@ public class CourseEnrollmentServiceImpl implements CourseEnrollmentService{
 	
 	
 	@Override
-	public void checkpage2(CourseEnrollment courseenrollment) throws Exception {
-		if(courseenrollment.getCr_intro() == null) {
-			throw new Exception("intro");
-		}
-		if(courseenrollment.getCr_name() == null) {
-			throw new Exception("name");
-		}
-		if(courseenrollment.getLon()==0 ) {
+	public void checkpage2(Tour tour) throws Exception {
+		if(tour.getLon()==0 ) {
 			throw new Exception("lon");
 		}
-		if(courseenrollment.getLat()==0 ) {
+		if(tour.getLat()==0 ) {
 			throw new Exception("lat");
 		}
-		if(courseenrollment.getJoin_plc()==null ) {
+		if(tour.getJoin_plc()==null ) {
 			throw new Exception("joing_plc");
 		}
-		if(courseenrollment.getJoin_tm()==null ) {
+		if(tour.getJoin_tm()==null ) {
 			throw new Exception("join_tm");
 		}
-		if(courseenrollment.getCr_phot()==null) {
-			throw new Exception("cr_phot");
-		}
-		
-		
-		
 	}
 	
 
@@ -95,6 +91,56 @@ public class CourseEnrollmentServiceImpl implements CourseEnrollmentService{
 		System.out.println(session.getAttribute("enrollTourStep"));
 		
 	}
+
+	@Override
+	public void courseenrolltour(Tour tour,List<CourseEnrollment> courseList) {
+		
+		
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+	    Date nowDate = new Date();
+		String reg_dt = format.format(nowDate);
+		String mod_dt = format.format(nowDate);
+		tour.setDel_yn("Y");
+		tour.setReg_dt(reg_dt);
+		
+		
+		
+		int num = courseEnrollmentdao.courseerolltour(tour);
+		System.out.println("넣은 갯수 : " + num);
+		System.out.println("현재 tour 넘버 : " + tour.getTno());
+		int index = 1;
+		for (CourseEnrollment c : courseList) {
+			c.setTno(tour.getTno());
+			c.setCr_idx(index++);
+		}
+		
+	}
+	
+    @Transactional
+	@Override
+	public void courseenrolltourdetail(List<CourseEnrollment> courseList) throws Exception{
+		/*int abc = courseEnrollmentdao.coursedetail(courseEnrollment);
+		System.out.println("넣은 갯수 : " + abc);
+		System.out.println("현재 코스 번호 : "+ courseEnrollment.getCr_no());*/
+		
+		System.out.println("courseenrolltourdetail()");
+		for (CourseEnrollment c : courseList) {
+			System.out.println(c);
+			
+			courseEnrollmentdao.coursedetail(c);
+			System.out.println("바뀐 course : " + c);
+			System.out.println("한번더 cr_no : " + c.getCr_no());
+			
+			courseEnrollmentdao.coursephotodetail(c);
+			// 그 값으로 사진 디비 저장 하고
+
+		}
+		
+		
+		
+	}
+	
+	
 	
 	
 	

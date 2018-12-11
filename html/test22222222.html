@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var a = 1;
+			$('#courseplus').on('click', function(){
+				console.log("aaaaaaa");
+				$('#course'+a).append("<div id='course"+(a+1)+"'><input type='file' id='FILE_TAG"+(a+1)+"' name='FILE_TAG'></div>");
+				a++;
+			});
+		});
+	</script>
+
+	<script type="text/javascript">
+		function uploadFile(){
+			var form = $('#FILE_FORM')[0];
+			var formData = new FormData(form);
+			formData.append("fileObj", $("#FILE_TAG")[0].file[0]);
+
+			$.ajax({
+				url: '',
+				processData: false,
+				contentType: false,
+				data: formData,
+				type: 'POST',
+				success: function(result){
+					alert("업로드 성공!!");
+				},
+				error:function(result){
+					alert("망함");}
+				});
+		}
+
+
+	</script>
+</head>
+<body>
+	<form id="FILE_FORM" method="post" enctype="multipart/form-data" action="">
+		<div id="course1">
+			<input type="file" id="FILE_TAG1" name="FILE_TAG">
+		</div>
+		<button id="courseplus">코스추가</button>
+		<a class="ui-shadow ui-btn ui-corner-all" href="javascript:uploadFile();">전송</a>
+
+	</form>
+
+
+</body>
+</html>
