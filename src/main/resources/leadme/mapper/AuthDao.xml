@@ -88,6 +88,8 @@
     
     UPDATE memb
     SET active = 'Y' 
+    , cert_email = 'N'
+    , email = #{email}
     WHERE mno = #{mno}
     and pwd =  password(#{pwd})
     

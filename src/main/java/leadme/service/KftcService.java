@@ -4,6 +4,6 @@ import leadme.domain.RealName;
 
 public interface KftcService {
 
-    KftcService requestToken();
-    void realName(RealName realName) throws Exception;
+    String requestToken();
+    void realName(RealName realName, String token) throws Exception;
 }

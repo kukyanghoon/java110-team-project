@@ -26,6 +26,9 @@ public class GuideInterCepter implements HandlerInterceptor{
         }else if(guide != null) {
           response.sendRedirect("/app/guide/profileModify"); // 가이드 마이페이지로 이동
           return false; // 페이지 컨트롤러의 request handler를 실행하지 말라
+        }else if(member == null) {
+          response.sendRedirect("/app/auth/login"); // 가이드 마이페이지로 이동
+          return false;
         }
         return true;
         

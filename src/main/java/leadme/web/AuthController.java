@@ -61,7 +61,7 @@ public class AuthController{
   public Map<String ,Object> loginCheck(@RequestBody Member member, HttpSession session, HttpServletRequest request) {
     Map<String ,Object> message = new HashMap<String, Object>();
     try {
-      authService.login(member).loginPass(session);
+      authService.loginPass(session,authService.login(member));
       System.out.println("session에 아이디값 저장");
       System.out.println(((Member)session.getAttribute("memberInfo")).toString());
       message.put("message", true);
@@ -78,12 +78,12 @@ public class AuthController{
   public Map<String ,Object> googleLoginCheck(@RequestBody Member member, HttpSession session) {
     Map<String ,Object> message = new HashMap<String, Object>();
     try {
-      authService.socialLogin(member).loginPass(session);
+      authService.loginPass(session,authService.socialLogin(member));
       message.put("message", "로그인 성공");
       System.out.println("기존 google 아이디로 로그인 성공");
     } catch (Exception e) {
       member.setPath("google");
-      authService.createSocialUser(member).loginPass(session);
+      authService.loginPass(session,authService.createSocialUser(member));
       message.put("message", "자동 회원 가입 후 로그인 성공");
       System.out.println("google 아이디 자동 가입 후  로그인 성공");
     }
@@ -98,11 +98,11 @@ public class AuthController{
 
     Member loginUser = authService.getFacebookMember(accessToken, "N"); // "N": 일반회원 하드코딩 test
     try {
-      authService.socialLogin(loginUser).loginPass(session);
+      authService.loginPass(session,authService.socialLogin(loginUser));
       System.out.println("기존회원");
     } catch (Exception e) {
       loginUser.setPath("facebook");
-      authService.createSocialUser(loginUser).loginPass(session);
+      authService.loginPass(session,authService.createSocialUser(loginUser));
     }
     System.out.println(((Member)session.getAttribute("memberInfo")).toString());
     return "redirect:../main";
@@ -144,7 +144,7 @@ public class AuthController{
     Map<String,Object> message = new HashMap<>();
 
     try {
-      authService.findUser(member).updatePw(member).mailSender();
+      authService.findUser(member).updatePw(member).mailSender(member);
       message.put("message", "회원확인 성공!");
 
       return message;

@@ -76,7 +76,7 @@ public class UserTourController {
     
     System.out.println("realName 받아온거 : " +  realName);
     try {
-      kftcService.requestToken().realName(realName);
+      kftcService.realName(realName,kftcService.requestToken());
       message.put("message", "성공");
       return message;
     } catch (Exception e) {
