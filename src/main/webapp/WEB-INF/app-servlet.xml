@@ -58,12 +58,17 @@
             <property name="paramName" value="lang" /> 
         </bean>
         <mvc:interceptor>
+            <mvc:mapping path="/**/myInfo"/>
+            <bean class="leadme.web.intercepter.GuideInterCepter"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
             <mvc:mapping path="/**/payment"/>
+            <mvc:mapping path="/**/myInfo"/>
             <bean class="leadme.web.intercepter.AuthInterCepter"/>
         </mvc:interceptor>
         <mvc:interceptor>
-            <mvc:mapping path="/**/myInfo"/>
-            <bean class="leadme.web.intercepter.GuideInterCepter"/>
+            <mvc:mapping path="/**/login"/>
+            <bean class="leadme.web.intercepter.LoginInterCepter"/>
         </mvc:interceptor>
     </mvc:interceptors>
 
