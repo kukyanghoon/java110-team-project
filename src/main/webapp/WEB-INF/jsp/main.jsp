@@ -27,9 +27,10 @@
 
 <link rel="stylesheet" type="text/css" href="/resources/css/custom1.css">
 <link rel="stylesheet" media="screen"
-	href="/resources/css/application.6823a52822019093f642.css" />
+	href="/resources/css/application.cac8b307dbe32bcdbd67.css" />
 <link rel="stylesheet" media="screen"
-	href="/resources/css/application.e01e462572b9064a1cc4.css">
+	href="/resources/css/application.89bde0a7d84a7bf87143.css">
+	<script src="/resources/js/application.cac8b307dbe32bcdbd67.js"></script>
 
 
 
@@ -290,11 +291,11 @@
 			</div>
 			<div class='main__header__search'>
 				<div class='search__wrapper'>
-					<img class='search__icon'
+					<img id='searchBtn' class='search__icon'
 						src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/gnb/experience/ic-search-md-gray-500-6a187a261605c7d19ed2208391ae26f29e387b7f26a9b86b32dd5e1fd1a48561.svg'
 						width='22'>
 					<!--<input class='search__input' data-home-search placeholder='여행 또는 테마를 검색해보세요.' type='text'>-->
-					<input class='search__input' data-home-search
+					<input id='searchWord' class='search__input' data-home-search
 						placeholder='궁궐 밤산책. 덕수궁의 밤을 걸어요.' type='text'>
 				</div>
 			</div>
@@ -821,6 +822,35 @@
 function changeLang(lang){
     window.location.href='main?lang='+lang;
 }
+</script>
+
+<script>
+$(document).ready(function(){
+    $('#searchBtn').on('click', function(){
+        console.log($('#searchWord').val()); 
+        var word = {
+          'searchWord' : $('#searchWord').val()
+        }
+        
+        location.href = '/app/search/'+$('#searchWord').val();
+        
+        /* $.ajax({
+            url:'/app/search/search.do',
+            type:'POST',
+            dataType:'JSON',
+            data:JSON.stringify(word),
+            contentType:"application/json",
+            success:function(data){
+                console.log(word);
+            },
+            error:function(){
+                console.log('실패');
+            }
+        
+        });  */
+        
+    });
+});
 </script>
 </body>
 </html>

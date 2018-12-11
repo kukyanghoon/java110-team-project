@@ -97,7 +97,7 @@
                         </c:when>
                         <c:otherwise>
                             <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
-                                <a href="logout" class="gnb-common-menu__item__link">
+                                <a href="/app/auth/logout" class="gnb-common-menu__item__link">
                                     <span class="gnb-common-menu__item--text transparent">로그아웃</span>
                                 </a>
                             </li>   
