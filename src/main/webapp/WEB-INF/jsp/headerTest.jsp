@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
 <html>
    <head>
@@ -16,9 +15,14 @@
 <script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/ko-9d53604fb5c8a610df23b77f7135903c1affe982fa1d15f3354fdc521e10862a.js"></script>
 <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application_template-5da62e3a802820a73815ac9769d004d04db514aa47276f57320c206cc043d2ac.css" />
 <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-4b8ab07154cf2c04a97bb950234f455fe5a721876f501316a714f1a8b65b12ae.css" />
-<link rel="stylesheet" media="screen" href="/resources/css/application.6823a52822019093f642.css" />
+<link rel="stylesheet" media="screen" href="/resources/css/application.cac8b307dbe32bcdbd67.css" />
+<link rel="stylesheet" media="screen" href="/resources/css/application.89bde0a7d84a7bf87143.css" />
 <link rel="stylesheet" type="text/css" href="/resources/css/hyun.css">
-<script src="/resources/js/application.e01e462572b9064a1cc4.js"></script>
+<script src="/resources/js/application.cac8b307dbe32bcdbd67.js"></script>
+<script src="/resources/js/application-86de1be31d401529a297febaf961a82ebf2ba60f6dd1f2b9c4b833b5753dcb7f.js"></script>
+
+
+
 <!--[if lte ie 9]>
 <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/ie-b751bcff1f912d9f2d6eb3f5f25a09494364fee359047b3bcf9e161c4d714527.css" />
 <![endif]-->
@@ -63,7 +67,7 @@
          <nav class="mrt-gnb-header transparent">
             <div class="mrt-container gnb-container">
                <div class="mrt-logo-container gtm-gnb-logo">
-                  <a href="#" onclick="event.preventDefault(); location.href='/app/main'"><img src="/resources/img/logo.png" alt="리드미 로고"></a>
+                  <a href="/app/main"><img src="/resources/img/logo.png" alt="리드미 로고"></a>
                </div>
                <div class="gnb-menu__container">
                   <a data-turbolinks="false">
@@ -78,12 +82,12 @@
                         <c:when test="${sessionScope.memberInfo.email eq null}">
                             <li class="gnb-common-menu__item gtm-gnb-becomeguide-before-login hidden-tablet-down">
                                 <a href="#" class="gnb-common-menu__item__link">
-                                <span class="gnb-common-menu__item--text transparent"><spring:message code="site.reg.guide" text="가이드 등록하기" /></span>
+                                <span class="gnb-common-menu__item--text transparent">가이드 등록하기</span>
                                 </a>
                             </li>
                             <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
-                                <a href="/app/auth/login" class="gnb-common-menu__item__link">
-                                    <span class="gnb-common-menu__item--text transparent"><spring:message code="site.signup" text="로그인" /></span>
+                                <a href="#" class="gnb-common-menu__item__link">
+                                    <span class="gnb-common-menu__item--text transparent">로그인</span>
                                 </a>
                             </li>
                             <li class="gnb-common-menu__item gtm-gnb-signup hidden-tablet-down" style="padding-top:7px; padding-left:12px;">
@@ -93,8 +97,8 @@
                         </c:when>
                         <c:otherwise>
                             <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
-                                <a href="/app/auth/logout" class="gnb-common-menu__item__link">
-                                    <span class="gnb-common-menu__item--text transparent"><spring:message code="site.signout" text="로그아웃" /></span>
+                                <a href="logout" class="gnb-common-menu__item__link">
+                                    <span class="gnb-common-menu__item--text transparent">로그아웃</span>
                                 </a>
                             </li>   
                         </c:otherwise>
@@ -259,10 +263,10 @@
                   <nav class="mrt-container">
                      <ul class="lnb-menu">
                         <li class="lnb-menu__item gtm-lnb-home">
-                           <a href="/app/tour/list" class="lnb-menu__item--link transparent" id="home-link1" data-turbolinks="false"><spring:message code="site.cate0" text="전체" /></a>
+                           <a href="#" class="lnb-menu__item--link transparent" id="home-link1" data-turbolinks="false">전체</a>
                         </li>
                         <li class="lnb-menu__item gtm-lnb-home">
-                           <a href="/app/tour/list/10" class="lnb-menu__item--link transparent" id="home-link2" data-turbolinks="false"><spring:message code="site.cate1" text="식도락" /></a>
+                           <a href="#" class="lnb-menu__item--link transparent" id="home-link2" data-turbolinks="false">식도락</a>
                            <ul class="sub-menu__item-contain">
                               <li><a href="#">전통음식</a></li>
                               <li><a href="#">고급식당</a></li>
@@ -271,7 +275,7 @@
                            </ul>
                         </li>
                         <li class="lnb-menu__item gtm-lnb-home">
-                           <a href="/app/tour/list/20" class="lnb-menu__item--link transparent" id="home-link3" data-turbolinks="false"><spring:message code="site.cate2" text="역사/문화" /></a>
+                           <a href="#" class="lnb-menu__item--link transparent" id="home-link3" data-turbolinks="false">역사/문화</a>
                            <ul class="sub-menu__item-contain">
                               <li><a href="#">고궁</a></li>
                               <li><a href="#">박물관</a></li>
@@ -280,7 +284,7 @@
                            </ul>
                         </li>
                         <li class="lnb-menu__item gtm-lnb-home">
-                           <a href="/app/tour/list/30" class="lnb-menu__item--link transparent" id="home-link4" data-turbolinks="false"><spring:message code="site.cate3" text="명소" /></a>
+                           <a href="#" class="lnb-menu__item--link transparent" id="home-link4" data-turbolinks="false">명소</a>
                            <ul class="sub-menu__item-contain">
                               <li><a href="#">랜드마크</a></li>
                               <li><a href="#">자연</a></li>
@@ -288,7 +292,7 @@
                            </ul>
                         </li>
                         <li class="lnb-menu__item gtm-lnb-home">
-                           <a href="/app/tour/list/40" class="lnb-menu__item--link transparent" id="home-link5" data-turbolinks="false"><spring:message code="site.cate4" text="액티비티" /></a>
+                           <a href="#" class="lnb-menu__item--link transparent" id="home-link5" data-turbolinks="false">액티비티</a>
                            <ul class="sub-menu__item-contain">
                               <li><a href="#">문화체험</a></li>
                               <li><a href="#">스포츠</a></li>
@@ -298,7 +302,7 @@
                            </ul>
                         </li>
                         <li class="lnb-menu__item gtm-lnb-home">
-                           <a href="/app/tour/list/50" class="lnb-menu__item--link transparent" id="home-link6" data-turbolinks="false"><spring:message code="site.cate5" text="쇼핑" /></a>
+                           <a href="#" class="lnb-menu__item--link transparent" id="home-link6" data-turbolinks="false">쇼핑</a>
                         </li>
                      </ul>
                   </nav>

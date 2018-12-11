@@ -27,7 +27,8 @@
 	src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/ko-9d53604fb5c8a610df23b77f7135903c1affe982fa1d15f3354fdc521e10862a.js"></script>
 <script
 	src="/resources/js/application-0a1f0d84b41d048d5930089311ad8e11e301bd606ee17fa9b2c5b3d74f7bec4a.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <style type="text/css">
 input[type=file] {
 	display: none;
@@ -44,7 +45,7 @@ input[type=file] {
 	border-radius: 5px;
 }
 
-.imgs_wrap {
+.imgs_wrap, .imgs_wrap1{
 	border: 1px solid #A8A8A8;
 	margin-top: 30px;
 	margin-bottom: 30px;
@@ -75,9 +76,8 @@ div.col-md-9 {
 				<form data-validation="false" data-istour="true"
 					data-isticket="false" data-ishotdeal="false" data-islodging="false"
 					data-offer-status="temp" class="panel panel-bordered"
-					 accept-charset="UTF-8"
-					id="fileForm" action="fileUpload" method="post"
-					enctype="multipart/form-data">
+					accept-charset="UTF-8" id="fileForm" action="fileUpload"
+					method="post" enctype="multipart/form-data">
 					<input name="utf8" type="hidden" value="&#x2713;" /><input
 						type="hidden" name="_method" value="put" /><input type="hidden"
 						name="authenticity_token"
@@ -85,7 +85,7 @@ div.col-md-9 {
 					<div class='panel-heading'>
 						<div class='panel-title'>여행 등록</div>
 					</div>
-					<div class='panel-body' style="background-color: saddlebrown;">
+					<div class='panel-body'>
 						<div class='pearls row' data-by-row='true'
 							data-plugin='matchHeight' role='tablist'>
 							<div class='col-xs-4 current pearl' data-target='#step1'
@@ -150,8 +150,8 @@ div.col-md-9 {
 											<input id='fourth_category' name='offer[category]'
 												type='radio' value='40'> <label for='40'>액티비티</label>
 										</div>
-										<div class='radio-custom radio-primary'>
-											<input id='fifth_category' name='offer[language_list][]'
+										<div class='item-group radio-custom radio-primary'>
+											<input id='fifth_category' name='offer[category]'
 												type='radio' value='51'> <label for='51'>쇼핑</label>
 										</div>
 									</div>
@@ -159,9 +159,7 @@ div.col-md-9 {
 
 							</div>
 							<hr class='divider'>
-							<div class='form-group clearfix'
-								data-desc='• 투어 중 잠시 사용되는 언어일 경우 선택하지 않으셔도 됩니다.<br/>• 통역 서비스일 경우에는 여행자에게는 한국어를 사용하시기 때문에 [한국어]를 선택해주세요.<br/>• 해당 투어의 진행 언어를 여러가지 선택할 수 있을 경우 복수 선택해주세요.<br/>'
-								id="division">
+							<div class='form-group clearfix' id="division">
 								<label class='control-label col-xs-12' for='language_list'>
 									중분류 카테고리 <span>*</span>
 								</label>
@@ -239,11 +237,46 @@ div.col-md-9 {
 												value='44'> <label for='44'>채식</label>
 										</div>
 									</div>
+									<div class='check-item-container language-list'
+										id="fifth_division" style="display: none">
+										<div class='item-group radio-custom radio-primary'>
+											<input id='ko' name='offer[language_list][]' type='radio'
+												value='51'> <label for='51'>쇼핑</label>
+										</div>
+
+									</div>
 
 
 								</div>
 
 							</div>
+							<hr class='divider'>
+
+
+							 <div class='row'>
+                                 <div class='col-xs-12'>
+                                    <select id="region" name="region" class='form-control' style="width: 100%;">
+                                        <option value="15">서울특별시</option>
+                                        <option value="05">광주광역시</option>
+                                        <option value="17">인천광역시</option>
+                                        <option value="03">울산광역시</option>
+                                        <option value="08">대구광역시</option>
+                                        <option value="10">대전광역시</option>
+                                        <option value="02">부산광역시</option>
+                                        <option value="11">세종특별시</option>
+                                        <option value="12">충청북도</option>
+                                        <option value="13">충청남도</option>
+                                        <option value="09">경상북도</option>
+                                        <option value="04">경상남도</option>
+                                        <option value="07">전라북도</option>
+                                        <option value="06">전라남도</option>
+                                        <option value="14">강원도</option>
+                                        <option value="16">경기도</option>
+                                        <option value="01">제주도</option>
+                                    </select>
+                                 </div>
+                              </div>
+							
 							<hr class='divider'>
 							<div class='form-group clearfix'
 								data-desc='&lt;span class=&quot;font-weight-600&quot;&gt;제목 예시&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;&quot;가우디 필수코스! 바르셀로나 반나절 코스&quot;&lt;br/&gt;&quot;영화 미드나잇인파리 명소 따라 파리 곳곳 다녀보기&quot;&lt;br/&gt;&lt;br/&gt;주의: 맞춤법에 맞게 작성하여주세요. 특수문자를 사용하지 마세요.&lt;br/&gt;'>
@@ -290,59 +323,56 @@ div.col-md-9 {
 
 							<div>
 								<label class='control-label col-xs-12' for='offerTitle'>
-									여행 제목 <span>*</span>
+									여행 대표 사진 <span>*</span>
 								</label>
-								</div>
-								
-								<div class="input_wrap">
-            <a href="javascript:" onclick="fileUploadAction();" class="my_button">파일 업로드</a>
-            <input type="file" id="input_imgs" accept="image/*" name='upload'>
-        </div>
-								
-								
-								
-								
-								<div class="imgs_wrap"> 
-								<img src=""/>
-								</div>
-						
-							<input type="button" value="저장" 
-								class="btn btn-info" style="float: right; margin-top: 30px;" />
+							</div>
+
+							<div class="input_wrap">
+								<a href="javascript:" onclick="fileUploadAction();"
+									class="my_button">사진 업로드</a> <input type="file" id="input_imgs"
+									accept="image/*" name='upload'>
+							</div>
+
+
+
+
+							<div class="imgs_wrap">
+								<img src="" />
+							</div>
 							<div class="form-group clearfix">
 								<div class="col-lg-12">
 									<p class="help-block">
 										• 대표사진을 등록해 주세요.<br>
-										• 저장버튼을 꼭 눌러주세요!<br>
 									</p>
 								</div>
-								<div class="col-xs-12">
-									<ul class="image-list row clearfix ui-sortable"
-										id="sortableOfferPhoto">
-									</ul>
-									<div class="row">
-										<div class="col-sm-6 col-xs-12">
-											<div
-												class="hidden margin-5 photo-add-container widget widget-border-dashed"
-												style="display: block;">
-												<div
-													class="widget-body text-center bg-blue-grey-100 blue-grey-700">
-													<div class="file-upload-btn">
-														
-														<div
-															class="btn btn-default btn-picture-add btn-picture-add-bottom btn-block ladda-button"
-															id="btnOfferPhotoBottom" data-style="zoom-out"
-															data-spinner-color="DarkGrey"
-															for="offerPhotoFileBtnBottom">
-															<span class="ladda-label"> <i
-																class="fa fa-plus padding-right-5"></i> 사진등록
-															</span> <span class="ladda-spinner"></span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
+								
+							</div>
+							
+							<div>
+								<label class='control-label col-xs-12' for='offerTitle'>
+									만나는 장소 사진 <span>*</span>
+								</label>
+							</div>
+							
+							<div class="input_wrap">
+								<a href="javascript:" onclick="fileUploadAction1();"
+									class="my_button">사진 업로드</a> <input type="file" id="input_imgs1"
+									accept="image/*" name='upload1'>
+							</div>
+
+
+
+
+							<div class="imgs_wrap1">
+								<img src="" />
+							</div>
+							<div class="form-group clearfix">
+								<div class="col-lg-12">
+									<p class="help-block">
+										• 만나는 장소 사진을 등록해 주세요.<br>
+									</p>
 								</div>
+								
 							</div>
 							<hr class='divider'>
 
@@ -350,9 +380,9 @@ div.col-md-9 {
 						<div class='wizard-buttons'>
 							<a class='btn btn-default btn-outline' href='/auth/login'
 								role='button'>취소하기</a> <input
-								class='btn btn-primary btn-outline pull-right' onClick="fileSubmit();" id='save'
-								formnovalidate='0' name='save' role='button' type='button'
-								value='저장후 다음으로'>
+								class='btn btn-primary btn-outline pull-right'
+								onClick="fileSubmit();" id='save' formnovalidate='0' name='save'
+								role='button' type='button' value='저장후 다음으로'>
 						</div>
 					</div>
 				</form>
@@ -405,6 +435,7 @@ div.col-md-9 {
 					$('#second_division').css('display', 'none');
 					$('#third_division').css('display', 'none');
 					$('#fourth_division').css('display', 'none');
+					$('#fifth_division').css('display', 'block');
 				}
 			});
 		});
@@ -415,137 +446,170 @@ div.col-md-9 {
 			}); */
 	</script>
 	<script type="text/javascript">
+		// 이미지 정보들을 담을 배열
+		var sel_files = [];
 
-        // 이미지 정보들을 담을 배열
-        var sel_files = [];
+		$(document).ready(function() {
+			$("#input_imgs").on("change", handleImgFileSelect);
+			$("#input_imgs1").on("change", handleImgFileSelect1);
+		});
 
+		
+		function handleImgFileSelect(e) {
 
-        $(document).ready(function() {
-            $("#input_imgs").on("change", handleImgFileSelect);
-        }); 
+			// 이미지 정보들을 초기화
+			sel_files = [];
+			$(".imgs_wrap").empty();
 
-        function fileUploadAction() {
-            console.log("fileUploadAction");
-            $("#input_imgs").trigger('click');
-        }
+			var files = e.target.files;
+			var filesArr = Array.prototype.slice.call(files);
 
-        function handleImgFileSelect(e) {
+			var index = 0;
+			filesArr
+					.forEach(function(f) {
+						if (!f.type.match("image.*")) {
+							alert("확장자는 이미지 확장자만 가능합니다.");
+							return;
+						}
 
-            // 이미지 정보들을 초기화
-            sel_files = [];
-            $(".imgs_wrap").empty();
+						sel_files.push(f);
 
-            var files = e.target.files;
-            var filesArr = Array.prototype.slice.call(files);
+						var reader = new FileReader();
+						reader.onload = function(e) {
+							var html = "<a href=\"javascript:void(0);\" onclick=\"deleteImageAction("
+									+ index
+									+ ")\" id=\"img_id_"
+									+ index
+									+ "\"><img src=\"" + e.target.result + "\" data-file='"+f.name+"' class='selProductFile' title='Click to remove'></a>";
+							$(".imgs_wrap").append(html);
+							index++;
 
-            var index = 0;
-            filesArr.forEach(function(f) {
-                if(!f.type.match("image.*")) {
-                    alert("확장자는 이미지 확장자만 가능합니다.");
-                    return;
-                }
+						}
+						reader.readAsDataURL(f);
 
-                sel_files.push(f);
+					});
+		}
+		
+		function handleImgFileSelect1(e) {
 
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    var html = "<a href=\"javascript:void(0);\" onclick=\"deleteImageAction("+index+")\" id=\"img_id_"+index+"\"><img src=\"" + e.target.result + "\" data-file='"+f.name+"' class='selProductFile' title='Click to remove'></a>";
-                    $(".imgs_wrap").append(html);
-                    index++;
+			// 이미지 정보들을 초기화
+			sel_files = [];
+			$(".imgs_wrap1").empty();
 
-                }
-                reader.readAsDataURL(f);
-                
-            });
-        }
+			var files = e.target.files;
+			var filesArr = Array.prototype.slice.call(files);
 
+			var index = 0;
+			filesArr
+					.forEach(function(f) {
+						if (!f.type.match("image.*")) {
+							alert("확장자는 이미지 확장자만 가능합니다.");
+							return;
+						}
 
+						sel_files.push(f);
 
-        function deleteImageAction(index) {
-            console.log("index : "+index);
-            console.log("sel length : "+sel_files.length);
+						var reader = new FileReader();
+						reader.onload = function(e) {
+							var html = "<a href=\"javascript:void(0);\" onclick=\"deleteImageAction("
+									+ index
+									+ ")\" id=\"img_id_"
+									+ index
+									+ "\"><img src=\"" + e.target.result + "\" data-file='"+f.name+"' class='selProductFile' title='Click to remove'></a>";
+							$(".imgs_wrap1").append(html);
+							index++;
 
-            sel_files.splice(index, 1);
+						}
+						reader.readAsDataURL(f);
 
-            var img_id = "#img_id_"+index;
-            $(img_id).remove(); 
-        }
+					});
+		}
 
-        function fileUploadAction() {
-            console.log("fileUploadAction");
-            $("#input_imgs").trigger('click');
-        }
+		function deleteImageAction(index) {
+			console.log("index : " + index);
+			console.log("sel length : " + sel_files.length);
 
-        function submitAction() {
-            console.log("업로드 파일 갯수 : "+sel_files.length);
-            var data = new FormData();
+			sel_files.splice(index, 1);
 
-            for(var i=0, len=sel_files.length; i<len; i++) {
-                var name = "image_"+i;
-                data.append(name, sel_files[i]);
-            }
-            data.append("image_count", sel_files.length);
-            
-            if(sel_files.length < 1) {
-                alert("한개이상의 파일을 선택해주세요.");
-                return;
-            }           
+			var img_id = "#img_id_" + index;
+			$(img_id).remove();
+		}
 
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST","./study01_af.php");
-            xhr.onload = function(e) {
-                if(this.status == 200) {
-                    console.log("Result : "+e.currentTarget.responseText);
-                }
-            }
+		function fileUploadAction() {
+			console.log("fileUploadAction");
+			$("#input_imgs").trigger('click');
+		}
+		
+		function fileUploadAction1() {
+			console.log("fileUploadAction1");
+			$("#input_imgs1").trigger('click');
+		}
 
-            xhr.send(data);
+		function submitAction() {
+			console.log("업로드 파일 갯수 : " + sel_files.length);
+			var data = new FormData();
 
-        }
+			for (var i = 0, len = sel_files.length; i < len; i++) {
+				var name = "image_" + i;
+				data.append(name, sel_files[i]);
+			}
+			data.append("image_count", sel_files.length);
 
-    </script>
+			if (sel_files.length < 1) {
+				alert("한개이상의 파일을 선택해주세요.");
+				return;
+			}
+
+		}
+	</script>
 	<script>
-    function fileSubmit() {
-        var formData = new FormData($("#fileForm")[0]);
-        console.log(formData.get('upload').name);
-        $.ajax({
-            type : 'POST',
-            url : 'upload.do',
-            data : formData,
-            processData : false,
-            contentType : false,
-            success : function(data) {
-            	console.log(data);
-            	var a = (data);
-            	var aaa = {
+		function fileSubmit() {
+			var formData = new FormData($("#fileForm")[0]);
+			console.log(formData.get('upload').name);
+			console.log(formData.get('upload1').name);
+			$.ajax({
+				type : 'POST',
+				url : 'upload.do',
+				data : formData,
+				processData : false,
+				contentType : false,
+				success : function(data) {
+					console.log(data);
+					var a = (data);
+					var aaa = {
 						'titl' : $('#offerTitle_title').val(),
 						'tour_intro' : $('#offerIntroduction').val(),
 						'cat_no' : $('input[name="offer[language_list][]"]:checked').val(),
-						'pri_phot' : a
-						}
-				$.ajax({
-					url : '/app/enroll/page1.do',
-					type : 'POST',
-					dataType : 'JSON',
-					data : JSON.stringify(aaa),
-					contentType : "application/json",
-					success : function(data) {
-						console.log($(data));
-						location.href = "/app/enroll/page2";
-						},error : function() {
+						'pri_phot' : a[0],
+						'loc' : $("#region option:selected").val(),
+						'join_phot' : a[1]
+					}
+					console.log(aaa);
+					$.ajax({
+						enctype : 'multipart/form-data',
+						url : '/app/enroll/page1.do',
+						type : 'POST',
+						dataType : 'JSON',
+						data : JSON.stringify(aaa),
+						contentType : "application/json",
+						success : function(data) {
+							console.log($(data));
+							location.href = "/app/enroll/page2";
+						},
+						error : function() {
 							console.log("실패");
 							swal("실패", "필수 정보가 누락되었습니다.", "error");
-							}
-						});
-                
-            },
-            error : function(data) {
-            	alert("파일 업로드에 실패하였습니다.");
-            	console.log(data);
-            }
-        });
-    }
-</script>
+						}
+					});
+
+				},
+				error : function(data) {
+					alert("파일 업로드에 실패하였습니다.");
+					console.log(data);
+				}
+			});
+		}
+	</script>
 
 
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

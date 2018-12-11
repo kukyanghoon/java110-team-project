@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MemberDao 클래스가 사용할 SQL이 들어 있는 파일 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="leadme.dao.CourseEnrollmentDao">
+   
+    <insert id="courseerolltour" parameterType="tour">
+   INSERT INTO tour(tno, titl, loc, star, cmt_cnt, hits, amt, tour_intro, req_inf, reg_dt,
+    mod_dt, join_plc, lat, lon, join_tm, del_yn, pri_phot, pri_mv, cat_no, mno, mx_pn, join_phot, albm_link) 
+    VALUES (#{tno},#{titl},#{loc}, #{star},#{cmt_cnt},#{hits},#{amt},#{tour_intro},
+    #{req_inf},#{reg_dt},#{mod_dt},#{join_plc},#{lat},#{lon},#{join_tm},#{del_yn},#{pri_phot},#{pri_mv},
+    #{cat_no},#{mno},#{mx_pn},#{join_phot},#{albm_link});
+    
+    
+    <selectKey resultType="Integer" keyProperty="tno" order="AFTER">
+        SELECT LAST_INSERT_ID()
+    </selectKey>
+    
+    </insert>
+    
+    <insert id="coursedetail" parameterType="map">
+    INSERT INTO course(cr_no, tno, cr_idx, cr_name, cr_intro, cr_phot) 
+    VALUES (#{cr_no},#{tno},#{cr_idx},#{cr_name},#{cr_intro},#{cr_phot});
+    
+    <selectKey resultType="Integer" keyProperty="cr_no" order="AFTER">
+        SELECT LAST_INSERT_ID()
+    </selectKey>
+    </insert>
+    
+    
+    <insert id="coursephotodetail" parameterType="map">
+    INSERT INTO course_phot(cr_no, cr_phot_name) 
+    VALUES (#{cr_no},#{cr_phot});
+    
+    </insert>
+    
+    
+    
+</mapper>
+
+
+
+
+
+
+
+
+

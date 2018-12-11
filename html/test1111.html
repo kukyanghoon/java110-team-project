@@ -15,9 +15,9 @@
         margin-top: 50px;
     }
     .img_wrap img{
-        max-width: 100%;
-        max-width: 300px;
         max-height: 300px;
+        max-width: 300px;
+        
     }
 
 </style>
@@ -26,13 +26,19 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
     var sel_files=[];
     $(document).ready(function(){
-        $("#input_img").on("change", handleImgFileSelect);
+        var i = 1;
+        $(".input_img"+i).on("change", handleImgFileSelect);
+        console.log(i);
+        console.log("aaaaaaaaaa");
+        i++;
+        console.log(i);
     });
-
+    
     function handleImgFileSelect(e){
-
+        
         var files = e.target.files;
         var filesArr = Array.prototype.slice.call(files);
+        var a = 1;
 
         filesArr.forEach(function(f)
         {
@@ -45,38 +51,48 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
             var reader = new FileReader();
             reader.onload = function(e){
-                $("#img1").attr("src", e.target.result);
+                $('#img'+a).attr("src", e.target.result);
+                a++;
+                console.log(a);
             }
             reader.readAsDataURL(f);
-
         });
     }
 
 </script>
 <script>
     $(document).ready(function(){
+        var i = 2;
         $("#test").on('click', function(){
+            
             console.log("aaaaaaaaaa");
-            $("#imgs_wrap").append("<div id='imgs_wrap'><h2><b>미리보기</b></h2><p class='title'>이미지업로드</p><input type='file' id='input_img'/></div><div><div class='img_wrap'><img id='img1'/></div></div>");
+            $(".imgs_wrap1").append("<div class='imgs_wrap"+i+"'><h2><b>미리보기</b></h2><p class='title'>이미지업로드</p><input type='file' class='input_img"+i+"'/></div><div><div class='img_wrap'><img id='img"+i+"'/></div></div>");
+            i++;
         }); 
     });
 </script>
 
+<script>
+    $(document).ready(function(){
+
+    });
+    
+
+</script>
+
 </head>
 <body>
-    <div  id="imgs_wrap">
-    <div>
+    <div class="imgs_wrap1">
         <h2><b>미리보기</b></h2>
         <p class="title">이미지업로드</p>
-        <input type="file" id="input_img"/>
-    </div>
-
-    <div >
-        <div class="img_wrap">
-            <img id="img"/>
+        <input type="file" class="input_img1"/>
+        <div >
+            <div class="img_wrap">
+                <img id="img1"/>
+            </div>
         </div>
     </div>
-    </div>
+
 
     <div>
         <button id="test">테스트</button>
