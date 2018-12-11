@@ -2,6 +2,7 @@ package leadme.web;
 
 import java.util.HashMap;
 import java.util.Map;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -61,13 +62,19 @@ public class GoodByeController{
   }
 
   @RequestMapping(value="goodBye.do")
-  public void goodBye(@RequestBody Member member) {
+  public Map<String, Object> goodBye(@RequestBody Member member, HttpSession sessoin) {
+    
+    Map<String, Object> map = new HashMap<String, Object>(); 
     
     System.out.println(member);
     try {
       authService.goodbye(member);
+      sessoin.invalidate();
+      map.put("message", "success");
+      return map;
     } catch (Exception e) {
       e.printStackTrace();
+      return null;
     }
     
   }

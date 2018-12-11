@@ -63,7 +63,7 @@
         </mvc:interceptor>
         <mvc:interceptor>
             <mvc:mapping path="/**/payment"/>
-            <mvc:mapping path="/**/myInfo"/>
+            <!-- <mvc:mapping path="/**/myInfo"/> -->
             <bean class="leadme.web.intercepter.AuthInterCepter"/>
         </mvc:interceptor>
         <mvc:interceptor>

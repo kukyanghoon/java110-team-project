@@ -41,7 +41,7 @@ public class UserController {
 
     try {
       map = mapper.readValue(userInfo, new TypeReference<Map<String, String>>(){});
-      userService.userProfileModify(map, session).callBackUser();
+      userService.userProfileModify(map, session);
       return map;
     } catch (Exception e) {
       System.out.println(e);
@@ -58,7 +58,7 @@ public class UserController {
     Map<String, Object> map = new HashMap<>();
     try {
 
-      map.put("image", userService.makePhotoFile(multi, session).callBackUser().getPhoto());
+      map.put("image", userService.makePhotoFile(multi, session).getPhoto());
       return map;
 
     } catch (Exception e) {

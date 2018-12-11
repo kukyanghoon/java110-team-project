@@ -32,8 +32,8 @@ public class EmailServiceImpl implements EmailService {
         "    안녕하세요. " + member.getName() + " 회원님!<br>\r\n" + 
         "    아래의 버튼을 눌러주세요.\r\n" + 
         "    </p>\r\n" + 
-        "    <h2><a href='http://localhost:8888/app/auth/emailAuth/\" \r\n" + 
-        "                + member.getNo() + \"'>인증하기</a></h2>\r\n" + 
+        "    <h2><a href='http://localhost:8888/app/auth/emailAuth/" 
+        + member.getNo()  + "'>인증하기</a></h2>\r\n" + 
         "    </div>\r\n";
     
     messageHelper.setTo(member.getEmail()); 

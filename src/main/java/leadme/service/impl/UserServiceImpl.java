@@ -21,28 +21,28 @@ import leadme.service.UserService;
 public class UserServiceImpl implements UserService {
 
   @Autowired UserDao userDao;
-  HttpSession session;
-  Member loginMember;
 
+  
   @Transactional(
       transactionManager="transactionManager",
       propagation=Propagation.REQUIRED,
       rollbackFor=Exception.class)
   @Override
-  public UserServiceImpl userProfileModify(Map<String, Object> map, HttpSession session) {
+  public Member userProfileModify(Map<String, Object> map, HttpSession session) {
     
     System.out.println(map.get("no"));
     System.out.println(map.get("name"));
     System.out.println(map.get("email"));
     System.out.println(map.get("lang"));
     
-    this.session = session;
-    this.loginMember = (Member) this.session.getAttribute("memberInfo");
+    Member loginMember = (Member) session.getAttribute("memberInfo");
     
     userDao.userProfileModify(map);
     userDao.userLangModify(map);
     
-    return this;
+    callBackUser(loginMember, session);
+    
+    return loginMember;
   }
   
 /*  private void changeSession(Map<String, Object> map) {
@@ -54,10 +54,8 @@ public class UserServiceImpl implements UserService {
   }*/
   
   @Override
-  public UserServiceImpl makePhotoFile(MultipartHttpServletRequest multi, HttpSession session) 
+  public Member makePhotoFile(MultipartHttpServletRequest multi, HttpSession session) 
       throws IllegalStateException, IOException {
-    
-    this.session = session;
     
     String root = multi.getSession().getServletContext().getRealPath("/");
     String path = root+"resources/img/";
@@ -71,6 +69,8 @@ public class UserServiceImpl implements UserService {
 
     Iterator<String> files = multi.getFileNames();
 
+    Member loginMember = new Member();
+    
     while(files.hasNext()){
       String uploadFile = files.next();
 
@@ -91,36 +91,37 @@ public class UserServiceImpl implements UserService {
       System.out.println("저장될 파일 이름 : " +newFileName);
 
         mFile.transferTo(new File(path+newFileName));
-        userPhotoModify(newFileName);
+        loginMember = userPhotoModify(newFileName ,session);
 
     }
     
-    return this;
+    return callBackUser(loginMember, session);
   }
   
-  @Override
-  public Member callBackUser() {
-    Member user = userDao.callBackUser(this.loginMember.getNo());
+  private Member callBackUser(Member loginMember, HttpSession session) {
+    Member user = userDao.callBackUser(loginMember.getNo());
     System.out.println(user);
-    this.session.setAttribute("memberInfo", user);
-    System.out.println("바뀐 session : " + this.session.getAttribute("memberInfo"));
+    session.setAttribute("memberInfo", user);
+    System.out.println("바뀐 session : " + session.getAttribute("memberInfo"));
     return user;
   }
   
   
   
 
-  private void userPhotoModify(String photoName) {
+  private Member userPhotoModify(String photoName, HttpSession session) {
 
     System.out.println(photoName);
-    System.out.println(this.session.getAttribute("memberInfo"));
-    this.loginMember = (Member)this.session.getAttribute("memberInfo");
+    System.out.println(session.getAttribute("memberInfo"));
+    Member loginMember = (Member)session.getAttribute("memberInfo");
     
     Map<String,Object> param = new HashMap<String, Object>();
     param.put("no", loginMember.getNo());
     param.put("photo", photoName);
 
     userDao.photoModify(param);
+    
+    return loginMember;
   }
   
   @Override
