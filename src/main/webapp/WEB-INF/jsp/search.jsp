@@ -18,7 +18,6 @@
     <link rel="shortcut icon" type="image/x-icon" href="https://d2yoing0loi5gh.cloudfront.net/assets/favicon-e7fc64f202376533d86106e6f712ed41eee1e843dbc5de3b2765938656f8eb93.ico">
     <script src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/ko-7d27ea8334aef60e7e45f2e267dd1aee4667b38dd60ca09967b0a5fc4c5f44bf.js"></script>
    
-    <script src="/resources/js/application.89bde0a7d84a7bf87143.js"></script>
     
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -117,21 +116,12 @@ span.local{
   
   <div class="resp-container" style="top: 0px; bottom: 0px;">
       <div class="resp-container--row swiper__row">
-          <div class="OfferList__Sidebar ">
-            <div class="OfferList__Sticky" data-sticky-class="isSticky">
-
-              <div class="OfferList__Sidebar__Item">
-                <div class="offer-category__container border-shadow">
-                
-                
-                    </div>
-                     
-                </div></div></div><div id="OfferList__Items" class="OfferList__Items" style="height: 1000px;">
+          <div id="OfferList__Items" class="OfferList__Items" style="height: 1000px;">
                     
                 
                    
                <c:forEach items="${searchList}" var='item' varStatus="list">
-               <div class="offer-result clearfix gtm-search-offer" style="padding-left: 250px;">
+               <div class="offer-result clearfix gtm-search-offer" style="padding-left: 0px; width:1330px;">
    <%-- <a href=# target="_blank">
       <div class="wrapper">
          <div class="offer-title">${item.titl}</div>

@@ -1,7 +1,13 @@
-
-
+.mrt-gnb-header{
+	padding-top:50px;
+	position:relative;
+	z-index:100000;
+	
+}
 .lnb-container{
 	top: -50px;
+	margin : 0 auto;
+	position : relative;
 }
 .lnb-menu .lnb-menu__item{
 	padding: 0 70px;
@@ -11,6 +17,12 @@
 }
 .lnb-menu .lnb-menu__item .lnb-menu__item--link{
 	font-weight: 900;
+}
+.mrt-container{
+	height: 100%;
+	position: relative;
+	margin: 0 auto;
+	width: 1060px;
 }
 .mrt-container2{
 	height: 100%;
@@ -23,6 +35,8 @@
 	width: auto;
 	z-index: inherit;
 }
+
+
 
 .sub-menu__item-contain:first-of-type{
 	padding-left: 0;
@@ -88,7 +102,7 @@ color: #2b96ed;
 	margin-top: 100px;
 }
 .lnb-menu .lnb-menu__item .lnb-menu__item--link{
-	font-size: 17px;
+	font-size: 18px;
 }
 
 /* reservations.html */
@@ -121,7 +135,7 @@ color: #2b96ed;
 <!-- 카테고리 테마에 미디어쿼리 주기 -->
 @media only screen and (min-width: 1440px) {
     .lnb-menu .lnb-menu__item{
-    	padding: 0 75px;
+    	padding: 0 70px;
     }
 }
 
@@ -157,8 +171,8 @@ color: #2b96ed;
 
 @media only screen and (max-width: 371px) {
     .lnb-menu .lnb-menu__item{
-        font-size: 100px;
-    	padding: 0 2px;
+      
+    	padding: 0 5px;
     }
 }
 

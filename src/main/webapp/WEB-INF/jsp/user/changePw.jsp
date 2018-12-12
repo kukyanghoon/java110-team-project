@@ -20,7 +20,7 @@
    
     <script src="/resources/js/application.89bde0a7d84a7bf87143.js"></script>
     
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
       
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--[if lte ie 9]>
@@ -81,6 +81,13 @@ span.local{
     border-radius: 20px;
 }
 .formMargin{margin-top: 30px; margin-bottom: 30px;}
+#changePw{
+	text-align:center;
+	padding-top:30px;
+}
+
+
+
 </style>
 
  
@@ -100,11 +107,7 @@ span.local{
     }
     
     /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }
+
     
     /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {
@@ -178,7 +181,8 @@ input:checked + .slider:before {
       
       
       .form-group{
-          padding: 30px;
+      	padding:30px;
+          margin-left:-162px;
       }      
       .dateSeletor{
           display: inline-block;
@@ -268,7 +272,7 @@ input:checked + .slider:before {
                 
   <div class="row content" style="height: 1000px;">
 
-    <div class="col-sm-12"> 
+    <div class="col-sm-12" id="changePw"> 
       
   <h2 id="pwTitl">비밀번호 변경</h2>
   <form class="form-horizontal">

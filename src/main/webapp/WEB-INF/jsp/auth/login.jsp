@@ -45,10 +45,6 @@
        
        <link rel="stylesheet" type="text/css" href="css/hyun.css">
        -->
-      <link rel="stylesheet" media="screen" href="/resources/css/application.6823a52822019093f642.css" />
-<link rel="stylesheet" media="screen" href="/resources/css/application.e01e462572b9064a1cc4.css"/>
-<link rel="stylesheet" type="text/css" href="/resources/css/custom1.css">
-<link rel="stylesheet" type="text/css" href="/resources/css/hyun.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    </head>
    
