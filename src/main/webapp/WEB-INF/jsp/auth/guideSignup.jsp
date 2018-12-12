@@ -201,7 +201,7 @@ function Today(year,mon,day){
                               </div>
                               <div class='row'>
                                  <div class='col-xs-12'>
-                                    <input id='tel' class='form-control' name='tel' placeholder='<spring:message code="guideSignup.tel" text="전화번호" />' title='전화번호' type='tel'>
+                                    <input id='tel' class='form-control' name='tel' placeholder='ex)010-0000-0000' title='전화번호' type='tel'>
                                  </div>
                               </div>
                            </div>
@@ -216,7 +216,7 @@ function Today(year,mon,day){
                               </div>
                               <div class='row'>
                                  <div class='col-xs-12'>
-                                    <input id='accountNum' class='form-control' name='accountNum' placeholder='<spring:message code="guideSignup.account" text="계좌번호" />' title='계좌번호' type='text'>
+                                    <input id='accountNum' class='form-control' name='accountNum' placeholder='<spring:message code="guideSignup.account2" text="숫자만 입력해 주세요" />' title='계좌번호' type='text'>
                                  </div>
                               </div>
                            </div>
@@ -335,32 +335,38 @@ function Today(year,mon,day){
                           
                           if(!validCheck(emailValid,email)){
                               console.log("email");
+                              swal("이메일을 확인해 주세요", "", "error");
                               return;
                           }
                           
                           if(!validCheck(pwdValid,pwd)){
                               console.log("pwd");
+                              swal("비밀번호를 확인해 주세요", "", "error");
                               return;
                           }
                           
                           if(!pwdCheck()){
                               console.log("222");
+                              swal("비밀번호를 확인해 주세요", "", "error");
                               return;
                           }
                           
                           if(!validCheck(regExp,tel)){
                               console.log("tel");
+                              swal("전화번호를 확인해 주세요", "", "error");
                               return;
                           }
                           
                           if(accountNum.val() == ""){
                               console.log("계좌번호 입력");
                               accountNum.focus();
+                              swal("계좌번호를 확인해 주세요", "", "error");
                               return;
                           }
                           
                           if(!( emptyCheck($('#checkTerms')) && emptyCheck($('#checkAgree')) )){
                               console.log("약관 빔");
+                              swal("모든 약관에 동의해 주세요", "", "error");
                               return;
                           }
                           
@@ -428,15 +434,16 @@ function Today(year,mon,day){
                                           contentType:"application/json",
                                           success:function(data){
                                                   console.log(data);
-                                                  swal("가입 성공!!", "반갑습니다~", "success");
+                                                  swal("회원 가입 완료", "", "success").then((value) => {
+                                                      location.href = "login"});
                                           },
                                           error:function(){
-                                              swal("가입 실패", "유후~", "error");
+                                              swal("회원 가입 실패", "", "error");
                                           }
                                       })
                               },
                               error:function(){
-                                  swal("가입 실패", "유효하지 않은 계좌번호 입니다", "error");
+                                  swal("회원 가입 실패", "유효하지 않은 계좌번호 입니다", "error");
                                       console.log('아니아니아니아니아니아니아니되오');
                               }
                           });   
@@ -535,6 +542,7 @@ function Today(year,mon,day){
               data:JSON.stringify(makeObj(profile)),
               contentType:"application/json",
               success:function(data){
+                  swal("회원 가입 완료", "", "success");
                   console.log(data);
                   location.href = "../main";
               }

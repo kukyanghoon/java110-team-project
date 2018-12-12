@@ -468,7 +468,7 @@ div.col-md-9 {
 			filesArr
 					.forEach(function(f) {
 						if (!f.type.match("image.*")) {
-							alert("확장자는 이미지 확장자만 가능합니다.");
+							swal("실패", "확장자는 이미지 확장자만 가능합니다.", "error");
 							return;
 						}
 
@@ -503,7 +503,7 @@ div.col-md-9 {
 			filesArr
 					.forEach(function(f) {
 						if (!f.type.match("image.*")) {
-							alert("확장자는 이미지 확장자만 가능합니다.");
+							swal("실패", "확장자는 이미지 확장자만 가능합니다.", "error");
 							return;
 						}
 
@@ -556,7 +556,7 @@ div.col-md-9 {
 			data.append("image_count", sel_files.length);
 
 			if (sel_files.length < 1) {
-				alert("한개이상의 파일을 선택해주세요.");
+				swal("실패", "한개 이상의 파일을 선택해주세요", "error");
 				return;
 			}
 
