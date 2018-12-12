@@ -494,16 +494,19 @@ $(document).ready(function(){
        
        if(!validCheck(nameValid,name)){
            console.log("name");
+           swal("수정 실패", "이름을 확인해 주세요", "error");
            return;
        }
 
        if(!validCheck(emailValid,email)){
            console.log("email");
+           swal("수정 실패", "이메일을 확인해 주세요", "error");
            return;
        }
        
        if(!validCheck(regExp,tel)){
            console.log("tel");
+           swal("수정 실패", "전화번호를 확인해 주세요", "error");
            return;
        }
        
@@ -531,9 +534,11 @@ $(document).ready(function(){
            contentType:"application/json",
            success:function(data){
                console.log("jsp석세스")
+               swal("수정 완료", "", "success");
            },
            error:function(){
                console.log("jsp에러")
+               swal("수정 실패", "정보를 확인해 주세요", "error");
            }
        });   
        
@@ -565,10 +570,10 @@ $(document).ready(function(){
             data:JSON.stringify(obj),
             contentType:"application/json",
             success:function(data){
-                
+                swal("이메일을 보냈습니다", "", "success");
             },
             error:function(){
-                
+                swal("이메일 전송 실패", "이메일을 확인해 주세요", "error");
             }
         
         }); 
@@ -605,14 +610,14 @@ $(document).ready(function(){
             processData : false,
             contentType : false,
             success : function(data) {
-                alert("파일 업로드하였습니다.");
+                swal("사진 등록 완료", "", "success");
                 console.log(data);
                 console.log(data.image);
                 var a = ("/resources/img/" + data.image);
                 $('#userImage').attr('src',a);
             },
             error : function(error) {
-                alert("파일 업로드에 실패하였습니다.");
+                swal("사진 등록 실패", "", "error");
                 console.log(error);
                 console.log(error.status);
             }
@@ -639,5 +644,6 @@ $(document).ready(function(){
 });
 </script>
 <script src="/resources/js/comment.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 </html>

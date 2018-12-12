@@ -551,7 +551,7 @@ a.my_button {
             filesArr.forEach(function(f) {
             	
                 if(!f.type.match("image.*")) {
-                    alert("확장자는 이미지 확장자만 가능합니다.");
+                    swal("실패", "확장자는 이미지 확장자만 가능합니다", "error");
                     return;
                 }
                 sel_files.push(f);
@@ -592,7 +592,7 @@ a.my_button {
             data.append("image_count", sel_files.length);
             
             if(sel_files.length < 1) {
-                alert("한개이상의 파일을 선택해주세요.");
+                swal("실패", "한 개 이상의 파일을 선택해주세요", "error");
                 return;
             }           
 
@@ -670,17 +670,17 @@ a.my_button {
          	                        	 location.href = "/app/enroll/page3"
          	                         },
          	                         error: function(data) {
-         	                             alert("fail");
+         	                             swal("실패", "", "error");
          	                         }
          	                     });
          	                 }, error: function(data) {
-         	                     alert("실패쓰");
+         	                     swal("실패", "", "error");
          	                 }
          	             });
              },
              error: function() {
                  console.log("실패");
-                 swal("실패", "필수 정보가 누락되었습니/////,./,ㅡ.ㅡ.ㅡ.ㅡ.다.", "error");
+                 swal("실패", "필수 정보가 누락되었습니다", "error");
              }
           });
 	 }
