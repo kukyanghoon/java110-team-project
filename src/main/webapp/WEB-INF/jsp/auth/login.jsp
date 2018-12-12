@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"
     trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
 <html>
    <head>
@@ -12,7 +13,7 @@
     <meta name="google-signin-client_id" content="639731399858-ahjc3pap9isuk2c10qp6h3i3icu37vsc.apps.googleusercontent.com">
       
       
-      <title>LEADME || <spring:message code="login.title" text="로그인" /></title>
+      <title>LEADME :: <spring:message code="login.title" text="로그인" /></title>
       <!-- <link rel="shortcut icon" type="image/x-icon" href="https://d2yoing0loi5gh.cloudfront.net/assets/favicon-e7fc64f202376533d86106e6f712ed41eee1e843dbc5de3b2765938656f8eb93.ico">
       <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application_template-5da62e3a802820a73815ac9769d004d04db514aa47276f57320c206cc043d2ac.css">
       <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-4b8ab07154cf2c04a97bb950234f455fe5a721876f501316a714f1a8b65b12ae.css" />
@@ -62,7 +63,7 @@
             <div class='member-panel'>
                <div class='content-wrapper'  style=" margin-top: 0px; margint-right:130px; margint-bottom:0px; margin-left: 130px;  ">
                   <div class='form-group clearfix'>
-                     <h1><b>로그인</b></h1>
+                     <h1><b><spring:message code="login.title" text="로그인" /></b></h1>
                   </div>
                </div>
                <div class='panel-body'>
@@ -73,7 +74,7 @@
                         <div class='content-wrapper'>
                            <div class='form-group clearfix'>
                               <div class='content-title-box'>
-                                 <div class='sub-title'>이메일*</div>
+                                 <div class='sub-title'><spring:message code="login.email" text="이메일" />*</div>
                               </div>
                               <div class='row'>
                                  <div class='col-xs-12'>
@@ -85,7 +86,7 @@
                         <div class='content-wrapper'>
                            <div class='form-group'>
                               <div class='content-title-box'>
-                                 <div class='sub-title'>비밀번호*</div>
+                                 <div class='sub-title'><spring:message code="login.password" text="비밀번호" />*</div>
                               </div>
                               <div class='row'>
                                  <div class='col-xs-12'>
@@ -98,14 +99,8 @@
                            <div class='form-group'>
                               <div class='row row-margin'>
                                  <div class='col-xs-6'>
-                                    <div class='checkbox-custom checkbox-primary'>
-                                       <input id='remember_me' name='user[remember_me]' type='checkbox'>
-                                       <label for='remember_me'>로그인 상태 유지</label>
-                                    </div>
-                                 </div>
-                                 <div class='col-xs-6'>
                                     <div class='find-password'>
-                                       <a data-turbolinks='false' href='#' id="findPwBtn">비밀번호 찾기</a>
+                                       <a data-turbolinks='false' href='#' id="findPwBtn"><spring:message code="login.findPassword" text="비밀번호 찾기" /></a>
                                     </div>
                                  </div>
                               </div>
@@ -113,7 +108,7 @@
                         </div>
                         <div class='btn-wrap'>
                            <button class='btn-new btn--type-primary btn--width-100' style="height:40px" id="loginBtn" type='button'>
-                           <span>이메일로 로그인</span>
+                           <span><spring:message code="login.loginEmail" text="이메일로 로그인" /></span>
                            </button>
                         </div>
                      </div>
@@ -132,8 +127,8 @@
                   </div>
                   <div class='panel-footer'>
                      <div class='footer-title'>
-                        아직 Lead Me! 회원이 아니신가요?
-                        <a href='/app/auth/signup'>회원가입</a>
+                        <spring:message code="login.signupText" text="아직 LEADME 회원이 아니신가요?" />&nbsp;
+                        <a href='/app/auth/signup'><spring:message code="login.signup" text="회원가입" /></a>
                      </div>
                   </div>
                </div>
