@@ -19,6 +19,7 @@ import leadme.dao.AuthDao;
 import leadme.domain.Guide;
 import leadme.domain.Member;
 import leadme.service.AuthService;
+import leadme.service.RankingService;
 
 @Service
 public class AuthServiceImpl implements AuthService {
@@ -27,6 +28,8 @@ public class AuthServiceImpl implements AuthService {
   
   @Autowired JavaMailSender mailSender;
 
+  @Autowired RankingService rankingService;
+  
 
   @Override
   public Member login(Member member) throws Exception {

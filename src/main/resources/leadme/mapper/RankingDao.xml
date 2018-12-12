@@ -120,11 +120,13 @@
                     from tour t
                   group by cat_no, tno
                   ) c     
+                    WHERE TRUNCATE(c.cat_no,-1) = #{loc}
                      order by pnt desc, loc desc
+                     LIMIT 4
                      
     </select>
    
-    <select id="getExecutorLocalBest" resultMap="tourMap"  >
+    <select id="getExecutorLocalBest" resultMap="tourMap"  parameterType="int">
     <include refid="select2"></include>
      from (      
                     select
@@ -148,6 +150,7 @@
                   from tour t
                   group by loc, tno
                   ) c
+     where loc = #{loc}
                      order by pnt desc, loc desc
                      limit  3
     </select>

@@ -73,7 +73,8 @@ public class GuideServiceImpl implements GuideService {
     for (TourReq tourReq : list) {
       System.out.println(tourReq);
       tourReq.setTday(format.format(tourReq.getTour_dt()));
-      tourReq.setdDay(String.valueOf((tourReq.getTour_dt().getTime() - nowDate.getTime())/ (24 * 60 * 60 * 1000)));
+      tourReq.setdDay(String.valueOf(((tourReq.getTour_dt().getTime() - nowDate.getTime())/ (24 * 60 * 60 * 1000))+1));
+      System.out.println(tourReq.getdDay());
     }
     formatToutdt(list);
     return list;

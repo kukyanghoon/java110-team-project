@@ -10,11 +10,11 @@ public interface RankingDao {
     List<Tour> getListLocalBest(Map<String,Object> params);
     
     void delete();
-    void insert(Map <String, Object> param);
+    int insert(Map <String, Object> param);
     
     List<Tour> getExecutorTourBest();
-    List<Tour> getExecutorThemeBest();
-    List<Tour> getExecutorLocalBest();
+    List<Tour> getExecutorThemeBest(int loc);
+    List<Tour> getExecutorLocalBest(int loc);
    
     
 }

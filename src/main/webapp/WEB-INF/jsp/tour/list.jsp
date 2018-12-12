@@ -235,19 +235,19 @@ span.local{
                                 <input type="checkbox" value="17" name="loc" ><span class="local"><spring:message code="list.Incheon" text="인천" /></span>
                                  <input type="checkbox" value="11" name="loc"><span class="local"><spring:message code="list.Sejong" text="세종" /></span><br></li>
                                 <li><input type="checkbox" value="10" name="loc"><span class="local"><spring:message code="list.Daejeon" text="대전" /></span>
-                                <input type="checkbox" value="8" name="loc"><span class="local"><spring:message code="list.Dea-gu" text="대구" /></span>
-                                <input type="checkbox" value="3" name="loc"><span class="local"><spring:message code="list.Ulsan" text="울산" /></span><br></li>
-                                <li><input type="checkbox" value="2" name="loc"><span class="local"><spring:message code="list.Busan" text="부산" /></span>
-                                <input type="checkbox" value="5" name="loc"><span class="local"><spring:message code="list.Gwangju" text="광주" /></span>
-                                <input type="checkbox" value="1" name="loc"><span class="local"><spring:message code="list.Jeju" text="제주" /></span><br></li>
+                                <input type="checkbox" value="08" name="loc"><span class="local"><spring:message code="list.Dea-gu" text="대구" /></span>
+                                <input type="checkbox" value="03" name="loc"><span class="local"><spring:message code="list.Ulsan" text="울산" /></span><br></li>
+                                <li><input type="checkbox" value="02" name="loc"><span class="local"><spring:message code="list.Busan" text="부산" /></span>
+                                <input type="checkbox" value="05" name="loc"><span class="local"><spring:message code="list.Gwangju" text="광주" /></span>
+                                <input type="checkbox" value="01" name="loc"><span class="local"><spring:message code="list.Jeju" text="제주" /></span><br></li>
                                 <li><input type="checkbox" value="16" name="loc"><span class="local"><spring:message code="list.Gyeong-gi" text="경기" /></span>
                                 <input type="checkbox" value="14" name="loc"><span class="local"><spring:message code="list.Gangwon" text="강원" /></span>
                                 <input type="checkbox" value="12" name="loc"><span class="local"><spring:message code="list.Chungbuk" text="충북" /></span><br></li>
                                 <li><input type="checkbox" value="13" name="loc"><span class="local"><spring:message code="list.Chungnam" text="충남" /></span>
-                                <input type="checkbox" value="9" name="loc"><span class="local"><spring:message code="list.Kyungbuk" text="경북" /></span>
-                                <input type="checkbox" value="4" name="loc"><span class="local"><spring:message code="list.Kyungnam" text="경남" /></span><br></li>
-                                <li><input type="checkbox" value="7" name="loc"><span class="local"><spring:message code="list.Jeonbuk" text="전북" /></span>
-                                <input type="checkbox" value="6" name="loc"><span class="local"><spring:message code="list.Jeonnam" text="전남" /></span><br>
+                                <input type="checkbox" value="09" name="loc"><span class="local"><spring:message code="list.Kyungbuk" text="경북" /></span>
+                                <input type="checkbox" value="04" name="loc"><span class="local"><spring:message code="list.Kyungnam" text="경남" /></span><br></li>
+                                <li><input type="checkbox" value="07" name="loc"><span class="local"><spring:message code="list.Jeonbuk" text="전북" /></span>
+                                <input type="checkbox" value="06" name="loc"><span class="local"><spring:message code="list.Jeonnam" text="전남" /></span><br>
                                 <button id="allLocBtn" type="button" class="btn btn-info">전국</button>
                                 
                                 </li>
@@ -308,7 +308,7 @@ span.local{
                         <c:otherwise>
                         
                         
-                                       <a class="OfferListCard" style='display: none;' href="#" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product" data-offer-type="IstanbulTicket" data-offer-id="31644"><div class="OfferListCard__Thumbnail" style="background-image: url( /resources/img/${list.pri_phot});"></div><div class="OfferListCard__Content"><div class="OfferListCard__Content__Category"><span>${list.category.cat_name}</span><span class="hide-on-mobile"><div class="Dot" style="display: inline-block; vertical-align: middle; background-color: rgb(132, 140, 148); border-radius: 2px; width: 2px; height: 2px; margin: 0px 4px;"></div><span>${list.mid_category.cat_name}</span></span></div><div class="OfferListCard__Content__Title"><div class="LinesEllipsis  ">${ list.titl}<wbr></div></div><div class="OfferListCard__Content__Guide"><span class="name">${list.member.name}</span></div><div class="OfferListCard__Content__Review">
+                                       <a class="OfferListCard" style='display: none;' href="/app/tour/detail/${list.tno}" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product" data-offer-type="IstanbulTicket" data-offer-id="31644"><div class="OfferListCard__Thumbnail" style="background-image: url( /resources/img/${list.pri_phot});"></div><div class="OfferListCard__Content"><div class="OfferListCard__Content__Category"><span>${list.category.cat_name}</span><span class="hide-on-mobile"><div class="Dot" style="display: inline-block; vertical-align: middle; background-color: rgb(132, 140, 148); border-radius: 2px; width: 2px; height: 2px; margin: 0px 4px;"></div><span>${list.mid_category.cat_name}</span></span></div><div class="OfferListCard__Content__Title"><div class="LinesEllipsis  ">${ list.titl}<wbr></div></div><div class="OfferListCard__Content__Guide"><span class="name">${list.member.name}</span></div><div class="OfferListCard__Content__Review">
                                        <div class='starRating starRating--m starRating--blue'>
                                        <c:forEach var="i" begin="1" end="5">
         <c:choose>

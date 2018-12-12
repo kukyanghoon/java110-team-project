@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import leadme.service.RankingService;
-import leadme.domain.Ranking;
 
 //스케쥴링 위한 클래스 및 메서드
 @Component
@@ -44,20 +43,19 @@ public class Executor {
    // 클래스.메소드 박아주기?
  }
  */
- 
-/*
- @Scheduled(fixedDelay = 5000)
+  
+  @Scheduled(cron="0 0 0/1 * * ?") // 한시간 마다 설정
  public void executor2 (){
-   
-     System.out.println(new Date());
+     System.out.println("자료 업데이트 된 시간! : " + new Date());
+     rankingService.delete();
      rankingService.add();
      
  }
  
+ /*
  @Scheduled(fixedDelay = 8000)
  public void executor3 (){
      System.out.println(new Date());
      rankingService.delete();
- }
-*/
+ }*/
 }

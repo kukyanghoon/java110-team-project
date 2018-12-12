@@ -53,7 +53,7 @@ public class UserTourServiceImpl implements UserTourService {
     Date nowDate = new Date();
     for (TourReq tourReq : list) {
       tourReq.setTday(format.format(tourReq.getTour_dt()));
-      tourReq.setdDay(String.valueOf((tourReq.getTour_dt().getTime() - nowDate.getTime())/ (24 * 60 * 60 * 1000)));
+      tourReq.setdDay(String.valueOf(((tourReq.getTour_dt().getTime() - nowDate.getTime())/ (24 * 60 * 60 * 1000))+1));
     }
     
     return list;
