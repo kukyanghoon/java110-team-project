@@ -125,6 +125,7 @@ public class AuthServiceImpl implements AuthService {
     return facebookMember;
   }
   
+  @Transactional
   @Override
   public void createUser(Member member) throws Exception{
     
@@ -136,8 +137,11 @@ public class AuthServiceImpl implements AuthService {
     member.setMtype("U");
     member.setActive("N");
     member.setPath("leadme");
+    member.setLang("ko");
     
     System.out.println(authDao.createUser(member));
+    authDao.createTmemb(member);
+    
   }
   
   @Override

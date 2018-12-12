@@ -253,7 +253,7 @@ span.local{
            
            
            var obj ={
-                   'mno': '11'
+                   'mno': ${memberInfo.no}
            }
            
            $.ajax({
@@ -327,6 +327,7 @@ span.local{
                                                "<div class='text-md'>즐거운 여행 되세욥!!</div>"+
                                                "<div class='status-message-warning text-sm'>"+
                                                "</div>"+
+                                               "<div><button id='tourCancelBtn" +index+ "' type='button' class='btn btn-info'>취소요청</button></div>"+
                                            "</div>"+
                                        "</div>"+
                                    "</div>"+
@@ -340,7 +341,30 @@ span.local{
                        "</div>");
                        
                        
-                       
+                       $('#tourCancelBtn'+index).on('click', function(){
+                           console.log("취소해주세염@!"); 
+                           console.log("해당 투어번호 : " + item.tour.tno);
+                           console.log("해당 날짜 : " + item.tday);
+                           
+                           var cancelTour = {
+                                   'tno' : item.tour.tno,
+                                   'tday' : item.tday
+                           }
+                           
+                           $.ajax({
+                               url:'/app/tour/cancel.do',
+                               type:'POST',
+                               dataType:'JSON',
+                               data:JSON.stringify(cancelTour),
+                               contentType:"application/json",
+                               success:function(data){
+                                   
+                               }
+                           });
+                           
+                           
+                           
+                        });
                        
                        
                    });
@@ -371,7 +395,7 @@ span.local{
             
             
             var obj ={
-                    'mno': '11'
+                    'mno': ${memberInfo.no}
             }
             
             $.ajax({
@@ -441,7 +465,7 @@ span.local{
             
             
             var obj ={
-                    'mno': '11'
+                    'mno': ${memberInfo.no}
             }
             
             $.ajax({
@@ -508,6 +532,11 @@ span.local{
             });
         
         });
+        
+        
+        
+        
+        
         
         
     });
