@@ -166,21 +166,25 @@
                           
                           if(!validCheck(emailValid,email)){
                               console.log("email");
+                              swal("이메일을 확인해 주세요", "", "error");
                               return;
                           }
                           
                           if(!validCheck(pwdValid,pwd)){
                               console.log("pwd");
+                              swal("비밀번호를 확인해 주세요", "", "error");
                               return;
                           }
                           
                           if(!pwdCheck()){
                               console.log("222");
+                              swal("비밀번호를 확인해 주세요", "", "error");
                               return;
                           }
                           
                           if(!( emptyCheck($('#checkTerms')) && emptyCheck($('#checkAgree')) )){
                               console.log("약관 빔");
+                              swal("모든 약관에 동의해 주세요", "", "error");
                               return;
                           }
                           
@@ -200,12 +204,12 @@
                               contentType:"application/json",
                               success:function(data){
                                   console.log(data);
-                                  swal("가입 완료", "환영합니다.", "success").then((value) => {
+                                  swal("가입 완료", "환영합니다!", "success").then((value) => {
                                       location.href = "login"});
                                       
                               },
                               error:function(){
-                                  swal("가입 실패", "이미 가입 되어있는 이메일입니다.", "error");
+                                  swal("가입 실패", "이미 가입 되어있는 이메일입니다", "error");
                                       console.log('아니아니아니아니아니아니아니되오');
                               }
                           }); 

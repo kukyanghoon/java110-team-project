@@ -190,6 +190,7 @@
                    },
                    error:function(){
                        console.log('실패');
+                       swal("로그인 실패", "이메일 또는 비밀번호가 정확하지 않습니다", "error");
                    }
                
                }); 
@@ -311,7 +312,7 @@
     <script>
     
     $('#findPwBtn').on('click', function(){
-        swal("가입 시 입력한 이메일을 입력해주세요.", {
+        swal("가입 시 입력한 이메일을 입력해주세요", {
             content: "input",
           })
           .then((value) => {
@@ -329,11 +330,11 @@
                   contentType:"application/json",
                   data : JSON.stringify(obj),
                   success : function(result) {
-                      swal(`임시 비밀번호를 보냈습니다!`,"", "success");
+                      swal(`임시 비밀번호를 보냈습니다`,"", "success");
                       console.log(result.message);
                   },
                   error : function(){
-                      swal("정보가 정확하지 않습니다.", "", "error");
+                      swal("이메일이 정확하지 않습니다", "", "error");
                   }
               });
               
