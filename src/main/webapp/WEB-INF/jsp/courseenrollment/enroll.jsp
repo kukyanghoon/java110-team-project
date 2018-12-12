@@ -598,7 +598,7 @@ div.col-md-9 {
 						},
 						error : function() {
 							console.log("실패");
-							swal("실패", "필수 정보가 누락되었습니다.", "error");
+							swal("실패", "필수 정보가 누락되었습니다", "error");
 						}
 					});
 

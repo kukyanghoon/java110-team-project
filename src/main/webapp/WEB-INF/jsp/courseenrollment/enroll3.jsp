@@ -211,11 +211,11 @@
                             contentType: "application/json",
                             success: function(data) {
                                 console.log($(data));
-                                swal("Good job!", "You clicked the button!", "success");
+                                swal("등록 완료", "", "success");
                             },
                             error: function() {
                                 console.log("실패");
-                                swal("실패", "필수 정보가 누락되었습니다.", "error");
+                                swal("등록 실패", "필수 정보가 누락되었습니다", "error");
                             }
                         });
                     });
@@ -238,8 +238,8 @@
                   if ( $('#dateInput').val() == ''){
                     swal({
                         type: 'warning',
-                        title: '여행 날짜를 선택해 주세요',
-                        text: '입력 항목 누락'
+                        text: '여행 날짜를 선택해 주세요',
+                        title: '입력 항목 누락'
                     })
                     $('#dateInput').focus();
                     return;
@@ -248,8 +248,8 @@
                   if($('#person-picker option:selected').val() == ''){
                     swal({
                         type: 'warning',
-                        title: '인원을 선택해 주세요.',
-                        text: '입력 항목 누락'
+                        text: '인원을 선택해 주세요',
+                        title: '입력 항목 누락'
                     })
                     $('#person-picker').focus();
                     return;

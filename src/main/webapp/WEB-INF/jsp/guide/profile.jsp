@@ -9,7 +9,7 @@
 <meta charset='UTF-8'>
 <meta content='Content-type: text/html; charset=UTF-8' name='http-equiv'>
 
-<title>LEADME :: 프로필</title>
+<title>LEADME :: 가이드 프로필</title>
 <script
     src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
