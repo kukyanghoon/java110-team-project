@@ -34,7 +34,6 @@
 <link rel="shortcut icon" type="image/x-icon" href="https://d2yoing0loi5gh.cloudfront.net/assets/favicon-e7fc64f202376533d86106e6f712ed41eee1e843dbc5de3b2765938656f8eb93.ico" />
 
 <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-4b8ab07154cf2c04a97bb950234f455fe5a721876f501316a714f1a8b65b12ae.css" />
-<link rel="stylesheet" media="screen" href="/resources/css/application.6823a52822019093f642.css" />
 <link rel="stylesheet" media="screen" href="/resources/css/datepicker.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -105,6 +104,10 @@
         clear: both;
     }
 }
+
+#header-container{
+	padding-top:51px;
+}
 </style>
 </head>
 <body class='body' data-action='show' data-controller-path='kitty/offers' data-controller='offers'>
@@ -122,9 +125,9 @@
 기본 스노클링 패키지 코스로 반 ......' itemprop='description'>
 <meta content='https://d2ur7st6jjikze.cloudfront.net/offer_photos/36522/226809_large_1527833351.jpg?1527833351' itemprop='image'>
 <meta content=' 오키도키 그레이트베리어리프-리프 매직 크루즈 (다이빙/헬기/씨워커/수중스쿠터옵션)' itemprop='name'>
-<div class='header-container'>
+<div class='header-container' id="header-container">
 <div class='bg-img' style="background-image:url('/resources/img/${tour.pri_phot}')"></div>
-<div class='dark-cover'></div>
+
 <div class='offer-inner-container clearfix'>
 
 </div>

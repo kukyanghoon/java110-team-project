@@ -20,7 +20,7 @@
    
     <script src="/resources/js/application.89bde0a7d84a7bf87143.js"></script>
     
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/resources/css/bootstrapcomment.css">
       
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--[if lte ie 9]>
@@ -39,7 +39,7 @@ var person = false;
 
         var onloadCallback = function() {
             grecaptcha.render('g-recaptcha', {
-                'sitekey' : '<c:out value="6LdhbXkUAAAAADWF5ykxTLHiI9cnlazMp0ZD3ACv" />',
+                'sitekey' : '<c:out value="6LdhbXkUAAAAADWF5ykxTLHiI9cnlazMp0ZD3ACv"/>',
                 'callback' : function(response) {
                     console.log("aaaa");
                     console.log(response);
@@ -145,12 +145,6 @@ span.local{
       height: 100%;
     }
     
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }
     
     /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {
@@ -255,6 +249,11 @@ input:checked + .slider:before {
     height:500px;
     background-color:#FFF;
     z-index:10000;   
+ }
+ #comment{
+ overflow:scroll !important;
+ 	height: 500px !important;
+ 	overflow-x:hidden;
  }
  
 </style>
@@ -430,7 +429,7 @@ input:checked + .slider:before {
            <div class="form-group">
               <label class="control-label col-sm-3" for="comment">자기소개:</label>
               <div class="col-sm-8">
-                  <textarea class="form-control" rows="5" id="comment" name="comment" style="resize: none" >${sessionScope.guideInfo.intro}</textarea>
+                  <textarea  class="form-control" rows="5" id="comment" name="comment">${sessionScope.guideInfo.intro}</textarea>	
               </div>
             </div>
 
@@ -508,6 +507,9 @@ $(document).ready(function(){
            return;
        }
        
+       var text = document.querySelector('textarea#comment');
+       var result = text.value.replace(/(\n|\r\n)/g, '<br>');
+       
        console.log(name.val());
        console.log(email.val());
        console.log(tel.val());
@@ -518,7 +520,7 @@ $(document).ready(function(){
                'name' : name.val(),
                'email' : email.val(),
                'tel' : tel.val(),
-               'intro' : comment.val()
+               'intro' : result
        }
        
        $.ajax({
@@ -622,7 +624,20 @@ $(document).ready(function(){
 
 
 </script>
-
-    
+			<script>
+$(document).ready(function(){
+	console.log("ddd");
+	console.log("ccc");
+	console.log("${sessionScope.guideInfo.intro}");
+	console.log("bbb");
+	console.log("aaa");	
+	
+	var a = "${sessionScope.guideInfo.intro}";
+	var result2 = a.replace(/(<br>|<br\/>|<br \/>)/g, '\r\n');
+	console.log(result2);
+	$('textarea#comment').text(result2);
+});
+</script>
+<script src="/resources/js/comment.js"></script>
 </body>
 </html>

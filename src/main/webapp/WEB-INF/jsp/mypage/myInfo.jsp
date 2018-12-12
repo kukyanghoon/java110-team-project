@@ -845,6 +845,7 @@ $(document).ready(function(){
                 data : JSON.stringify(password),
                 success : function(data) {
                     console.log(data);
+                    location.href = '/app/main';
                 },
                 error : function(){
                 }
@@ -876,7 +877,9 @@ $(document).ready(function(){
     
     
     </script>
+    <script>
     
+    </script>
     
     
 </body>

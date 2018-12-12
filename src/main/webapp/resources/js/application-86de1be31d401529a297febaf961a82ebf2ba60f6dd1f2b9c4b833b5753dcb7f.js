@@ -222,20 +222,7 @@ function _classCallCheck(e, t) {
     if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function")
 }
 
-function outputHiring() {
-    if ("object" == typeof console && console.log && "function" == typeof console.log) {
-        var e = "  \n                                              _   _            _     \n                                         //  | | | |          (_)     \n    _ __ ___    _   _   _ __    ___    __ _  | | | |_   _ __   _   _ __     \n   | '_ ` _ \\  | | | | | '__|  / _ \\  / _` | | | | __| | '__| | | | '_ \\     \n   | | | | | | | |_| | | |    |  __/ | (_| | | | | |_  | |    | | | |_) |     \n   |_| |_| |_|  \\__, | |_|     \\___|  \\__,_| |_|  \\__| |_|    |_| | .__/     \n                 __/ |                                            | |     \n                |___/           //                                |_|     \n  \n  \n  ";
-        if (navigator.userAgent.match(/chrome/i)) {
-            var t = {
-                blue: "color:#51abf3;font-size:11px;",
-                red: "color:#f53e05;font-size:11px;",
-                yellow: "color:#ffaa00;font-size:11px;",
-                green: "color:#2eb82e;font-size:11px;"
-            };
-            console.log(e + "\t%cWe're hiring!\ud83e\udd84  %cJoin %cOur %cTeam!\ud83c\udf55\ud83c\udf7a", t.blue, t.red, t.yellow, t.green)
-        } else console.log("\tWe're hiring!\ud83e\udd84  Join Our Team!\ud83c\udf55\ud83c\udf7a")
-    }
-}
+
 
 function _classCallCheck(e, t) {
     if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function")
