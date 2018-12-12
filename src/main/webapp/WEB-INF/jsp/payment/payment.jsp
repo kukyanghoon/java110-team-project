@@ -55,7 +55,7 @@
 
 </head>
 <body class="body" data-action="new" data-controller-path="kitty/reservations" data-controller="reservations" data-sign-in="">
-<jsp:include page="../headerTest.jsp"></jsp:include>
+<%-- <jsp:include page="../headerTest.jsp"></jsp:include> --%>
 <div class="global-alert-box">
 </div>
 

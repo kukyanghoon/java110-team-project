@@ -56,8 +56,15 @@
             
     <selectKey resultType="Integer" keyProperty="no" order="AFTER">
         SELECT LAST_INSERT_ID()
-    </selectKey> 
+    </selectKey>
     </insert>
+    
+    <insert id="createTmemb" parameterType="member">
+   
+    INSERT INTO t_memb(mno, lang) VALUES (#{no},#{lang})
+    
+    </insert>
+    
     
     <select id="findUser" resultMap="memberMap" parameterType="map">
     

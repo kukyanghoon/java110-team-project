@@ -14,7 +14,18 @@ public class Member implements Serializable {
     protected String mtype;
     protected String path;
     protected String active;
+    protected String lang;
     protected Guide guide;
+    
+    
+    
+    
+    public String getLang() {
+      return lang;
+    }
+    public void setLang(String lang) {
+      this.lang = lang;
+    }
     public int getNo() {
       return no;
     }
@@ -79,8 +90,9 @@ public class Member implements Serializable {
     public String toString() {
       return "Member [no=" + no + ", name=" + name + ", password=" + password + ", cert_email="
           + cert_email + ", email=" + email + ", photo=" + photo + ", mtype=" + mtype + ", path="
-          + path + ", active=" + active + ", guide=" + guide + "]";
+          + path + ", active=" + active + ", lang=" + lang + ", guide=" + guide + "]";
     }
+    
     
     
     
