@@ -10,7 +10,7 @@
             <meta content='width=device-width, initial-scale=1.0, user-scalable=0' name='viewport'>
             <meta content='파트너 페이지' name='description'>
             <meta content='' name='author'>
-            <title>파트너 페이지 | LEADME 리드미</title>
+            <title>LEADME :: 여행 등록 III</title>
             <meta name="csrf-param" content="authenticity_token" />
             <meta name="csrf-token" content="IJnRuhU4GljPoMKiqyR9pN/8uKGpd8t50XhRbS0ar0s6EhtkmlCEhRVWX8eBxdxI7fF/oovIF3rCNNbkWcI9Fg==" />
             <link href='https://d2yoing0loi5gh.cloudfront.net/assets/favicon-e7fc64f202376533d86106e6f712ed41eee1e843dbc5de3b2765938656f8eb93.ico' rel='shortcut icon'>

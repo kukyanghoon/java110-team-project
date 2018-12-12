@@ -11,7 +11,7 @@
 	name='viewport'>
 <meta content='파트너 페이지' name='description'>
 <meta content='' name='author'>
-<title>파트너 페이지 | LEADME 리드미르미르미르미</title>
+<title>LEADME :: 여행 등록 II</title>
 <meta name="csrf-param" content="authenticity_token" />
 <meta name="csrf-token"
 	content="fZaiFsCe1YtqnZJ9OBlDXgZzM63/iQ9SZeKUUYfowrtnHWjIT/ZLVrBrDxgS+OKyNH70rt0201F2rhPY8zBQ5g==" />

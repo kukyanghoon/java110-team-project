@@ -9,7 +9,7 @@
 <meta charset='UTF-8'>
 <meta content='Content-type: text/html; charset=UTF-8' name='http-equiv'>
 
-<title>김종규 가이드 in 별내, 별내 카페거리, 여행 정보 및 코스 제공 :: 버거킹은 없음</title>
+<title>LEADME :: 프로필</title>
 <script
     src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
