@@ -29,7 +29,9 @@
 <link rel="stylesheet" media="screen"
 	href="/resources/css/application.70805c2d9368e709216b.css" />
 <link rel="stylesheet" media="screen"
-	href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-58626b3385ab2502017698c1681214bc0e110444decd0120edf7b029d4258d62.css">
+	href="/resources/css/application.89bde0a7d84a7bf87143.css">
+	<link rel="stylesheet" media="screen"
+	href="/resources/css/application.cac8b307dbe32bcdbd67.css">
 <script src="/resources/js/application.70805c2d9368e709216b.js"></script>
 
 
