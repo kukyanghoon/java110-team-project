@@ -82,7 +82,9 @@ span.local{
     border-radius: 20px;
 }
 .formMargin{margin-top: 30px; margin-bottom: 30px;}
-
+img {
+    object-fit: cover;
+}
 </style>
 
  
@@ -120,7 +122,7 @@ span.local{
             <div class="breadcrumbs-item">
               <div class="OfferHeader OfferHeader__City"><spring:message code="site.cate1" text="식도락" /></div>
             </div>
-            <img class="OfferHeader__Separator" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjQ0VENERBIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMi41IiBkPSJNMTIgNmwxMCAxMC4wMDZMMTIuMDExIDI2Ii8+Cjwvc3ZnPgo=" alt="img_separator">
+            <img class="OfferHeader__Separator" style="object-fit: cover" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjQ0VENERBIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMi41IiBkPSJNMTIgNmwxMCAxMC4wMDZMMTIuMDExIDI2Ii8+Cjwvc3ZnPgo=" alt="img_separator">
             <div class="breadcrumbs-item">
               <div class="VerticalList">
                 <div id="midCategoryTitleBox" class="VerticalList__Header" role="button" tabindex="-1">
@@ -133,7 +135,7 @@ span.local{
         <div class="breadcrumbs-item">
               <div class="OfferHeader OfferHeader__City"><spring:message code="site.cate2" text="역사/문화" /></div>
               </div>
-              <img class="OfferHeader__Separator" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjQ0VENERBIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMi41IiBkPSJNMTIgNmwxMCAxMC4wMDZMMTIuMDExIDI2Ii8+Cjwvc3ZnPgo=" alt="img_separator">
+              <img class="OfferHeader__Separator" style="object-fit: cover" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjQ0VENERBIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMi41IiBkPSJNMTIgNmwxMCAxMC4wMDZMMTIuMDExIDI2Ii8+Cjwvc3ZnPgo=" alt="img_separator">
               <div class="breadcrumbs-item">
               <div class="VerticalList">
               <div id="midCategoryTitleBox" class="VerticalList__Header" role="button" tabindex="-1">
@@ -146,7 +148,7 @@ span.local{
         <div class="breadcrumbs-item">
               <div class="OfferHeader OfferHeader__City"><spring:message code="site.cate3" text="명소" /></div>
               </div>
-              <img class="OfferHeader__Separator" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjQ0VENERBIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMi41IiBkPSJNMTIgNmwxMCAxMC4wMDZMMTIuMDExIDI2Ii8+Cjwvc3ZnPgo=" alt="img_separator">
+              <img class="OfferHeader__Separator" style="object-fit: cover" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjQ0VENERBIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMi41IiBkPSJNMTIgNmwxMCAxMC4wMDZMMTIuMDExIDI2Ii8+Cjwvc3ZnPgo=" alt="img_separator">
               <div class="breadcrumbs-item">
               <div class="VerticalList">
               <div id="midCategoryTitleBox" class="VerticalList__Header" role="button" tabindex="-1">
@@ -159,7 +161,7 @@ span.local{
         <div class="breadcrumbs-item">
               <div class="OfferHeader OfferHeader__City"><spring:message code="site.cate4" text="액티비티" /></div>
               </div>
-              <img class="OfferHeader__Separator" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjQ0VENERBIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMi41IiBkPSJNMTIgNmwxMCAxMC4wMDZMMTIuMDExIDI2Ii8+Cjwvc3ZnPgo=" alt="img_separator">
+              <img class="OfferHeader__Separator" style="object-fit: cover" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjQ0VENERBIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMi41IiBkPSJNMTIgNmwxMCAxMC4wMDZMMTIuMDExIDI2Ii8+Cjwvc3ZnPgo=" alt="img_separator">
               <div class="breadcrumbs-item">
               <div class="VerticalList">
               <div id="midCategoryTitleBox" class="VerticalList__Header" role="button" tabindex="-1">
@@ -172,7 +174,7 @@ span.local{
         <div class="breadcrumbs-item">
               <div class="OfferHeader OfferHeader__City"><spring:message code="site.cate5" text="쇼핑" /></div>
               </div>
-              <img class="OfferHeader__Separator" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjQ0VENERBIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMi41IiBkPSJNMTIgNmwxMCAxMC4wMDZMMTIuMDExIDI2Ii8+Cjwvc3ZnPgo=" alt="img_separator">
+              <img class="OfferHeader__Separator" style="object-fit: cover" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjQ0VENERBIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMi41IiBkPSJNMTIgNmwxMCAxMC4wMDZMMTIuMDExIDI2Ii8+Cjwvc3ZnPgo=" alt="img_separator">
               <div class="breadcrumbs-item">
               <div class="VerticalList">
               <div id="midCategoryTitleBox" class="VerticalList__Header" role="button" tabindex="-1">
@@ -212,7 +214,7 @@ span.local{
                 </div></div></div><div id="OfferList__Items" class="OfferList__Items" style="height: 1000px;">
                     
                 
-                <img alt="guide" src="/resources/img/logo.png">
+                <img alt="guide" style="object-fit: cover" src="/resources/img/logo.png">
                 
                 
                 
@@ -273,9 +275,9 @@ span.local{
                        $('#OfferList__Items').append(
                                "<div class='planned-container'>"+
                                "<div class='planned-country-container'>"+
-                               "<div class='planned-background' style='background: url(/resources/img/"+
-                                        item.tour.pri_phot +
-                                               "') no-repeat center center; background-size:cover;'></div>"+
+                               "<img style='object-fit: cover; height: 200px; width: 100%;' src=/resources/img/"+
+                                   item.tour.pri_phot + 
+                                   ">"+
                                "<div class='planned-cover'></div>"+
                                "<div class='planned-info content-middle'>"+
                                    "<div class='text-lg'> "+
@@ -318,7 +320,7 @@ span.local{
                                    "</div>"+
                                    "<div class='traveler-message-container'>"+
                                        "<div>"+
-                                           "<img alt='예약내역' class='icon item-inline' height='21px' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/traveler/invoice/ic_notice@2x-2c79035b3272ddf36629f7be1f7d5516af6f3871d49b963fe33d4b91763fdd3a.png' width='17px'>"+
+                                           "<img alt='예약내역' class='icon item-inline' height='21px' style='object-fit: cover' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/traveler/invoice/ic_notice@2x-2c79035b3272ddf36629f7be1f7d5516af6f3871d49b963fe33d4b91763fdd3a.png' width='17px'>"+
                                            "<div class='message-wrapper'>"+
                                                "<div class='text-md' style='font-size: 130%; padding-bottom: 50px;'>즐거운 여행 되세요!</div>"+
                                                "<div class='status-message-warning text-sm'>"+
@@ -329,7 +331,7 @@ span.local{
                                    "<a class='arrow-link' href='/app/tour/detail/"
                                    + item.tour.tno +
                                    "'>"+
-                                       "<img alt='예약내역' class='icon item-inline' height='21px' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/traveler/reservation/ic_arrow@2x-36047570d74d5ea07df4eb4b2d4febc6a8aba4244e06c4b84f13654b8b6dc1dd.png' width='12px'>"+
+                                       "<img alt='예약내역' class='icon item-inline' height='21px' style='object-fit: cover' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/traveler/reservation/ic_arrow@2x-36047570d74d5ea07df4eb4b2d4febc6a8aba4244e06c4b84f13654b8b6dc1dd.png' width='12px'>"+
                                    "</a>"+
                                "</div>"+
                            "</div>"+
@@ -379,7 +381,7 @@ span.local{
                                "<div class='box-header clearfix' style='padding-bottom: 0px;'>"+
                        "<div class='offer-photo-container'>"+
                            "<div class='offer-photo-wrapper'>"+
-                               "<img src=/resources/img/"+
+                               "<img style='max-height: 12rem;' src=/resources/img/"+
                                item.tour.pri_phot + 
                                        ">"+
                            "</div>"+
@@ -469,7 +471,7 @@ span.local{
                     "<a class='arrow-link' href=/app/tour/detail" +
                     item.tour.tno + 
                     " style='padding-top: 75px;'>" +
-                        "<img alt='예약내역' class='icon item-inline' height='21px' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/traveler/reservation/ic_arrow@2x-36047570d74d5ea07df4eb4b2d4febc6a8aba4244e06c4b84f13654b8b6dc1dd.png' width='12px'>" +
+                        "<img alt='예약내역' class='icon item-inline' height='21px' style='object-fit: cover' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/traveler/reservation/ic_arrow@2x-36047570d74d5ea07df4eb4b2d4febc6a8aba4244e06c4b84f13654b8b6dc1dd.png' width='12px'>" +
                     "</a>" +
                 "</div>"
                                 );

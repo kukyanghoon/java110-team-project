@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>LEADME :: 프로필 수정</title>
+<title>LEADME :: 프로필 관리</title>
 <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon-precomposed">
     <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon">
     <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon" sizes="76x76">
@@ -126,7 +126,7 @@ span.local{
 .OfferList__Sticky{
     border-radius: 20px;
 }
-.formMargin{margin-top: 30px; margin-bottom: 30px;}
+.formMargin{margin-bottom: 30px;}
 </style>
 
  
@@ -226,6 +226,7 @@ input:checked + .slider:before {
       .emailAuthUse{
           display: inline-block;
       }
+
   </style>
 
 <style> 
@@ -378,7 +379,7 @@ input:checked + .slider:before {
                      
                 </div></div></div><div class="OfferList__Items" style="height: 1000px;">
                     
-                <div class="OfferList__Items__Body " style="border: 1px solid silver; height: 1000px;">
+                <div class="OfferList__Items__Body " style="height: 1000px;">
                 
   <div class="row content" style="height: 1000px;">
 
@@ -392,51 +393,51 @@ input:checked + .slider:before {
             onclick='document.all.file1.click();'>    
                     
           <div class="form-group">
-            <label class="control-label col-sm-3" for="name">이름:</label>
+            <label class="control-label col-sm-3" for="name">이름</label>
             <div class="col-sm-8">
-              <input type="name" class="form-control" id="name" value='${sessionScope.memberInfo.name }'>
+              <input type="name" class="form-control" id="name" style='margin-top: 2px;' value='${sessionScope.memberInfo.name }'>
             </div>
           </div>
 
            <c:choose>
             <c:when test="${sessionScope.memberInfo.cert_email eq 'N'}">
             <div class="form-group has-error formMargin">
-              <label class="control-label col-sm-3" for="email">이메일:</label>
+              <label class="control-label col-sm-3" for="email">이메일</label>
               <div class="col-sm-9">
-                <input type="email" class="form-control emailAuthUse" id="email" value='${sessionScope.memberInfo.email }' style="width: 70%">
+                <input type="email" class="form-control emailAuthUse" id="email" style='margin-top: 2px;' value='${sessionScope.memberInfo.email }' style="width: 70%">
                 <button id="emailAuthBtn" type="button" class="btn btn-info emailAuthUse">이메일 연동하기</button>
               </div>
             </div> 
             </c:when>
             <c:otherwise>
                 <div class="form-group formMargin">
-                    <label class="control-label col-sm-3" for="email">이메일:</label>
+                    <label class="control-label col-sm-3" for="email">이메일</label>
                         <div class="col-sm-8">
-                            <input type="email" class="form-control" id="email" value='${sessionScope.memberInfo.email}'>
+                            <input type="email" class="form-control" id="email" style='margin-top: 2px;' value='${sessionScope.memberInfo.email}'>
                         </div>
                     </div>  
             </c:otherwise>
           </c:choose> 
           
           <div class="form-group">
-              <label class="control-label col-sm-3" for="tel">연락처:</label>
+              <label class="control-label col-sm-3" for="tel">연락처</label>
               <div class="col-sm-8">
                
-                <input type="tel" class="form-control" id="tel" name="tel" value='${sessionScope.guideInfo.tel}'>
+                <input type="tel" class="form-control" id="tel" style='margin-top: 2px;' name="tel" value='${sessionScope.guideInfo.tel}'>
               </div>
           </div> 
 
            <div class="form-group">
-              <label class="control-label col-sm-3" for="comment">자기소개:</label>
+              <label class="control-label col-sm-3" for="comment">자기소개</label>
               <div class="col-sm-8">
-                  <textarea  class="form-control" rows="5" id="comment" name="comment">${sessionScope.guideInfo.intro}</textarea>	
+                  <textarea  class="form-control" rows="5" id="comment" style='margin-top: 2px;' name="comment">${sessionScope.guideInfo.intro}</textarea>	
               </div>
             </div>
 
            <div class="form-group">
              <div class="col-sm-11">
                   <button type="button" id="saveBtn" class="btn btn-info" style="float: right; margin-top: 30px;">저장하기</button>
-                  <button id='PhotoModifyBtn' type="button" class="btn btn-info" style="float: right; margin-top: 30px;">사진</button>
+                  <button id='PhotoModifyBtn' type="button" class="btn btn-info" style="float: right; margin-top: 30px; margin-right: 10px;">사진 등록</button>
               </div>
               
             </div>
@@ -534,7 +535,8 @@ $(document).ready(function(){
            contentType:"application/json",
            success:function(data){
                console.log("jsp석세스")
-               swal("수정 완료", "", "success");
+               swal("수정 완료", "", "success").then((value) => {location.href='/app/main';});
+               
            },
            error:function(){
                console.log("jsp에러")
