@@ -238,7 +238,7 @@ span.local{
                                 <input type="checkbox" value="17" name="loc" ><span class="local"><spring:message code="list.Incheon" text="인천" /></span>
                                  <input type="checkbox" value="11" name="loc"><span class="local"><spring:message code="list.Sejong" text="세종" /></span><br></li>
                                 <li><input type="checkbox" value="10" name="loc"><span class="local"><spring:message code="list.Daejeon" text="대전" /></span>
-                                <input type="checkbox" value="08" name="loc"><span class="local"><spring:message code="list.Dea-gu" text="대구" /></span>
+                                <input type="checkbox" value="08" name="loc"><span class="local"><spring:message code="list.Daegu" text="대구" /></span>
                                 <input type="checkbox" value="03" name="loc"><span class="local"><spring:message code="list.Ulsan" text="울산" /></span><br></li>
                                 <li><input type="checkbox" value="02" name="loc"><span class="local"><spring:message code="list.Busan" text="부산" /></span>
                                 <input type="checkbox" value="05" name="loc"><span class="local"><spring:message code="list.Gwangju" text="광주" /></span>
