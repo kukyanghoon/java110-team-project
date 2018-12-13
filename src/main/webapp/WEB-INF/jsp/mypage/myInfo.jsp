@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>LEADME :: 프로필 관리</title>
 <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon-precomposed">
     <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon">
     <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon" sizes="76x76">
@@ -257,7 +257,9 @@ input:checked + .slider:before {
     background-color:#FFF;
     z-index:10000;   
  }
- 
+.form-control{
+     margin-top: 2px;
+}
 </style>
     
 
@@ -380,7 +382,7 @@ input:checked + .slider:before {
                      
                 </div></div></div><div class="OfferList__Items" style="height: 1000px;">
                     
-                <div class="OfferList__Items__Body " style="border: 1px solid silver; height: 1000px;">
+                <div class="OfferList__Items__Body " style="border:height: 1000px;">
                 
   <div class="row content" style="height: 1000px;">
 
@@ -402,14 +404,14 @@ input:checked + .slider:before {
             <c:when test="${sessionScope.memberInfo.path eq 'google'}">
             
             <div class="form-group">
-            <label class="control-label col-sm-3" for="name">이름:</label>
+            <label class="control-label col-sm-3" for="name">이름</label>
             <div class="col-sm-8">
               <input type="name" class="form-control" id="name" value='${sessionScope.memberInfo.name }' readonly="readonly">
             </div>
           </div> 
             
-            <div class="form-group">
-                    <label class="control-label col-sm-3" for="email">이메일:</label>
+            <div class="form-group" style="margin-bottom:20px;">
+                    <label class="control-label col-sm-3" for="email">이메일</label>
                         <div class="col-sm-8">
                             <input type="email" class="form-control" id="email" value='${sessionScope.memberInfo.email}' readonly="readonly">
                         </div>
@@ -417,9 +419,9 @@ input:checked + .slider:before {
             
             
                 <div class="form-group">
-                    <label class="control-label col-sm-3" for="email">SNS 연동:</label>
+                    <label class="control-label col-sm-3" style="padding-top: 0px;" for="email">SNS 연동</label>
                     <div class="col-sm-8">
-                        <label class="control-label col-sm-3" for="email">Facebook</label>
+                        <label class="control-label col-sm-3" style="padding-top: 3px;" for="email">Facebook</label>
                         <label class="switch col-sm-3">
                         <input type="checkbox" disabled='true'>
                             <span class="slider round"></span>
@@ -429,7 +431,7 @@ input:checked + .slider:before {
                 <div class="form-group">
                     <label class="control-label col-sm-3" for="email"></label>
                     <div class="col-sm-8">
-                        <label class="control-label col-sm-3" for="email">Google</label>
+                        <label class="control-label col-sm-3" style="padding-top: 3px;" for="email">Google</label>
                         <label class="switch col-sm-3">
                         <input type="checkbox" disabled='true' checked>
                             <span class="slider round"></span>
@@ -440,14 +442,14 @@ input:checked + .slider:before {
             <c:when test="${sessionScope.memberInfo.path eq 'facebook'}">
             
             <div class="form-group">
-            <label class="control-label col-sm-3" for="name">이름:</label>
+            <label class="control-label col-sm-3" for="name">이름</label>
             <div class="col-sm-8">
               <input type="name" class="form-control" id="name" value='${sessionScope.memberInfo.name }' readonly="readonly">
             </div>
           </div> 
             
-            <div class="form-group">
-                    <label class="control-label col-sm-3" for="email">이메일:</label>
+            <div class="form-group" style="margin-bottom:20px;">
+                    <label class="control-label col-sm-3" for="email">이메일</label>
                         <div class="col-sm-8">
                             <input type="email" class="form-control" id="email" value='${sessionScope.memberInfo.email}' readonly="readonly">
                         </div>
@@ -455,7 +457,7 @@ input:checked + .slider:before {
             
             
                 <div class="form-group">
-                    <label class="control-label col-sm-3" for="email">SNS 연동:</label>
+                    <label class="control-label col-sm-3" style="padding-top: 0px;" for="email">SNS 연동</label>
                     <div class="col-sm-8">
                         <label class="control-label col-sm-3" for="email">Facebook</label>
                         <label class="switch col-sm-3">
@@ -478,7 +480,7 @@ input:checked + .slider:before {
             <c:otherwise>
             
             <div class="form-group formMargin">
-            <label class="control-label col-sm-3" for="name">이름:</label>
+            <label class="control-label col-sm-3" for="name">이름</label>
             <div class="col-sm-8">
               <input type="name" class="form-control" id="name" value='${sessionScope.memberInfo.name }'>
             </div>
@@ -487,8 +489,8 @@ input:checked + .slider:before {
 
           <c:choose>
             <c:when test="${sessionScope.memberInfo.cert_email eq 'N'}">
-            <div class="form-group has-error formMargin">
-              <label class="control-label col-sm-3" for="email">이메일:</label>
+            <div class="form-group has-error formMargin" style="margin-bottom:20px;">
+              <label class="control-label col-sm-3" for="email">이메일</label>
               <div class="col-sm-9">
                 <input type="email" class="form-control emailAuthUse" id="email" value='${sessionScope.memberInfo.email }' style="width: 70%">
                 <button id="emailAuthBtn" type="button" class="btn btn-info emailAuthUse">이메일 연동하기</button>
@@ -496,8 +498,8 @@ input:checked + .slider:before {
             </div> 
             </c:when>
             <c:otherwise>
-                <div class="form-group formMargin">
-                    <label class="control-label col-sm-3" for="email">이메일:</label>
+                <div class="form-group formMargin" style="margin-bottom:20px;">
+                    <label class="control-label col-sm-3" for="email">이메일</label>
                         <div class="col-sm-8">
                             <input type="email" class="form-control" id="email" value='${sessionScope.memberInfo.email}'>
                         </div>
@@ -507,7 +509,7 @@ input:checked + .slider:before {
             
             
                 <div class="form-group formMargin">
-                    <label class="control-label col-sm-3" for="email">SNS 연동:</label>
+                    <label class="control-label col-sm-3" style="padding-top: 0px;" for="email">SNS 연동</label>
                     <div class="col-sm-8">
                         <label class="control-label col-sm-3" for="email">Facebook</label>
                         <label class="switch col-sm-3">
@@ -530,7 +532,7 @@ input:checked + .slider:before {
           </c:choose>
           
           <div class="form-group formMargin">  
-            <label class="control-label col-sm-3" for="sel1">선호하는 언어:</label>
+            <label class="control-label col-sm-3" for="sel1">선호하는 언어</label>
                  <div class="col-sm-8">
                   <select class="form-control" id="lang" style="width: 200px;">
                     <option value= "ko">한국어</option>
@@ -542,7 +544,7 @@ input:checked + .slider:before {
            <div class="form-group">
              <div class="col-sm-11">
                   <button id='modifyBtn' type="button" class="btn btn-info" style="float: right; margin-top: 30px;">저장하기</button>
-                  <button id='PhotoModifyBtn' type="button" class="btn btn-info" style="float: right; margin-top: 30px;">사진</button>
+                  <button id='PhotoModifyBtn' type="button" class="btn btn-info" style="float: right; margin-top: 30px; margin-right: 10px;">사진 등록</button>
               </div>
             </div>
  
@@ -712,14 +714,14 @@ $(document).ready(function(){
             processData : false,
             contentType : false,
             success : function(data) {
-                alert("파일 업로드하였습니다.");
+                swal("사진 업로드 완료", "", "success");
                 console.log(data);
                 console.log(data.image);
                 var a = ("/resources/img/" + data.image);
                 $('#userImage').attr('src',a);
             },
             error : function(error) {
-                alert("파일 업로드에 실패하였습니다.");
+                swal("사진 업로드 실패", "", "error")
                 console.log(error);
                 console.log(error.status);
             }
@@ -806,6 +808,7 @@ $(document).ready(function(){
     <script>
     
     </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     
     
 </body>

@@ -35,8 +35,7 @@
     <main class='guide-detail' itemscope
         itemtype='http://schema.org/Person'>
     <div class='header-container'>
-        <div class='bg-blur bg-img'
-            style='background-image: url('/resoursec/img/course1.jpg')'></div>
+        <div class='bg-img'><img style="object-fit: cover; width: 100%; height:100%" src="/resources/img/image1.jpg"></div>
         <div class='dark-cover'></div>
         <div class='content'>
             <div class='title-box'>

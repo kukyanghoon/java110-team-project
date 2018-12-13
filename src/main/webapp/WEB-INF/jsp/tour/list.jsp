@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>LEADME :: 여행</title>
 <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon-precomposed">
     <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon">
     <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon" sizes="76x76">
@@ -36,9 +36,9 @@
 .fb_customer_chat_bounce_in_v2{animation-duration:300ms;animation-name:fb_bounce_in_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2{animation-duration:300ms;animation-name:fb_bounce_out_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_in_v2_mobile_chat_started{animation-duration:300ms;animation-name:fb_bounce_in_v2_mobile_chat_started;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2_mobile_chat_started{animation-duration:300ms;animation-name:fb_bounce_out_v2_mobile_chat_started;transition-timing-function:ease-in}.fb_customer_chat_bubble_pop_in{animation-duration:250ms;animation-name:fb_customer_chat_bubble_bounce_in_animation}.fb_customer_chat_bubble_animated_no_badge{box-shadow:0 3px 12px rgba(0, 0, 0, .15);transition:box-shadow 150ms linear}.fb_customer_chat_bubble_animated_no_badge:hover{box-shadow:0 5px 24px rgba(0, 0, 0, .3)}.fb_customer_chat_bubble_animated_with_badge{box-shadow:-5px 4px 14px rgba(0, 0, 0, .15);transition:box-shadow 150ms linear}.fb_customer_chat_bubble_animated_with_badge:hover{box-shadow:-5px 8px 24px rgba(0, 0, 0, .2)}.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}.fb_mobile_overlay_active{background-color:#fff;height:100%;overflow:hidden;position:fixed;visibility:hidden;width:100%}@keyframes fb_bounce_in_v2{0%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}50%{transform:scale(1.03, 1.03);transform-origin:bottom right}100%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}}@keyframes fb_bounce_in_v2_mobile_chat_started{0%{opacity:0;top:20px}100%{opacity:1;top:0}}@keyframes fb_bounce_out_v2{0%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}100%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}}@keyframes fb_bounce_out_v2_mobile_chat_started{0%{opacity:1;top:0}100%{opacity:0;top:20px}}@keyframes fb_customer_chat_bubble_bounce_in_animation{0%{bottom:6pt;opacity:0;transform:scale(0, 0);transform-origin:center}70%{bottom:18pt;opacity:1;transform:scale(1.2, 1.2)}100%{transform:scale(1, 1)}}
 
 
-#background-image{
-	padding-top:51px;
-}
+#background-image img{
+    object-fit: cover;
+} 
 span.local{
     margin : 3px;
     display: inline-block;
@@ -47,13 +47,12 @@ span.local{
 
 #background-image{
     background-repeat: no-repeat;
-    width: 928px;
-    margin: auto;
+    width: auto;
+    background-size:cover;
 }
-
-#bg-image{
-    width: 928px;
-    height: 300px;
+.bg-image{
+    width: 100%;
+    height: 400px;
 }
 
 
@@ -92,22 +91,22 @@ span.local{
     <div id="background-image">
     <c:choose>
         <c:when test="${catNo eq 1}">
-            <img src="/resources/img/screen1.jpg" width="928px" id="bg-image">
+            <img src="/resources/img/screen1.jpg"  class="bg-image">
         </c:when>
         <c:when test="${catNo eq 10}">
-            <img src="/resources/img/food.jpg" width="928px" id="bg-image">
+            <img src="/resources/img/food.jpg"  class="bg-image">
         </c:when>
         <c:when test="${catNo eq 20}">
-            <img src="/resources/img/history.jpg" width="928px" id="bg-image">
+            <img src="/resources/img/history.jpg"  class="bg-image">
         </c:when>
         <c:when test="${catNo eq 30}">
-            <img src="/resources/img/land.jpg" width="928px" id="bg-image">
+            <img src="/resources/img/land.jpg"  class="bg-image">
         </c:when>
         <c:when test="${catNo eq 40}">
-            <img src="/resources/img/acti.jpg" width="928px" id="bg-image">
+            <img src="/resources/img/acti.jpg" class="bg-image">
         </c:when>
         <c:when test="${catNo eq 50}">
-            <img src="/resources/img/shopping.png" width="928px" id="bg-image">
+            <img src="/resources/img/shopping.png"  class="bg-image">
         </c:when>
     </c:choose>
         <!-- <img src="/resources/img/namsantower.jpg" width="928px" id="bg-image"> -->
