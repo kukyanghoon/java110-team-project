@@ -60,7 +60,29 @@
     </resultMap>
     
     
-    
+    <resultMap type="tour" id="tourListMap">
+        <id column="tno"  property="tno"/>
+        <result column="titl"    property="titl"/>
+        <result column="star"    property="star"/>
+        <result column="loc"    property="loc"/>
+        <result column="amt"    property="amt"/>
+        <result column="hits"    property="hits"/>
+        <result column="pri_phot"    property="pri_phot"/>
+        <result column="cmt_cnt"    property="cmt_cnt"/>
+        <result column="tour_intro" property="tour_intro"/>
+        <association property="member" javaType="member">
+            <id column="mno" property="no"/>
+            <result column="name"    property="name"/>
+        </association>
+        <association property="category" javaType="category">
+            <id column="cat_no" property="cat_no"/>
+            <result column="cat_name"    property="cat_name"/>
+        </association>
+        <association property="mid_category" javaType="category">
+            <id column="cat_no" property="cat_no"/>
+            <result column="mid_cat"    property="cat_name"/>
+        </association>
+    </resultMap>
     
     <select id="myTravelStatus" resultMap="comingTourMap" parameterType="map">
     
@@ -93,7 +115,7 @@
         and r.mno = m.mno
         and c.cat_no = c2.up_cat_no
         and t.cat_no = c2.cat_no
-        and g.mno = 6
+        and g.mno = #{mno}
         and r.tour_dt > now()
     
     </select>
@@ -121,7 +143,7 @@
             m.mno = r.mno
         and t.tno = r.tno
         and t.tno = r.tno
-        and g.mno = 6
+        and g.mno = #{mno}
         and now() > r.can_dt
     
     </select>
@@ -136,7 +158,7 @@
     on
         t.tno = r.tno
     where 
-        t.mno = 6
+        t.mno = #{mno}
     and now() > r.tour_dt
     
     </select>
@@ -149,6 +171,43 @@ WHERE tno = #{tno}
 and tour_dt = #{date}
     
     </update>
+    
+    
+    <select id="myTravelList" resultMap="tourListMap" parameterType="map">
+        
+        select 
+            t.tno
+            ,t.titl
+            ,t.pri_phot
+            ,t.star
+            ,t.loc
+            ,t.amt
+            ,t.hits
+            ,t.cmt_cnt
+            ,m.name
+            ,c.cat_name
+            ,c2.cat_name as mid_cat
+            ,t.tour_intro
+    from 
+            memb m  
+            join g_memb g 
+            join tour t 
+            join category c 
+            right outer join category c2
+    on 
+            m.mno = g.mno
+    where 
+            t.mno = g.mno
+        and c.cat_no = c2.up_cat_no
+        and t.cat_no = c2.cat_no
+        and t.mno = #{mno}
+        
+        
+    </select>
+    
+    
+    
+    
     
 </mapper>
 

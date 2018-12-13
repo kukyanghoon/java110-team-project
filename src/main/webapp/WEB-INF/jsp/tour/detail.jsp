@@ -37,6 +37,7 @@
 <link rel="stylesheet" media="screen" href="/resources/css/datepicker.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/resources/js/application-86de1be31d401529a297febaf961a82ebf2ba60f6dd1f2b9c4b833b5753dcb7f.js"></script>
 <script>
 (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];

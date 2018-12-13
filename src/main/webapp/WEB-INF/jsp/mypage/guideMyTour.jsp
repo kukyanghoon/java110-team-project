@@ -205,7 +205,9 @@ span.local{
                 <div id="cancelBtn" class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
                         <span class="offer-category__item__label" value ='2'>취소된 여정</span>
                 </div>
-                
+                <div id="myTourBtn" class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
+                        <span class="offer-category__item__label" value ='2'>등록한 여정</span>
+                </div>
                     </div>
                      
                 </div></div></div><div id="OfferList__Items" class="OfferList__Items" style="height: 1000px;">
@@ -250,8 +252,11 @@ span.local{
            console.log("aaaaa"); 
            
            var obj ={
-                   'mno': '11'
+                   'mno': ${memberInfo.no}
            }
+           
+           $('.catMid').attr('class','catMid leademecate offer-category__item');
+           $(this).attr('class','catMid leademecate offer-category__item active');
            
            $.ajax({
                url:'/app/guide/myTravelStatus.do',
@@ -360,8 +365,12 @@ span.local{
         $('#goneBtn').on('click', function(){
             console.log("sss");
             var obj ={
-                    'mno': '11'
+                    'mno': ${memberInfo.no}
             }
+            
+            $('.catMid').attr('class','catMid leademecate offer-category__item');
+            $(this).attr('class','catMid leademecate offer-category__item active');
+            
             console.log("지나간여정? 버튼");
             $.ajax({
                 url:'/app/guide/goneTravelStatus.do',
@@ -413,8 +422,11 @@ span.local{
         $('#cancelBtn').on('click', function(){
             console.log("sss");
             var obj ={
-                    'mno': '11'
+                    'mno': ${memberInfo.no}
             }
+            
+            $('.catMid').attr('class','catMid leademecate offer-category__item');
+            $(this).attr('class','catMid leademecate offer-category__item active');
             
             $.ajax({
                 url:'/app/guide/cancelTravelStatus.do',
@@ -481,6 +493,95 @@ span.local{
             });
         
         });
+        
+        $('#myTourBtn').on('click', function(){
+            console.log("sss");
+            var obj ={
+                    'mno': ${memberInfo.no}
+            }
+            
+            $('.catMid').attr('class','catMid leademecate offer-category__item');
+            $(this).attr('class','catMid leademecate offer-category__item active');
+            $.ajax({
+                url:'/app/guide/myTourList.do',
+                type:'POST',
+                dataType:'JSON',
+                data:JSON.stringify(obj),
+                contentType:"application/json",
+                success:function(data){
+                     console.log(data);
+                     console.log("취소된 여정");
+                     $('#OfferList__Items').empty();
+                     $(data).each(function(index, item){
+                         console.log(item);
+                         listDiv($('#OfferList__Items') ,item ,starRating(item.star));
+                     });
+                    
+                },
+                error:function(){
+                    console.log("실패");
+                }
+            });
+        });
+        
+        
+        function starRating(star){
+            var starDiv = "";
+            for(var i=0;i <Math.floor(star);i++){
+                starDiv += "<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'>"
+                    + "<path class='starColor' fill='#51ABF3' fill-rule='evenodd' d='M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z'>"
+                    + "</path>"
+                    + "</svg>";
+            }
+            for(var i=0;i < 5 - Math.floor(star);i++){
+                starDiv += "<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'>"
+                    + "<path fill='#DEE2E6' fill-rule='evenodd' d='M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z'>"
+                    + "</path>"
+                    + "</svg>";
+            }
+            return starDiv;
+        }
+        
+        function listDiv(area, item, star){
+            console.log(item);
+            area.append(
+                    "<div class='OfferList__Cards'>"
+                    +"<a class='OfferListCard' href='/app/tour/detail/" + item.tno + "' itemprop='itemListElement' itemscope='' itemtype='http://schema.org/Product' data-offer-type='IstanbulTicket' data-offer-id='31644'>"
+                    + "<div class='OfferListCard__Thumbnail' style='background-image: url(/resources/img/" + item.pri_phot + ");'>"
+                    + "</div>"
+                    + "<div class='OfferListCard__Content'>"
+                    + "<div class='OfferListCard__Content__Category'>"
+                    + "<span>" + item.category.cat_name
+                    + "</span>"
+                    + "<span class='hide-on-mobile'>"
+                    + "<div class='Dot' style='display: inline-block; vertical-align: middle; background-color: rgb(132, 140, 148); border-radius: 2px; width: 2px; height: 2px; margin: 0px 4px;'>"
+                    + "</div>"
+                    + "<span>" + item.mid_category.cat_name + "</span>"
+                    + "</span>"
+                    + "</div>"
+                    + "<div class='OfferListCard__Content__Title'>"
+                    + "<div class='LinesEllipsis  '>" + item.titl + "<wbr></div>"
+                    + "</div>"
+                    + "<div class='OfferListCard__Content__Guide'>"
+                    + "<span class='name'>" + item.member.name + "</span>"
+                    + "</div>"
+                    + "<div class='OfferListCard__Content__Review'>"
+                    + "<div class='starRating starRating--m starRating--blue'>"
+                    + star
+                    + "</div>"
+                    + "<span class='count'>후기 " + item.hits + " 개</span>"
+                    + "<div class='Duration hide-on-mobile'>"
+                    + "</div>"
+                    + "</div>"
+                    + "<div class='OfferListCard__Content__Price'>"
+                    + "<span class='SalePrice'>" + item.amt + "원</span>"
+                    + "</div>"
+                    + "<div class='OfferListCard__Content__Wishlist'>"
+                    + "</div>"
+                    + "</div>"
+                    + "</a>"
+                    + "</div>");
+        }
         
         
         

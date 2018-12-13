@@ -144,7 +144,8 @@ span.local{
       background-color: #f1f1f1;
       height: 100%;
     }
-    
+    .modal-backdrop {z-index: -1;}
+    .modal-dialog{z-index: 9999;}
     /* Set black background color, white text and some padding */
     footer {
       background-color: #555;
@@ -527,10 +528,7 @@ input:checked + .slider:before {
                 </div>
             </c:otherwise>
           </c:choose>
-
           
-          
-
           <div class="form-group formMargin">  
             <label class="control-label col-sm-3" for="sel1">선호하는 언어:</label>
                  <div class="col-sm-8">
@@ -545,62 +543,11 @@ input:checked + .slider:before {
              <div class="col-sm-11">
                   <button id='modifyBtn' type="button" class="btn btn-info" style="float: right; margin-top: 30px;">저장하기</button>
                   <button id='PhotoModifyBtn' type="button" class="btn btn-info" style="float: right; margin-top: 30px;">사진</button>
-                  <button type="button" id="withdrawalBtn" class="btn btn-info">회원 탈퇴</button>
               </div>
-              
             </div>
  
             <div class="form-group">
-                <div id ="wrap"> 
-        <div id = "container">  
-            <div id="mask"></div>
-            <div class="window">
-                <!--<p style="width:1000px;height:500px;text-align:center;vertical-align:middle;">-->
-                
-                    <div class='modal-body center-block' style='width: 70%'>
-          <p style='font-style: italic; text-indent: -2em'>
-              주의!!<br/>
-          </p>
-          <p>
-              LEADME 계정을 삭제하시면 프로필 및 소중한 한국 여행의 기록들이 모두 사라지게 됩니다.<br/>
-              판매자의 경우, 정산이 완료되기 전에 탈퇴를 하시면 금전상의 불이익이
-              발생할 수 있습니다.<br/>
-          </p>
-          
-          <div class='form-group'>
-            <label class='control-label col-sm-5' for='email' style='padding-top: 8px;'>비밀번호 확인:</label>
-            <div class='col-sm-6'>
-              <input type="password" class='form-control' id='lastPassword' placeholder='귤이귤이'>
-            </div>
-          </div> 
-   
-        <div class='form-group'>
-
-            <!-- <div class='g-recaptcha' data-sitekey='6LdhbXkUAAAAADWF5ykxTLHiI9cnlazMp0ZD3ACv'></div> -->
-<div id="g-recaptcha"></div>
-
-          </div> 
-           
-           
-            
-        </div>
-                <div class='modal-footer'>
-         <button type='button' class='btn btn-default close' data-dismiss='modal' style='width: 47%; float: left; color:red;'>다시 생각해 볼께요!</button>
-          <button type='button' id="goodbyeBtn" class='btn btn-default' style='width: 47%'>계정 탈퇴하기</button>
-        </div>
-                <!--</p>-->
-                
-                <!-- <p style="text-align:center; background:#ffffff; padding:20px;"><a href="#" class="close">닫기X</a></p> -->
-            </div>
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">       
-                <tr>
-                    <td align="center">
-                    <a href="#" class="openMask">레이어 팝업 발생</a>
-                    </td>
-                </tr>       
-            </table>
-        </div>
-    </div>
+                <a href="#" class="openMask" data-toggle="modal" data-target="#gmyModal">회원 탈퇴</a>
             </div>
  
  
@@ -620,6 +567,50 @@ input:checked + .slider:before {
          <div id ="wrap"> 
         
     </div>
+    <!-- 광 -->
+    <div class="modal fade" style="z-index:9999;" id="gmyModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"> 계정 탈퇴 </h4>
+        </div>
+        <div class="modal-body center-block" style="width: 70%">
+          <p style="font-style: italic; text-indent: -2em">
+              주의!!<br/>
+          </p>
+          <p>
+              LEADME 계정을 삭제하시면 프로필 및 소중한 한국 여행의 기록들이 모두 사라지게 됩니다.<br/>
+              판매자의 경우, 정산이 완료되기 전에 탈퇴를 하시면 금전상의 불이익이
+              발생할 수 있습니다.<br/>
+          </p>
+          
+          <div class="form-group">
+            <label class="control-label col-sm-5" for="email" style="padding-top: 8px;">비밀번호 확인:</label>
+            <div class="col-sm-6">
+              <input type="email" class="form-control" id="email" placeholder="귤이귤이">
+            </div>
+          </div> 
+   
+        <div class="form-group">
+
+            <div id="g-recaptcha"></div>
+
+          </div> 
+           
+           
+            
+        </div>
+        <div class="modal-footer">
+         <button type="button" class="btn btn-default" data-dismiss="modal" style="width: 47%; float: left;">다시 생각해 볼께요!</button>
+          <button type="button" id="goodbyeBtn" class="btn btn-default" style="width: 47%">계정 탈퇴하기</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
       <form:hidden path="recaptchaResponse"/>
                                                                     <script type="application/json" class="js-react-on-rails-component" data-component-name="OfferList" style="height: 1000px;" data-dom-id="OfferList-react-component-e75ec749-a9a2-4944-a6a5-ae8c2ab32e92"></script>
 
@@ -761,69 +752,24 @@ $(document).ready(function(){
        
     });
     
-    
-    $('#withdrawalBtn').on('click', function(){
-       console.log("aaaa"); 
-       var htmlContent = "<input type='text'>";
- 
-       swal({
-           title: '권형은 짱짱맨',
-           text: htmlContent,
-           html: true
-       });
-    });
-    
-    
-    
-    
 });
 
 </script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript"> 
-//<![CDATA[
-    function wrapWindowByMask(){
- 
-        //화면의 높이와 너비를 구한다.
-        var maskHeight = $(document).height();  
-        var maskWidth = $(window).width();  
- 
-        //마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채운다.
-        $("#mask").css({"width":maskWidth,"height":maskHeight});  
- 
-        //애니메이션 효과 - 일단 0초동안 까맣게 됐다가 60% 불투명도로 간다.
- 
-        $("#mask").fadeIn(0);      
-        $("#mask").fadeTo("slow",0.6);    
- 
-        //윈도우 같은 거 띄운다.
-        $(".window").show();
- 
-    }
- 
+    <script>
+    
     $(document).ready(function(){
-        //검은 막 띄우기
-        $(".openMask").click(function(e){
-            e.preventDefault();
-            wrapWindowByMask();
-        });
- 
-        //닫기 버튼을 눌렀을 때
-        $(".window .close").click(function (e) {  
-            //링크 기본동작은 작동하지 않도록 한다.
-            e.preventDefault();  
-            $("#mask, .window").hide();  
-        });       
- 
-        //검은 막을 눌렀을 때
-        $("#mask").click(function () {  
-            $(this).hide();  
-            $(".window").hide();  
- 
-        });      
- 
-        
-        $('#goodbyeBtn').on('click', function(){
+    	$('#myTourBtn').on('click', function(){
+    		location.href = '/app/mypage/myTour';
+    	});
+    	
+    	
+    	
+    	$('#changePwBtn').on('click', function(){
+    		location.href = '/app/user/changepw';
+    	});
+    	
+    	$('#goodbyeBtn').on('click', function(){
             console.log("okok");
             console.log(person);
             if(!person){
@@ -853,26 +799,6 @@ $(document).ready(function(){
             
             
         });
-        
-    });
- 
-//]]>
-</script>
-    
-    <script>
-    
-    $(document).ready(function(){
-    	$('#myTourBtn').on('click', function(){
-    		location.href = '/app/mypage/myTour';
-    	});
-    	
-    	
-    	
-    	$('#changePwBtn').on('click', function(){
-    		location.href = '/app/user/changepw';
-    	});
-    	
-    	
     });
     
     

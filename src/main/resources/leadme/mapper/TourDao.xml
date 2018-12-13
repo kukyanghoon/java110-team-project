@@ -21,10 +21,12 @@
         <association property="category" javaType="category">
             <id column="cat_no" property="cat_no"/>
             <result column="cat_name"    property="cat_name"/>
+            <result column="cat_name_eng"    property="cat_name_eng"/>
         </association>
         <association property="mid_category" javaType="category">
             <id column="cat_no" property="cat_no"/>
             <result column="mid_cat"    property="cat_name"/>
+            <result column="mid_cat_eng"    property="cat_name_eng"/>
         </association>
     </resultMap>
     
@@ -33,6 +35,7 @@
         <id column="cat_no"  property="cat_no"/>
         <result column="cat_name"    property="cat_name"/>
         <result column="up_cat_no"    property="up_cat_no"/>
+        <result column="cat_name_eng"    property="cat_name_eng"/>
     </resultMap>
     
     
@@ -74,6 +77,8 @@
             ,c.cat_name
             ,c2.cat_name as mid_cat
             ,t.tour_intro
+            ,c.cat_name_eng
+            ,c2.cat_name_eng as mid_cat_eng
     from 
             memb m  
             join g_memb g 

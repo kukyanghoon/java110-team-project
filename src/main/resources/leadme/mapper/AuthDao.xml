@@ -97,6 +97,7 @@
     SET active = 'Y' 
     , cert_email = 'N'
     , email = #{email}
+    , pwd = password(#{byePwd})
     WHERE mno = #{mno}
     and pwd =  password(#{pwd})
     

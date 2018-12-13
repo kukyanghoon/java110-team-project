@@ -55,7 +55,7 @@
 
 </head>
 <body class="body" data-action="new" data-controller-path="kitty/reservations" data-controller="reservations" data-sign-in="">
-<%-- <jsp:include page="../headerTest.jsp"></jsp:include> --%>
+<jsp:include page="../headerTest.jsp"></jsp:include>
 <div class="global-alert-box">
 </div>
 
@@ -199,7 +199,7 @@
 
 <div class="btn-container form-btn-container clearfix">
 <div class="btn--width-50">
-<a class="btn-new btn--type-gray btn--width-100" href="/offers/2771"><spring:message code="rsv.can" text="취소하기" /></a>
+<a class="btn-new btn--type-gray btn--width-100" href="/app/tour/detail/${tno}"><spring:message code="rsv.can" text="취소하기" /></a>
 </div>
 <div class="btn--width-50">
 <button class="btn-new btn--type-primary btn--width-100" data-disable-with="로딩중.." id="reservation-btn" type="button"><spring:message code="rsv.title" text="결제하기" /></button>

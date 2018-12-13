@@ -309,6 +309,7 @@ public class AuthServiceImpl implements AuthService {
     param.put("mno", member.getNo());
     param.put("pwd", member.getPassword());
     param.put("email", ramdomText());
+    param.put("byePwd", System.currentTimeMillis());
     
     int a = authDao.goodbye(param);
     System.out.println(a);

@@ -37,7 +37,7 @@ public class RankingServiceImpl implements RankingService {
     List<List<Tour>> locTourList = new ArrayList<>();
 
     System.out.println("지역별 랭킹 자료");
-    for (int i = 1; i <= 15; i++) {
+    for (int i = 1; i <= 17; i++) {
       locTourList.add(rankingDao.getExecutorLocalBest(i));
     }
     return  locTourList;

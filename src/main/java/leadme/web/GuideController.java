@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import leadme.domain.Guide;
+import leadme.domain.Tour;
 import leadme.domain.TourReq;
 import leadme.service.GuideService;
 
@@ -78,7 +79,7 @@ public class GuideController {
   @ResponseBody
   public List<TourReq> myTravelStatus(@RequestBody Guide guide) {
     
-    return guideService.myTravelStatus();
+    return guideService.myTravelStatus(guide);
 
   }
   
@@ -86,7 +87,7 @@ public class GuideController {
   @ResponseBody
   public List<TourReq> cancelTravelStatus(@RequestBody Guide guide) {
     
-    return guideService.cancelTravelStatus();
+    return guideService.cancelTravelStatus(guide);
 
   }
   
@@ -95,7 +96,7 @@ public class GuideController {
   public List<TourReq> goneTravelStatus(@RequestBody Guide guide) {
     
     try {
-      List<TourReq> list = guideService.goneTravelStatus();
+      List<TourReq> list = guideService.goneTravelStatus(guide);
       return list;
     } catch (Exception e) {
       
@@ -121,5 +122,24 @@ public class GuideController {
     }
     
   }
+  
+  
+  @RequestMapping(value="myTourList.do", method=RequestMethod.POST)
+  @ResponseBody
+  public List<Tour> myTourList(@RequestBody Guide guide) {
+
+    System.out.println("myTourList" + guide);
+    try {
+      return guideService.myTravelList(guide);
+
+    } catch (Exception e) {
+      e.printStackTrace();
+      return null;
+    }
+
+  }
+  
+  
+  
   
 }
