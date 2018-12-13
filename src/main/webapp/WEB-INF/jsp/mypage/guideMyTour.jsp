@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>LEADME :: 마이페이지</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon-precomposed">
     <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon">
@@ -82,6 +82,7 @@ span.local{
     border-radius: 20px;
 }
 .formMargin{margin-top: 30px; margin-bottom: 30px;}
+
 </style>
 
  
@@ -197,13 +198,13 @@ span.local{
                 <div class="offer-category__container border-shadow">
                 
                 <div id="goneBtn" class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
-                        <span class="offer-category__item__label" value ='2'>지나간 여정</span>
+                        <span class="offer-category__item__label" value ='2'>지나간 여행</span>
                 </div>
                 <div id="commingBtn" class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
-                        <span class="offer-category__item__label" value ='2'>다가올 여정</span>
+                        <span class="offer-category__item__label" value ='2'>다가올 여행</span>
                 </div>
                 <div id="cancelBtn" class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
-                        <span class="offer-category__item__label" value ='2'>취소된 여정</span>
+                        <span class="offer-category__item__label" value ='2'>취소된 여행</span>
                 </div>
                 
                     </div>
@@ -287,7 +288,7 @@ span.local{
                            "</div>"+
                            "<div class='planned-reservation'>"+
                                "<div class='traveler-reservation box clearfix' data-date='2018-12-08' data-src='/traveler/reservations/2121109'>"+
-                                   "<div class='detail-wrapper'>"+
+                                   "<div class='detail-wrapper' style='font-size: 150%;'>"+
                                        "<div class='status'>"+
                                            "<div class='status-success text-lg'>준비 완료</div>"+
                                        "</div>"+
@@ -319,7 +320,7 @@ span.local{
                                        "<div>"+
                                            "<img alt='예약내역' class='icon item-inline' height='21px' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/traveler/invoice/ic_notice@2x-2c79035b3272ddf36629f7be1f7d5516af6f3871d49b963fe33d4b91763fdd3a.png' width='17px'>"+
                                            "<div class='message-wrapper'>"+
-                                               "<div class='text-md'>즐거운 여행 되세욥!!</div>"+
+                                               "<div class='text-md' style='font-size: 130%; padding-bottom: 50px;'>즐거운 여행 되세요!</div>"+
                                                "<div class='status-message-warning text-sm'>"+
                                                "</div>"+
                                            "</div>"+
@@ -375,7 +376,7 @@ span.local{
                     $(data).each(function(index, item){
                        $('#OfferList__Items').append(
                                "<div class='traveler-finished-reservation box clearfix'>"+
-                               "<div class='box-header clearfix'>"+
+                               "<div class='box-header clearfix' style='padding-bottom: 0px;'>"+
                        "<div class='offer-photo-container'>"+
                            "<div class='offer-photo-wrapper'>"+
                                "<img src=/resources/img/"+
@@ -383,20 +384,20 @@ span.local{
                                        ">"+
                            "</div>"+
                        "</div>"+
-                       "<div class='info'>"+
+                       "<div class='info'><br>"+
                           "<a class='text-lg title' href=/resources/img/"+
                           item.tour.pri_phot+
-                           ">"+
+                           " style='font-size: 200%'>"+
                            item.tour.titl +
                            "</a>"+//test
-                           "<div class='detail text-md " + index + "' id='d"+index +"' value='"+item.formatToutdt+"'>이용일 : "+
+                           "<div class='detail text-md " + index + "' id='d"+index +"' value='"+item.formatToutdt+"' style='font-size: 150%;'> "+
                                item.formatToutdt +
                            "</div>"+
                        "</div>"+
                    "</div>"+
-                   "<div class='box-btns'>"+
-                       "<input type='link' class='form-control' id='link"+index+"' >" +
-                       "<a id='linkBtn' class='btn btn-blue hide-on-mobile' value=" + index + " onclick='aaa(" + item.tour_dt + "," + item.tour.tno + "," + index + ")'>사진첩 링크 올리기</a>"+
+                   "<div class='box-btns' style='padding-bottom: 30px; border-top: none; padding-top: 0px;'>"+
+                       "<input type='link' class='form-control' style='float:left;width: 75%; display: inline-block; padding-top: 0px;' id='link"+index+"' >" +
+                       "<a id='linkBtn' style='margin-top:10px;' class='btn btn-blue hide-on-mobile' value=" + index + " onclick='aaa(" + item.tour_dt + "," + item.tour.tno + "," + index + ")'>사진첩 링크 올리기</a>"+
                        "<a class='btn btn-blue show-on-mobile' >사진첩 링크</a>"+
                    "</div>"+
                "</div>");
@@ -429,7 +430,7 @@ span.local{
                     $(data).each(function(index, item){
                         $('#OfferList__Items').append(
                                 "<div class='traveler-reservation box clearfix' data-date='2018-12-08' data-src='/traveler/reservations/2121109'>" +
-                    "<div class='detail-wrapper'>" +
+                    "<div class='detail-wrapper' style='font-size: 150%; padding-top: 75px;'>" +
                         "<div class='status'>" +
                             "<div class='status-default text-lg'>예약 취소</div>" +
                         "</div>" +
@@ -459,15 +460,15 @@ span.local{
                             "</div>" +
                         "</div>" +
                     "</div>" +
-                    "<div class='cancel-wrapper traveler-message-container'>" +
+                    "<div class='cancel-wrapper traveler-message-container' style='height: 5px;'>" +
                         "<div class='text-md item-inline title'></div>" +
                         "<div class='text-md item-inline message'>" +
-                            "<div class='message-inner'>취소된 여정 확인 부탁 드리겠습니다</div>" +
+                            "<div class='message-inner' style='font-size: 130%;'>취소된 여행 확인 부탁드립니다</div>" +
                         "</div>" +
                     "</div>" +
                     "<a class='arrow-link' href=/app/tour/detail" +
                     item.tour.tno + 
-                    ">" +
+                    " style='padding-top: 75px;'>" +
                         "<img alt='예약내역' class='icon item-inline' height='21px' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/traveler/reservation/ic_arrow@2x-36047570d74d5ea07df4eb4b2d4febc6a8aba4244e06c4b84f13654b8b6dc1dd.png' width='12px'>" +
                     "</a>" +
                 "</div>"
@@ -509,6 +510,7 @@ span.local{
             
             if(!validCheck(urlValid,$('#link'+index))){
                 console.log("잘못된 url 패턴");
+                swal("업로드 실패", "잘못된 URL입니다", "error");
                 return;
             }
             console.log('통과!');
@@ -544,6 +546,7 @@ span.local{
             return false;
         }
     </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     
    
 </body>
