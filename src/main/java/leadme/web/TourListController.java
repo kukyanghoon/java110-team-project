@@ -3,7 +3,9 @@ package leadme.web;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.JsonArray;
@@ -26,27 +29,48 @@ import leadme.service.TourService;
 public class TourListController{
 
   @Autowired TourService tourService;
+  @Autowired SessionLocaleResolver sessionLocaleResolver;
+  
+  public static final String LANG_EN = "en";
     /*
     public TourListController(TourService tourService) {
         this.tourService = tourService;
     }*/
     
     @RequestMapping("list")
-    public String list(@RequestParam(defaultValue="10") String catNo, Model model) throws Exception {
+    public String list(Locale locale,
+                       HttpServletRequest request,
+                       @RequestParam(defaultValue="10") String catNo,
+                       Model model) 
+                           throws Exception {
+      
+      if(!LANG_EN.equals(locale.toString()))
+        locale = sessionLocaleResolver.resolveLocale(request);
+      
       model.addAttribute("catNo", 1);
       model.addAttribute("tourList" , tourService.tourList(null));
+      request.setAttribute("lang", locale.toString());
       
       return "/tour/list";
     }
     
     
     @GetMapping("list/{catNo}")
-    public String list2(@PathVariable String catNo, Model model){
+    public String list2(Locale locale,
+                        HttpServletRequest request,
+                        @PathVariable String catNo, 
+                        Model model){
+      
       System.out.println("list2");
       System.out.println(catNo);
       model.addAttribute("catNo", catNo);
+      
+      if(!LANG_EN.equals(locale.toString()))
+        locale = sessionLocaleResolver.resolveLocale(request);
+      
       try {
         model.addAttribute("tourList" , tourService.tourList(catNo));
+        request.setAttribute("lang", locale.toString());
       } catch (Exception e) {
         model.addAttribute("tourList" , null);
       }

@@ -96,6 +96,11 @@
                             </li>
                         </c:when>
                         <c:otherwise>
+                        <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
+                                <a href="/app/mypage/myInfo" class="gnb-common-menu__item__link">
+                                    <span class="gnb-common-menu__item--text transparent">마이페이지</span>
+                                </a>
+                            </li> 
                             <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
                                 <a href="/app/auth/logout" class="gnb-common-menu__item__link">
                                     <span class="gnb-common-menu__item--text transparent">로그아웃</span>
@@ -263,46 +268,46 @@
                   <nav class="mrt-container">
                      <ul class="lnb-menu">
                         <li class="lnb-menu__item gtm-lnb-home">
-                           <a href="#" class="lnb-menu__item--link transparent" id="home-link1" data-turbolinks="false">전체</a>
+                           <a href="/app/tour/list" class="lnb-menu__item--link transparent" id="home-link1" data-turbolinks="false">전체</a>
                         </li>
                         <li class="lnb-menu__item gtm-lnb-home">
-                           <a href="#" class="lnb-menu__item--link transparent" id="home-link2" data-turbolinks="false">식도락</a>
-                           <ul class="sub-menu__item-contain">
+                           <a href="/app/tour/list/10" class="lnb-menu__item--link transparent" id="home-link2" data-turbolinks="false">식도락</a>
+                           <!-- <ul class="sub-menu__item-contain">
                               <li><a href="#">전통음식</a></li>
                               <li><a href="#">고급식당</a></li>
                               <li><a href="#">일반식당</a></li>
                               <li><a href="#">채식</a></li>
-                           </ul>
+                           </ul> -->
                         </li>
                         <li class="lnb-menu__item gtm-lnb-home">
-                           <a href="#" class="lnb-menu__item--link transparent" id="home-link3" data-turbolinks="false">역사/문화</a>
-                           <ul class="sub-menu__item-contain">
+                           <a href="/app/tour/list/20" class="lnb-menu__item--link transparent" id="home-link3" data-turbolinks="false">역사/문화</a>
+                           <!-- <ul class="sub-menu__item-contain">
                               <li><a href="#">고궁</a></li>
                               <li><a href="#">박물관</a></li>
                               <li><a href="#">유적지</a></li>
                               <li><a href="#">민속마을</a></li>
-                           </ul>
+                           </ul> -->
                         </li>
                         <li class="lnb-menu__item gtm-lnb-home">
-                           <a href="#" class="lnb-menu__item--link transparent" id="home-link4" data-turbolinks="false">명소</a>
-                           <ul class="sub-menu__item-contain">
+                           <a href="/app/tour/list/30" class="lnb-menu__item--link transparent" id="home-link4" data-turbolinks="false">명소</a>
+                           <!-- <ul class="sub-menu__item-contain">
                               <li><a href="#">랜드마크</a></li>
                               <li><a href="#">자연</a></li>
                               <li><a href="#">테마거리</a></li>
-                           </ul>
+                           </ul> -->
                         </li>
                         <li class="lnb-menu__item gtm-lnb-home">
-                           <a href="#" class="lnb-menu__item--link transparent" id="home-link5" data-turbolinks="false">액티비티</a>
-                           <ul class="sub-menu__item-contain">
+                           <a href="/app/tour/list/40" class="lnb-menu__item--link transparent" id="home-link5" data-turbolinks="false">액티비티</a>
+                           <!-- <ul class="sub-menu__item-contain">
                               <li><a href="#">문화체험</a></li>
                               <li><a href="#">스포츠</a></li>
                               <li><a href="#">트래킹</a></li>
                               <li><a href="#">힐링</a></li>
                               <li><a href="#">나이트라이프</a></li>
-                           </ul>
+                           </ul> -->
                         </li>
                         <li class="lnb-menu__item gtm-lnb-home">
-                           <a href="#" class="lnb-menu__item--link transparent" id="home-link6" data-turbolinks="false">쇼핑</a>
+                           <a href="/app/tour/list/50" class="lnb-menu__item--link transparent" id="home-link6" data-turbolinks="false">쇼핑</a>
                         </li>
                      </ul>
                   </nav>

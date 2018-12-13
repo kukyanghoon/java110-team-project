@@ -27,18 +27,20 @@
             <style>
                 .date-container {
                     padding: 16px;
-                    border: solid 1px #dee2e6;
                 }
                 
                 .datepicker--content{
                 	display:block;
                 	}
+                	.panel-title{
+                	   text-align: center;
+                	}
             </style>
         </head>
 
         <body class='site-menubar-unfold' data-action='edit' data-controller-path='partner/offers' data-controller='offers' data-sign-in>
-
-            <div class='col-md-9'>
+<div class='page-content container'>
+            <div class='col-md-12'>
                 <div class='widget'></div>
                 <form data-validation="false" data-istour="true" data-isticket="false" data-ishotdeal="false" data-islodging="false" data-offer-status="temp" id="offerForm" class="panel panel-bordered" action="/partner/offers/46144" accept-charset="UTF-8" method="post">
                     <input name="utf8" type="hidden" value="&#x2713;" />
@@ -153,13 +155,17 @@
                             </div>
 
                             <hr class='divider'>
+                          <div class='form-group clearfix'
+                          data-desc='<span class="font-weight-600">코스 설명 예시</span><br/><br/>"아치 모양이 아름다운 베네치아의 첫 번째 다리, 리알토 다리위에서 베네치아 운하를 감상하고 다리 위에 모여 있는 점포들을 구경합니다."<br/>'>
+                          <label class='control-label col-xs-12'>여행 가능 날짜<span> *</span></label>
+                          </div>
                             <div class="date-container">
                                 <input type="hidden" id="dateInput" name="tour_date" class="datepicker-here" data-language='ko' />
                             </div>
 
                             <hr class='divider'>
                             <div class='form-group clearfix' data-desc='<span class="font-weight-600">필수 안내 예시</span><br/><br/>• 여행자보험 가입을 권유하는 문구<br/>• 어린이 요금 관련 안내글<br/>• 투어 중 체력 소모량<br/>• 송수신기 사용과 관련한 이어폰 지참 안내문구 (미술관 투어 시)<br/>'>
-                                <label class='control-label col-xs-12'> 필수 안내 <span>*</span>
+                                <label class='control-label col-xs-12'> 필수 안내 <span>*</span><br>
                                 </label>
                                 <div class='col-xs-12'>
                                     <textarea class='form-control' name='offer[attention]' id='req_inf' placeholder='• 옷차림, 준비물에 관해 안내해주세요.
@@ -188,6 +194,7 @@
 
                 </form>
 
+            </div>
             </div>
             <script>
                 $(document).ready(function() {

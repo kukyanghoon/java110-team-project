@@ -52,7 +52,9 @@ input[type=file] {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-
+.panel-title{
+                       text-align: center;
+                    }
 .imgs_wrap img {
 	max-width: 150px;
 	margin-left: 10px;
@@ -69,9 +71,9 @@ div.col-md-9 {
 </style>
 </head>
 <body>
-	<div class='page-content container-fluid'>
+	<div class='page-content container'>
 		<div class='row'>
-			<div class='col-md-9'>
+			<div class='col-md-12'>
 				<div class='widget'></div>
 				<form data-validation="false" data-istour="true"
 					data-isticket="false" data-ishotdeal="false" data-islodging="false"

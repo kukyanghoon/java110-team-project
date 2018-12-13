@@ -29,9 +29,11 @@
 input[type=file] {
 	display: none;
 }
-
+.panel-title{
+                       text-align: center;
+                    }
 body {
-	padding: 0px;
+	padding-top: 66px;
 	margin: 0px;
 }
 
@@ -102,10 +104,13 @@ a.my_button {
 	data-controller-path='partner/offers' data-controller='offers'
 	data-sign-in>
 
-	<div class='col-md-9'>
+<div class='page-content container'>
+	<div class='col-md-12'>
+	   
 		<div class='panel-heading'>
 			<div class='panel-title'>여행 등록</div>
 		</div>
+		<hr class='divider'>
 		<div class='panel-body'>
 			<div class='pearls row' data-by-row='true' data-plugin='matchHeight'
 				role='tablist'>
@@ -408,8 +413,8 @@ a.my_button {
 
 		</div>
 
-		</form>
 
+	</div>
 	</div>
 
 	<script type="text/javascript"

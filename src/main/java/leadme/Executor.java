@@ -52,10 +52,11 @@ public class Executor {
      
  }
  
- /*
- @Scheduled(fixedDelay = 8000)
+  //테스트 데이터 넣을때
+/* @Scheduled(fixedDelay = 8000)
  public void executor3 (){
-     System.out.println(new Date());
+     System.out.println("자료 업데이트 된 시간! : " + new Date());
      rankingService.delete();
+     rankingService.add();
  }*/
 }

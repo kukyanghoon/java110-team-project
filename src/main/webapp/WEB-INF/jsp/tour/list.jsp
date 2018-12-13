@@ -220,12 +220,28 @@ span.local{
                   <span class="offer-category__item__label" value ='1'>전체 </span>
                 </div>
                 
-                <c:forEach items='${categoryList}' var="cate" varStatus="list">
+                <c:choose>
+        <c:when test="${lang == 'en'}">
+            <c:forEach items='${categoryList}' var="cate" varStatus="list">
+                      <div class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="${list.count}">
+                        <span class="offer-category__item__label" value ='2'>${cate.cat_name_eng}</span>
+                      </div>
+                
+                </c:forEach>
+        </c:when>
+        <c:otherwise>
+            <c:forEach items='${categoryList}' var="cate" varStatus="list">
                       <div class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="${list.count}">
                         <span class="offer-category__item__label" value ='2'>${cate.cat_name}</span>
                       </div>
                 
                 </c:forEach>
+        </c:otherwise>
+    </c:choose>
+                
+                
+                
+                
                         
                         <div class=" offer-category__item " role="button" tabindex="-1">
                             <div class="drop">
@@ -262,7 +278,7 @@ span.local{
                      
                 </div></div></div><div class="OfferList__Items">
                     <div class="FilterTopBar">
-                        <div class="FilterTopBar__OrderList hide-on-tablet"><ul class="order-list__container">
+                        <div class="FilterTopBar__OrderList hide-on-tablet"><!-- <ul class="order-list__container">
                             <li class="order-list__item" role="button" tabindex="-1">
                                 <div class="Dot" style="display: inline-block; vertical-align: middle; background-color: rgb(52, 58, 64); border-radius: 4px; width: 4px; height: 4px;">
                                     
@@ -274,7 +290,7 @@ span.local{
                                 </div>
                                 <span class="order-list__item__label ">후기순</span>
                             </li>
-                        </ul>
+                        </ul> -->
                     </div>
                 </div>
                 <div class="OfferList__Items__Body ">
@@ -283,8 +299,14 @@ span.local{
                     <c:forEach items='${tourList}' var="list" varStatus="status">
                     <c:choose>
                         <c:when test="${status.index < 5}">
-                              
+                              <c:choose>
+                                    <c:when test="${lang == 'en'}">
+                                        <a class="OfferListCard" href="/app/tour/detail/${list.tno}"  itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product" data-offer-type="IstanbulTicket" data-offer-id="31644"><div class="OfferListCard__Thumbnail" style="background-image: url( /resources/img/${list.pri_phot});"></div><div class="OfferListCard__Content"><div class="OfferListCard__Content__Category"><span>${list.category.cat_name_eng}</span><span class="hide-on-mobile"><div class="Dot" style="display: inline-block; vertical-align: middle; background-color: rgb(132, 140, 148); border-radius: 2px; width: 2px; height: 2px; margin: 0px 4px;"></div><span>${list.mid_category.cat_name_eng}</span></span></div><div class="OfferListCard__Content__Title"><div class="LinesEllipsis  ">${ list.titl}<wbr></div></div><div class="OfferListCard__Content__Guide"><span class="name">${list.member.name}</span></div><div class="OfferListCard__Content__Review">                                        
+                                    </c:when>
+                                    <c:otherwise>
                                        <a class="OfferListCard" href="/app/tour/detail/${list.tno}"  itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product" data-offer-type="IstanbulTicket" data-offer-id="31644"><div class="OfferListCard__Thumbnail" style="background-image: url( /resources/img/${list.pri_phot});"></div><div class="OfferListCard__Content"><div class="OfferListCard__Content__Category"><span>${list.category.cat_name}</span><span class="hide-on-mobile"><div class="Dot" style="display: inline-block; vertical-align: middle; background-color: rgb(132, 140, 148); border-radius: 2px; width: 2px; height: 2px; margin: 0px 4px;"></div><span>${list.mid_category.cat_name}</span></span></div><div class="OfferListCard__Content__Title"><div class="LinesEllipsis  ">${ list.titl}<wbr></div></div><div class="OfferListCard__Content__Guide"><span class="name">${list.member.name}</span></div><div class="OfferListCard__Content__Review">
+                                    </c:otherwise>
+                             </c:choose>
                                        <div class='starRating starRating--m starRating--blue'>
                                        <c:forEach var="i" begin="1" end="5">
         <c:choose>
@@ -393,7 +415,14 @@ span.local{
                                                                     <script type="application/json" class="js-react-on-rails-component" data-component-name="Footer" data-dom-id="Footer-react-component-d9e4d63b-5414-4186-84d3-188fe29c373f">{"b2b":{"status":false,"b2bCompany":null}}</script>
 
 <footer>
-        <jsp:include page="../footerTest.jsp"></jsp:include>
+        <c:choose>
+        <c:when test="${lang == 'en'}">
+            <jsp:include page="../footerEng.jsp" />
+        </c:when>
+        <c:otherwise>
+            <jsp:include page="../footer.jsp" />
+        </c:otherwise>
+    </c:choose>
     </footer>
                                                                     <div id="popup-mask"></div>
                                                                     <div id="gnb-popup-mask"></div>
@@ -462,9 +491,20 @@ span.local{
                success:function(data){
                    console.log($(data));
                    $('#midCategoryTitleBox').empty().append("<span class='VerticalList__Header__Title'>전체</span>");
+                   if('${lang}' == 'en'){
+                       console.log("영어지롱!");
+                       $('#midCategoryTitleBox').empty().append("<span class='VerticalList__Header__Title'>All</span>");
+                   }
                    $('#list').empty();
                    $(data).each(function(index, item){
-                       listDiv($('#list') ,item ,starRating(item.star));
+                       if('${lang}' == 'en'){
+                           console.log('영어영어!!');
+                           listDivEng($('#list') ,item ,starRating(item.star));
+                       }else{
+                           console.log('나랏말싸믜 듕국에댤아');
+                           listDiv($('#list') ,item ,starRating(item.star));
+                           
+                       }
                    });
                    pagingBase(5);
                },
@@ -503,7 +543,14 @@ span.local{
                   console.log($(data));
                   $('#list').empty();
                   $(data).each(function(index, item){
-                      listDiv($('#list') ,item ,starRating(item.star));
+                      if('${lang}' == 'en'){
+                          console.log('영어영어!!');
+                          listDivEng($('#list') ,item ,starRating(item.star));
+                      }else{
+                          console.log('나랏말싸믜 듕국에댤아');
+                          listDiv($('#list') ,item ,starRating(item.star));
+                          
+                      }
                   });
                   pagingBase(5);
               },
@@ -599,6 +646,48 @@ span.local{
                    + "</div>");
        }
        
+       function listDivEng(area, item, star){
+           console.log(item);
+           area.append(
+                   "<div class='OfferList__Cards'>"
+                   +"<a class='OfferListCard' href='/app/tour/detail/" + item.tno + "' itemprop='itemListElement' itemscope='' itemtype='http://schema.org/Product' data-offer-type='IstanbulTicket' data-offer-id='31644'>"
+                   + "<div class='OfferListCard__Thumbnail' style='background-image: url(/resources/img/" + item.pri_phot + ");'>"
+                   + "</div>"
+                   + "<div class='OfferListCard__Content'>"
+                   + "<div class='OfferListCard__Content__Category'>"
+                   + "<span>" + item.category.cat_name_eng
+                   + "</span>"
+                   + "<span class='hide-on-mobile'>"
+                   + "<div class='Dot' style='display: inline-block; vertical-align: middle; background-color: rgb(132, 140, 148); border-radius: 2px; width: 2px; height: 2px; margin: 0px 4px;'>"
+                   + "</div>"
+                   + "<span>" + item.mid_category.cat_name_eng + "</span>"
+                   + "</span>"
+                   + "</div>"
+                   + "<div class='OfferListCard__Content__Title'>"
+                   + "<div class='LinesEllipsis  '>" + item.titl + "<wbr></div>"
+                   + "</div>"
+                   + "<div class='OfferListCard__Content__Guide'>"
+                   + "<span class='name'>" + item.member.name + "</span>"
+                   + "</div>"
+                   + "<div class='OfferListCard__Content__Review'>"
+                   + "<div class='starRating starRating--m starRating--blue'>"
+                   + star
+                   + "</div>"
+                   + "<span class='count'>review " + item.hits + " </span>"
+                   + "<div class='Duration hide-on-mobile'>"
+                   + "</div>"
+                   + "</div>"
+                   + "<div class='OfferListCard__Content__Price'>"
+                   + "<span class='SalePrice'>" + item.amt + " won</span>"
+                   + "</div>"
+                   + "<div class='OfferListCard__Content__Wishlist'>"
+                   + "</div>"
+                   + "</div>"
+                   + "</a>"
+                   + "</div>");
+       }
+       
+       
        function listAjax(catno){
            var obj ={
                    'cat_no' : catno
@@ -612,8 +701,18 @@ span.local{
                success:function(data){
                    $('#list').empty();
                    $(data).each(function(index, item){
-                       $('#midCategoryTitleBox').empty().append("<span class='VerticalList__Header__Title'>" + item.mid_category.cat_name + "</span>");
-                       listDiv($('#list') ,item ,starRating(item.star));
+                       
+                       if('${lang}' == 'en'){
+                           console.log('영어영어!!');
+                           $('#midCategoryTitleBox').empty().append("<span class='VerticalList__Header__Title'>" + item.mid_category.cat_name_eng + "</span>");
+                           listDivEng($('#list') ,item ,starRating(item.star));
+                       }else{
+                           console.log('나랏말싸믜 듕국에댤아');
+                           $('#midCategoryTitleBox').empty().append("<span class='VerticalList__Header__Title'>" + item.mid_category.cat_name + "</span>");
+                           listDiv($('#list') ,item ,starRating(item.star));
+                           
+                       }
+                       
                    });
                    pagingBase(5);
                },

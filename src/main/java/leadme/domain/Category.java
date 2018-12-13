@@ -8,6 +8,18 @@ public class Category implements Serializable {
   private int cat_no;
   private String cat_name;
   private int up_cat_no;
+  private String cat_name_eng;
+  
+  
+  
+  public String getCat_name_eng() {
+    return cat_name_eng;
+  }
+
+  public void setCat_name_eng(String cat_name_eng) {
+    this.cat_name_eng = cat_name_eng;
+  }
+
   public int getCat_no() {
     return cat_no;
   }
@@ -27,11 +39,15 @@ public class Category implements Serializable {
   public void setUp_cat_no(int up_cat_no) {
     this.up_cat_no = up_cat_no;
   }
+
   @Override
   public String toString() {
     return "Category [cat_no=" + cat_no + ", cat_name=" + cat_name + ", up_cat_no=" + up_cat_no
-        + "]";
+        + ", cat_name_eng=" + cat_name_eng + "]";
   }
+ 
+  
+  
   
   
 }

@@ -18,6 +18,7 @@ import leadme.dao.GuideDao;
 import leadme.dao.GuideTourListDao;
 import leadme.domain.Guide;
 import leadme.domain.Member;
+import leadme.domain.Tour;
 import leadme.domain.TourReq;
 import leadme.service.GuideService;
 
@@ -62,9 +63,9 @@ public class GuideServiceImpl implements GuideService {
     
   }
   @Override
-  public List<TourReq> myTravelStatus() {
+  public List<TourReq> myTravelStatus(Guide guide) {
     Map<String,Object> params = new HashMap<>();
-    params.put("mno", "6");
+    params.put("mno", guide.getMno());
     List<TourReq> list = guideTourListDao.myTravelStatus(params);
     
     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -81,9 +82,9 @@ public class GuideServiceImpl implements GuideService {
   }
   
   @Override
-  public List<TourReq> cancelTravelStatus() {
+  public List<TourReq> cancelTravelStatus(Guide guide) {
     Map<String,Object> params = new HashMap<>();
-    params.put("mno", "6");
+    params.put("mno", guide.getMno());
     List<TourReq> list = guideTourListDao.cancelTravelStatus(params);
     for (TourReq tourReq : list) {
       System.out.println(tourReq);
@@ -93,9 +94,9 @@ public class GuideServiceImpl implements GuideService {
   }
   
   @Override
-  public List<TourReq> goneTravelStatus() throws Exception {
+  public List<TourReq> goneTravelStatus(Guide guide) throws Exception {
     Map<String,Object> params = new HashMap<>();
-    params.put("mno", "6");
+    params.put("mno", guide.getMno());
     List<TourReq> list = guideTourListDao.goneTravelStatus(params);
     String formatDate = "";
     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -114,6 +115,20 @@ public class GuideServiceImpl implements GuideService {
       System.out.println(tourReq.getformatToutdt());
 
       
+    }
+    
+    return list;
+    
+  }
+  
+  @Override
+  public List<Tour> myTravelList(Guide guide) throws Exception {
+    Map<String,Object> params = new HashMap<>();
+    params.put("mno", guide.getMno());
+    List<Tour> list = guideTourListDao.myTravelList(params);
+    
+    for (Tour t : list) {
+      System.out.println(t);
     }
     
     return list;

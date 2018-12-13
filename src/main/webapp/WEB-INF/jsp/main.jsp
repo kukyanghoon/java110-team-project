@@ -110,10 +110,17 @@
 									<li
 										class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
 										<a href="#" class="gnb-common-menu__item__link"
-										onclick="event.preventDefault(); location.href='auth/logout'">>
-											<span class="gnb-common-menu__item--text transparent">로그아웃</span>
+										onclick="event.preventDefault(); location.href='/app/mypage/myInfo'">>
+											<span class="gnb-common-menu__item--text transparent">마이페이지</span>
 									</a>
 									</li>
+									<li
+                                        class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
+                                        <a href="#" class="gnb-common-menu__item__link"
+                                        onclick="event.preventDefault(); location.href='auth/logout'">>
+                                            <span class="gnb-common-menu__item--text transparent">로그아웃</span>
+                                    </a>
+                                    </li>
 								</c:otherwise>
 							</c:choose>
 						</ul>
@@ -312,7 +319,7 @@
 							href="/app/tour/list/10" class="lnb-menu__item--link transparent"
 							id="home-link2" data-turbolinks="false"><spring:message
 									code="site.cate1" text="식도락" /></a>
-							<ul class="sub-menu__item-contain">
+							<%-- <ul class="sub-menu__item-contain">
 								<li><a href="#"><spring:message code="site.cate1-1"
 											text="전통음식" /></a></li>
 								<li><a href="#"><spring:message code="site.cate1-2"
@@ -322,12 +329,12 @@
 								<li><a href="#"><spring:message code="site.cate1-4"
 											text="채식" /></a></li>
 
-							</ul></li>
+							</ul> --%></li>
 						<li class="lnb-menu__item gtm-lnb-home" style="padding-left: 5%;padding-right: 5%;"><a
 							href="/app/tour/list/20" class="lnb-menu__item--link transparent"
 							id="home-link3" data-turbolinks="false"><spring:message
 									code="site.cate2" text="역사/문화" /></a>
-							<ul class="sub-menu__item-contain">
+							<%-- <ul class="sub-menu__item-contain">
 								<li><a href="#"><spring:message code="site.cate2-1"
 											text="고궁" /></a></li>
 								<li><a href="#"><spring:message code="site.cate2-2"
@@ -336,24 +343,24 @@
 											text="유적지" /></a></li>
 								<li><a href="#"><spring:message code="site.cate2-4"
 											text="민속마을" /></a></li>
-							</ul></li>
+							</ul> --%></li>
 						<li class="lnb-menu__item gtm-lnb-home" style="padding-left: 5%;padding-right: 5%;"><a
 							href="/app/tour/list/30" class="lnb-menu__item--link transparent"
 							id="home-link4" data-turbolinks="false"><spring:message
 									code="site.cate3" text="명소" /></a>
-							<ul class="sub-menu__item-contain">
+							<%-- <ul class="sub-menu__item-contain">
 								<li><a href="#"><spring:message code="site.cate3-1"
 											text="랜드마크" /></a></li>
 								<li><a href="#"><spring:message code="site.cate3-2"
 											text="자연" /></a></li>
 								<li><a href="#"><spring:message code="site.cate3-3"
 											text="테마거리" /></a></li>
-							</ul></li>
+							</ul> --%></li>
 						<li class="lnb-menu__item gtm-lnb-home" style="padding-left: 5%;padding-right: 5%;"><a
 							href="/app/tour/list/40" class="lnb-menu__item--link transparent"
 							id="home-link5" data-turbolinks="false"><spring:message
 									code="site.cate4" text="액티비티" /></a>
-							<ul class="sub-menu__item-contain">
+							<%-- <ul class="sub-menu__item-contain">
 								<li><a href="#"><spring:message code="site.cate4-1"
 											text="문화체험" /></a></li>
 								<li><a href="#"><spring:message code="site.cate4-2"
@@ -364,7 +371,7 @@
 											text="힐링" /></a></li>
 								<li><a href="#"><spring:message code="site.cate4-5"
 											text="나이트라이프" /></a></li>
-							</ul></li>
+							</ul> --%></li>
 						<li class="lnb-menu__item gtm-lnb-home" style="padding-left: 5%;padding-right: 5%;"><a
 							href="/app/tour/list/50" class="lnb-menu__item--link transparent"
 							id="home-link6" data-turbolinks="false"><spring:message
