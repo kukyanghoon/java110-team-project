@@ -548,7 +548,7 @@ input:checked + .slider:before {
               </div>
             </div>
  
-            <div class="form-group">
+            <div class="form-group" style="font-size: 10px;">
                 <a href="#" class="openMask" data-toggle="modal" data-target="#gmyModal">회원 탈퇴</a>
             </div>
  
@@ -592,7 +592,7 @@ input:checked + .slider:before {
           <div class="form-group">
             <label class="control-label col-sm-5" for="email" style="padding-top: 8px;">비밀번호 확인:</label>
             <div class="col-sm-6">
-              <input type="email" class="form-control" id="email" placeholder="귤이귤이">
+              <input type="password" class="form-control" id="lastPassword" placeholder="마지막 비밀번호예요...ㅠㅠ">
             </div>
           </div> 
    
