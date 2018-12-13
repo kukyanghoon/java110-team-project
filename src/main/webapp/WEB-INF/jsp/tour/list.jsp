@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>LEADME :: 여행</title>
+<title>LEADME :: <spring:message code="list.tour" text="여행" /></title>
 <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon-precomposed">
     <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon">
     <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon" sizes="76x76">
@@ -130,7 +130,7 @@ span.local{
    <c:choose>
         <c:when test="${catNo eq 1}">
             <div class="breadcrumbs-item">
-              <div class="OfferHeader OfferHeader__City">전체</div>
+              <div class="OfferHeader OfferHeader__City"><spring:message code="list.all" text="전체" /></div>
             </div>
             
         </c:when>
@@ -142,7 +142,7 @@ span.local{
             <div class="breadcrumbs-item">
               <div class="VerticalList">
                 <div id="midCategoryTitleBox" class="VerticalList__Header" role="button" tabindex="-1">
-                  <span class="VerticalList__Header__Title">전체</span>
+                  <span class="VerticalList__Header__Title"><spring:message code="list.all" text="전체" /></span>
                 </div>
               </div>
             </div>
@@ -155,7 +155,7 @@ span.local{
               <div class="breadcrumbs-item">
               <div class="VerticalList">
               <div id="midCategoryTitleBox" class="VerticalList__Header" role="button" tabindex="-1">
-              <span class="VerticalList__Header__Title">전체</span>
+              <span class="VerticalList__Header__Title"><spring:message code="list.all" text="전체" /></span>
                 </div>
   </div>
   </div>
@@ -168,7 +168,7 @@ span.local{
               <div class="breadcrumbs-item">
               <div class="VerticalList">
               <div id="midCategoryTitleBox" class="VerticalList__Header" role="button" tabindex="-1">
-              <span class="VerticalList__Header__Title">전체</span>
+              <span class="VerticalList__Header__Title"><spring:message code="list.all" text="전체" /></span>
                 </div>
                 </div>
                 </div>
@@ -181,7 +181,7 @@ span.local{
               <div class="breadcrumbs-item">
               <div class="VerticalList">
               <div id="midCategoryTitleBox" class="VerticalList__Header" role="button" tabindex="-1">
-              <span class="VerticalList__Header__Title">전체</span>
+              <span class="VerticalList__Header__Title"><spring:message code="list.all" text="전체" /></span>
                 </div>
   </div>
   </div>
@@ -194,7 +194,7 @@ span.local{
               <div class="breadcrumbs-item">
               <div class="VerticalList">
               <div id="midCategoryTitleBox" class="VerticalList__Header" role="button" tabindex="-1">
-              <span class="VerticalList__Header__Title">전체</span>
+              <span class="VerticalList__Header__Title"><spring:message code="list.all" text="전체" /></span>
                 </div>
   </div>
   </div>
@@ -216,7 +216,7 @@ span.local{
                 <div class="offer-category__container border-shadow">
                 
                 <div class="catAll leademecate offer-category__item active" role="button" tabindex="-1" value="${catNo}">
-                  <span class="offer-category__item__label" value ='1'>전체 </span>
+                  <span class="offer-category__item__label" value ='1'><spring:message code="list.all" text="전체" /></span>
                 </div>
                 
                 <c:choose>
@@ -492,7 +492,7 @@ span.local{
                    $('#midCategoryTitleBox').empty().append("<span class='VerticalList__Header__Title'>전체</span>");
                    if('${lang}' == 'en'){
                        console.log("영어지롱!");
-                       $('#midCategoryTitleBox').empty().append("<span class='VerticalList__Header__Title'>All</span>");
+                       $('#midCategoryTitleBox').empty().append("<span class='VerticalList__Header__Title'>ALL</span>");
                    }
                    $('#list').empty();
                    $(data).each(function(index, item){

@@ -4,7 +4,7 @@
 <html>
    <head>
       <meta charset='UTF-8'>
-      <title>리드미 :: 현지 친구와 진짜 여행을</title>
+      <title>LEADME :: 현지 친구와 진짜 여행을</title>
    </head>
 <body>
          <footer class="mrt-component">

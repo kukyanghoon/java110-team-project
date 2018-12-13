@@ -30,7 +30,7 @@
 <link href='https://d2yoing0loi5gh.cloudfront.net/assets/logo/icon-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png' rel='apple-touch-icon' sizes='76x76'>
 <link href='https://d2yoing0loi5gh.cloudfront.net/assets/logo/icon-120-0de06603ad3e4427cb29b5e4ef6833021cc52ea642ee76e843ed997209049bf5.png' rel='apple-touch-icon' sizes='120x120'>
 <link href='https://d2yoing0loi5gh.cloudfront.net/assets/logo/icon-152-cc369a832b7a69d0c0b63c3914168b58e732a26729d72e976e7f729b923ee302.png' rel='apple-touch-icon' sizes='152x152'>
-<title>${tour.titl} :: 현지 친구와 진짜 여행을</title>
+<title>LEADME :: ${tour.titl}</title>
 <link rel="shortcut icon" type="image/x-icon" href="https://d2yoing0loi5gh.cloudfront.net/assets/favicon-e7fc64f202376533d86106e6f712ed41eee1e843dbc5de3b2765938656f8eb93.ico" />
 
 <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-4b8ab07154cf2c04a97bb950234f455fe5a721876f501316a714f1a8b65b12ae.css" />
@@ -106,9 +106,9 @@
     }
 }
 
-#header-container{
+/* #header-container{
 	padding-top:51px;
-}
+} */
 </style>
 </head>
 <body class='body' data-action='show' data-controller-path='kitty/offers' data-controller='offers'>
@@ -140,16 +140,16 @@
 <div class='bar-inner-container'>
 <ul class='booking-bar-nav'>
 <li class='bar-nav-item item-inline gtm-offer-menu-introduce' data-target='#commonInfo'>
-<div class='text'>여행 소개</div>
+<div class='text'><spring:message code="detail.intro" text="여행 소개" /></div>
 </li>
 <li class='bar-nav-item item-inline gtm-offer-menu-course' data-target='#course'>
-<div class='text'>코스 소개</div>
+<div class='text'><spring:message code="detail.course" text="코스 소개" /></div>
 </li>
 <li class='bar-nav-item item-inline hide-on-mobile gtm-offer-menu-attention' data-target='#attention'>
-<div class='text'>필수 안내</div>
+<div class='text'><spring:message code="detail.recommend" text="필수 안내" /></div>
 </li>
 <li class='bar-nav-item item-inline gtm-offer-menu-review' data-target='#review'>
-<div class='text'>후기</div>
+<div class='text'><spring:message code="detail.review" text="후기" /></div>
 </li>
 </ul>
 </div>
@@ -298,11 +298,11 @@ ${tour.tour_intro}
 <div class='reservation-container' id='showPrice'>
 <span>₩ </span><span><fmt:formatNumber value='${tour.amt }' groupingUsed='true'/></span>
 <input id="person-price" type="hidden" value="${tour.amt }"/>
-<span class='unit'>/ 1인</span>
+<span class='unit'>/ <spring:message code="detail.1person" text="1인" /></span>
     <select class="form-control" id="person-picker" onchange="priceUpdate();" form="detailForm" name="person_num">
-      <option value="" selected disabled>인원 선택</option>
+      <option value="" selected disabled><spring:message code="detail.select" text="인원 선택" /></option>
       <c:forEach begin="1" end="${tour.mx_pn}" var="i">
-        <option value="${i}">${i}명</option>
+        <option value="${i}">${i}<spring:message code="detail.myung" text="명" /></option>
       </c:forEach>
     </select>
 
