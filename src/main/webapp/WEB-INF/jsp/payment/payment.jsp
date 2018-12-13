@@ -24,7 +24,10 @@
 <title>리드미 :: 현지 친구와 진짜 여행을</title>
 <link rel="shortcut icon" type="image/x-icon" href="https://d2yoing0loi5gh.cloudfront.net/assets/favicon-e7fc64f202376533d86106e6f712ed41eee1e843dbc5de3b2765938656f8eb93.ico">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link rel="stylesheet" media="screen" href="https://d2yoing0loi5gh.cloudfront.net/webpack/application.4385e182f137c2993c60.css">
+<!-- <link rel="stylesheet" media="screen" href="/resources/css/application.fd8143d198eac4e329ab.css">
+<link rel="stylesheet" media="screen" href="/resources/css/0.fd8143d198eac4e329ab.css"> -->
+
+
 <!-- <link rel="stylesheet" type="text/css" href="css/custom1.css"> -->
 <!--[if lte ie 9]>
 <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/ie-0d3dd8da661782e0fe69539e0c61b980912a8ee2c42e367b29dde4bcccc9dea6.css" />

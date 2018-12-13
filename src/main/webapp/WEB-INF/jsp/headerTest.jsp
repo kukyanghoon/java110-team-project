@@ -19,7 +19,7 @@
 <link rel="stylesheet" media="screen" href="/resources/css/application.89bde0a7d84a7bf87143.css" />
 <link rel="stylesheet" type="text/css" href="/resources/css/hyun.css">
 <script src="/resources/js/application.cac8b307dbe32bcdbd67.js"></script>
-<script src="/resources/js/application-86de1be31d401529a297febaf961a82ebf2ba60f6dd1f2b9c4b833b5753dcb7f.js"></script>
+<!-- <script src="/resources/js/application-86de1be31d401529a297febaf961a82ebf2ba60f6dd1f2b9c4b833b5753dcb7f.js"></script> -->
 
 
 

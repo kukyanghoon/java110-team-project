@@ -30,12 +30,11 @@
 	href="/resources/css/application.cac8b307dbe32bcdbd67.css" />
 <link rel="stylesheet" media="screen"
 	href="/resources/css/application.89bde0a7d84a7bf87143.css">
-	<script src="/resources/js/application.cac8b307dbe32bcdbd67.js"></script>
+<script src="/resources/js/application.cac8b307dbe32bcdbd67.js"></script>
 
 
 
-<script
-	src="/resources/js/vendor.cac8b307dbe32bcdbd67.js"></script>
+<script src="/resources/js/vendor.cac8b307dbe32bcdbd67.js"></script>
 <!--[if lte ie 9]>
 <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/ie-b751bcff1f912d9f2d6eb3f5f25a09494364fee359047b3bcf9e161c4d714527.css" />
 <![endif]-->
@@ -304,12 +303,12 @@
 
 			<div class="lnb-container transparent">
 				<nav class="mrt-container2">
-					<ul class="lnb-menu">
-						<li class="lnb-menu__item gtm-lnb-home"><a
+					<ul class="lnb-menu" style="text-align: center;">
+						<li class="lnb-menu__item gtm-lnb-home" style="padding-left: 5%;padding-right: 5%;"><a
 							href="/app/tour/list" class="lnb-menu__item--link transparent"
 							id="home-link1" data-turbolinks="false"><spring:message
 									code="site.cate0" text="전체" /></a></li>
-						<li class="lnb-menu__item gtm-lnb-home"><a
+						<li class="lnb-menu__item gtm-lnb-home" style="padding-left: 5%;padding-right: 5%;"><a
 							href="/app/tour/list/10" class="lnb-menu__item--link transparent"
 							id="home-link2" data-turbolinks="false"><spring:message
 									code="site.cate1" text="식도락" /></a>
@@ -324,7 +323,7 @@
 											text="채식" /></a></li>
 
 							</ul></li>
-						<li class="lnb-menu__item gtm-lnb-home"><a
+						<li class="lnb-menu__item gtm-lnb-home" style="padding-left: 5%;padding-right: 5%;"><a
 							href="/app/tour/list/20" class="lnb-menu__item--link transparent"
 							id="home-link3" data-turbolinks="false"><spring:message
 									code="site.cate2" text="역사/문화" /></a>
@@ -338,7 +337,7 @@
 								<li><a href="#"><spring:message code="site.cate2-4"
 											text="민속마을" /></a></li>
 							</ul></li>
-						<li class="lnb-menu__item gtm-lnb-home"><a
+						<li class="lnb-menu__item gtm-lnb-home" style="padding-left: 5%;padding-right: 5%;"><a
 							href="/app/tour/list/30" class="lnb-menu__item--link transparent"
 							id="home-link4" data-turbolinks="false"><spring:message
 									code="site.cate3" text="명소" /></a>
@@ -350,7 +349,7 @@
 								<li><a href="#"><spring:message code="site.cate3-3"
 											text="테마거리" /></a></li>
 							</ul></li>
-						<li class="lnb-menu__item gtm-lnb-home"><a
+						<li class="lnb-menu__item gtm-lnb-home" style="padding-left: 5%;padding-right: 5%;"><a
 							href="/app/tour/list/40" class="lnb-menu__item--link transparent"
 							id="home-link5" data-turbolinks="false"><spring:message
 									code="site.cate4" text="액티비티" /></a>
@@ -366,7 +365,7 @@
 								<li><a href="#"><spring:message code="site.cate4-5"
 											text="나이트라이프" /></a></li>
 							</ul></li>
-						<li class="lnb-menu__item gtm-lnb-home"><a
+						<li class="lnb-menu__item gtm-lnb-home" style="padding-left: 5%;padding-right: 5%;"><a
 							href="/app/tour/list/50" class="lnb-menu__item--link transparent"
 							id="home-link6" data-turbolinks="false"><spring:message
 									code="site.cate5" text="쇼핑" /></a></li>
@@ -697,19 +696,19 @@
 						</map>
 					</div>
 					<!--// .map-area -->
-
+					<a class='link-container theme-margin-top hidden-tablet-down'
+						href='/themes'>
+						<div class='text'>
+							<spring:message code="site.rank2.more" text="우리동네 여행 전체보기" />
+						</div> <img alt='go link' class='icon'
+						src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/main/ic_arrow_medium_gray@2x-9d76b3043fad7aff12f7edf4dab8bf4b320fe92e598c476c4708d7a657679751.png'
+						width='7px'>
+					</a>
 
 
 
 					<div class="OfferList__Items__Body ">
-						<a class='link-container theme-margin-top hidden-tablet-down'
-							href='/themes'>
-							<div class='text'>
-								<spring:message code="site.rank2.more" text="우리동네 여행 전체보기" />
-							</div> <img alt='go link' class='icon'
-							src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/main/ic_arrow_medium_gray@2x-9d76b3043fad7aff12f7edf4dab8bf4b320fe92e598c476c4708d7a657679751.png'
-							width='7px'>
-						</a>
+
 						<div class="OfferList__Cards">
 
 							<c:forEach items="${localList}" var="list">
@@ -824,7 +823,7 @@ function changeLang(lang){
 }
 </script>
 
-<script>
+	<script>
 $(document).ready(function(){
     $('#searchBtn').on('click', function(){
         console.log($('#searchWord').val()); 
