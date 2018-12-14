@@ -67,7 +67,7 @@
          <nav class="mrt-gnb-header transparent">
             <div class="mrt-container gnb-container">
                <div class="mrt-logo-container gtm-gnb-logo">
-                  <a href="/app/main"><img src="/resources/img/logo.png" alt="리드미 로고"></a>
+                  <a href="/app/main" onclick="event.preventDefault(); location.href='/app/main'"><img src="/resources/img/logo.png" alt="리드미 로고"></a>
                </div>
                <div class="gnb-menu__container">
                   <a data-turbolinks="false">
@@ -96,13 +96,23 @@
                             </li>
                         </c:when>
                         <c:otherwise>
+                            <c:choose>
+                                <c:when test="${sessionScope.guideInfo eq null}"></c:when>
+                                <c:otherwise>
+                                    <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
+                                        <a href="/app/enroll/page1" class="gnb-common-menu__item__link">
+                                            <span class="gnb-common-menu__item--text transparent">여정 등록하기</span>
+                                        </a>
+                                    </li>
+                                </c:otherwise>
+                            </c:choose>
                         <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
                                 <a href="/app/mypage/myInfo" class="gnb-common-menu__item__link">
                                     <span class="gnb-common-menu__item--text transparent">마이페이지</span>
                                 </a>
                             </li> 
                             <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
-                                <a href="/app/auth/logout" class="gnb-common-menu__item__link">
+                                <a href="/app/auth/logout" class="gnb-common-menu__item__link" onclick="event.preventDefault(); location.href='/app/auth/logout'">
                                     <span class="gnb-common-menu__item--text transparent">로그아웃</span>
                                 </a>
                             </li>   

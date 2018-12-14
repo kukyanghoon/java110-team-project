@@ -324,15 +324,29 @@ span.local{
         </c:choose>
     </c:forEach>
     </div>
+    <c:choose>
+                                    <c:when test="${lang == 'en'}">
+                                        <span class="count">review ${list.hits} </span><div class="Duration hide-on-mobile"></div></div><div class="OfferListCard__Content__Price"><span class="SalePrice">${list.amt} won</span></div><div class="OfferListCard__Content__Wishlist"></div></div></a>
+                                    </c:when>
+                                    <c:otherwise>
                                        <span class="count">후기 ${list.hits} 개</span><div class="Duration hide-on-mobile"></div></div><div class="OfferListCard__Content__Price"><span class="SalePrice">${list.amt}원</span></div><div class="OfferListCard__Content__Wishlist"></div></div></a>
+                                    </c:otherwise>
+                             </c:choose>
+    
                                        
                                        
                     
                         </c:when>
                         <c:otherwise>
                         
-                        
+                        <c:choose>
+                                    <c:when test="${lang == 'en'}">
+                                        <a class="OfferListCard" style='display: none;' href="/app/tour/detail/${list.tno}" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product" data-offer-type="IstanbulTicket" data-offer-id="31644"><div class="OfferListCard__Thumbnail" style="background-image: url( /resources/img/${list.pri_phot});"></div><div class="OfferListCard__Content"><div class="OfferListCard__Content__Category"><span>${list.category.cat_name_eng}</span><span class="hide-on-mobile"><div class="Dot" style="display: inline-block; vertical-align: middle; background-color: rgb(132, 140, 148); border-radius: 2px; width: 2px; height: 2px; margin: 0px 4px;"></div><span>${list.mid_category.cat_name_eng}</span></span></div><div class="OfferListCard__Content__Title"><div class="LinesEllipsis  ">${ list.titl}<wbr></div></div><div class="OfferListCard__Content__Guide"><span class="name">${list.member.name}</span></div><div class="OfferListCard__Content__Review">                                        
+                                    </c:when>
+                                    <c:otherwise>
                                        <a class="OfferListCard" style='display: none;' href="/app/tour/detail/${list.tno}" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/Product" data-offer-type="IstanbulTicket" data-offer-id="31644"><div class="OfferListCard__Thumbnail" style="background-image: url( /resources/img/${list.pri_phot});"></div><div class="OfferListCard__Content"><div class="OfferListCard__Content__Category"><span>${list.category.cat_name}</span><span class="hide-on-mobile"><div class="Dot" style="display: inline-block; vertical-align: middle; background-color: rgb(132, 140, 148); border-radius: 2px; width: 2px; height: 2px; margin: 0px 4px;"></div><span>${list.mid_category.cat_name}</span></span></div><div class="OfferListCard__Content__Title"><div class="LinesEllipsis  ">${ list.titl}<wbr></div></div><div class="OfferListCard__Content__Guide"><span class="name">${list.member.name}</span></div><div class="OfferListCard__Content__Review">
+                                    </c:otherwise>
+                             </c:choose>
                                        <div class='starRating starRating--m starRating--blue'>
                                        <c:forEach var="i" begin="1" end="5">
         <c:choose>
@@ -351,7 +365,17 @@ span.local{
         </c:choose>
     </c:forEach>
     </div>
-                                       <span class="count">후기 ${list.hits} 개</span><div class="Duration hide-on-mobile"></div></div><div class="OfferListCard__Content__Price"><span class="SalePrice">${list.amt}원</span></div><div class="OfferListCard__Content__Wishlist"></div></div></a>
+    
+    <c:choose>
+                                    <c:when test="${lang == 'en'}">
+                                       <span class="count">review ${list.hits} </span><div class="Duration hide-on-mobile"></div></div><div class="OfferListCard__Content__Price"><span class="SalePrice">${list.amt} won</span></div><div class="OfferListCard__Content__Wishlist"></div></div></a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span class="count">후기 ${list.hits} 개</span><div class="Duration hide-on-mobile"></div></div><div class="OfferListCard__Content__Price"><span class="SalePrice">${list.amt}원</span></div><div class="OfferListCard__Content__Wishlist"></div></div></a>
+                                    </c:otherwise>
+                             </c:choose>
+    
+    
                                        
                               
                         

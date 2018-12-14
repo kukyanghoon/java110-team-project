@@ -17,7 +17,7 @@
 <link rel="stylesheet" media="all"
     href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application_template-5da62e3a802820a73815ac9769d004d04db514aa47276f57320c206cc043d2ac.css" />
 <link rel="stylesheet" media="all"
-    href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-4b8ab07154cf2c04a97bb950234f455fe5a721876f501316a714f1a8b65b12ae.css" />
+    href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-58626b3385ab2502017698c1681214bc0e110444decd0120edf7b029d4258d62.css" />
 <link rel="stylesheet" media="screen"
     href="/resources/css/application.6823a52822019093f642.css" />
 
