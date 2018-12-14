@@ -314,7 +314,7 @@
 						width='22'>
 					<!--<input class='search__input' data-home-search placeholder='여행 또는 테마를 검색해보세요.' type='text'>-->
 					<input id='searchWord' class='search__input' data-home-search
-						placeholder='궁궐 밤산책. 덕수궁의 밤을 걸어요.' type='text'>
+						placeholder='<spring:message code="main.holder" text="식도락" />' type='text'>
 				</div>
 			</div>
 
