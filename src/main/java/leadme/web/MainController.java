@@ -60,7 +60,7 @@ public class MainController {
         
         model.addAttribute("tourList" , mainService.getListTourBest(sdf));
         model.addAttribute("themeList", mainService.getListThemeBest(sdf, rnk_item));
-        model.addAttribute("localList", mainService.getListLocalBest(sdf, "01"));
+        model.addAttribute("localList", mainService.getListLocalBest(sdf, "15"));
         request.setAttribute("lang", locale.toString());
     }
 

@@ -109,6 +109,16 @@
 									</li>
 								</c:when>
 								<c:otherwise>
+								<c:choose>
+                                <c:when test="${sessionScope.guideInfo eq null}"></c:when>
+                                <c:otherwise>
+                                    <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
+                                        <a href="/app/enroll/page1" class="gnb-common-menu__item__link">
+                                            <span class="gnb-common-menu__item--text transparent">여정 등록하기</span>
+                                        </a>
+                                    </li>
+                                </c:otherwise>
+                            </c:choose>
 									<li
 										class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
 										<a href="#" class="gnb-common-menu__item__link"
@@ -721,7 +731,7 @@
 
 						<div class="OfferList__Cards">
 
-							<c:forEach items="${localList}" var="list">
+							<%-- <c:forEach items="${localList}" var="list">
 								<a class="OfferListCard" href="tour/detail/${list.tno}"
 									itemprop="itemListElement" itemscope=""
 									itemtype="http://schema.org/Product" data-offer-type="HotDeal"
@@ -770,7 +780,7 @@
 									</div>
 								</a>
 								<!-- single Item end -->
-							</c:forEach>
+							</c:forEach> --%>
 
 						</div>
 					</div>

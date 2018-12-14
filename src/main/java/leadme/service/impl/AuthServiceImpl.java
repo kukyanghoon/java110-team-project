@@ -89,7 +89,7 @@ public class AuthServiceImpl implements AuthService {
     param.put("cert_email", member.getCert_email());
     param.put("email", member.getEmail());
     if(member.getPhoto() == null) {
-      param.put("photo", "default.png");
+      param.put("photo", "default.jpeg");
     }
     param.put("photo", member.getPhoto());
     param.put("mtype", member.getMtype());
@@ -138,6 +138,7 @@ public class AuthServiceImpl implements AuthService {
     member.setActive("N");
     member.setPath("leadme");
     member.setLang("ko");
+    member.setPhoto("default.jpeg");
     
     System.out.println(authDao.createUser(member));
     authDao.createTmemb(member);

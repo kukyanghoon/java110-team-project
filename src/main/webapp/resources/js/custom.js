@@ -127,28 +127,51 @@ var locale;
             }
         }
         
-        innerHtml += "</div>"
-                   + "<div class='text'>후기 "+data[i].cmt_cnt+"개</div>"
-                   + "</div>"
-                   + "<div class='price' data-offer-price='53,600원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>"
-                   + "<span>"+numberWithCommas(data[i].amt)+"원</span>"
-                   + "<span class='unit'>/ 1인</span>"
-                   + "</div>"
-                   + "</div>"
-                   + "</div>"
-                   + "</a>"
-                   + "</div>"
-                   + "</li>";
+        if('${lang}' == 'en'){
+            
+            innerHtml += "</div>"
+                + "<div class='text'>review "+data[i].cmt_cnt+"</div>"
+                + "</div>"
+                + "<div class='price' data-offer-price='53,600원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>"
+                + "<span>"+numberWithCommas(data[i].amt)+"won</span>"
+                + "<span class='unit'> per person</span>"
+                + "</div>"
+                + "</div>"
+                + "</div>"
+                + "</a>"
+                + "</div>"
+                + "</li>";
+            
+        }else{
+            
+            innerHtml += "</div>"
+                + "<div class='text'>후기 "+data[i].cmt_cnt+"개</div>"
+                + "</div>"
+                + "<div class='price' data-offer-price='53,600원' itemprop='offers' itemscope='true' itemtype='http://schema.org/Offer'>"
+                + "<span>"+numberWithCommas(data[i].amt)+"원</span>"
+                + "<span class='unit'>/ 1인</span>"
+                + "</div>"
+                + "</div>"
+                + "</div>"
+                + "</a>"
+                + "</div>"
+                + "</li>";
+            
+        }
+        
+        
+        
         
         $('#theme-item-container').append(innerHtml);
         }
 	}
-	
 	$('.map-link').each(function(index, value){
+	    console.log(value);
 	    $(this).on('click',addClickEvent.bind(index));
 	});
 	
 	function addClickEvent(){
+	    console.log("먹혔다!");
 	    var paramStr;
 	    if(this+1<10){
 	        paramStr = "0"+(this+1);
