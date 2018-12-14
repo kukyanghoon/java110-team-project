@@ -193,7 +193,7 @@
 <div class='inner-container'>
 <a class='location-container gtm-offer-city' href='/offers?city=Cairns&amp;country=Australia'>
 <img alt='location' class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/detail/new/ic-spot@2x-aeda6e08b2186d0aa7032e2f97eac95875717975e87e37fdc8ec604fbb0e4f48.png' width='7px'>
-<span class='text-gray'>대한민국, <c:if test="${lang == 'en'}">${tour.locnm_en}</c:if><c:if test="${lang != 'en'}">${tour.locnm_ko}</c:if></span>
+<span class='text-gray'><spring:message code="detail.korea" text="대한민국" />, <c:if test="${lang == 'en'}">${tour.locnm_en}</c:if><c:if test="${lang != 'en'}">${tour.locnm_ko}</c:if></span>
 </a>
 <div class='score-container clearfix' itemprop='aggregateRating' itemscope='true' itemtype='http://schema.org/AggregateRating'>
 
@@ -206,7 +206,7 @@
 </c:forEach>
 </div>
 
-<span class='text-gray gtm-offer-menu-review' data-jump data-target='#review'>후기 ${tour.cmt_cnt }개</span>
+<span class='text-gray gtm-offer-menu-review' data-jump data-target='#review'>&nbsp;<spring:message code="detail.reviews" text="후기" />&nbsp; ${tour.cmt_cnt }<spring:message code="detail.gae" text="개" /></span>
 </div>
 </div>
 
@@ -333,7 +333,7 @@ ${tour.tour_intro}
 <div class='sidebar-inner-box gray-box' data-reservation-box >
 
 
-<button type="button" class="btn btn-info btn-primary btn-lg" style="width: 100%" id="go-payment">구매하기</button>   
+<button type="button" class="btn btn-info btn-primary btn-lg" style="width: 100%" id="go-payment"><spring:message code="detail.pay" text="구매하기" /></button>   
 
 </div>
 </div>

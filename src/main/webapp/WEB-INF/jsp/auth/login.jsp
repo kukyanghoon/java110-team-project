@@ -95,7 +95,7 @@
                            <div class='form-group'>
                               <div class='row row-margin'>
                                  <div class='col-xs-6'>
-                                    <div class='find-password'>
+                                    <div class='find-password' style='width: 328px;'>
                                        <a data-turbolinks='false' href='#' id="findPwBtn"><spring:message code="login.findPassword" text="비밀번호 찾기" /></a>
                                     </div>
                                  </div>

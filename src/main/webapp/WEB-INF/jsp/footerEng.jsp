@@ -5,7 +5,7 @@
 <!-- 푸터 -->
 <div id="Footer-react-component-bca797d3-6da5-468d-9824-0eb3d4467f9c">
      <footer class="mrt-component">
-        <div class="mrt-footer" style="clear: both;">
+        <div class="mrt-footer" style="clear: both; padding-bottom: 60px;">
            
            <p class="footer-copyright">Business name : LEAD ME | Representative : Jinho An | Personal information manager : Yanghoon Kuk<br>
            Corporate registration No : 209-81-55339 | Online marketing business registration No : 2017-서울강남-03960 | Business information confirmed<br>

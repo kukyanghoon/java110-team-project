@@ -5,6 +5,12 @@
    <head>
       <meta charset='UTF-8'>
       <title>LEADME :: 현지 친구와 진짜 여행을</title>
+      
+      <style>
+        .mrt-footer{
+            padding-bottom: 60px;
+        }
+      </style>
    </head>
 <body>
          <footer class="mrt-component">

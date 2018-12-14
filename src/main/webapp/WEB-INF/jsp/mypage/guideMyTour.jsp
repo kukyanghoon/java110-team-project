@@ -209,7 +209,7 @@ img {
                         <span class="offer-category__item__label" value ='2'>취소된 여행</span>
                 </div>
                 <div id="myTourBtn" class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
-                        <span class="offer-category__item__label" value ='2'>등록한 여정</span>
+                        <span class="offer-category__item__label" value ='2'>등록한 여행</span>
                 </div>
                     </div>
                      
@@ -386,8 +386,8 @@ img {
                    $('#OfferList__Items').empty();
                     $(data).each(function(index, item){
                        $('#OfferList__Items').append(
-                               "<div class='traveler-finished-reservation box clearfix'>"+
-                               "<div class='box-header clearfix' style='padding-bottom: 0px;'>"+
+                               "<div class='traveler-finished-reservation box clearfix' style='margin-bottom: 10px;'>"+
+                               "<div class='box-header clearfix' style='padding-bottom: 0px; padding-top: 0px;'>"+
                        "<div class='offer-photo-container'>"+
                            "<div class='offer-photo-wrapper'>"+
                                "<img style='max-height: 12rem;' src=/resources/img/"+
@@ -406,7 +406,7 @@ img {
                            "</div>"+
                        "</div>"+
                    "</div>"+
-                   "<div class='box-btns' style='padding-bottom: 30px; border-top: none; padding-top: 0px;'>"+
+                   "<div class='box-btns' style='padding-bottom: 10px; border-top: none; padding-top: 0px;'>"+
                        "<input type='link' class='form-control' style='float:left;width: 75%; display: inline-block; padding-top: 0px;' id='link"+index+"' >" +
                        "<a id='linkBtn' style='margin-top:10px;' class='btn btn-blue hide-on-mobile' value=" + index + " onclick='aaa(" + item.tour_dt + "," + item.tour.tno + "," + index + ")'>사진첩 링크 올리기</a>"+
                        "<a class='btn btn-blue show-on-mobile' >사진첩 링크</a>"+

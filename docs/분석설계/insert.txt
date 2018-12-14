@@ -193,3 +193,24 @@ INSERT INTO `tour` (`titl`, `loc`, `star`, `cmt_cnt`, `hits`, `amt`, `tour_intro
 
 
 
+INSERT INTO `tour` (`tno`, `titl`, `loc`, `star`, `cmt_cnt`, `hits`, `amt`, `tour_intro`, `req_inf`, `reg_dt`, `mod_dt`, `join_plc`, `lat`, `lon`, `join_tm`, `del_yn`, `pri_phot`, `pri_mv`, `cat_no`, `mno`, `mx_pn`, `join_phot`, `albm_link`) VALUES
+(81, '
+Walking through the night of palace. Deoksugung palace.', '15', 4.5, 2, 7, 10000, '
+Do not forget the end of Joseon, and the empire of Korea. <br>
+With the end of 500 years of the Joseon Dynasty, and the Korean Empire, which dreamed of a new nation, together. <br>
+<br>
+Are you looking for a walk in the middle of a bright day, crowded day, evening rush or a short stop? <br>
+How about a leisurely evening way after a night? <br>', '
+- Comfortable shoes and light clothing are essential. <br> \ r \ n- Because it is a historic site, food is prohibited. <br> \ r \ n- You can bring your own drinks and water. <br> \ r \ n- It takes about an hour and a half to complete the break. <br> \ r \ n- After the tour ends, we will contact you with any questions you may have. <br> \ r \ n- We encourage you to take out travel insurance and take the tour.', '2018-11-16 02:04:34', '1111-01-01 00:00:00', 'Front of the main gate of Deoksugung Palace
+', 37.564988487427, 126.976766154245, 'PM 14:00', 'N', 'image1.jpg', 'https://www.youtube.com/embed/BMTYeHefwOc', 11, 6, 10, 'point.jpg', 'https://jinhoan.smugmug.com');
+
+
+
+
+
+
+
+
+
+
+

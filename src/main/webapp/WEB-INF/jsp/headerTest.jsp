@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
 <html>
    <head>
@@ -81,17 +82,17 @@
                      <c:choose>
                         <c:when test="${sessionScope.memberInfo.email eq null}">
                             <li class="gnb-common-menu__item gtm-gnb-becomeguide-before-login hidden-tablet-down">
-                                <a href="#" class="gnb-common-menu__item__link">
+                                <!-- <a href="#" class="gnb-common-menu__item__link">
                                 <span class="gnb-common-menu__item--text transparent">가이드 등록하기</span>
-                                </a>
+                                </a> -->
                             </li>
                             <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
                                 <a href="#" class="gnb-common-menu__item__link">
-                                    <span class="gnb-common-menu__item--text transparent">로그인</span>
+                                    <span class="gnb-common-menu__item--text transparent"><spring:message code="login.title" text="로그인" /></span>
                                 </a>
                             </li>
                             <li class="gnb-common-menu__item gtm-gnb-signup hidden-tablet-down" style="padding-top:7px; padding-left:12px;">
-                                <div class="ProfileNavItems__item gtm-gnb-signup" ><a class="ProfileNavItems__button ProfileNavItems__button--outline" href="/app/auth/signup" data-turbolinks="false" >회원가입</a>
+                                <div class="ProfileNavItems__item gtm-gnb-signup" ><a class="ProfileNavItems__button ProfileNavItems__button--outline" href="/app/auth/signup" data-turbolinks="false" ><spring:message code="login.signup" text="회원가입" /></a>
                                 </div>
                             </li>
                         </c:when>
@@ -101,19 +102,19 @@
                                 <c:otherwise>
                                     <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
                                         <a href="/app/enroll/page1" class="gnb-common-menu__item__link">
-                                            <span class="gnb-common-menu__item--text transparent">여정 등록하기</span>
+                                            <span class="gnb-common-menu__item--text transparent">여행 등록하기</span>
                                         </a>
                                     </li>
                                 </c:otherwise>
                             </c:choose>
                         <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
                                 <a href="/app/mypage/myInfo" class="gnb-common-menu__item__link">
-                                    <span class="gnb-common-menu__item--text transparent">마이페이지</span>
+                                    <span class="gnb-common-menu__item--text transparent"><spring:message code="header.mypage" text="마이페이지" /></span>
                                 </a>
                             </li> 
                             <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
                                 <a href="/app/auth/logout" class="gnb-common-menu__item__link" onclick="event.preventDefault(); location.href='/app/auth/logout'">
-                                    <span class="gnb-common-menu__item--text transparent">로그아웃</span>
+                                    <span class="gnb-common-menu__item--text transparent"><spring:message code="header.logout" text="로그아웃" /></span>
                                 </a>
                             </li>   
                         </c:otherwise>
@@ -169,14 +170,14 @@
                                  <div class="gnb-menu__button gtm-gnb-signin">
                                     <a data-turbolinks="false">
                                        <button class="mrt-button outline" style="font-size: 16px;">
-                                          <soan class="btn-label">로그인</soan>
+                                          <soan class="btn-label"><spring:message code="login.title" text="로그인" /></soan>
                                        </button>
                                     </a>
                                  </div>
                                  <div class="gnb-menu__button gtm-gnb-signup">
                                     <a data-turbolinks="false">
                                        <button class="mrt-button primary" style="font-size: 16px;">
-                                          <soan class="btn-label">회원가입</soan>
+                                          <soan class="btn-label"><spring:message code="login.signup" text="회원가입" /></soan>
                                        </button>
                                     </a>
                                  </div>
@@ -231,9 +232,9 @@
       
       <c:choose>
                         <c:when test="${sessionScope.memberInfo.email eq null}">
-                            <li class="DrawerItem  DrawerItem--bottom-spacing-8 gtm-gnb-signin"><a class="DrawerItem__button DrawerItem__button--normal" href="/users/sign_in" data-turbolinks="false">로그인</a></li>
+                            <li class="DrawerItem  DrawerItem--bottom-spacing-8 gtm-gnb-signin"><a class="DrawerItem__button DrawerItem__button--normal" href="/users/sign_in" data-turbolinks="false"><spring:message code="login.title" text="로그인" /></a></li>
       <li class="DrawerItem  gtm-gnb-signup">
-      <a class="DrawerItem__button DrawerItem__button--outline" href="/users/sign_up" data-turbolinks="false">회원가입</a>
+      <a class="DrawerItem__button DrawerItem__button--outline" href="/users/sign_up" data-turbolinks="false"><spring:message code="login.signup" text="회원가입" /></a>
       </li>
       </ul>
       <div class="Drawer__section Drawer__section--no-border">
@@ -242,7 +243,7 @@
       </li>
                         </c:when>
                         <c:otherwise>
-                            <li class="DrawerItem  DrawerItem--bottom-spacing-8 gtm-gnb-signin"><a class="DrawerItem__button DrawerItem__button--normal" href="/users/sign_in" data-turbolinks="false">로그아웃</a></li>
+                            <li class="DrawerItem  DrawerItem--bottom-spacing-8 gtm-gnb-signin"><a class="DrawerItem__button DrawerItem__button--normal" href="/users/sign_in" data-turbolinks="false"><spring:message code="header.logout" text="로그아웃" /></a></li>
                             <div class="Drawer__section Drawer__section--no-border">
                         </c:otherwise>
                     </c:choose>
@@ -278,10 +279,10 @@
                   <nav class="mrt-container">
                      <ul class="lnb-menu">
                         <li class="lnb-menu__item gtm-lnb-home">
-                           <a href="/app/tour/list" class="lnb-menu__item--link transparent" id="home-link1" data-turbolinks="false">전체</a>
+                           <a href="/app/tour/list" class="lnb-menu__item--link transparent" id="home-link1" data-turbolinks="false"><spring:message code="site.cate0" text="전체" /></a>
                         </li>
                         <li class="lnb-menu__item gtm-lnb-home">
-                           <a href="/app/tour/list/10" class="lnb-menu__item--link transparent" id="home-link2" data-turbolinks="false">식도락</a>
+                           <a href="/app/tour/list/10" class="lnb-menu__item--link transparent" id="home-link2" data-turbolinks="false"><spring:message code="site.cate1" text="식도락" /></a>
                            <!-- <ul class="sub-menu__item-contain">
                               <li><a href="#">전통음식</a></li>
                               <li><a href="#">고급식당</a></li>
@@ -290,7 +291,7 @@
                            </ul> -->
                         </li>
                         <li class="lnb-menu__item gtm-lnb-home">
-                           <a href="/app/tour/list/20" class="lnb-menu__item--link transparent" id="home-link3" data-turbolinks="false">역사/문화</a>
+                           <a href="/app/tour/list/20" class="lnb-menu__item--link transparent" id="home-link3" data-turbolinks="false"><spring:message code="site.cate2" text="역사/문화" /></a>
                            <!-- <ul class="sub-menu__item-contain">
                               <li><a href="#">고궁</a></li>
                               <li><a href="#">박물관</a></li>
@@ -299,7 +300,7 @@
                            </ul> -->
                         </li>
                         <li class="lnb-menu__item gtm-lnb-home">
-                           <a href="/app/tour/list/30" class="lnb-menu__item--link transparent" id="home-link4" data-turbolinks="false">명소</a>
+                           <a href="/app/tour/list/30" class="lnb-menu__item--link transparent" id="home-link4" data-turbolinks="false"><spring:message code="site.cate3" text="명소" /></a>
                            <!-- <ul class="sub-menu__item-contain">
                               <li><a href="#">랜드마크</a></li>
                               <li><a href="#">자연</a></li>
@@ -307,7 +308,7 @@
                            </ul> -->
                         </li>
                         <li class="lnb-menu__item gtm-lnb-home">
-                           <a href="/app/tour/list/40" class="lnb-menu__item--link transparent" id="home-link5" data-turbolinks="false">액티비티</a>
+                           <a href="/app/tour/list/40" class="lnb-menu__item--link transparent" id="home-link5" data-turbolinks="false"><spring:message code="site.cate4" text="액티비티" /></a>
                            <!-- <ul class="sub-menu__item-contain">
                               <li><a href="#">문화체험</a></li>
                               <li><a href="#">스포츠</a></li>
@@ -317,7 +318,7 @@
                            </ul> -->
                         </li>
                         <li class="lnb-menu__item gtm-lnb-home">
-                           <a href="/app/tour/list/50" class="lnb-menu__item--link transparent" id="home-link6" data-turbolinks="false">쇼핑</a>
+                           <a href="/app/tour/list/50" class="lnb-menu__item--link transparent" id="home-link6" data-turbolinks="false"><spring:message code="site.cate5" text="쇼핑" /></a>
                         </li>
                      </ul>
                   </nav>

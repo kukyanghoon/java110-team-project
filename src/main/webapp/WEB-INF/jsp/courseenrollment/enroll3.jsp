@@ -218,7 +218,9 @@
                             contentType: "application/json",
                             success: function(data) {
                                 console.log($(data));
-                                swal("등록 완료", "", "success");
+                                swal("등록 완료", "", "success").then((value) => {
+                                    location.href="/app/tour/list"
+                                });
                             },
                             error: function() {
                                 console.log("실패");

@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>LEADME :: <spring:message code="changePw.title" text="비밀번호 변경" /></title>
 <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon-precomposed">
     <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon">
     <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon" sizes="76x76">
@@ -181,7 +181,7 @@ input:checked + .slider:before {
       
       
       .form-group{
-      	padding:30px;
+      	padding:10px 30px;
           margin-left:-162px;
       }      
       .dateSeletor{
@@ -189,6 +189,14 @@ input:checked + .slider:before {
       }
       .emailAuthUse{
           display: inline-block;
+      }
+      .form-control{
+          margin-left: 30px;
+      }
+      
+      button{
+          margin-top: 20px;
+          margin-left: 30px;
       }
   </style>
 
@@ -216,9 +224,9 @@ input:checked + .slider:before {
  }
  
 </style>
-    
+
   <style>
-     #pwTitl{color: #495056; font-size: 24px; font-weight: 600; margin-bottom: 17px;}
+     #pwTitl{color: #495056; font-size: 24px; font-weight: 600; margin-bottom: 30px;}
     .errorBox{color: #ff0000; display: none;}
     .errorBox_green{color: #0000ff;}
   </style>
@@ -234,7 +242,7 @@ input:checked + .slider:before {
     
     
   <div id="OfferList-react-component-e75ec749-a9a2-4944-a6a5-ae8c2ab32e92">
-  <div class="OfferList" data-sticky-container="true">
+  <div class="OfferList" data-sticky-container="true" style="padding-bottom: 0px;">
   <div class="resp-container" style="top: 0px; bottom: 0px;">
   <div class="resp-container--row "><div class="OfferList__Header">
   <div class="breadcrumbs-container">
@@ -266,11 +274,11 @@ input:checked + .slider:before {
                 
                     </div>
                      
-                </div></div></div><div class="OfferList__Items" style="height: 1000px;">
+                </div></div></div><div class="OfferList__Items" style="height: 800px;">
                     
-                <div class="OfferList__Items__Body " style="border: 1px solid silver; height: 1000px;">
+                <div class="OfferList__Items__Body " style="height: 1000px; width: 600px;">
                 
-  <div class="row content" style="height: 1000px;">
+  <div class="row content" style="height: 1000px; border: none;">
 
     <div class="col-sm-12" id="changePw"> 
       
@@ -319,7 +327,7 @@ input:checked + .slider:before {
         
     </div>
       <form:hidden path="recaptchaResponse"/>
-                                                                    <script type="application/json" class="js-react-on-rails-component" data-component-name="OfferList" style="height: 1000px;" data-dom-id="OfferList-react-component-e75ec749-a9a2-4944-a6a5-ae8c2ab32e92"></script>
+                                                                    <script type="application/json" class="js-react-on-rails-component" data-component-name="OfferList" style="height: 800px;" data-dom-id="OfferList-react-component-e75ec749-a9a2-4944-a6a5-ae8c2ab32e92"></script>
 
 
                                                                    <!-- 푸터 -->
@@ -413,9 +421,9 @@ $(document).ready(function(){
        var nowPwErrorMsg = $('#nowPwErrorMsg');
        
        if(nowPw.val() == ""){
-           nowPwErrorMsg.attr('class','errorBox').css('display','block').text("입력해 주세용...ㅠㅠ");
+           nowPwErrorMsg.attr('class','errorBox').css('display','block').text("정확한 비밀번호를 입력해 주세요.");
        }else if(!validCheck(pwdValid, nowPw)){
-           nowPwErrorMsg.attr('class','errorBox').css('display','block').text("비밀번호는 6~20자 입니다!!");
+           nowPwErrorMsg.attr('class','errorBox').css('display','block').text("비밀번호는 6~20자 입니다.");
        }else {
            nowPwErrorMsg.css('display','none');
        }
@@ -426,9 +434,9 @@ $(document).ready(function(){
        var nowPwErrorMsg = $('#newPwErrorMsg');
        
        if(newPw.val() == ""){
-           nowPwErrorMsg.attr('class','errorBox').css('display','block').text("입력해 주세용...ㅠㅠ");
+           nowPwErrorMsg.attr('class','errorBox').css('display','block').text("정확한 비밀번호를 입력해 주세요.");
        }else if(!validCheck(pwdValid, nowPw)){
-           nowPwErrorMsg.attr('class','errorBox').css('display','block').text("비밀번호는 6~20자 입니다!!");
+           nowPwErrorMsg.attr('class','errorBox').css('display','block').text("비밀번호는 6~20자 입니다.");
        }else {
            nowPwErrorMsg.css('display','none');
        }
@@ -440,7 +448,7 @@ $(document).ready(function(){
        var nowPwErrorMsg = $('#newPwAgainErrorMsg');
        
        if(newPwAgain.val() != newPw.val()){
-           nowPwErrorMsg.attr('class','errorBox').css('display','block').text("다른걸 입력하시면 어쩝니까?!");
+           nowPwErrorMsg.attr('class','errorBox').css('display','block').text("정확한 비밀번호를 입력해 주세요.");
        }else if(newPwAgain.val() == newPw.val()){
            nowPwErrorMsg.css('display','none');
        }

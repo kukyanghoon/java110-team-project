@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>LEADME :: 프로필 관리</title>
+<title>LEADME :: <spring:message code="myInfo.title" text="프로필 관리" /></title>
 <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon-precomposed">
     <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon">
     <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon" sizes="76x76">
@@ -275,7 +275,7 @@ input:checked + .slider:before {
     
     
   <div id="OfferList-react-component-e75ec749-a9a2-4944-a6a5-ae8c2ab32e92">
-  <div class="OfferList" data-sticky-container="true">
+  <div class="OfferList" data-sticky-container="true" style="padding-bottom: 0px;">
   <div class="resp-container" style="top: 0px; bottom: 0px;">
   <div class="resp-container--row "><div class="OfferList__Header">
   <div class="breadcrumbs-container">
@@ -549,7 +549,7 @@ input:checked + .slider:before {
             </div>
  
             <div class="form-group" style="font-size: 10px;">
-                <a href="#" class="openMask" data-toggle="modal" data-target="#gmyModal">회원 탈퇴</a>
+                <a href="#" class="openMask" data-toggle="modal" data-target="#gmyModal" style="font-size: 12px;">회원 탈퇴</a>
             </div>
  
  
@@ -574,29 +574,29 @@ input:checked + .slider:before {
     <div class="modal-dialog">
     
       <!-- Modal content-->
-      <div class="modal-content">
+      <div class="modal-content" style="height: 430px;">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title"> 계정 탈퇴 </h4>
         </div>
         <div class="modal-body center-block" style="width: 70%">
-          <p style="font-style: italic; text-indent: -2em">
+          <p style="font-style: italic; text-indent: -2em; font-size: 20px;">
               주의!!<br/>
           </p>
-          <p>
-              LEADME 계정을 삭제하시면 프로필 및 소중한 한국 여행의 기록들이 모두 사라지게 됩니다.<br/>
+          <p style="font-size: 12px;">
+              LEADME 계정을 삭제하시면 프로필 및 소중한 여행의 기록들이 모두 사라지게 됩니다.<br/>
               판매자의 경우, 정산이 완료되기 전에 탈퇴를 하시면 금전상의 불이익이
               발생할 수 있습니다.<br/>
           </p>
           
-          <div class="form-group">
-            <label class="control-label col-sm-5" for="email" style="padding-top: 8px;">비밀번호 확인:</label>
-            <div class="col-sm-6">
-              <input type="password" class="form-control" id="lastPassword" placeholder="마지막 비밀번호예요...ㅠㅠ">
+          <div class="form-group" style="padding: 0px;">
+            <label class="control-label col-sm-5" for="email" style="padding-top: 8px;">비밀번호 확인</label>
+            <div class="col-sm-6" style="margin-bottom: 20px; width: 160px;">
+              <input type="password" class="form-control" id="lastPassword" placeholder="">
             </div>
           </div> 
    
-        <div class="form-group">
+        <div class="form-group" style="padding: 0px;">
 
             <div id="g-recaptcha"></div>
 
@@ -605,8 +605,8 @@ input:checked + .slider:before {
            
             
         </div>
-        <div class="modal-footer">
-         <button type="button" class="btn btn-default" data-dismiss="modal" style="width: 47%; float: left;">다시 생각해 볼께요!</button>
+        <div class="modal-footer" style="margin-top: 60px;">
+         <button type="button" class="btn btn-default" data-dismiss="modal" style="width: 47%; float: left;">다시 생각 해보기</button>
           <button type="button" id="goodbyeBtn" class="btn btn-default" style="width: 47%">계정 탈퇴하기</button>
         </div>
       </div>

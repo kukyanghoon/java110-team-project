@@ -114,7 +114,7 @@
                                 <c:otherwise>
                                     <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
                                         <a href="/app/enroll/page1" class="gnb-common-menu__item__link">
-                                            <span class="gnb-common-menu__item--text transparent">여정 등록하기</span>
+                                            <span class="gnb-common-menu__item--text transparent">여행 등록하기</span>
                                         </a>
                                     </li>
                                 </c:otherwise>

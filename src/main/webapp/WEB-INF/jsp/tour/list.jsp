@@ -326,10 +326,10 @@ span.local{
     </div>
     <c:choose>
                                     <c:when test="${lang == 'en'}">
-                                        <span class="count">review ${list.hits} </span><div class="Duration hide-on-mobile"></div></div><div class="OfferListCard__Content__Price"><span class="SalePrice">${list.amt} won</span></div><div class="OfferListCard__Content__Wishlist"></div></div></a>
+                                        <span class="count">reviews ${list.cmt_cnt} </span><div class="Duration hide-on-mobile"></div></div><div class="OfferListCard__Content__Price"><span class="SalePrice">￦${list.amt}</span></div><div class="OfferListCard__Content__Wishlist"></div></div></a>
                                     </c:when>
                                     <c:otherwise>
-                                       <span class="count">후기 ${list.hits} 개</span><div class="Duration hide-on-mobile"></div></div><div class="OfferListCard__Content__Price"><span class="SalePrice">${list.amt}원</span></div><div class="OfferListCard__Content__Wishlist"></div></div></a>
+                                       <span class="count">후기 ${list.cmt_cnt} 개</span><div class="Duration hide-on-mobile"></div></div><div class="OfferListCard__Content__Price"><span class="SalePrice">${list.amt}원</span></div><div class="OfferListCard__Content__Wishlist"></div></div></a>
                                     </c:otherwise>
                              </c:choose>
     
@@ -368,10 +368,10 @@ span.local{
     
     <c:choose>
                                     <c:when test="${lang == 'en'}">
-                                       <span class="count">review ${list.hits} </span><div class="Duration hide-on-mobile"></div></div><div class="OfferListCard__Content__Price"><span class="SalePrice">${list.amt} won</span></div><div class="OfferListCard__Content__Wishlist"></div></div></a>
+                                       <span class="count">reviews ${list.cmt_cnt} </span><div class="Duration hide-on-mobile"></div></div><div class="OfferListCard__Content__Price"><span class="SalePrice">￦${list.amt}</span></div><div class="OfferListCard__Content__Wishlist"></div></div></a>
                                     </c:when>
                                     <c:otherwise>
-                                        <span class="count">후기 ${list.hits} 개</span><div class="Duration hide-on-mobile"></div></div><div class="OfferListCard__Content__Price"><span class="SalePrice">${list.amt}원</span></div><div class="OfferListCard__Content__Wishlist"></div></div></a>
+                                        <span class="count">후기 ${list.cmt_cnt} 개</span><div class="Duration hide-on-mobile"></div></div><div class="OfferListCard__Content__Price"><span class="SalePrice">${list.amt}원</span></div><div class="OfferListCard__Content__Wishlist"></div></div></a>
                                     </c:otherwise>
                              </c:choose>
     
@@ -655,7 +655,7 @@ span.local{
                    + "<div class='starRating starRating--m starRating--blue'>"
                    + star
                    + "</div>"
-                   + "<span class='count'>후기 " + item.hits + " 개</span>"
+                   + "<span class='count'>후기 " + item.cmt_cnt + " 개</span>"
                    + "<div class='Duration hide-on-mobile'>"
                    + "</div>"
                    + "</div>"
@@ -696,12 +696,12 @@ span.local{
                    + "<div class='starRating starRating--m starRating--blue'>"
                    + star
                    + "</div>"
-                   + "<span class='count'>review " + item.hits + " </span>"
+                   + "<span class='count'>reviews " + item.cmt_cnt + " </span>"
                    + "<div class='Duration hide-on-mobile'>"
                    + "</div>"
                    + "</div>"
                    + "<div class='OfferListCard__Content__Price'>"
-                   + "<span class='SalePrice'>" + item.amt + " won</span>"
+                   + "<span class='SalePrice'>￦" + item.amt + "</span>"
                    + "</div>"
                    + "<div class='OfferListCard__Content__Wishlist'>"
                    + "</div>"
