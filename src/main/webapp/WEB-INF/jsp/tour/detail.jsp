@@ -230,7 +230,7 @@ ${guide.intro}
 </div>
 <a class='btn-guide-message btn-gray-lg gtm-offer-guide-message' href='mailto:${guide.email}?subject=[리드미] ${tour.titl} - 문의 드립니다'>
 <img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/detail/ic-messagetoguide@2x-b43b95e397a37d9272ebccf7d6df740b0957f5cb22ef9f4dedd5d3289dfce7fc.png' width='23px'>
-<span class='text'>문의하기</span>
+<span class='text'><spring:message code="detail.email" text="문의하기" /></span>
 </a>
 </div>
 
@@ -302,12 +302,12 @@ ${tour.tour_intro}
     <select class="form-control" id="person-picker" onchange="priceUpdate();" form="detailForm" name="person_num">
       <option value="" selected disabled><spring:message code="detail.select" text="인원 선택" /></option>
       <c:forEach begin="1" end="${tour.mx_pn}" var="i">
-        <option value="${i}">${i}<spring:message code="detail.myung" text="명" /></option>
+        <option value="${i}">${i} <spring:message code="detail.myung" text="명" /></option>
       </c:forEach>
     </select>
 
 <div class="price-info">
-    <div class="price-text">총 여행금액</div><br>
+    <div class="price-text"><spring:message code="detail.total" text="총 여행금액" /></div><br>
     <div class="price-text" style="color: #51abf3;"><span>₩</span> <span id="total-price"> <fmt:formatNumber value='${tour.amt }' groupingUsed='true'/></span></div>
     <input id="tot-amt" type="hidden" value=${tour.amt}/>
 </div>
@@ -340,13 +340,13 @@ ${tour.tour_intro}
 <div class='course-container' id='course'>
 <div class='offer-inner-container'>
 <div class='content-wrapper'>
-<div class='title'>코스 소개</div>
+<div class='title'><spring:message code="detail.course" text="코스 소개" /></div>
 <div class='course-list'>
 <div class='box box-map'>
 <img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/detail/new/course-type-place@2x-495761b7c0fcfc70bbc31f41eba69c90573e5058f37d7e3c7616e1f344009781.png' width='13px'>
 <div class='box-wrapper clearfix'>
 <div class='description-container'>
-<div class='info-title'>만나는 장소</div>
+<div class='info-title'><spring:message code="detail.meet" text="만나는 장소" /></div>
 <div class='info-description'>${tour.join_plc }</div>
 <div class='map-container'>
 <a href='https://www.google.com/maps/search/?api=1&amp;query=${tour.lat},${tour.lon}' onclick='window.open(this.href); return false'>
@@ -357,7 +357,7 @@ ${tour.tour_intro}
 <div class='description-container meeting-time-container'>
 <img class='icon icon-time' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/detail/new/course-type-time@2x-2ee164e66b789b678453658445da2a24f4bbc99b359e4a7ddf02d2779aecba4a.png' width='15px'>
 <div class='info-container'>
-<div class='info-title'>만나는 시간</div>
+<div class='info-title'><spring:message code="detail.meetTime" text="만나는 시간" /></div>
 <div class='info-description'>${tour.join_tm }</div>
 </div>
 <div class='info-photo-container map-container'>
@@ -410,7 +410,7 @@ ${tour.tour_intro}
 <c:if test="${fn:length(courseList) gt 3 }">
 <div class='btn-white btn-more'>
 <img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/button/ic_arrow_more@2x-58031ef3a523ee43aa15c91fcb46284b98ab157a159dfcdf810264fc3f71ac99.png' width='12px'>
-<span>코스 더 보기</span>
+<span><spring:message code="detail.moreCourse" text="코스 더 보기" /></span>
 </div>
 </c:if>
 
@@ -444,7 +444,7 @@ ${tour.tour_intro}
 </div>
 
 <div class='info-box'>
-<div class='title'>[필수안내]</div>
+<div class='title'><spring:message code="detail.recommend" text="필수 안내" /></div>
 <p class='more'>
 ${tour.req_inf}
 </p>
@@ -457,7 +457,7 @@ ${tour.req_inf}
 <div class='review-list' data-review-count='2'>
 <div class='content-center-narrow'>
 <div class='title'>
-후기
+<spring:message code="detail.review" text="후기" />
 <div class='count'>${tour.cmt_cnt }</div>
 </div>
 <div class='review-wrapper'>
