@@ -83,7 +83,7 @@
 								<c:when test="${sessionScope.memberInfo.email eq null}">
 									<li
 										class="gnb-common-menu__item gtm-gnb-becomeguide-before-login hidden-tablet-down">
-										<a href="#" class="gnb-common-menu__item__link"> <span
+										<a href="/app/auth/guideSignup" onclick="event.preventDefault(); location.href='/app/auth/guideSignup'" class="gnb-common-menu__item__link"> <span
 											class="gnb-common-menu__item--text transparent"><spring:message
 													code="site.reg.guide" text="가이드 등록하기" /></span>
 									</a>
@@ -172,7 +172,7 @@
 										</li>
 										<li
 											class="gnb-menu__list__item gtm-gnb-becomeguide-before-login undefined">
-											<a id class="gnb-menu__list__item__link" href="#"
+											<a id class="gnb-menu__list__item__link"  onclick="event.preventDefault(); location.href='/app/auth/guideSignup'" href="/app/auth/guideSignup"
 											data-turbolinks="false">가이드 등록하기</a>
 										</li>
 									</ul>
@@ -253,7 +253,7 @@
 			<div class="Drawer__section Drawer__section--no-border">
 				<li
 					class="DrawerItem  DrawerItem--bottom-spacing-20 gtm-gnb-becomeguide-before-login">
-					<a class="DrawerItem__link" href="/about/becomeguide"
+					<a class="DrawerItem__link" href="/app/auth/guideSignup"  onclick="event.preventDefault(); location.href='/app/auth/guideSignup'"
 					data-turbolinks="false">가이드 등록하기</a>
 				</li>
 

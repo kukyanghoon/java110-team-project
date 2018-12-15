@@ -381,7 +381,7 @@ a.my_button {
 										</div>
 									</div>
 									<div>
-										<div onclick='ajaxTest();'>Ajax배열데이터전송_테스트</div>
+										<div onclick='ajaxTest();'></div>
 									</div>
 								</form>
 							</li>
