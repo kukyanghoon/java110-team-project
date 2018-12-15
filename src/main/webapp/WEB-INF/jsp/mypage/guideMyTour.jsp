@@ -216,8 +216,6 @@ img {
                 </div></div></div><div id="OfferList__Items" class="OfferList__Items" style="height: 1000px;">
                     
                 
-                <img alt="guide" style="object-fit: cover" src="/resources/img/logo.png">
-                
                 
                 
                                                                     </div>
@@ -596,7 +594,7 @@ img {
             
         });
         
-        
+        $('#goneBtn').trigger('click');
         
     });
     

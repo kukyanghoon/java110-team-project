@@ -534,7 +534,7 @@ span.local{
         });
         
         
-        
+        $('#goneBtn').trigger('click');
         
         
         
