@@ -248,7 +248,7 @@ public class AuthServiceImpl implements AuthService {
     member.setEmail((String)data.get("email"));
     member.setPassword((String)data.get("password"));
     member.setCert_email("N");
-    member.setPhoto("default.jpg");
+    member.setPhoto("default.jpeg");
     member.setMtype("G");
     member.setActive("N");
     member.setPath("leadme");

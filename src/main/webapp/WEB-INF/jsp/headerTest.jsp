@@ -82,9 +82,9 @@
                      <c:choose>
                         <c:when test="${sessionScope.memberInfo.email eq null}">
                             <li class="gnb-common-menu__item gtm-gnb-becomeguide-before-login hidden-tablet-down">
-                                <!-- <a href="#" class="gnb-common-menu__item__link">
+                                <a href="/app/auth/guideSignup" onclick="event.preventDefault(); location.href='/app/auth/guideSignup'" class="gnb-common-menu__item__link">
                                 <span class="gnb-common-menu__item--text transparent">가이드 등록하기</span>
-                                </a> -->
+                                </a>
                             </li>
                             <li class="gnb-common-menu__item gtm-gnb-signin hidden-tablet-down">
                                 <a href="#" class="gnb-common-menu__item__link">
@@ -162,7 +162,7 @@
                                  <a id class="gnb-menu__list__item__link" href="#" data-turbolinks="false">이용방법</a>
                               </li>
                               <li class="gnb-menu__list__item gtm-gnb-becomeguide-before-login undefined">
-                                 <a id class="gnb-menu__list__item__link" href="#" data-turbolinks="false">가이드 등록하기</a>
+                                 <a id class="gnb-menu__list__item__link" href="/app/auth/guideSignup" onclick="event.preventDefault(); location.href='/app/auth/guideSignup'" data-turbolinks="false">가이드 등록하기</a>
                               </li>
                            </ul>
                            <ul class="gnb-menu__list gnb-menu__bottom">
@@ -239,7 +239,7 @@
       </ul>
       <div class="Drawer__section Drawer__section--no-border">
       <li class="DrawerItem  DrawerItem--bottom-spacing-20 gtm-gnb-becomeguide-before-login">
-      <a class="DrawerItem__link" href="/about/becomeguide" data-turbolinks="false">가이드 등록하기</a>
+      <a class="DrawerItem__link" href="/app/auth/guideSignup"  onclick="event.preventDefault(); location.href='/app/auth/guideSignup'" data-turbolinks="false">가이드 등록하기</a>
       </li>
                         </c:when>
                         <c:otherwise>
