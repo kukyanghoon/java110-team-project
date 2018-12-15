@@ -109,6 +109,11 @@
 /* #header-container{
 	padding-top:51px;
 } */
+
+
+
+
+
 </style>
 </head>
 <body class='body' data-action='show' data-controller-path='kitty/offers' data-controller='offers'>
@@ -150,6 +155,9 @@
 </li>
 <li class='bar-nav-item item-inline gtm-offer-menu-review' data-target='#review'>
 <div class='text'><spring:message code="detail.review" text="후기" /></div>
+</li>
+<li>
+
 </li>
 </ul>
 </div>
@@ -336,6 +344,15 @@ ${tour.tour_intro}
 <button type="button" class="btn btn-info btn-primary btn-lg" style="width: 100%" id="go-payment"><spring:message code="detail.pay" text="구매하기" /></button>   
 
 </div>
+
+<div id='transSide' class="float_sidebar">
+
+<label onclick="translate()">번역</label>
+<input id="forTransWord" class="input" type="text" />
+<button id="aaa" class="btn btn-info" type="button" >번역</button>
+<div style="font-size: 15px;line-height: 28px;word-break: break-all;" id="translateArea">번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분</div>
+</div>
+
 </div>
 <div class='course-container' id='course'>
 <div class='offer-inner-container'>
@@ -957,6 +974,37 @@ var disabledDays = [0, 6];
     	document.detailForm.submit();
     }
     
+    $('#aaa').on('click', function(){
+        console.log($('#forTransWord').val());
+        var obj = {
+                'word' : $('#forTransWord').val()
+        }
+        
+        $.ajax({
+            url:'/app/translate/translate.do',
+            type:'POST',
+            dataType:'JSON',
+            data:JSON.stringify(obj),
+            contentType:"application/json",
+            success:function(data){
+                console.log(data);
+                $('#translateArea').text(data.message);
+            },
+            error:function(){
+                console.log("실패");
+            }
+        });
+        
+        
+        
+        
+        
+    });
+        
+    
+    
+    
+    
     
 </script>
 <script>
@@ -997,8 +1045,53 @@ function showDefaultImg(){
 
   <!--  상품 페이지 -->
   <script type="text/javascript" src="//static.criteo.net/js/ld/ld.js" async="true"></script>
+  
+  
+  
+  
+  <!-- 스크롤 -->
+<script>
+$(function(){
+    var $win = $(window);
+    var top = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다.
+     /*사용자 설정 값 시작*/
+    var speed          = 500;     // 따라다닐 속도 : "slow", "normal", or "fast" or numeric(단위:msec)
+    var easing         = 'swing'; // 따라다니는 방법 기본 두가지 linear, swing
+    var $layer         = $('.float_sidebar'); // 레이어 셀렉팅
+    var layerTopOffset = 0;   // 레이어 높이 상한선, 단위:px
+    $layer.css('position', 'relative').css('z-index', '1');
+    /*사용자 설정 값 끝*/
+     // 스크롤 바를 내린 상태에서 리프레시 했을 경우를 위해
+    if (top > 0 )
+        $win.scrollTop(layerTopOffset+top);
+    else
+        $win.scrollTop(0);
+     //스크롤이벤트가 발생하면
+    $(window).scroll(function(){
+        yPosition = $win.scrollTop() - 1400; //이부분을 조정해서 화면에 보이도록 맞추세요
+        if (yPosition < 0)
+    {
+            yPosition = 0;
+    }
+        $layer.animate({"top":yPosition }, {duration:speed, easing:easing, queue:false});
+    });
+});
+</script>
+<script>
+$(document).ready(function() {
+    $(window).scroll(function() {
+        $(this).scrollTop() > 1000 ? $(".float_sidebar").fadeIn() : $(".float_sidebar").fadeOut();
 
-
+        if($(this).scrollTop() > 3350){
+            console.log("scrollTop() > 3000");
+            $('#transSide').css('margin-left','130px').css('width','280px');
+        }else{
+            $('#transSide').css('margin-left','0px')
+        }
+                
+    })
+});
+</script>
 
 
 
