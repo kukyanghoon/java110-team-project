@@ -388,14 +388,14 @@ img {
                                "<div class='box-header clearfix' style='padding-bottom: 0px; padding-top: 0px;'>"+
                        "<div class='offer-photo-container'>"+
                            "<div class='offer-photo-wrapper'>"+
-                               "<img style='max-height: 12rem;' src=/resources/img/"+
+                               "<img style='max-height: 20rem;' src=/resources/img/"+
                                item.tour.pri_phot + 
                                        ">"+
                            "</div>"+
                        "</div>"+
                        "<div class='info'><br>"+
-                          "<a class='text-lg title' href=/resources/img/"+
-                          item.tour.pri_phot+
+                          "<a class='text-lg title' href=/app/tour/detail/"+
+                          item.tno +
                            " style='font-size: 200%'>"+
                            item.tour.titl +
                            "</a>"+//test

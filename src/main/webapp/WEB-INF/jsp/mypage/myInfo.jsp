@@ -282,7 +282,7 @@ input:checked + .slider:before {
    <c:choose>
         <c:when test="${catNo eq 1}">
             <div class="breadcrumbs-item">
-              <div class="OfferHeader OfferHeader__City">전체</div>
+              <div class="OfferHeader OfferHeader__City"><spring:message code="site.cate0" text="전체" /></div>
             </div>
             
         </c:when>
@@ -294,7 +294,7 @@ input:checked + .slider:before {
             <div class="breadcrumbs-item">
               <div class="VerticalList">
                 <div id="midCategoryTitleBox" class="VerticalList__Header" role="button" tabindex="-1">
-                  <span class="VerticalList__Header__Title">전체</span>
+                  <span class="VerticalList__Header__Title"><spring:message code="site.cate0" text="전체" /></span>
                 </div>
               </div>
             </div>
@@ -307,7 +307,7 @@ input:checked + .slider:before {
               <div class="breadcrumbs-item">
               <div class="VerticalList">
               <div id="midCategoryTitleBox" class="VerticalList__Header" role="button" tabindex="-1">
-              <span class="VerticalList__Header__Title">전체</span>
+              <span class="VerticalList__Header__Title"><spring:message code="site.cate0" text="전체" /></span>
                 </div>
   </div>
   </div>
@@ -320,7 +320,7 @@ input:checked + .slider:before {
               <div class="breadcrumbs-item">
               <div class="VerticalList">
               <div id="midCategoryTitleBox" class="VerticalList__Header" role="button" tabindex="-1">
-              <span class="VerticalList__Header__Title">전체</span>
+              <span class="VerticalList__Header__Title"><spring:message code="site.cate0" text="전체" /></span>
                 </div>
                 </div>
                 </div>
@@ -333,7 +333,7 @@ input:checked + .slider:before {
               <div class="breadcrumbs-item">
               <div class="VerticalList">
               <div id="midCategoryTitleBox" class="VerticalList__Header" role="button" tabindex="-1">
-              <span class="VerticalList__Header__Title">전체</span>
+              <span class="VerticalList__Header__Title"><spring:message code="site.cate0" text="전체" /></span>
                 </div>
   </div>
   </div>
@@ -346,7 +346,7 @@ input:checked + .slider:before {
               <div class="breadcrumbs-item">
               <div class="VerticalList">
               <div id="midCategoryTitleBox" class="VerticalList__Header" role="button" tabindex="-1">
-              <span class="VerticalList__Header__Title">전체</span>
+              <span class="VerticalList__Header__Title"><spring:message code="site.cate0" text="전체" /></span>
                 </div>
   </div>
   </div>
@@ -368,13 +368,13 @@ input:checked + .slider:before {
                 <div class="offer-category__container border-shadow">
                 
                 <div class="catMid leademecate offer-category__item active" role="button" tabindex="-1" value="2">
-                        <span class="offer-category__item__label" value ='2'>프로필 관리</span>
+                        <span class="offer-category__item__label" value ='2'><spring:message code="myInfo.title" text="프로필 관리" /></span>
                 </div>
                 <div id='changePwBtn' class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
-                        <span class="offer-category__item__label" value ='2'>비밀번호 변경</span>
+                        <span class="offer-category__item__label" value ='2'><spring:message code="myInfo.changePw" text="비밀번호 변경" /></span>
                 </div>
                 <div id="myTourBtn" class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
-                        <span class="offer-category__item__label" value ='2'>내 활동</span>
+                        <span class="offer-category__item__label" value ='2'><spring:message code="myInfo.myTour" text="내 활동" /></span>
                 </div>
                 
                 
@@ -404,14 +404,14 @@ input:checked + .slider:before {
             <c:when test="${sessionScope.memberInfo.path eq 'google'}">
             
             <div class="form-group">
-            <label class="control-label col-sm-3" for="name">이름</label>
+            <label class="control-label col-sm-3" for="name"><spring:message code="guideSignup.name" text="이름" /></label>
             <div class="col-sm-8">
               <input type="name" class="form-control" id="name" value='${sessionScope.memberInfo.name }' readonly="readonly">
             </div>
           </div> 
             
             <div class="form-group" style="margin-bottom:20px;">
-                    <label class="control-label col-sm-3" for="email">이메일</label>
+                    <label class="control-label col-sm-3" for="email"><spring:message code="guideSignup.email" text="이메일" /></label>
                         <div class="col-sm-8">
                             <input type="email" class="form-control" id="email" value='${sessionScope.memberInfo.email}' readonly="readonly">
                         </div>
@@ -419,7 +419,7 @@ input:checked + .slider:before {
             
             
                 <div class="form-group">
-                    <label class="control-label col-sm-3" style="padding-top: 0px;" for="email">SNS 연동</label>
+                    <label class="control-label col-sm-3" style="padding-top: 0px;" for="email"><spring:message code="myInfo.sns" text="SNS 연동" /></label>
                     <div class="col-sm-8">
                         <label class="control-label col-sm-3" style="padding-top: 3px;" for="email">Facebook</label>
                         <label class="switch col-sm-3">
@@ -442,14 +442,14 @@ input:checked + .slider:before {
             <c:when test="${sessionScope.memberInfo.path eq 'facebook'}">
             
             <div class="form-group">
-            <label class="control-label col-sm-3" for="name">이름</label>
+            <label class="control-label col-sm-3" for="name"><spring:message code="guideSignup.name" text="이름" /></label>
             <div class="col-sm-8">
               <input type="name" class="form-control" id="name" value='${sessionScope.memberInfo.name }' readonly="readonly">
             </div>
           </div> 
             
             <div class="form-group" style="margin-bottom:20px;">
-                    <label class="control-label col-sm-3" for="email">이메일</label>
+                    <label class="control-label col-sm-3" for="email"><spring:message code="guideSignup.email" text="이메일" /></label>
                         <div class="col-sm-8">
                             <input type="email" class="form-control" id="email" value='${sessionScope.memberInfo.email}' readonly="readonly">
                         </div>
@@ -457,7 +457,7 @@ input:checked + .slider:before {
             
             
                 <div class="form-group">
-                    <label class="control-label col-sm-3" style="padding-top: 0px;" for="email">SNS 연동</label>
+                    <label class="control-label col-sm-3" style="padding-top: 0px;" for="email"><spring:message code="myInfo.sns" text="SNS 연동" /></label>
                     <div class="col-sm-8">
                         <label class="control-label col-sm-3" for="email">Facebook</label>
                         <label class="switch col-sm-3">
@@ -480,7 +480,7 @@ input:checked + .slider:before {
             <c:otherwise>
             
             <div class="form-group formMargin">
-            <label class="control-label col-sm-3" for="name">이름</label>
+            <label class="control-label col-sm-3" for="name"><spring:message code="guideSignup.name" text="이름" /></label>
             <div class="col-sm-8">
               <input type="name" class="form-control" id="name" value='${sessionScope.memberInfo.name }'>
             </div>
@@ -490,16 +490,16 @@ input:checked + .slider:before {
           <c:choose>
             <c:when test="${sessionScope.memberInfo.cert_email eq 'N'}">
             <div class="form-group has-error formMargin" style="margin-bottom:20px;">
-              <label class="control-label col-sm-3" for="email">이메일</label>
+              <label class="control-label col-sm-3" for="email"><spring:message code="guideSignup.email" text="이메일" /></label>
               <div class="col-sm-9">
-                <input type="email" class="form-control emailAuthUse" id="email" value='${sessionScope.memberInfo.email }' style="width: 70%">
-                <button id="emailAuthBtn" type="button" class="btn btn-info emailAuthUse">이메일 연동하기</button>
+                <input type="email" class="form-control emailAuthUse" id="email" value='${sessionScope.memberInfo.email }' style="width: 70%; float: left;">
+                <button id="emailAuthBtn" type="button" class="btn btn-info emailAuthUse" style="margin-top: 7px; margin-right: 50px;"><spring:message code="myInfo.emailBtn" text="이메일 인증" /></button>
               </div>
             </div> 
             </c:when>
             <c:otherwise>
                 <div class="form-group formMargin" style="margin-bottom:20px;">
-                    <label class="control-label col-sm-3" for="email">이메일</label>
+                    <label class="control-label col-sm-3" for="email"><spring:message code="guideSignup.email" text="이메일" /></label>
                         <div class="col-sm-8">
                             <input type="email" class="form-control" id="email" value='${sessionScope.memberInfo.email}'>
                         </div>
@@ -509,7 +509,7 @@ input:checked + .slider:before {
             
             
                 <div class="form-group formMargin">
-                    <label class="control-label col-sm-3" style="padding-top: 0px;" for="email">SNS 연동</label>
+                    <label class="control-label col-sm-3" style="padding-top: 0px;" for="email"><spring:message code="myInfo.sns" text="SNS 연동" /></label>
                     <div class="col-sm-8">
                         <label class="control-label col-sm-3" for="email">Facebook</label>
                         <label class="switch col-sm-3">
@@ -532,24 +532,24 @@ input:checked + .slider:before {
           </c:choose>
           
           <div class="form-group formMargin">  
-            <label class="control-label col-sm-3" for="sel1">선호하는 언어</label>
+            <label class="control-label col-sm-3" for="sel1"><spring:message code="myInfo.prefer" text="선호 언어" /></label>
                  <div class="col-sm-8">
                   <select class="form-control" id="lang" style="width: 200px;">
-                    <option value= "ko">한국어</option>
-                    <option value= "en">영어</option>
+                    <option value= "ko"><spring:message code="myInfo.korean" text="한국어" /></option>
+                    <option value= "en"><spring:message code="myInfo.english" text="영어" /></option>
                   </select>    
                  </div>
           </div>  
 
            <div class="form-group">
              <div class="col-sm-11">
-                  <button id='modifyBtn' type="button" class="btn btn-info" style="float: right; margin-top: 30px;">저장하기</button>
-                  <button id='PhotoModifyBtn' type="button" class="btn btn-info" style="float: right; margin-top: 30px; margin-right: 10px;">사진 등록</button>
+                  <button id='modifyBtn' type="button" class="btn btn-info" style="float: right; margin-top: 30px;"><spring:message code="myInfo.save" text="저장하기" /></button>
+                  <button id='PhotoModifyBtn' type="button" class="btn btn-info" style="float: right; margin-top: 30px; margin-right: 10px;"><spring:message code="myInfo.photo" text="사진 등록" /></button>
               </div>
             </div>
  
             <div class="form-group" style="font-size: 10px;">
-                <a href="#" class="openMask" data-toggle="modal" data-target="#gmyModal" style="font-size: 12px;">회원 탈퇴</a>
+                <a href="#" class="openMask" data-toggle="modal" data-target="#gmyModal" style="font-size: 12px;"><spring:message code="myInfo.bye" text="회원 탈퇴" /></a>
             </div>
  
  
@@ -577,20 +577,18 @@ input:checked + .slider:before {
       <div class="modal-content" style="height: 430px;">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title"> 계정 탈퇴 </h4>
+          <h4 class="modal-title"> <spring:message code="myInfo.bye" text="회원 탈퇴" /> </h4>
         </div>
         <div class="modal-body center-block" style="width: 70%">
           <p style="font-style: italic; text-indent: -2em; font-size: 20px;">
-              주의!!<br/>
+              <spring:message code="myInfo.caution" text="주의" />!!<br/>
           </p>
           <p style="font-size: 12px;">
-              LEADME 계정을 삭제하시면 프로필 및 소중한 여행의 기록들이 모두 사라지게 됩니다.<br/>
-              판매자의 경우, 정산이 완료되기 전에 탈퇴를 하시면 금전상의 불이익이
-              발생할 수 있습니다.<br/>
+              <spring:message code="myInfo.caution2" text="LEADME \uACC4\uC815\uC744 \uC0AD\uC81C\uD558\uC2DC\uBA74 \uD504\uB85C\uD544 \uBC0F \uC18C\uC911\uD55C \uC5EC\uD589\uC758 \uAE30\uB85D\uB4E4\uC774 \uBAA8\uB450 \uC0AC\uB77C\uC9C0\uAC8C \uB429\uB2C8\uB2E4.<br/>\uD310\uB9E4\uC790\uC758 \uACBD\uC6B0, \uC815\uC0B0\uC774 \uC644\uB8CC\uB418\uAE30 \uC804\uC5D0 \uD0C8\uD1F4\uB97C \uD558\uC2DC\uBA74 \uAE08\uC804\uC0C1\uC758 \uBD88\uC774\uC775\uC774\uBC1C\uC0DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.<br>" />
           </p>
           
           <div class="form-group" style="padding: 0px;">
-            <label class="control-label col-sm-5" for="email" style="padding-top: 8px;">비밀번호 확인</label>
+            <label class="control-label col-sm-5" for="email" style="padding-top: 8px;"><spring:message code="myInfo.checkPw" text="비밀번호 확인" /></label>
             <div class="col-sm-6" style="margin-bottom: 20px; width: 160px;">
               <input type="password" class="form-control" id="lastPassword" placeholder="">
             </div>
@@ -606,8 +604,8 @@ input:checked + .slider:before {
             
         </div>
         <div class="modal-footer" style="margin-top: 60px;">
-         <button type="button" class="btn btn-default" data-dismiss="modal" style="width: 47%; float: left;">다시 생각 해보기</button>
-          <button type="button" id="goodbyeBtn" class="btn btn-default" style="width: 47%">계정 탈퇴하기</button>
+         <button type="button" class="btn btn-default" data-dismiss="modal" style="width: 47%; float: left;"><spring:message code="myInfo.again" text="다시 생각 해보기" /></button>
+          <button type="button" id="goodbyeBtn" class="btn btn-default" style="width: 47%"><spring:message code="myInfo.bye" text="회원 탈퇴" /></button>
         </div>
       </div>
       

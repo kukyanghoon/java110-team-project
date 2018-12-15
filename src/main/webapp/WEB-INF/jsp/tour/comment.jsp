@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>LEADME :: <spring:message code="comment.title" text="후기" /></title>
 <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon-precomposed">
     <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon">
     <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon" sizes="76x76">
@@ -118,11 +118,10 @@ span.local{
                      
                 </div></div></div><div id="OfferList__Items" class="OfferList__Items" style="height: 1000px;">
                     
-                <main class="traveler">
             <div class="traveler-body">
                 <div class="traveler-review-container box clearfix">
                     <div class="review-header-title">
-                        후기작성
+                        <spring:message code="comment.review" text="후기 작성" />
 
                     </div>
                     <form id="uploadForm" class="review-content-wrapper" enctype="multipart/form-data" action="/traveler/reservations/1200604/review" accept-charset="UTF-8" method="post">
@@ -139,10 +138,10 @@ span.local{
                         <div id="stepOne">
                             <div class="review-container review-rating-container">
                                 <div class="review-title">
-                                    여행이 만족스러우셨나요?
-                                    <span class="required">필수</span>
+                                    <spring:message code="comment.text1" text="여행이 만족스러우셨나요?" />&nbsp;
+                                    <span class="required"><spring:message code="comment.text2" text="필수" /></span>
                                 </div>
-                                <div class="rating-container2" id="ratingContainer2" style="cursor: pointer;">
+                                <div class="rating-container2" id="ratingContainer2" style="cursor: pointer; margin-left:100px;">
                                     <script type="text/javascript">
                                         $('#ratingContainer2').raty({
                                           click: function(score, evt) {
@@ -168,15 +167,15 @@ span.local{
                         
                             <div class="review-container review-writing-container">
                                 <div class="review-title">
-                                    다른 여행자들을 위한 상품평과 팁
-                                    <span class="required">필수</span>
+                                    <spring:message code="comment.text3" text="다른 여행자들을 위한 상품평과 팁" />
+                                    <span class="required"><spring:message code="comment.text2" text="필수" /></span>
                                 </div>
-                                <textarea class="form-control" id="reviewTextarea" name="message" placeholder="이 상품을 구매하려는 여행자에게 도움이 될만한 팁이나 조언을 담아 작성해주세요." style="overflow: hidden visible; overflow-wrap: break-word;"></textarea>
+                                <textarea class="form-control" id="reviewTextarea" name="message" placeholder="<spring:message code="comment.text4" text="이 상품을 구매하려는 여행자에게 도움이 될만한 팁이나 조언을 담아 작성해주세요." />" style="overflow: hidden visible; overflow-wrap: break-word;"></textarea>
                             </div>
 
                             <div class="review-container review-photo-container">
-                                <div class="review-title">사진 등록</div>
-                                <div class="review-desc">현지에서 촬영하신 사진 중 베스트샷을 등록해보세요</div>
+                                <div class="review-title"><spring:message code="comment.text5" text="사진 등록" /></div>
+                                <div class="review-desc"><spring:message code="comment.text6" text="현지에서 촬영하신 사진 중 베스트샷을 등록해보세요" /></div>
                                 <div  class="review-photo-wrapper ladda-button" data-spinner-size="35" data-style="slide-down" id="uploadPhoto">
                                     <img id="img-preview" class="img-preview">
                                     <img  class="no-photo-img ladda-label" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/traveler/reservation/finish/ic_photo@2x-4b383fb2d5709e4d101b49f60490c091c045afdebe00c8fa9d4fe5e4c40cd55b.png" width="29px">
@@ -184,7 +183,7 @@ span.local{
                                     <input name="photo_destroy" type="hidden">
                                     <div class="review-delete-container" id="photoDelete">
                                         <img class="review-delete-icon" height="10px" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/traveler/reservation/finish/ic_delete_photo@2x-296e095b9268ec0761925ce25ef7d5670925922eaca3308c1ddda2b77a5551e5.png" width="12px">
-                                        <div class="review-delete-text">삭제하기</div>
+                                        <div class="review-delete-text"><spring:message code="comment.text7" text="삭제하기" /></div>
                                     </div>
                                 </div>
                             </div>
@@ -197,8 +196,8 @@ span.local{
                             </div>
  -->
                             <div class="review-btn-container">
-                                <a class="btn btn-silver" id="cancelSubmit">취소</a>
-                                <button class="btn btn-blue next" id="commentBtn" type="button">등록</button>
+                                <a class="btn btn-silver" id="cancelSubmit"><spring:message code="comment.text8" text="취소" /></a>
+                                <button class="btn btn-blue next" id="commentBtn" type="button"><spring:message code="comment.text9" text="등록" /></button>
                             </div>
                       
                     </form>
@@ -207,7 +206,6 @@ span.local{
 
             </div>
 
-    </main>
                 
                 
                 

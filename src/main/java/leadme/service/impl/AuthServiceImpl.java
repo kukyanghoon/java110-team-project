@@ -204,22 +204,22 @@ public class AuthServiceImpl implements AuthService {
     
     String msg = 
         "    <img src=\"https://d2ur7st6jjikze.cloudfront.net/themes/413_mobile_medium_1531300354.jpg?1531300354\" alt=\"logo\"/>\r\n" + 
-        "    <div style=\"width: 540px; height: 100px; padding: 30px;\">\r\n" + 
-        //"    <img src=\"127.0.0.1:8888/resources/img/logo.png\" alt=\"logo\"/>\r\n" + 
-        "    <h1 style>요청하신 임시 비밀번호입니다.</h1>\r\n" + 
-        "    <p>\r\n" + 
-        "    안녕하세요. " + member.getName() + " 회원님!<br>\r\n" + 
-        "    아래의 임시 비밀번호를 입력하여 로그인해주세요.\r\n" + 
-        "    </p>\r\n" + 
-        "    <h2>" + member.getPassword() + "</h2>\r\n" + 
-        "    </div>\r\n";
+        "    <div style=\"width: 540px; height: 400px; padding: 30px 10px;\">\r\n" + 
+        "      <h1 style=\"font-size: 55px;\">고객님, 임시 비밀번호를 안내해드립니다.</h1><hr>\r\n" + 
+        "             \r\n" + 
+        "              <h2>임시 비밀번호 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;" + member.getPassword() + "</h2>\r\n" + 
+        "     <p style=\"font-size: 90%\"><br>\r\n" + 
+        "      고객님의 요청을 발급된 임시 비밀번호입니다.<br>\r\n" + 
+        "      임시 비밀번호를 통해 로그인 하신 후 <span style=\"color: red\">새로운 비밀번호를 설정</span>해 주시기 바랍니다.<br>\r\n" + 
+        "       </p>\r\n" + 
+        "    </div>";
     
     
     
     messageHelper.setTo(member.getEmail()); 
     messageHelper.setText(msg);
     messageHelper.setFrom("leadme504@gmail.com"); 
-    messageHelper.setSubject("LEADME 임시 비밀번호 입니다!");
+    messageHelper.setSubject("LEADME 임시 비밀번호 입니다.");
     message.setContent(msg, "text/html; charset=utf-8");
     
     mailSender.send(message);
