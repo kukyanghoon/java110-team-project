@@ -357,7 +357,7 @@ ${tour.tour_intro}
 <div class='course-container' id='course'>
 <div class='offer-inner-container'>
 <div class='content-wrapper'>
-<div class='title'><spring:message code="detail.course" text="코스 소개" /></div>
+<div class='title' id="courseaaaaa"><spring:message code="detail.course" text="코스 소개" /></div>
 <div class='course-list'>
 <div class='box box-map'>
 <img class='icon' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/offer/detail/new/course-type-place@2x-495761b7c0fcfc70bbc31f41eba69c90573e5058f37d7e3c7616e1f344009781.png' width='13px'>
@@ -461,7 +461,7 @@ ${tour.tour_intro}
 </div>
 
 <div class='info-box'>
-<div class='title'><spring:message code="detail.recommend" text="필수 안내" /></div>
+<div class='title' id="nivea"><spring:message code="detail.recommend" text="필수 안내" /></div>
 <p class='more'>
 ${tour.req_inf}
 </p>
@@ -1081,12 +1081,14 @@ $(function(){
 $(document).ready(function() {
     $(window).scroll(function() {
         $(this).scrollTop() > 1000 ? $(".float_sidebar").fadeIn() : $(".float_sidebar").fadeOut();
-
-        if($(this).scrollTop() > 3350){
-            console.log("scrollTop() > 3000");
+        if($(this).scrollTop() > ($('#courseaaaaa').offset().top)-250){
+            console.log("scrollTop() > 3350");
             $('#transSide').css('margin-left','130px').css('width','280px');
+            if($(this).scrollTop() > ($('#nivea').offset().top)-150){
+                $('#transSide').css('margin-left','0px');
+            }
         }else{
-            $('#transSide').css('margin-left','0px')
+            $('#transSide').css('margin-left','0px');
         }
                 
     })
