@@ -272,7 +272,7 @@ input:checked + .slider:before {
     
     
   <div id="OfferList-react-component-e75ec749-a9a2-4944-a6a5-ae8c2ab32e92">
-  <div class="OfferList" data-sticky-container="true">
+  <div class="OfferList" data-sticky-container="true" style="padding-bottom: 0px;">
   <div class="resp-container" style="top: 0px; bottom: 0px;">
   <div class="resp-container--row "><div class="OfferList__Header">
   <div class="breadcrumbs-container">

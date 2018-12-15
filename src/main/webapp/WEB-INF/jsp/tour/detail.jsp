@@ -347,9 +347,9 @@ ${tour.tour_intro}
 
 <div id='transSide' class="float_sidebar">
 
-<label onclick="translate()">번역</label>
-<input id="forTransWord" class="input" type="text" />
-<button id="aaa" class="btn btn-info" type="button" >번역</button>
+<h3 style="margin-top: 100px;" onclick="translate()">Easy translation</h3><br>
+<input id="forTransWord" class="input" type="text" style="width: 175px; margin: 4px 20px 2px 4px;" />
+<button id="aaa" class="btn btn-info" type="button" style="margin-top: -4px;" >Translate</button>
 <select name="langTarget">
     <option value="ko">한글</option>
     <option value="en">영어</option>
@@ -360,7 +360,8 @@ ${tour.tour_intro}
     <option value="es">스페인어</option>
     <option value="vi">베트남어</option>
 </select>
-<div style="font-size: 15px;line-height: 28px;word-break: break-all;" id="translateArea">번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분</div>
+<div style="font-size: 15px;line-height: 28px;word-break: break-all;" id="translateArea">Use this to easily translate information in other languages
+</div>
 </div>
 
 </div>

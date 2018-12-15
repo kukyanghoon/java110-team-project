@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>LEADME :: <spring:message code="myTour.title" text="내 활동" /></title>
 <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon-precomposed">
     <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon">
     <link href="https://d2yoing0loi5gh.cloudfront.net/assets/logo/ic-mobile-76-59c4321eae219afd9cebfb870646b877f48a5b63adab68a37604891800aed0da.png" rel="apple-touch-icon" sizes="76x76">
@@ -103,7 +103,7 @@ span.local{
     
     
   <div id="OfferList-react-component-e75ec749-a9a2-4944-a6a5-ae8c2ab32e92">
-  <div class="OfferList" data-sticky-container="true">
+  <div class="OfferList" data-sticky-container="true" style="padding-bottom: 0px;">
   <div class="resp-container" style="top: 0px; bottom: 0px;">
   <div class="resp-container--row "><div class="OfferList__Header">
   <div class="breadcrumbs-container">
@@ -196,13 +196,13 @@ span.local{
                 <div class="offer-category__container border-shadow">
                 
                 <div id="goneBtn" class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
-                        <span class="offer-category__item__label" value ='2'>지나간 여정</span>
+                        <span class="offer-category__item__label" value ='2'><spring:message code="myTour.past" text="지나간 여행" /></span>
                 </div>
                 <div id="commingBtn" class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
-                        <span class="offer-category__item__label" value ='2'>다가올 여정</span>
+                        <span class="offer-category__item__label" value ='2'><spring:message code="myTour.upcoming" text="다가올 여행" /></span>
                 </div>
                 <div id="cancelBtn" class="catMid leademecate offer-category__item" role="button" tabindex="-1" value="2">
-                        <span class="offer-category__item__label" value ='2'>취소된 여정</span>
+                        <span class="offer-category__item__label" value ='2'><spring:message code="myTour.canceled" text="취소된 여행" /></span>
                 </div>
                 
                     </div>
@@ -275,13 +275,14 @@ span.local{
                        $('#OfferList__Items').append(
                                "<div class='planned-container'>"+
                                "<div class='planned-country-container'>"+
-                               "<div class='planned-background' style='background: url(/resources/img/"+
-                                        item.tour.pri_phot +
-                                               "') no-repeat center center; background-size:cover;'></div>"+
+                               "<img style='object-fit: cover; height: 200px; width: 100%;' src=/resources/img/"+
+                               item.tour.pri_phot + 
+                               ">"+
                                "<div class='planned-cover'></div>"+
                                "<div class='planned-info content-middle'>"+
                                    "<div class='text-lg'> "+
-                                    item.tour.mid_category.cat_name + 
+                                    //item.tour.mid_category.cat_name + 
+                                    item.tour.titl +
                                    "</div>"+
                                    "<div class='text-lg planned-d-day'>D - "+
                                     item.dDay + 
@@ -290,9 +291,9 @@ span.local{
                            "</div>"+
                            "<div class='planned-reservation'>"+
                                "<div class='traveler-reservation box clearfix' data-date='2018-12-08' data-src='/traveler/reservations/2121109'>"+
-                                   "<div class='detail-wrapper'>"+
+                                   "<div class='detail-wrapper' style='font-size: 150%; border-bottom: none; padding-bottom: 15px;'>"+
                                        "<div class='status'>"+
-                                           "<div class='status-success text-lg'>준비 완료</div>"+
+                                           "<div class='status-success text-lg'>Ready</div>"+
                                        "</div>"+
                                        "<div class='info'>"+
                                            "<div class='text-lg title'>"+
@@ -300,19 +301,19 @@ span.local{
                                                    "</div>"+
                                            "<div class='detail text-md'>"+
                                                "<div class='row'>"+
-                                                   "<div class='col-xs-3 name'>여행일</div>"+
+                                                   "<div class='col-xs-3 name'>Date</div>"+
                                                    "<div class='col-xs-9 value'>"+
                                                         item.tday +
                                                    "</div>"+
                                                "</div>"+
                                                "<div class='row'>"+
-                                                   "<div class='col-xs-3 name'>가이드</div>"+
+                                                   "<div class='col-xs-3 name'>Guide</div>"+
                                                    "<div class='col-xs-9 value'>"+
                                                    item.tour.member.name +
                                                    "</div>"+
                                                "</div>"+
                                                "<div class='row'>"+
-                                                   "<div class='col-xs-3 name'> 결제금액</div>"+
+                                                   "<div class='col-xs-3 name'> Amount</div>"+
                                                    "<div class='col-xs-9 value'>$ "+
                                                      item.tot_pay +
                                                    "</div>"+
@@ -320,15 +321,15 @@ span.local{
                                            "</div>"+
                                        "</div>"+
                                    "</div>"+
-                                   "<div class='traveler-message-container'>"+
+                                   "<div class='traveler-message-container' style='padding-top: 0px;'>"+
                                        "<div>"+
                                            "<img alt='예약내역' class='icon item-inline' height='21px' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/traveler/invoice/ic_notice@2x-2c79035b3272ddf36629f7be1f7d5516af6f3871d49b963fe33d4b91763fdd3a.png' width='17px'>"+
                                            "<div class='message-wrapper'>"+
-                                               "<div class='text-md'>즐거운 여행 되세욥!!</div>"+
+                                               "<div class='text-md' style='font-size: 130%; padding-bottom: 50px;'>Have a nice tour!</div>"+
                                                "<div class='status-message-warning text-sm'>"+
                                                "</div>"+
-                                               "<div><button id='tourCancelBtn" +index+ "' type='button' class='btn btn-info'>취소요청</button></div>"+
                                            "</div>"+
+                                               "<button id='tourCancelBtn" +index+ "' type='button' class='btn btn-info' style='float: right'>Cancel</button>"+
                                        "</div>"+
                                    "</div>"+
                                    "<a class='arrow-link' href='/app/tour/detail/"
@@ -413,10 +414,10 @@ span.local{
                         if(item.tourAvail != null){
                            link = "<a class='btn btn-blue btn-outline hide-on-mobile' href="+
                            item.tourAvail.tour_albm + 
-                           ">사진첩</a>"+
+                           ">Album</a>"+
                            "<a class='btn btn-blue btn-outline show-on-mobile' href="+
                            item.tourAvail.tour_albm + 
-                           ">사진첩</a>";
+                           ">Album</a>";
                        }
                        
                        $('#OfferList__Items').append(
@@ -424,7 +425,7 @@ span.local{
                                "<div class='box-header clearfix'>"+
                        "<div class='offer-photo-container'>"+
                            "<div class='offer-photo-wrapper'>"+
-                               "<img src=/resources/img/"+
+                               "<img style='object-fit:cover; max-height: 20rem;' src=/resources/img/"+
                                item.tour.pri_phot + 
                                        ">"+
                            "</div>"+
@@ -432,18 +433,18 @@ span.local{
                        "<div class='info'>"+
                           "<a class='text-lg title' href=/app/tour/detail/"+
                           item.tno +
-                           ">"+
+                           " style='font-size: 200%'>"+
                            item.tour.titl +
                            "</a>"+
-                           "<div class='detail text-md'>이용일 : "+
+                           "<div class='detail text-md' style='font-size: 150%;'>"+
                                item.tday +
                            "</div>"+
                        "</div>"+
                    "</div>"+
                    "<div class='box-btns'>"+
                        link+
-                       "<a class='btn btn-blue hide-on-mobile' href='/app/tour/comment/mno=" + ${memberInfo.no} + ";tno=" + item.tno + "'>후기 작성하기</a>"+
-                       "<a class='btn btn-blue show-on-mobile' href='/app/tour/comment/mno=" + ${memberInfo.no} + ";tno=" + item.tno + "'>후기 작성</a>"+
+                       "<a class='btn btn-blue hide-on-mobile' href='/app/tour/comment/mno=" + ${memberInfo.no} + ";tno=" + item.tno + "'>Write a review</a>"+
+                       "<a class='btn btn-blue show-on-mobile' href='/app/tour/comment/mno=" + ${memberInfo.no} + ";tno=" + item.tno + "'>Review</a>"+
                    "</div>"+
                "</div>");
                    });
@@ -480,9 +481,9 @@ span.local{
                     $(data).each(function(index, item){
                         $('#OfferList__Items').append(
                                 "<div class='traveler-reservation box clearfix' data-date='2018-12-08' data-src='/traveler/reservations/2121109'>" +
-                    "<div class='detail-wrapper'>" +
+                    "<div class='detail-wrapper' style='font-size: 150%; padding-top: 30px;'>" +
                         "<div class='status'>" +
-                            "<div class='status-default text-lg'>예약 취소</div>" +
+                            "<div class='status-default text-lg'>Canceled</div>" +
                         "</div>" +
                         "<div class='info'>" +
                             "<div class='text-lg title'>" +
@@ -490,19 +491,19 @@ span.local{
                                     "</div>" +
                             "<div class='detail text-md'>" +
                                 "<div class='row'>" +
-                                    "<div class='col-xs-3 name'>여행일</div>" +
+                                    "<div class='col-xs-3 name'>Date</div>" +
                                     "<div class='col-xs-9 value'>" +
                                         item.tday +
                                     "</div>" +
                                 "</div>" +
                                 "<div class='row'>" +
-                                    "<div class='col-xs-3 name'>여행자</div>" +
+                                    "<div class='col-xs-3 name'>Guide</div>" +
                                     "<div class='col-xs-9 value'>" +
                                         item.tour.member.name +
                                     "</div>" +
                                 "</div>" +
                                 "<div class='row'>" +
-                                    "<div class='col-xs-3 name'>결제금액</div>" +
+                                    "<div class='col-xs-3 name'>Amount</div>" +
                                     "<div class='col-xs-9 value'>$ " +
                                     item.tot_pay +
                                     "</div>" +
@@ -510,10 +511,10 @@ span.local{
                             "</div>" +
                         "</div>" +
                     "</div>" +
-                    "<div class='cancel-wrapper traveler-message-container'>" +
-                        "<div class='text-md item-inline title'>취소사유</div>" +
+                    "<div class='cancel-wrapper traveler-message-container' style='margin-bottom: 45px;'>" +
+                        "<div class='text-md item-inline title'></div>" +
                         "<div class='text-md item-inline message'>" +
-                            "<div class='message-inner'>투어일 기준 3일 이전 취소 요청으로 전액 환불 처리됩니다.</div>" +
+                            "<div class='message-inner' style='font-size: 130%;'>A full refund will be processed within 3 days prior to the tour date.</div>" +
                         "</div>" +
                     "</div>" +
                     "<a class='arrow-link' href=/app/tour/detail" +

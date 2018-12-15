@@ -394,11 +394,13 @@ $(document).ready(function(){
                console.log(data);
                console.log(data.aaa);
                console.log("비밀번호 변경 성공ㅋ");
-               swal("비밀번호 변경 완료", "", "success");
+               swal("비밀번호 변경 완료", "", "success").then((value) => {
+                   location.href='/app/main';
+               });
            },
            error:function(){
                console.log("비변실 ㅎ");
-               swal("비밀번호 변경 실패", "정보를 확인해 주세요.", "error");
+               swal("비밀번호 변경 실패", "정보를 확인해 주세요.", "caution");
            }
        
        }); 
