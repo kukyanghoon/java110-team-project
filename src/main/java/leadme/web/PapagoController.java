@@ -15,24 +15,27 @@ import leadme.service.PapagoService;
 public class PapagoController{
 
 
-  @Autowired PapagoService papagoService; 
+    @Autowired PapagoService papagoService; 
 
-  @RequestMapping(value="translate.do", method=RequestMethod.POST)
-  @ResponseBody
-  public Map<String ,Object> translate(@RequestBody String word) {
-    
+    @RequestMapping(value="translate.do", method=RequestMethod.POST)
+    @ResponseBody
+    public Map<String ,Object> translate(@RequestBody String word) {
 
-    Map<String ,Object> message = new HashMap<String, Object>();
 
-    try {
-      message.put("message", papagoService.TranslateService("ko", "en", word));
-    } catch (Exception e) {
-      System.out.println(e);
-      return null;
+        Map<String ,Object> message = new HashMap<String, Object>();
+        try {
+            Map<String ,Object> detectLangs = papagoService.detectLangs(word);
+            message.put("message", papagoService.TranslateService(
+                    (String)detectLangs.get("source"), 
+                    (String)detectLangs.get("target"), 
+                    word));
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+        return message;
+
     }
-    return message;
-
-  }
 
 
 

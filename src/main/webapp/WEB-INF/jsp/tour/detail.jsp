@@ -350,6 +350,16 @@ ${tour.tour_intro}
 <label onclick="translate()">번역</label>
 <input id="forTransWord" class="input" type="text" />
 <button id="aaa" class="btn btn-info" type="button" >번역</button>
+<select name="langTarget">
+    <option value="ko">한글</option>
+    <option value="en">영어</option>
+    <option value="zh-CN">중국어 간체</option>
+    <option value="zh-TW">중국어 번체</option>
+    <option value="ja">일본어</option>
+    <option value="fr">프랑스어</option>
+    <option value="es">스페인어</option>
+    <option value="vi">베트남어</option>
+</select>
 <div style="font-size: 15px;line-height: 28px;word-break: break-all;" id="translateArea">번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분번역된 자료 출력부분</div>
 </div>
 
@@ -977,7 +987,8 @@ var disabledDays = [0, 6];
     $('#aaa').on('click', function(){
         console.log($('#forTransWord').val());
         var obj = {
-                'word' : $('#forTransWord').val()
+                'word' : $('#forTransWord').val(),
+                'target' : $('select[name = langTarget]').val()
         }
         
         $.ajax({
@@ -992,6 +1003,11 @@ var disabledDays = [0, 6];
             },
             error:function(){
                 console.log("실패");
+                $('#translateArea').text("아직 번역이 불가능 하네요");
+                if('${lang}' == 'en'){
+                	$('#translateArea').text("sorry...");
+                }
+                
             }
         });
         
