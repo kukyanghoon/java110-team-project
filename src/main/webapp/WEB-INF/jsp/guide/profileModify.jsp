@@ -389,9 +389,9 @@ input:checked + .slider:before {
             </form>
             
       <div class="bg-1 text-center">
-<img src="/resources/img/${sessionScope.memberInfo.photo}" id="userImage" class="img-circle" alt="userImage" width="150" height="150" 
+<img src="/resources/img/${sessionScope.memberInfo.photo}" id="userImage" style="margin-left: 100px;" class="img-circle" alt="userImage" width="150" height="150" 
             onclick='document.all.file1.click();'>    
-                    
+                    <button id='PhotoModifyBtn' type="button" class="btn btn-info" style="margin-top: 120px;">사진 등록</button>
           <div class="form-group">
             <label class="control-label col-sm-3" for="name">이름</label>
             <div class="col-sm-8">
@@ -404,8 +404,8 @@ input:checked + .slider:before {
             <div class="form-group has-error formMargin">
               <label class="control-label col-sm-3" for="email">이메일</label>
               <div class="col-sm-9">
-                <input type="email" class="form-control emailAuthUse" id="email" style='margin-top: 2px;' value='${sessionScope.memberInfo.email }' style="width: 70%">
-                <button id="emailAuthBtn" type="button" class="btn btn-info emailAuthUse">이메일 연동하기</button>
+                <input type="email" class="form-control emailAuthUse" id="email" style='margin-top: 2px; width: 70%; float: left;' value='${sessionScope.memberInfo.email }'>
+                <button id="emailAuthBtn" type="button" class="btn btn-info emailAuthUse" style="margin-top: 7px; margin-right: 50px;"><spring:message code="myInfo.emailBtn" text="이메일 인증" /></button>
               </div>
             </div> 
             </c:when>
@@ -437,7 +437,7 @@ input:checked + .slider:before {
            <div class="form-group">
              <div class="col-sm-11">
                   <button type="button" id="saveBtn" class="btn btn-info" style="float: right; margin-top: 30px;">저장하기</button>
-                  <button id='PhotoModifyBtn' type="button" class="btn btn-info" style="float: right; margin-top: 30px; margin-right: 10px;">사진 등록</button>
+                  
               </div>
               
             </div>

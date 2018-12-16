@@ -492,7 +492,7 @@ input:checked + .slider:before {
             <div class="form-group has-error formMargin" style="margin-bottom:20px;">
               <label class="control-label col-sm-3" for="email"><spring:message code="guideSignup.email" text="이메일" /></label>
               <div class="col-sm-9">
-                <input type="email" class="form-control emailAuthUse" id="email" value='${sessionScope.memberInfo.email }' style="width: 70%; float: left;">
+                <input type="email" class="form-control emailAuthUse" id="email" style='margin-top: 2px;' value='${sessionScope.memberInfo.email }' style="width: 70%; float: left;">
                 <button id="emailAuthBtn" type="button" class="btn btn-info emailAuthUse" style="margin-top: 7px; margin-right: 50px;"><spring:message code="myInfo.emailBtn" text="이메일 인증" /></button>
               </div>
             </div> 
@@ -742,7 +742,7 @@ $(document).ready(function(){
            data:JSON.stringify(obj),
            contentType:"application/json",
            success:function(data){
-               
+               swal("인증 이메일을 보냈습니다.", "", "success");
            },
            error:function(){
                

@@ -25,7 +25,7 @@ public class EmailServiceImpl implements EmailService {
     System.out.println(member);
     
     String msg = 
-        "    <img src=\"https://d2ur7st6jjikze.cloudfront.net/themes/413_mobile_medium_1531300354.jpg?1531300354\" alt=\"logo\"/>\r\n" + 
+        /*"    <img src=\"https://d2ur7st6jjikze.cloudfront.net/themes/413_mobile_medium_1531300354.jpg?1531300354\" alt=\"logo\"/>\r\n" + 
         "    <div style=\"width: 540px; height: 150px; padding: 30px;\">\r\n" + 
         //"    <img src=\"127.0.0.1:8888/resources/img/logo.png\" alt=\"logo\"/>\r\n" + 
         "    <h1 style>이메일 인증</h1>\r\n" + 
@@ -35,7 +35,20 @@ public class EmailServiceImpl implements EmailService {
         "    </p>\r\n" + 
         "    <h2><a href='http://localhost:8888/app/auth/emailAuth/" 
         + member.getNo()  + "'>인증하기</a></h2>\r\n" + 
-        "    </div>\r\n";
+        "    </div>\r\n"*/
+        "    <img src=\"https://d2ur7st6jjikze.cloudfront.net/themes/413_mobile_medium_1531300354.jpg?1531300354\" alt=\"logo\"/>\r\n" + 
+        "    <div style=\"width: 540px; height: 400px; padding: 30px 10px;\">\r\n" + 
+        "      <h1 style=\"font-size: 55px;\">고객님,<br> 인증 부탁드립니다.</h1><hr>\r\n" + 
+        "             \r\n" + 
+        "              <h2>안녕하세요. " + member.getName() + " 회원님!</h2>\r\n" + 
+        "     <p style=\"font-size: 90%\">\r\n" + 
+        "      고객님의 요청으로 발급된 인증 이메일입니다.<br>\r\n" + 
+        "      아래의 링크를 클릭하여 <span style=\"color: red\">인증 과정</span>을 진행해주시기 바랍니다.<br>\r\n" + 
+        "       </p>\r\n" + 
+        "    <h2><a href='http://localhost:8888/app/auth/emailAuth/" 
+        + member.getNo()  + "'>인증하기</a></h2>\r\n" + 
+        "    </div>";
+        
     
     messageHelper.setTo(member.getEmail()); 
     messageHelper.setText(msg);
@@ -71,6 +84,9 @@ public class EmailServiceImpl implements EmailService {
         "    <h2><a href='https://docs.spring.io/spring/docs/5.0.9.RELEASE/spring-framework-reference/data-access.html#spring-data-tier" 
         + member.getNo()  + "'>인증하기</a></h2>\r\n" + 
         "    </div>\r\n";
+        
+        
+        
     
     messageHelper.setTo("leadme504@gmail.com"); 
     messageHelper.setText(msg);
