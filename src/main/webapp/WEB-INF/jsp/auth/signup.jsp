@@ -65,7 +65,7 @@
                               </div>
                               <div class='row'>
                                  <div class='col-xs-12'>
-                                    <input id='email' autocomplete='off' class='form-control' name='user[email]' placeholder='ID@example.com' title='이메일' type='email'>
+                                    <input id='email' autocomplete='off' class='form-control' name='user[email]' placeholder='ID@example.com' title='이메일' type='email'  autocomplete="false">
                                  </div>
                               </div>
                            </div>

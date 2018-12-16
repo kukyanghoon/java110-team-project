@@ -141,7 +141,7 @@ function Today(year,mon,day){
                               </div>
                               <div class='row'>
                                  <div class='col-xs-12'>
-                                    <input id='name' class='form-control' name='user[username]' placeholder='<spring:message code="guideSignup.typeName" text="이름을 입력해 주세요." />' title='이름' type='text'>
+                                    <input id='name' class='form-control' name='user[username]' placeholder='<spring:message code="guideSignup.typeName" text="이름을 입력해 주세요." />' title='이름' type='text' autocomplete="false">
                                  </div>
                               </div>
                            </div>
@@ -156,7 +156,7 @@ function Today(year,mon,day){
                               </div>
                               <div class='row'>
                                  <div class='col-xs-12'>
-                                    <input id='email' autocomplete='off' class='form-control' name='user[email]' placeholder='ID@example.com' title='이메일' type='email'>
+                                    <input id='email' autocomplete='off' class='form-control' name='user[email]' placeholder='ID@example.com' title='이메일' type='email' autocomplete="false">
                                  </div>
                               </div>
                            </div>
