@@ -209,7 +209,7 @@ public class AuthServiceImpl implements AuthService {
         "             \r\n" + 
         "              <h2>임시 비밀번호 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;" + member.getPassword() + "</h2>\r\n" + 
         "     <p style=\"font-size: 90%\"><br>\r\n" + 
-        "      고객님의 요청을 발급된 임시 비밀번호입니다.<br>\r\n" + 
+        "      고객님의 요청으로 발급된 임시 비밀번호입니다.<br>\r\n" + 
         "      임시 비밀번호를 통해 로그인 하신 후 <span style=\"color: red\">새로운 비밀번호를 설정</span>해 주시기 바랍니다.<br>\r\n" + 
         "       </p>\r\n" + 
         "    </div>";
