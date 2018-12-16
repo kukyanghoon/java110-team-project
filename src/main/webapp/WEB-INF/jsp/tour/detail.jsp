@@ -347,19 +347,21 @@ ${tour.tour_intro}
 
 <div id='transSide' class="float_sidebar">
 
-<h3 style="margin-top: 100px;" onclick="translate()">Easy translation</h3><br>
+<div>
+<h3 style="margin-top: 100px; width :14rem; float:left;" onclick="translate()">Easy translation</h3>
+<select name="langTarget" style="float: right; margin-top: 34%;">
+    <option value="ko">&nbsp;&nbsp;to <spring:message code="myInfo.korean" text="한국어" /></option>
+    <option value="en">&nbsp;&nbsp;to <spring:message code="myInfo.english" text="영어" /></option>
+    <option value="zh-CN">&nbsp;&nbsp;to <spring:message code="detail.chinese" text="중국어 간체" /></option>
+    <option value="zh-TW">&nbsp;&nbsp;to <spring:message code="detail.taiwanese" text="중국어 번체" /></option>
+    <option value="ja">&nbsp;&nbsp;to <spring:message code="detail.japanese" text="일본어" /></option>
+    <option value="fr">&nbsp;&nbsp;to <spring:message code="detail.french" text="프랑스어" /></option>
+    <option value="es">&nbsp;&nbsp;to <spring:message code="detail.spanish" text="스페인어" /></option>
+    <option value="vi">&nbsp;&nbsp;to <spring:message code="detail.vietnamese" text="베트남어" /></option>
+</select>
+</div>
 <input id="forTransWord" class="input" type="text" style="width: 175px; margin: 4px 20px 2px 4px;" />
 <button id="aaa" class="btn btn-info" type="button" style="margin-top: -4px;" >Translate</button>
-<select name="langTarget">
-    <option value="ko">한글</option>
-    <option value="en">영어</option>
-    <option value="zh-CN">중국어 간체</option>
-    <option value="zh-TW">중국어 번체</option>
-    <option value="ja">일본어</option>
-    <option value="fr">프랑스어</option>
-    <option value="es">스페인어</option>
-    <option value="vi">베트남어</option>
-</select>
 <div style="font-size: 15px;line-height: 28px;word-break: break-all;" id="translateArea">Use this to easily translate information in other languages
 </div>
 </div>
