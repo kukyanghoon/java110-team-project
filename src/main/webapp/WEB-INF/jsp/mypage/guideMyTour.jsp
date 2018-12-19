@@ -631,6 +631,7 @@ img {
                 contentType:"application/json",
                 success:function(data){
                     console.log('스왈 띄워 주세연');
+                    swal("사진첩 링크 완료", "", "success")
                 },error:function(){
                     console.log('에러스왈');
                 }

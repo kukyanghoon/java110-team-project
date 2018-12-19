@@ -361,8 +361,8 @@ ${tour.tour_intro}
 </select>
 </div>
 <input id="forTransWord" class="input" type="text" style="width: 175px; margin: 4px 20px 2px 4px;" />
-<button id="aaa" class="btn btn-info" type="button" style="margin-top: -4px;" >Translate</button>
-<div style="font-size: 15px;line-height: 28px;word-break: break-all;" id="translateArea">Use this to easily translate information in other languages
+<button id="aaa" class="btn btn-info" type="button" style="margin-top: -4px; float:right;" >Translate</button>
+<div style="font-size: 15px;line-height: 28px;word-break: break-all;" id="translateArea">Use this to easily translate<br> information in to other languages
 </div>
 </div>
 
